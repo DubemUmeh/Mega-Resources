@@ -2,55 +2,99 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 import { Portfolio } from "@/db/types";
-import { portfolioData } from "@/db/portfolio";
-
-const STORAGE_KEY = "admin-portfolio-data";
+import {
+  createPortfolioProject,
+  deletePortfolioProject,
+  getAllPortfolioForAdmin,
+  updatePortfolioProject,
+} from "@/db/actions/portfolio";
 
 interface PortfolioStore {
   portfolios: Portfolio[];
   ready: boolean;
-  addPortfolio: (p: Portfolio) => void;
-  updatePortfolio: (p: Portfolio) => void;
-  deletePortfolio: (id: string) => void;
+  addPortfolio: (p: Portfolio) => Promise<Portfolio>;
+  updatePortfolio: (p: Portfolio) => Promise<void>;
+  deletePortfolio: (id: string) => Promise<void>;
   getPortfolio: (id: string) => Portfolio | undefined;
 }
 
 const PortfolioContext = createContext<PortfolioStore | null>(null);
 
-/**
- * Demo-grade persistence so the dedicated /admin/portfolio/add and
- * /admin/portfolio/[id]/edit routes can share state with the list page
- * across full navigations. Swap the localStorage read/write below for
- * real API calls (e.g. fetch to your backend) when one exists.
- */
+function toPortfolio(row: Awaited<ReturnType<typeof getAllPortfolioForAdmin>>[number]): Portfolio {
+  return {
+    id: row.id,
+    title: row.title,
+    location: row.location,
+    region: row.region as Portfolio["region"],
+    service: row.service as Portfolio["service"],
+    depth: row.depth ?? "",
+    yieldRate: row.yieldRate ?? "",
+    duration: row.duration ?? "",
+    year: row.year ?? "",
+    img: row.img,
+    gallery: row.gallery ?? [],
+    isVideo: row.isVideo ?? false,
+    summary: row.summary,
+    status: row.status,
+    featured: row.featured,
+    createdAt: row.createdAt.toISOString(),
+  };
+}
+
+function toPortfolioInput(portfolio: Portfolio) {
+  return {
+    title: portfolio.title,
+    location: portfolio.location,
+    region: portfolio.region,
+    service: portfolio.service,
+    depth: portfolio.depth,
+    yieldRate: portfolio.yieldRate,
+    duration: portfolio.duration,
+    year: portfolio.year,
+    img: portfolio.img,
+    gallery: portfolio.gallery ?? [],
+    isVideo: portfolio.isVideo ?? false,
+    summary: portfolio.summary,
+    status: portfolio.status,
+    featured: portfolio.featured,
+  };
+}
+
 export function PortfolioProvider({ children }: { children: React.ReactNode }) {
-  const [portfolios, setPortfolios] = useState<Portfolio[]>(portfolioData);
+  const [portfolios, setPortfolios] = useState<Portfolio[]>([]);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    try {
-      const raw = window.localStorage.getItem(STORAGE_KEY);
-      if (raw) setPortfolios(JSON.parse(raw));
-    } catch {
-      // ignore malformed/absent storage, fall back to seed data
-    }
-    setReady(true);
+    let active = true;
+    getAllPortfolioForAdmin()
+      .then((rows) => {
+        if (active) setPortfolios(rows.map(toPortfolio));
+      })
+      .finally(() => {
+        if (active) setReady(true);
+      });
+    return () => {
+      active = false;
+    };
   }, []);
 
-  useEffect(() => {
-    if (!ready) return;
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(portfolios));
-  }, [portfolios, ready]);
-
-  function addPortfolio(p: Portfolio) {
-    setPortfolios((prev) => [p, ...prev]);
+  async function addPortfolio(p: Portfolio) {
+    const result = await createPortfolioProject(toPortfolioInput(p));
+    if (!result.success || !result.data?.id) throw new Error(result.message);
+    const saved = { ...p, id: result.data.id };
+    setPortfolios((prev) => [saved, ...prev]);
+    return saved;
   }
 
-  function updatePortfolio(p: Portfolio) {
+  async function updatePortfolio(p: Portfolio) {
+    const result = await updatePortfolioProject(p.id, toPortfolioInput(p));
+    if (!result.success) throw new Error(result.message);
     setPortfolios((prev) => prev.map((item) => (item.id === p.id ? p : item)));
   }
 
-  function deletePortfolio(id: string) {
+  async function deletePortfolio(id: string) {
+    const result = await deletePortfolioProject(id);
+    if (!result.success) throw new Error(result.message);
     setPortfolios((prev) => prev.filter((item) => item.id !== id));
   }
 

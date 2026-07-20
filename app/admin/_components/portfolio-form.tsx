@@ -114,7 +114,7 @@ export function PortfolioForm({
   submitLabel,
 }: {
   initial?: Portfolio;
-  onSubmit: (portfolio: Portfolio) => void;
+  onSubmit: (portfolio: Portfolio) => Promise<void>;
   submitLabel: string;
 }) {
   const router = useRouter();
@@ -163,23 +163,28 @@ export function PortfolioForm({
     }
 
     setIsPending(true);
-    // Placeholder for a real server action / API call, e.g.:
-    // await savePortfolioProject(draft);
-    await new Promise((r) => setTimeout(r, 500));
-
     const saved: Portfolio = {
       ...draft,
-      id: draft.id || `p-${Date.now()}`,
+      id: draft.id,
     };
 
-    setIsPending(false);
-    onSubmit(saved);
-    showToast({
-      title: initial ? "Project updated" : "Project created",
-      description: `"${saved.title}" was saved successfully.`,
-      variant: "success",
-    });
-    router.push("/admin/portfolio");
+    try {
+      await onSubmit(saved);
+      showToast({
+        title: initial ? "Project updated" : "Project created",
+        description: `"${saved.title}" was saved successfully.`,
+        variant: "success",
+      });
+      router.push("/admin/portfolio");
+    } catch (error) {
+      showToast({
+        title: "Project not saved",
+        description: error instanceof Error ? error.message : "Please try again.",
+        variant: "error",
+      });
+    } finally {
+      setIsPending(false);
+    }
   }
 
   return (

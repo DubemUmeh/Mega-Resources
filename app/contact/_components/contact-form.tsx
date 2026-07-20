@@ -5,6 +5,7 @@ import * as LabelPrimitive from "@radix-ui/react-label";
 import * as ToastPrimitive from "@radix-ui/react-toast";
 import { FaCheck, FaArrowRight } from "react-icons/fa";
 import { MultiSelectField } from "@/components/ui/multi-select";
+import { submitContactForm } from "@/db/actions/contact";
 
 const serviceOptions = [
   "Borehole Drilling",
@@ -46,20 +47,33 @@ export default function ContactForm() {
   const [service, setService] = useState<string[]>([]);
   const [submitting, setSubmitting] = useState(false);
   const [toastOpen, setToastOpen] = useState(false);
+  const [toastMessage, setToastMessage] = useState("We'll get back to you within 24 hours.");
+  const [toastTitle, setToastTitle] = useState("Message sent");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSubmitting(true);
 
-    // Wire this up to your actual submit endpoint (API route, email
-    // service, etc). This just simulates a request so the UI has
-    // something real to respond to.
-    await new Promise((resolve) => setTimeout(resolve, 900));
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const result = await submitContactForm({
+      name: String(formData.get("name") ?? ""),
+      email: String(formData.get("email") ?? ""),
+      phone: String(formData.get("phone") ?? ""),
+      location: String(formData.get("location") ?? ""),
+      services: service,
+      message: String(formData.get("message") ?? ""),
+    });
 
     setSubmitting(false);
+    setToastTitle(result.success ? "Message sent" : "Message not sent");
+    setToastMessage(result.message);
     setToastOpen(true);
-    e.currentTarget.reset();
-    setService([]);
+
+    if (result.success) {
+      form.reset();
+      setService([]);
+    }
   }
 
   return (
@@ -153,10 +167,10 @@ export default function ContactForm() {
         </span>
         <div>
           <ToastPrimitive.Title className="text-[0.92rem] font-semibold text-neutral-900">
-            Message sent
+            {toastTitle}
           </ToastPrimitive.Title>
           <ToastPrimitive.Description className="text-[0.85rem] text-neutral-500">
-            We'll get back to you within 24 hours.
+            {toastMessage}
           </ToastPrimitive.Description>
         </div>
       </ToastPrimitive.Root>
