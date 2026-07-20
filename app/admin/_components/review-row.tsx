@@ -2,7 +2,7 @@
 
 import { FaStar, FaCheckCircle, FaPen, FaTrash, FaTimesCircle } from "react-icons/fa";
 import { Review } from "@/db/types";
-import { RowActionButton } from "./row-action-button";
+import { RowActionsMenu } from "./row-action-menu";
 
 export function ReviewRow({
   review,
@@ -64,18 +64,19 @@ export function ReviewRow({
       </div>
 
       {/* Hover action cluster */}
-      <div className="pointer-events-none absolute right-4 top-4 flex gap-1.5 opacity-0 transition-opacity duration-150 group-hover:pointer-events-auto group-hover:opacity-100 md:top-1/2 md:-translate-y-1/2">
-        <RowActionButton
-          icon={FaCheckCircle}
-          label={review.verified ? "Mark as pending" : "Mark as verified"}
-          onClick={onToggleVerified}
-          tone="accent"
+      <div className="absolute right-4 top-4 md:top-1/2 md:-translate-y-1/2">
+        <RowActionsMenu
+          actions={[
+            {
+              icon: review.verified ? FaTimesCircle : FaCheckCircle,
+              label: review.verified ? "Mark as pending" : "Mark as verified",
+              onClick: onToggleVerified,
+              tone: "accent",
+            },
+            { icon: FaPen, label: "Edit review", onClick: onEdit, tone: "accent" },
+            { icon: FaTrash, label: "Delete review", onClick: onDelete, tone: "danger" },
+          ]}
         />
-        {/* Editing needs more room than a phone gives — desktop/laptop only */}
-        <span className="hidden lg:inline-flex">
-          <RowActionButton icon={FaPen} label="Edit review" onClick={onEdit} tone="accent" />
-        </span>
-        <RowActionButton icon={FaTrash} label="Delete review" onClick={onDelete} tone="danger" />
       </div>
     </div>
   );

@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { FaPen, FaTrash, FaStar, FaPlay, FaExternalLinkAlt } from "react-icons/fa";
 import { Portfolio } from "@/db/types";
-import { RowActionButton } from "../_components/row-action-button";
+import { RowActionsMenu } from "./row-action-menu";
 
 export function PortfolioRow({
   portfolio,
@@ -15,6 +16,8 @@ export function PortfolioRow({
   onDelete: () => void;
   onToggleFeatured: () => void;
 }) {
+  const router = useRouter();
+
   return (
     <div className="group relative flex flex-col overflow-hidden rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] transition-colors hover:border-blue-600/25">
       <div className="relative aspect-4/3 w-full overflow-hidden">
@@ -47,23 +50,25 @@ export function PortfolioRow({
         </span>
 
         {/* Hover action cluster */}
-        <div className="pointer-events-none absolute inset-0 flex items-start justify-center gap-1.5 bg-black/0 pt-3 opacity-0 transition-all duration-150 group-hover:pointer-events-auto group-hover:bg-black/25 group-hover:opacity-100">
-          <div className="flex translate-y-1 gap-1.5 transition-transform duration-150 group-hover:translate-y-0">
-            <RowActionButton
-              icon={FaStar}
-              label={portfolio.featured ? "Unfeature project" : "Feature project"}
-              onClick={onToggleFeatured}
-              tone={portfolio.featured ? "accent" : "default"}
-            />
-            {/* Editing needs more room than a phone gives — desktop/laptop only */}
-            <span className="hidden lg:inline-flex">
-              <Link href={`/admin/portfolio/${portfolio.id}/edit`}>
-                <RowActionButton icon={FaPen} label="Edit project" onClick={() => {}} tone="accent" />
-              </Link>
-            </span>
-            <RowActionButton icon={FaTrash} label="Delete project" onClick={onDelete} tone="danger" />
-          </div>
-        </div>
+        <div className="absolute right-3 top-3">
+        <RowActionsMenu
+          actions={[
+            {
+              icon: FaStar,
+              label: portfolio.featured ? "Unfeature project" : "Feature project",
+              onClick: onToggleFeatured,
+              tone: portfolio.featured ? "accent" : "default",
+            },
+            {
+              icon: FaPen,
+              label: "Edit project",
+              onClick: () => router.push(`/admin/portfolio/${portfolio.id}/edit`),
+              tone: "accent",
+            },
+            { icon: FaTrash, label: "Delete project", onClick: onDelete, tone: "danger" },
+          ]}
+        />
+      </div>
       </div>
 
       <div className="flex flex-1 flex-col gap-1.5 p-5">

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import * as Select from "@radix-ui/react-select";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
 import { FaTimes, FaChevronDown, FaCheck } from "react-icons/fa";
 import { StarInput } from "./star-input";
 import { Review, SERVICE_TYPES } from "@/db/types";
@@ -84,40 +84,52 @@ export function EditReviewDialog({
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <label className="text-sm font-medium text-foreground">Service Used</label>
-              <Select.Root
-                value={draft.service}
-                onValueChange={(v) => setDraft({ ...draft, service: v as Review["service"] })}
-              >
-                <Select.Trigger className="flex w-full items-center justify-between rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600">
-                  <Select.Value />
-                  <Select.Icon>
-                    <FaChevronDown className="h-2.5 w-2.5 text-muted-foreground" />
-                  </Select.Icon>
-                </Select.Trigger>
-                <Select.Portal>
-                  <Select.Content
-                    position="popper"
-                    sideOffset={8}
-                    className="z-60 w-(--radix-select-trigger-width) overflow-hidden rounded-xl border border-[rgba(10,10,10,0.08)] bg-background shadow-xl"
+              <label className="text-sm font-medium text-foreground">Services Used</label>
+              <DropdownMenu.Root>
+                <DropdownMenu.Trigger asChild>
+                  <button
+                    type="button"
+                    className="flex w-full items-center justify-between rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-left text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
                   >
-                    <Select.Viewport className="p-1.5">
-                      {SERVICE_TYPES.map((s) => (
-                        <Select.Item
+                    <span className="truncate">
+                      {draft.service.length > 0 ? draft.service.join(", ") : "Select services"}
+                    </span>
+                    <FaChevronDown className="h-2.5 w-2.5 shrink-0 text-muted-foreground" />
+                  </button>
+                </DropdownMenu.Trigger>
+                <DropdownMenu.Portal>
+                  <DropdownMenu.Content
+                    align="start"
+                    sideOffset={8}
+                    className="z-60 w-(--radix-dropdown-menu-trigger-width) overflow-hidden rounded-xl border border-[rgba(10,10,10,0.08)] bg-background p-1.5 shadow-xl"
+                  >
+                    {SERVICE_TYPES.map((s) => {
+                      const checked = draft.service.includes(s);
+                      return (
+                        <DropdownMenu.CheckboxItem
                           key={s}
-                          value={s}
+                          checked={checked}
+                          onSelect={(e) => e.preventDefault()} // keep menu open on click
+                          onCheckedChange={(isChecked) =>
+                            setDraft({
+                              ...draft,
+                              service: isChecked
+                                ? [...draft.service, s]
+                                : draft.service.filter((x) => x !== s),
+                            })
+                          }
                           className="flex cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-2 text-[0.88rem] text-foreground outline-none data-highlighted:bg-blue-600/10 data-highlighted:text-blue-600"
                         >
-                          <Select.ItemText>{s}</Select.ItemText>
-                          <Select.ItemIndicator>
+                          {s}
+                          <DropdownMenu.ItemIndicator>
                             <FaCheck className="h-2.5 w-2.5 text-blue-600" />
-                          </Select.ItemIndicator>
-                        </Select.Item>
-                      ))}
-                    </Select.Viewport>
-                  </Select.Content>
-                </Select.Portal>
-              </Select.Root>
+                          </DropdownMenu.ItemIndicator>
+                        </DropdownMenu.CheckboxItem>
+                      );
+                    })}
+                  </DropdownMenu.Content>
+                </DropdownMenu.Portal>
+              </DropdownMenu.Root>
             </div>
 
             <div className="flex flex-col gap-1.5">
