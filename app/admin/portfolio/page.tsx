@@ -88,8 +88,8 @@ export default function AdminPortfolioPage() {
     });
   }, [portfolios, region, service, status]);
 
-  function handleToggleFeatured(p: Portfolio) {
-    updatePortfolio({ ...p, featured: !p.featured });
+  async function handleToggleFeatured(p: Portfolio) {
+    await updatePortfolio({ ...p, featured: !p.featured });
     showToast({
       title: p.featured ? "Removed from homepage" : "Featured on homepage",
       description: `"${p.title}" was updated.`,
@@ -97,9 +97,9 @@ export default function AdminPortfolioPage() {
     });
   }
 
-  function handleDelete() {
+  async function handleDelete() {
     if (!pendingDelete) return;
-    deletePortfolio(pendingDelete.id);
+    await deletePortfolio(pendingDelete.id);
     showToast({
       title: "Project deleted",
       description: `"${pendingDelete.title}" was removed.`,
