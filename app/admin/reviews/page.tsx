@@ -8,7 +8,7 @@ import { ConfirmDeleteDialog } from "../_components/confirm-delete-dialog";
 import { ReviewRow } from "../_components/review-row";
 import { EditReviewDialog } from "../_components/edit-review-dialog";
 import { useToast } from "@/components/ui/toast";
-import { Review, SERVICE_TYPES } from "@/db/types";
+import { Review, SERVICE_TYPES, ServiceType } from "@/db/types";
 import { reviewsData } from "@/db/reviews";
 
 const STATUS_FILTERS = [
@@ -68,7 +68,7 @@ function SelectField({
 export default function AdminReviewsPage() {
   const { showToast } = useToast();
   const [reviews, setReviews] = useState<Review[]>(reviewsData as Review[]);
-  const [service, setService] = useState("all");
+  const [service, setService] = useState<ServiceType | "all">("all");
   const [status, setStatus] = useState("all");
   const [editing, setEditing] = useState<Review | null>(null);
   const [editOpen, setEditOpen] = useState(false);
@@ -81,7 +81,7 @@ export default function AdminReviewsPage() {
 
   const filtered = useMemo(() => {
     return reviews.filter((r) => {
-      const serviceMatch = service === "all" || r.service === service;
+      const serviceMatch = service === "all" || r.service.includes(service);
       const statusMatch =
         status === "all" || (status === "verified" ? r.verified : !r.verified);
       return serviceMatch && statusMatch;
@@ -131,7 +131,12 @@ export default function AdminReviewsPage() {
       />
 
       <div className="mb-6 flex flex-wrap gap-3">
-        <SelectField value={service} onChange={setService} items={serviceItems} ariaLabel="Filter by service" />
+        <SelectField
+          value={service}
+          onChange={(v) => setService(v as ServiceType | "all")}
+          items={serviceItems}
+          ariaLabel="Filter by service"
+        />
         <SelectField value={status} onChange={setStatus} items={STATUS_FILTERS} ariaLabel="Filter by status" />
         {(service !== "all" || status !== "all") && (
           <button
