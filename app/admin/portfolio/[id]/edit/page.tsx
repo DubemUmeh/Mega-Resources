@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import Link from "next/link";
 import { FaArrowLeft } from "react-icons/fa";
 import { AdminTopbar } from "../../../_components/admin-topbar";
@@ -10,14 +10,12 @@ import { usePortfolioStore } from "@/app/admin/_components/portfolio-store";
 import { Portfolio } from "@/db/types";
 
 export default function EditPortfolioPage() {
-  const router = useRouter();
   const params = useParams<{ id: string }>();
   const { ready, getPortfolio, updatePortfolio } = usePortfolioStore();
   const existing = getPortfolio(params.id);
 
-  function handleSubmit(portfolio: Portfolio) {
-    updatePortfolio(portfolio);
-    router.push("/admin/portfolio");
+  async function handleSubmit(portfolio: Portfolio) {
+    await updatePortfolio(portfolio);
   }
 
   return (

@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { FaTimes, FaChevronDown, FaCheck } from "react-icons/fa";
 import { StarInput } from "./star-input";
 import { Review, SERVICE_TYPES } from "@/db/types";
@@ -16,15 +16,27 @@ export function EditReviewDialog({
   review: Review | null;
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  onSave: (review: Review) => void;
+  onSave: (review: Review) => Promise<void>;
 }) {
-  const [draft, setDraft] = useState<Review | null>(review);
+  if (!review) return null;
 
-  useEffect(() => {
-    setDraft(review);
-  }, [review]);
+  return (
+    <EditReviewDialogForm key={review.id} review={review} open={open} onOpenChange={onOpenChange} onSave={onSave} />
+  );
+}
 
-  if (!draft) return null;
+function EditReviewDialogForm({
+  review,
+  open,
+  onOpenChange,
+  onSave,
+}: {
+  review: Review;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
+  onSave: (review: Review) => Promise<void>;
+}) {
+  const [draft, setDraft] = useState<Review>(review);
 
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
@@ -41,9 +53,9 @@ export function EditReviewDialog({
           </div>
 
           <form
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
-              onSave(draft);
+              await onSave(draft);
               onOpenChange(false);
             }}
             className="space-y-5"

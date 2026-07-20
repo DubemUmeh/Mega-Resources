@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import * as Select from "@radix-ui/react-select";
 import { FaChevronDown, FaCheck, FaPlay, FaMapMarkerAlt } from "react-icons/fa";
@@ -40,136 +40,16 @@ export const SERVICES = [
   "Air Lifting / Developing",
 ];
 
-export const projects: Project[] = [
-  {
-    id: "p1",
-    title: "Estate Water Supply — Trasacco Valley",
-    location: "Trasacco Valley, Accra",
-    region: "Greater Accra",
-    service: "Borehole Drilling",
-    depth: "180ft",
-    yieldRate: "1,800 L/hr",
-    duration: "3 days",
-    year: "2025",
-    img: "/images/home/borehole-drilling.jpeg",
-    summary:
-      "A single borehole feeding a six-unit residential estate. Survey confirmed a strong sedimentary aquifer at 180ft, giving enough yield to serve all six homes off one source.",
-  },
-  {
-    id: "p2",
-    title: "Community Well Rehabilitation — Tamale",
-    location: "Tamale, Northern Region",
-    region: "Northern",
-    service: "Borehole Rehabilitation",
-    depth: "220ft",
-    yieldRate: "900 → 1,600 L/hr",
-    duration: "2 days",
-    year: "2024",
-    img: "/images/home/borehole-rehabilitation.png",
-    isVideo: true,
-    summary:
-      "A 12-year-old community borehole had dropped to a trickle. Re-developed the hole and cleared accumulated silt, nearly doubling yield without a full re-drill.",
-  },
-  {
-    id: "p3",
-    title: "School Water Project — Kumasi",
-    location: "Kumasi, Ashanti Region",
-    region: "Ashanti",
-    service: "Hydro-fracturing",
-    depth: "310ft",
-    yieldRate: "2,400 L/hr",
-    duration: "5 days",
-    year: "2024",
-    img: "/images/home/hydro-fracturing.png",
-    summary:
-      "Initial drilling into hard basement rock returned a weak yield. Hydro-fracturing opened up fracture zones in the surrounding rock, lifting output enough to supply the entire school compound.",
-  },
-  {
-    id: "p4",
-    title: "Farm Irrigation Borehole — Techiman",
-    location: "Techiman, Bono Region",
-    region: "Ashanti",
-    service: "Borehole Drilling",
-    depth: "260ft",
-    yieldRate: "3,100 L/hr",
-    duration: "4 days",
-    year: "2023",
-    img: "/images/home/pumping-tests.png",
-    summary:
-      "A 15-acre commercial farm needed year-round irrigation capacity. Survey and pumping test confirmed a high-yield source, paired with a solar pump sized for peak dry-season demand.",
-  },
-  {
-    id: "p5",
-    title: "Church Compound Supply — Takoradi",
-    location: "Takoradi, Western Region",
-    region: "Western",
-    service: "Pump Installation",
-    depth: "195ft",
-    yieldRate: "1,500 L/hr",
-    duration: "1 day",
-    year: "2023",
-    img: "/images/home/pump-installation.png",
-    summary:
-      "Existing borehole had never had a properly sized pump installed. Fitted and tested a submersible pump matched to the actual yield, ending years of inconsistent pressure.",
-  },
-  {
-    id: "p6",
-    title: "Residential Site Survey — East Legon",
-    location: "East Legon, Accra",
-    region: "Greater Accra",
-    service: "Geological Surveys",
-    depth: "N/A",
-    yieldRate: "N/A",
-    duration: "Half day",
-    year: "2025",
-    img: "/images/home/geological-surveys.png",
-    summary:
-      "A pre-purchase land survey to confirm groundwater viability before the client committed to buying the plot. Confirmed depth and expected yield ahead of any construction.",
-  },
-  {
-    id: "p7",
-    title: "Hospital Backup Water Source — Koforidua",
-    location: "Koforidua, Eastern Region",
-    region: "Eastern",
-    service: "Air Lifting / Developing",
-    depth: "240ft",
-    yieldRate: "2,000 L/hr",
-    duration: "4 days",
-    year: "2022",
-    img: "/images/home/air-lifting.png",
-    isVideo: true,
-    summary:
-      "A district hospital needed a reliable backup source independent of municipal supply interruptions. After drilling, we air-lifted and fully developed the hole to clear debris and open it to its actual yield before handover.",
-  },
-  {
-    id: "p8",
-    title: "Hotel Facility Rehabilitation — Cape Coast",
-    location: "Cape Coast, Central Region",
-    region: "Central",
-    service: "Borehole Rehabilitation",
-    depth: "205ft",
-    yieldRate: "700 → 1,900 L/hr",
-    duration: "3 days",
-    year: "2022",
-    img: "/images/home/borehole-rehabilitation.png",
-    summary:
-      "A resort's original borehole was drilled decades earlier with no casing record. Redeveloped and re-cased the hole, restoring supply ahead of peak tourist season.",
-  },
-  {
-    id: "p9",
-    title: "Yield Verification — Sunyani",
-    location: "Sunyani, Bono Region",
-    region: "Ashanti",
-    service: "Pumping Tests",
-    depth: "230ft",
-    yieldRate: "1,700 L/hr sustained",
-    duration: "1 day",
-    year: "2023",
-    img: "/images/home/pumping-tests.png",
-    summary:
-      "An existing borehole needed its sustainable yield confirmed before the client committed to a large-capacity pump. A full pumping test set the safe long-term draw rate, avoiding an oversized (and overpriced) pump.",
-  },
-];
+function toProject(row: Project & { depth?: string | null; yieldRate?: string | null; duration?: string | null; year?: string | null }): Project {
+  return {
+    ...row,
+    depth: row.depth ?? "N/A",
+    yieldRate: row.yieldRate ?? "N/A",
+    duration: row.duration ?? "N/A",
+    year: row.year ?? "",
+    isVideo: row.isVideo ?? false,
+  };
+}
 
 function SelectField({
   value,
@@ -294,6 +174,8 @@ export function PortfolioFilterGrid() {
   const [region, setRegion] = useState("all");
   const [service, setService] = useState("all");
   const [visible, setVisible] = useState(INITIAL_VISIBLE);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
   const gridTopRef = useRef<HTMLDivElement>(null);
 
   const regionItems = [
@@ -305,13 +187,28 @@ export function PortfolioFilterGrid() {
     ...SERVICES.map((s) => ({ value: s, label: s })),
   ];
 
-  const filtered = useMemo(() => {
-    return projects.filter((p) => {
-      const regionMatch = region === "all" || p.region === region;
-      const serviceMatch = service === "all" || p.service === service;
-      return regionMatch && serviceMatch;
-    });
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (region !== "all") params.set("region", region);
+    if (service !== "all") params.set("service", service);
+
+    let active = true;
+    fetch(`/api/portfolio?${params.toString()}`)
+      .then((res) => (res.ok ? res.json() : Promise.reject(new Error("Failed to load portfolio"))))
+      .then((rows: Array<Project & { depth?: string | null; yieldRate?: string | null; duration?: string | null; year?: string | null }>) => {
+        if (active) setProjects(rows.map(toProject));
+      })
+      .finally(() => {
+        if (active) setLoading(false);
+      });
+    return () => {
+      active = false;
+    };
   }, [region, service]);
+
+  const filtered = useMemo(() => {
+    return projects;
+  }, [projects]);
 
   const hasMore = visible < filtered.length;
   const canHide = visible > INITIAL_VISIBLE;
@@ -341,6 +238,7 @@ export function PortfolioFilterGrid() {
           <SelectField
             value={region}
             onChange={(v) => {
+              setLoading(true);
               setRegion(v);
               setVisible(INITIAL_VISIBLE);
             }}
@@ -350,6 +248,7 @@ export function PortfolioFilterGrid() {
           <SelectField
             value={service}
             onChange={(v) => {
+              setLoading(true);
               setService(v);
               setVisible(INITIAL_VISIBLE);
             }}
@@ -359,6 +258,7 @@ export function PortfolioFilterGrid() {
           {(region !== "all" || service !== "all") && (
             <button
               onClick={() => {
+                setLoading(true);
                 setRegion("all");
                 setService("all");
                 setVisible(INITIAL_VISIBLE);
@@ -372,7 +272,9 @@ export function PortfolioFilterGrid() {
 
         <div ref={gridTopRef} className="scroll-mt-24" />
 
-        {filtered.length === 0 ? (
+        {loading ? (
+          <p className="mt-16 text-center text-muted-foreground">Loading projects…</p>
+        ) : filtered.length === 0 ? (
           <p className="mt-16 text-center text-muted-foreground">
             No projects match those filters yet.
           </p>

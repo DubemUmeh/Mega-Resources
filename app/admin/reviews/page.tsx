@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import * as Select from "@radix-ui/react-select";
 import { FaChevronDown, FaCheck, FaPlus } from "react-icons/fa";
 import { AdminTopbar } from "../_components/admin-topbar";
@@ -8,8 +8,8 @@ import { ConfirmDeleteDialog } from "../_components/confirm-delete-dialog";
 import { ReviewRow } from "../_components/review-row";
 import { EditReviewDialog } from "../_components/edit-review-dialog";
 import { useToast } from "@/components/ui/toast";
-import { Review, SERVICE_TYPES, ServiceType } from "@/db/types";
-import { reviewsData } from "@/db/reviews";
+import { Review, SERVICE_TYPES } from "@/db/types";
+import { deleteReview, getAllReviewsForAdmin, updateReview, updateReviewStatus } from "@/db/actions/reviews";
 
 const STATUS_FILTERS = [
   { value: "all", label: "All Statuses" },
@@ -67,12 +67,40 @@ function SelectField({
 
 export default function AdminReviewsPage() {
   const { showToast } = useToast();
-  const [reviews, setReviews] = useState<Review[]>(reviewsData as Review[]);
-  const [service, setService] = useState<ServiceType | "all">("all");
+  const [reviews, setReviews] = useState<Review[]>([]);
+  const [ready, setReady] = useState(false);
+  const [service, setService] = useState("all");
   const [status, setStatus] = useState("all");
   const [editing, setEditing] = useState<Review | null>(null);
   const [editOpen, setEditOpen] = useState(false);
   const [pendingDelete, setPendingDelete] = useState<Review | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    getAllReviewsForAdmin()
+      .then((rows) => {
+        if (!active) return;
+        setReviews(
+          rows.map((r) => ({
+            id: r.id,
+            name: r.name,
+            title: r.title ?? undefined,
+            location: r.location,
+            service: r.services as Review["service"],
+            rating: r.rating,
+            message: r.message,
+            date: new Date(r.createdAt).toLocaleDateString("en-US", { month: "long", year: "numeric" }),
+            verified: r.verified,
+          })),
+        );
+      })
+      .finally(() => {
+        if (active) setReady(true);
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const serviceItems = [
     { value: "all", label: "All Services" },
@@ -81,21 +109,37 @@ export default function AdminReviewsPage() {
 
   const filtered = useMemo(() => {
     return reviews.filter((r) => {
-      const serviceMatch = service === "all" || r.service.includes(service);
+      const serviceMatch = service === "all" || r.service.includes(service as Review["service"][number]);
       const statusMatch =
         status === "all" || (status === "verified" ? r.verified : !r.verified);
       return serviceMatch && statusMatch;
     });
   }, [reviews, service, status]);
 
-  function handleSave(updated: Review) {
+  async function handleSave(updated: Review) {
+    const result = await updateReview(updated.id, {
+      name: updated.name,
+      title: updated.title,
+      location: updated.location,
+      services: updated.service,
+      rating: updated.rating,
+      message: updated.message,
+      verified: updated.verified,
+    });
+    if (!result.success) throw new Error(result.message);
     setReviews((prev) => prev.map((r) => (r.id === updated.id ? updated : r)));
     showToast({ title: "Review updated", description: `${updated.name}'s review was saved.`, variant: "success" });
   }
 
-  function handleToggleVerified(review: Review) {
+  async function handleToggleVerified(review: Review) {
+    const nextVerified = !review.verified;
+    const result = await updateReviewStatus(review.id, nextVerified ? "approved" : "pending");
+    if (!result.success) {
+      showToast({ title: "Status not updated", description: result.message, variant: "error" });
+      return;
+    }
     setReviews((prev) =>
-      prev.map((r) => (r.id === review.id ? { ...r, verified: !r.verified } : r))
+      prev.map((r) => (r.id === review.id ? { ...r, verified: nextVerified } : r))
     );
     showToast({
       title: review.verified ? "Marked as pending" : "Review verified",
@@ -104,8 +148,13 @@ export default function AdminReviewsPage() {
     });
   }
 
-  function handleDelete() {
+  async function handleDelete() {
     if (!pendingDelete) return;
+    const result = await deleteReview(pendingDelete.id);
+    if (!result.success) {
+      showToast({ title: "Review not deleted", description: result.message, variant: "error" });
+      return;
+    }
     setReviews((prev) => prev.filter((r) => r.id !== pendingDelete.id));
     showToast({
       title: "Review deleted",
@@ -151,7 +200,9 @@ export default function AdminReviewsPage() {
         )}
       </div>
 
-      {filtered.length === 0 ? (
+      {!ready ? (
+        <p className="mt-16 text-center text-muted-foreground">Loading reviews…</p>
+      ) : filtered.length === 0 ? (
         <p className="mt-16 text-center text-muted-foreground">No reviews match those filters.</p>
       ) : (
         <div className="space-y-3">

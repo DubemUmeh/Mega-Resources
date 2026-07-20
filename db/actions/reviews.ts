@@ -103,7 +103,10 @@ export async function updateReviewStatus(
   status: "pending" | "approved" | "rejected",
 ): Promise<ActionResult> {
   try {
-    await db.update(reviews).set({ status }).where(eq(reviews.id, id));
+    await db
+      .update(reviews)
+      .set({ status, verified: status === "approved" })
+      .where(eq(reviews.id, id));
     // Invalidates the cached /reviews page so the *next* visit reflects
     // the change. Does not push updates to tabs already open — see note
     // on live updates if that's needed later.
@@ -117,6 +120,46 @@ export async function updateReviewStatus(
       message: "Failed to update review status.",
       errors: {},
     };
+  }
+}
+
+export async function updateReview(
+  id: string,
+  input: unknown,
+): Promise<ActionResult> {
+  const parsed = reviewSchema.safeParse(input);
+  if (!parsed.success) {
+    return {
+      success: false,
+      message: "Please fix the errors below.",
+      errors: parsed.error.flatten().fieldErrors,
+    };
+  }
+
+  const raw = input as { verified?: unknown };
+  const verified = typeof raw.verified === "boolean" ? raw.verified : undefined;
+
+  try {
+    await db
+      .update(reviews)
+      .set({
+        name: parsed.data.name,
+        title: parsed.data.title,
+        location: parsed.data.location,
+        services: parsed.data.services,
+        rating: parsed.data.rating,
+        message: parsed.data.message,
+        ...(verified === undefined
+          ? {}
+          : { verified, status: verified ? "approved" : "pending" }),
+      })
+      .where(eq(reviews.id, id));
+    revalidatePath("/reviews");
+    revalidatePath("/admin/reviews");
+    return { success: true, message: "Review updated." };
+  } catch (err) {
+    console.error("Failed to update review:", err);
+    return { success: false, message: "Failed to update review.", errors: {} };
   }
 }
 
