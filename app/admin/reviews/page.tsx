@@ -8,7 +8,7 @@ import { ConfirmDeleteDialog } from "../_components/confirm-delete-dialog";
 import { ReviewRow } from "../_components/review-row";
 import { EditReviewDialog } from "../_components/edit-review-dialog";
 import { useToast } from "@/components/ui/toast";
-import { Review, SERVICE_TYPES } from "@/db/types";
+import { Review, SERVICE_TYPES, ServiceType } from "@/db/types";
 import { deleteReview, getAllReviewsForAdmin, updateReview, updateReviewStatus } from "@/db/actions/reviews";
 
 const STATUS_FILTERS = [
