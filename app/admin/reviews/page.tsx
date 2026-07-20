@@ -180,7 +180,12 @@ export default function AdminReviewsPage() {
       />
 
       <div className="mb-6 flex flex-wrap gap-3">
-        <SelectField value={service} onChange={setService} items={serviceItems} ariaLabel="Filter by service" />
+        <SelectField
+          value={service}
+          onChange={(v) => setService(v as ServiceType | "all")}
+          items={serviceItems}
+          ariaLabel="Filter by service"
+        />
         <SelectField value={status} onChange={setStatus} items={STATUS_FILTERS} ariaLabel="Filter by status" />
         {(service !== "all" || status !== "all") && (
           <button
