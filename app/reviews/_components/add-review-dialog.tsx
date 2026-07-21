@@ -7,16 +7,16 @@ import { StarRatingInput } from "./star-rating";
 import { MultiSelectField } from "@/components/ui/multi-select";
 import { useToast } from "@/components/ui/toast";
 import { Review, ReviewState, SERVICE_TYPES } from "@/db/types";
+import { createReview } from "@/db/actions/reviews";
 
 interface AddReviewDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
-  onReviewAdded?: (review: Review) => void;
 }
 
 const emptyState: ReviewState = { message: null, errors: {}, success: false };
 
-export function AddReviewDialog({ open, onOpenChange, onReviewAdded }: AddReviewDialogProps) {
+export function AddReviewDialog({ open, onOpenChange }: AddReviewDialogProps) {
   const { showToast } = useToast();
   const [name, setName] = useState("");
   const [title, setTitle] = useState("");
@@ -62,30 +62,32 @@ export function AddReviewDialog({ open, onOpenChange, onReviewAdded }: AddReview
     }
 
     setIsPending(true);
-    // Placeholder for a real server action / API call, e.g.:
-    // await createReview({ name, location, service, rating, message });
-    await new Promise((r) => setTimeout(r, 600));
-
-    const newReview: Review = {
-      id: `local-${Date.now()}`,
+    const result = await createReview({
       name: name.trim(),
-      ...(title.trim() ? { title: title.trim() } : {}),
+      title: title.trim() || undefined,
       location: location.trim(),
-      service,
+      services: service,
       rating,
       message: message.trim(),
-      date: new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" }),
-      verified: false,
-    };
-
+    });
     setIsPending(false);
-    setState({ message: "Thanks — your review has been submitted!", errors: {}, success: true, newReview });
+
+    if (!result.success) {
+      setState({ message: result.message, errors: result.errors ?? {}, success: false });
+      showToast({
+        title: "Review not submitted",
+        description: result.message,
+        variant: "error",
+      });
+      return;
+    }
+
+    setState({ message: result.message, errors: {}, success: true });
     showToast({
       title: "Review submitted",
       description: "Thanks for taking the time to share your experience.",
       variant: "success",
     });
-    onReviewAdded?.(newReview);
     resetForm();
     onOpenChange(false);
   }

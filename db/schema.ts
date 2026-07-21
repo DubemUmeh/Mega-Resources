@@ -69,13 +69,14 @@ export const quoteRequests = pgTable("quote_requests", {
 
 /* ------------------------------------------------------- Reviews --- */
 export const reviews = pgTable("reviews", {
-  id: uuid("id").primaryKey().defaultRandom(),
+  id: varchar("id", { length: 40 }).primaryKey(),
   name: varchar("name", { length: 100 }).notNull(),
   title: varchar("title", { length: 150 }),
   location: varchar("location", { length: 150 }).notNull(),
   services: jsonb("services").$type<string[]>().default([]).notNull(),
   rating: integer("rating").notNull(),
   message: varchar("message", { length: 1000 }).notNull(),
+  date: varchar("date", { length: 40 }),
   status: reviewStatusEnum("status").notNull().default("pending"),
   verified: boolean("verified").notNull().default(false),
   createdAt: timestamp("created_at").defaultNow().notNull(),

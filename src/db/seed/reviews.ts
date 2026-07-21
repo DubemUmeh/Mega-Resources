@@ -1,11 +1,13 @@
-import { Review } from "./types";
+import type { NewDbReview } from "@/db/schema";
+import { db } from "@/db/db";
+import { reviews } from "@/db/schema";
 
-export const reviewsData: Review[] = [
+const reviewSeeds = [
   {
     id: "rv-001",
     name: "Mrs. Ama Owusu",
     location: "Tema, Greater Accra",
-    service: ["Borehole Drilling"],
+    services: ["Borehole Drilling"],
     rating: 5,
     message:
       "They found water where two other companies failed. The survey team was upfront about the cost before any drilling started, and the whole job wrapped in three days. Clean work, no mess left behind.",
@@ -17,7 +19,7 @@ export const reviewsData: Review[] = [
     name: "Aisha Mensah",
     title: "Operations Director \u2014 Green Farms Ghana",
     location: "Kumasi, Ashanti Region",
-    service: ["Borehole Rehabilitation"],
+    services: ["Borehole Rehabilitation"],
     rating: 5,
     message:
       "Our farm needed a commercial-grade solution fast. Precise, timely, and the water testing report came back cleaner than what we were getting from our old source. Exceeded expectations.",
@@ -29,7 +31,7 @@ export const reviewsData: Review[] = [
     name: "David Osei",
     title: "Facilities Manager \u2014 Tamale",
     location: "Tamale, Northern Region",
-    service: ["Pump Installation"],
+    services: ["Pump Installation"],
     rating: 4,
     message:
       "Consultation to completion felt seamless. The solar pump took a couple of extra days to arrive but the crew stayed in touch the whole time. School now has consistent water daily.",
@@ -40,7 +42,7 @@ export const reviewsData: Review[] = [
     id: "rv-004",
     name: "Kwabena Asante",
     location: "Takoradi, Western Region",
-    service: ["Borehole Rehabilitation"],
+    services: ["Borehole Rehabilitation"],
     rating: 5,
     message:
       "Our old borehole had gone muddy and low-yield for over a year. They cleaned and re-developed it in a single visit \u2014 flow is better now than when it was first drilled.",
@@ -51,7 +53,7 @@ export const reviewsData: Review[] = [
     id: "rv-005",
     name: "Grace Adjei",
     location: "East Legon, Accra",
-    service: ["Borehole Drilling"],
+    services: ["Borehole Drilling"],
     rating: 5,
     message:
       "Licensed, insured, and it showed. They explained every step and never once tried to upsell us on things we didn't need. 220ft and clear water at a strong flow rate.",
@@ -63,7 +65,7 @@ export const reviewsData: Review[] = [
     name: "Samuel Boateng",
     title: "Site Supervisor \u2014 Sunyani",
     location: "Sunyani, Bono Region",
-    service: ["Pump Installation"],
+    services: ["Pump Installation"],
     rating: 4,
     message:
       "Good installation work and the submersible pump has run without issue for months. Only reason it's not five stars is the initial quote took a few days longer than promised.",
@@ -74,7 +76,7 @@ export const reviewsData: Review[] = [
     id: "rv-007",
     name: "Efua Darko",
     location: "Cape Coast, Central Region",
-    service: ["Geological Survey"],
+    services: ["Geological Survey"],
     rating: 5,
     message:
       "Paid for the survey alone before deciding whether to drill. Report was detailed, easy to understand, and confirmed exactly what they predicted once drilling began weeks later.",
@@ -85,7 +87,7 @@ export const reviewsData: Review[] = [
     id: "rv-008",
     name: "Yaw Mensah",
     location: "Koforidua, Eastern Region",
-    service: ["Hydro-fracturing"],
+    services: ["Hydro-fracturing"],
     rating: 4,
     message:
       "Our original borehole had weak yield from day one. The hydro-fracturing treatment noticeably improved flow. Would have liked a bit more communication mid-project, but the result speaks for itself.",
@@ -97,7 +99,7 @@ export const reviewsData: Review[] = [
     name: "Comfort Nyarko",
     title: "Facilities Coordinator \u2014 St. Peter's Parish",
     location: "Ho, Volta Region",
-    service: ["Borehole Drilling"],
+    services: ["Borehole Drilling"],
     rating: 5,
     message:
       "Church project \u2014 300ft depth plus a 5,000L tank. No more water bills for the compound and the congregation is thrilled. Professional crew from start to finish.",
@@ -108,7 +110,7 @@ export const reviewsData: Review[] = [
     id: "rv-010",
     name: "Isaac Appiah",
     location: "Wa, Upper West Region",
-    service: ["Borehole Rehabilitation"],
+    services: ["Borehole Rehabilitation"],
     rating: 5,
     message:
       "Iron levels in our old well were unbearable. Their filtration system fixed it completely \u2014 water finally looks and tastes the way it should.",
@@ -119,7 +121,7 @@ export const reviewsData: Review[] = [
     id: "rv-011",
     name: "Abena Frimpong",
     location: "Obuasi, Ashanti Region",
-    service: ["Pump Installation"],
+    services: ["Pump Installation"],
     rating: 3,
     message:
       "The pump itself works fine, but there was a scheduling mix-up that pushed our install back a week. Support team made it right in the end, just wish it had gone smoother.",
@@ -131,7 +133,7 @@ export const reviewsData: Review[] = [
     name: "Kofi Amoah",
     title: "Site Manager \u2014 Tarkwa Mining Camp",
     location: "Tarkwa, Western Region",
-    service: ["Borehole Drilling"],
+    services: ["Borehole Drilling"],
     rating: 5,
     message:
       "Mining camp needed reliable water fast. They mobilized within a week, hit water at 180ft, and the whole crew worked long days to hit our deadline. Exactly the reliability we needed.",
@@ -143,7 +145,7 @@ export const reviewsData: Review[] = [
     name: "Linda Sarpong",
     title: "Estate Manager \u2014 Techiman Residences",
     location: "Techiman, Bono East Region",
-    service: ["Borehole Rehabilitation"],
+    services: ["Borehole Rehabilitation"],
     rating: 4,
     message:
       "Rehab work on a 15-year-old borehole. Yield is back up and they gave us a realistic estimate of how many more years we can expect from it. Honest assessment, fair price.",
@@ -154,11 +156,15 @@ export const reviewsData: Review[] = [
     id: "rv-014",
     name: "Emmanuel Tetteh",
     location: "Nungua, Greater Accra",
-    service: ["Geological Survey"],
+    services: ["Geological Survey"],
     rating: 5,
     message:
       "Survey confirmed water on the second attempted site after our first plot came back unsuitable. Appreciated that they told us the truth instead of drilling somewhere they knew would fail.",
     date: "November 2025",
     verified: true,
   },
-];
+] satisfies NewDbReview[];
+
+export async function seedReviews() {
+  await db.insert(reviews).values(reviewSeeds).onConflictDoNothing({ target: reviews.id });
+}
