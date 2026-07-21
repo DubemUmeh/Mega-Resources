@@ -96,6 +96,7 @@ export interface Portfolio {
   duration: string;
   year: string;
   img: string;
+  imgPublicId?: string;
   gallery?: string[];
   isVideo?: boolean;
   summary: string;

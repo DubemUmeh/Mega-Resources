@@ -33,11 +33,15 @@ export async function uploadImageToCloudinary(
   const cloudName = process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME;
   const apiKey = process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY;
 
+  if (!cloudName || !apiKey) {
+    throw new Error("Cloudinary is not configured for image uploads");
+  }
+
   const formData = new FormData();
   formData.append("file", file);
   formData.append("timestamp", String(timestamp));
   formData.append("folder", folder);
-  formData.append("api_key", apiKey!);
+  formData.append("api_key", apiKey);
   formData.append("signature", signature);
 
   const uploadRes = await fetch(

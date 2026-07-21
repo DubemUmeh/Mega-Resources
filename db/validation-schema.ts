@@ -73,8 +73,11 @@ export const portfolioSchema = z.object({
   yieldRate: z.string().trim().max(30).optional(),
   duration: z.string().trim().max(30).optional(),
   year: z.string().trim().max(10).optional(),
-  img: z.string().url("Image is required"),
-  imgPublicId: z.string().optional(),
+  img: z
+    .string()
+    .url("Image is required")
+    .max(500, "Please upload the cover image before saving."),
+  imgPublicId: z.string().max(255).optional(),
   gallery: z.array(z.string().url()).optional().default([]),
   isVideo: z.boolean().optional().default(false),
   summary: z.string().trim().min(10).max(1000),
