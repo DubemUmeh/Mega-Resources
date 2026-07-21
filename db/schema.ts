@@ -73,7 +73,6 @@ export const reviews = pgTable("reviews", {
   message: varchar("message", { length: 1000 }).notNull(),
   date: varchar("date", { length: 40 }),
   status: reviewStatusEnum("status").notNull().default("pending"),
-  verified: boolean("verified").notNull().default(false),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 

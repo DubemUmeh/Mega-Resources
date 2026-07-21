@@ -17,6 +17,8 @@ export const SERVICE_TYPES: ServiceType[] = [
   "Air Lifting / Developing of Borehole",
 ];
 
+export type ReviewStatus = "pending" | "approved" | "rejected";
+
 export interface Review {
   id: string;
   name: string;
@@ -26,7 +28,7 @@ export interface Review {
   rating: number; // 1–5
   message: string;
   date: string; // display string, e.g. "March 2026"
-  verified: boolean;
+  status: ReviewStatus;
 }
 
 export interface ReviewState {
