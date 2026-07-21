@@ -8,13 +8,14 @@ import { ConfirmDeleteDialog } from "../_components/confirm-delete-dialog";
 import { ReviewRow } from "../_components/review-row";
 import { EditReviewDialog } from "../_components/edit-review-dialog";
 import { useToast } from "@/components/ui/toast";
-import { Review, ServiceType, SERVICE_TYPES } from "@/db/types";
+import { Review, ReviewStatus, ServiceType, SERVICE_TYPES } from "@/db/types";
 import { deleteReview, updateReview, updateReviewStatus } from "@/db/actions/reviews";
 
 const STATUS_FILTERS = [
   { value: "all", label: "All Statuses" },
-  { value: "verified", label: "Verified" },
   { value: "pending", label: "Pending" },
+  { value: "approved", label: "Approved" },
+  { value: "rejected", label: "Rejected" },
 ];
 
 function SelectField({
@@ -82,8 +83,7 @@ export function AdminReviewsClient({ initialReviews }: { initialReviews: Review[
   const filtered = useMemo(() => {
     return reviews.filter((r) => {
       const serviceMatch = service === "all" || r.services.includes(service as Review["services"][number]);
-      const statusMatch =
-        status === "all" || (status === "verified" ? r.verified : !r.verified);
+      const statusMatch = status === "all" || r.status === status;
       return serviceMatch && statusMatch;
     });
   }, [reviews, service, status]);
@@ -96,25 +96,30 @@ export function AdminReviewsClient({ initialReviews }: { initialReviews: Review[
       services: updated.services,
       rating: updated.rating,
       message: updated.message,
-      verified: updated.verified,
     });
     if (!result.success) throw new Error(result.message);
+
+    const existing = reviews.find((r) => r.id === updated.id);
+    if (existing && existing.status !== updated.status) {
+      const statusResult = await updateReviewStatus(updated.id, updated.status);
+      if (!statusResult.success) throw new Error(statusResult.message);
+    }
+
     setReviews((prev) => prev.map((r) => (r.id === updated.id ? updated : r)));
     showToast({ title: "Review updated", description: `${updated.name}'s review was saved.`, variant: "success" });
   }
 
-  async function handleToggleVerified(review: Review) {
-    const nextVerified = !review.verified;
-    const result = await updateReviewStatus(review.id, nextVerified ? "approved" : "pending");
+  async function handleUpdateStatus(review: Review, nextStatus: ReviewStatus) {
+    const result = await updateReviewStatus(review.id, nextStatus);
     if (!result.success) {
       showToast({ title: "Status not updated", description: result.message, variant: "error" });
       return;
     }
     setReviews((prev) =>
-      prev.map((r) => (r.id === review.id ? { ...r, verified: nextVerified } : r))
+      prev.map((r) => (r.id === review.id ? { ...r, status: nextStatus } : r))
     );
     showToast({
-      title: review.verified ? "Marked as pending" : "Review verified",
+      title: `Review ${nextStatus}`,
       description: `${review.name}'s review status was updated.`,
       variant: "success",
     });
@@ -185,7 +190,7 @@ export function AdminReviewsClient({ initialReviews }: { initialReviews: Review[
                 setEditOpen(true);
               }}
               onDelete={() => setPendingDelete(review)}
-              onToggleVerified={() => handleToggleVerified(review)}
+              onUpdateStatus={(nextStatus) => handleUpdateStatus(review, nextStatus)}
             />
           ))}
         </div>

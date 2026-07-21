@@ -26,7 +26,7 @@ const trustFaqs: QA[] = [
   },
   {
     q: "Can I see reviews from past clients?",
-    a: "Yes — our reviews page carries feedback directly from past clients, including their service, location, and rating. Many are marked as verified, meaning we've confirmed they were an actual completed project.",
+    a: "Yes — our reviews page carries feedback directly from past clients, including their service, location, and rating. Published reviews are approved by the team before they appear publicly.",
   },
   {
     q: "What happens if the borehole doesn't perform as expected?",

@@ -11,6 +11,7 @@ import {
   generateReviewPendingNotification,
 } from "@/lib/email";
 import type { ActionResult } from "@/db/action-types";
+import type { ReviewStatus } from "@/db/types";
 
 /* ------------------------------------------------------ Public: submit */
 export async function createReview(input: {
@@ -85,12 +86,12 @@ export async function getAllReviewsForAdmin() {
 
 export async function updateReviewStatus(
   id: string,
-  status: "pending" | "approved" | "rejected",
+  status: ReviewStatus,
 ): Promise<ActionResult> {
   try {
     await db
       .update(reviews)
-      .set({ status, verified: status === "approved" })
+      .set({ status })
       .where(eq(reviews.id, id));
     // Invalidates the cached /reviews page so the *next* visit reflects
     // the change. Does not push updates to tabs already open — see note
@@ -121,9 +122,6 @@ export async function updateReview(
     };
   }
 
-  const raw = input as { verified?: unknown };
-  const verified = typeof raw.verified === "boolean" ? raw.verified : undefined;
-
   try {
     await db
       .update(reviews)
@@ -134,9 +132,6 @@ export async function updateReview(
         services: parsed.data.services,
         rating: parsed.data.rating,
         message: parsed.data.message,
-        ...(verified === undefined
-          ? {}
-          : { verified, status: verified ? "approved" : "pending" }),
       })
       .where(eq(reviews.id, id));
     revalidatePath("/reviews");

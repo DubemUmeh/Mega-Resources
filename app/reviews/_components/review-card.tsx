@@ -22,8 +22,8 @@ export function ReviewCard({ review }: { review: Review }) {
             <h4 className="font-display text-sm font-semibold text-foreground">
               {review.name}
             </h4>
-            {review.verified && (
-              <FaCheckCircle className="h-3 w-3 text-blue-600" title="Verified client" />
+            {review.status === "approved" && (
+              <FaCheckCircle className="h-3 w-3 text-blue-600" title="Approved review" />
             )}
           </div>
           {review.title && (

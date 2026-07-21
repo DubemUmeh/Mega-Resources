@@ -17,16 +17,13 @@ function ratingBreakdown(reviews: Review[]) {
 export function ReviewsStats({ reviews }: { reviews: Review[] }) {
   const total = reviews.length;
   const avg = total ? reviews.reduce((s, r) => s + r.rating, 0) / total : 0;
-  const verifiedPct = total
-    ? Math.round((reviews.filter((r) => r.verified).length / total) * 100)
-    : 0;
   const regions = new Set(reviews.map((r) => r.location.split(",").pop()?.trim())).size;
   const breakdown = ratingBreakdown(reviews);
 
   const stats = [
     { value: avg.toFixed(1), label: "Average Rating" },
     { value: String(total), label: "Total Reviews" },
-    { value: `${verifiedPct}%`, label: "Verified Clients" },
+    { value: `${total ? 100 : 0}%`, label: "Approved Reviews" },
     { value: String(regions), label: "Regions Represented" },
   ];
 

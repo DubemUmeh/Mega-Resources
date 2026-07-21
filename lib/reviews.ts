@@ -18,22 +18,12 @@ export function formatReview(row: typeof reviews.$inferSelect): Review {
         month: "long",
         year: "numeric",
       }),
-    verified: row.verified,
+    status: row.status,
   };
 }
 
 export async function getReviews() {
   const rows = await db.select().from(reviews).orderBy(desc(reviews.createdAt));
-  return rows.map(formatReview);
-}
-
-export async function getVerifiedReviews() {
-  const rows = await db
-    .select()
-    .from(reviews)
-    .where(eq(reviews.verified, true))
-    .orderBy(desc(reviews.createdAt));
-
   return rows.map(formatReview);
 }
 
@@ -67,17 +57,23 @@ export async function getReviewStats() {
   const [pending] = await db
     .select({ value: count() })
     .from(reviews)
-    .where(eq(reviews.verified, false));
+    .where(eq(reviews.status, "pending"));
 
-  const [verified] = await db
+  const [approved] = await db
     .select({ value: count() })
     .from(reviews)
-    .where(eq(reviews.verified, true));
+    .where(eq(reviews.status, "approved"));
+
+  const [rejected] = await db
+    .select({ value: count() })
+    .from(reviews)
+    .where(eq(reviews.status, "rejected"));
 
   return {
     totalReviews: stats.totalReviews,
     averageRating: Number(stats.averageRating ?? 0),
     pendingReviews: pending.value,
-    verifiedReviews: verified.value,
+    approvedReviews: approved.value,
+    rejectedReviews: rejected.value,
   };
 }

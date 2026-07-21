@@ -21,7 +21,7 @@ export function AdminOverviewClient({
   const stats = [
     { label: "Average Rating", value: avgRating.toFixed(1), icon: FaStar },
     { label: "Total Reviews", value: String(totalReviews), icon: FaCheckCircle },
-    { label: "Pending Verification", value: String(pendingReviews), icon: FaCheckCircle },
+    { label: "Pending Approval", value: String(pendingReviews), icon: FaCheckCircle },
     { label: "Published Projects", value: String(publishedPortfolio), icon: FaImages },
   ];
 
@@ -65,8 +65,8 @@ export function AdminOverviewClient({
           </div>
           <p className="mt-2 text-[0.85rem] leading-[1.6] text-muted-foreground">
             {pendingReviews > 0
-              ? `${pendingReviews} review${pendingReviews > 1 ? "s" : ""} waiting to be verified.`
-              : "All reviews are verified — nothing pending."}
+              ? `${pendingReviews} review${pendingReviews > 1 ? "s" : ""} waiting for approval.`
+              : "All reviews are moderated — nothing pending."}
           </p>
         </div>
 
