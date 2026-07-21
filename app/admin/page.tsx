@@ -1,4 +1,4 @@
-import { getReviewStats } from "@/src/lib/reviews";
+import { getReviewStats } from "@/lib/reviews";
 import { AdminOverviewClient } from "./admin-overview-client";
 
 export default async function AdminOverviewPage() {

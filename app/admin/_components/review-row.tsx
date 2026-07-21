@@ -40,7 +40,7 @@ export function ReviewRow({
 
       {/* Service + date */}
       <div className="text-[0.8rem]">
-        <span className="block font-medium text-foreground">{review.service}</span>
+        <span className="block font-medium text-foreground">{review.services}</span>
         <span className="text-muted-foreground">{review.date}</span>
       </div>
 

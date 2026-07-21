@@ -8,6 +8,13 @@
       "when": 1784560696774,
       "tag": "0000_brave_prism",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1784631678683,
+      "tag": "0001_special_vector",
+      "breakpoints": true
     }
   ]
 }

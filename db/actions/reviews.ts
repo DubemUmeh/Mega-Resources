@@ -4,7 +4,7 @@ import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { db } from "@/db/db";
 import { reviews } from "@/db/schema";
-import { getApprovedReviews, getReviews } from "@/src/lib/reviews";
+import { getApprovedReviews, getReviews } from "@/lib/reviews";
 import { reviewSchema } from "@/db/validation-schema";
 import {
   createEmailTransporter,
@@ -36,7 +36,10 @@ export async function createReview(input: {
       .values({
         ...parsed.data,
         id: crypto.randomUUID(),
-        date: new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" }),
+        date: new Date().toLocaleDateString("en-US", {
+          month: "long",
+          year: "numeric",
+        }),
         status: "pending",
       })
       .returning();

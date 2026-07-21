@@ -22,7 +22,7 @@ export interface Review {
   name: string;
   title?: string; // optional role/company, e.g. "Operations Director — Green Farms Ghana"
   location: string;
-  service: ServiceType[]; // a review can cover more than one service performed on the same job
+  services: ServiceType[]; // a review can cover more than one service performed on the same job
   rating: number; // 1–5
   message: string;
   date: string; // display string, e.g. "March 2026"

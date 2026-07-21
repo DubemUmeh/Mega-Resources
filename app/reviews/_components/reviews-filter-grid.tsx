@@ -74,7 +74,7 @@ export function ReviewsFilterGrid({ reviews }: { reviews: Review[] }) {
 
   const filtered = useMemo(() => {
     return reviews.filter((r) => {
-      const serviceMatch = service === "all" || r.service.includes(service as Review["service"][number]);
+      const serviceMatch = service === "all" || r.services.includes(service as Review["services"][number]);
       const ratingMatch = rating === "all" || r.rating >= Number(rating);
       return serviceMatch && ratingMatch;
     });

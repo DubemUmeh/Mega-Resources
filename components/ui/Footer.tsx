@@ -22,6 +22,7 @@ const quickLinks = {
   'Resouces': [
     { title: 'FAQS', href: '/faq' },
     { title: 'Get a Quote', href: '/quote' },
+    { title: 'Reviews', href: '/reviews' },
     // { title: 'Case Studies', href: '/case-studies' },
     // { title: 'Downloads', href: '/downloads' },
   ]

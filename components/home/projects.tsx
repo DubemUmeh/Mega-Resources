@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 
 const projects = [
@@ -45,10 +46,12 @@ const Projects = () => {
             Impact Across<br />
             Ghana
           </h2>
-          <div className="flex items-center gap-3 text-xs font-medium cursor-pointer group w-fit text-gray-400 hover:text-white transition-colors">
-            Explore our project portfolio
-            <FaArrowRight className="transform -rotate-45" />
-          </div>
+          <Link href='/portfolio' className="w-full">
+            <div className="flex items-center gap-3 text-xs font-medium cursor-pointer group w-fit text-gray-400 hover:text-white transition-colors">
+              Explore our project portfolio
+              <FaArrowRight className="transform -rotate-45" />
+            </div>
+          </Link>
         </div>
 
         <div className="lg:w-3/4 grid grid-cols-1 md:grid-cols-3 gap-0.5">

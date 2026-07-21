@@ -81,7 +81,7 @@ export function AdminReviewsClient({ initialReviews }: { initialReviews: Review[
 
   const filtered = useMemo(() => {
     return reviews.filter((r) => {
-      const serviceMatch = service === "all" || r.service.includes(service as Review["service"][number]);
+      const serviceMatch = service === "all" || r.services.includes(service as Review["services"][number]);
       const statusMatch =
         status === "all" || (status === "verified" ? r.verified : !r.verified);
       return serviceMatch && statusMatch;
@@ -93,7 +93,7 @@ export function AdminReviewsClient({ initialReviews }: { initialReviews: Review[
       name: updated.name,
       title: updated.title,
       location: updated.location,
-      services: updated.service,
+      services: updated.services,
       rating: updated.rating,
       message: updated.message,
       verified: updated.verified,

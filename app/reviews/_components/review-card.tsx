@@ -33,7 +33,7 @@ export function ReviewCard({ review }: { review: Review }) {
         </div>
         <div className="text-right">
           <span className="block max-w-40 text-[0.72rem] uppercase tracking-[0.08em] text-blue-600 font-semibold">
-            {review.service.join(" · ")}
+            {review.services.join(" · ")}
           </span>
           <span className="text-[0.72rem] text-muted-foreground">{review.date}</span>
         </div>

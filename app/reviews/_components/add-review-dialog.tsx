@@ -21,7 +21,7 @@ export function AddReviewDialog({ open, onOpenChange }: AddReviewDialogProps) {
   const [name, setName] = useState("");
   const [title, setTitle] = useState("");
   const [location, setLocation] = useState("");
-  const [service, setService] = useState<Review["service"]>([]);
+  const [service, setService] = useState<Review["services"]>([]);
   const [rating, setRating] = useState(5);
   const [message, setMessage] = useState("");
   const [state, setState] = useState<ReviewState>(emptyState);
@@ -170,7 +170,7 @@ export function AddReviewDialog({ open, onOpenChange }: AddReviewDialogProps) {
               label="Service(s) Used"
               placeholder="Select one or more services"
               values={service}
-              onChange={(v) => setService(v as Review["service"])}
+              onChange={(v) => setService(v as Review["services"])}
               items={SERVICE_TYPES}
               error={state.errors.service?.[0]}
             />
