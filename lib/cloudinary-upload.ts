@@ -9,8 +9,6 @@
  *
  * Usage in the admin form:
  *   const { url, publicId } = await uploadImageToCloudinary(file, "portfolio");
- *   // then include url as `img` and publicId as `imgPublicId` when
- *   // calling createPortfolioProject / updatePortfolioProject
  */
 export async function uploadImageToCloudinary(
   file: File,

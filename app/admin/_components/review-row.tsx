@@ -73,7 +73,7 @@ export function ReviewRow({
       </div>
 
       {/* Status pill (desktop) */}
-      <div className="hidden md:flex md:justify-end">
+      <div className="hidden md:flex md:justify-end-safe md:mr-10">
         <span
           className={`rounded-full px-3 py-1 text-[0.72rem] font-semibold uppercase tracking-[0.06em] ${status.className}`}
         >

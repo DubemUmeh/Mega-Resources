@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaArrowRight, FaWhatsapp } from "react-icons/fa";
 
 const CTA = () => {
@@ -18,10 +19,10 @@ const CTA = () => {
             Book your free site survey today. No payment until we confirm water on your land.
           </p>
           <div className="flex flex-col gap-3 w-fit">
-            <button className="border border-white/20 rounded-full px-6 py-3 hover:bg-white hover:text-black transition-colors flex items-center gap-3 text-xs tracking-wide">
+            <Link href='/quote' className="block border border-white/20 rounded-full px-6 py-3 hover:bg-white/80 hover:text-black transition-colors flex items-center gap-3 text-xs tracking-wide">
               Request a Quote <FaArrowRight className="text-[10px] transform -rotate-45" />
-            </button>
-            <button className="rounded-full px-6 py-3 bg-white text-black hover:bg-gray-200 transition-colors flex items-center gap-3 text-xs tracking-wide font-medium">
+            </Link>
+            <button className="rounded-full px-6 py-3 bg-white text-black hover:bg-gray-400 transition-colors flex items-center gap-3 text-xs tracking-wide font-medium">
               <FaWhatsapp className="text-sm" /> WhatsApp Us
             </button>
           </div>

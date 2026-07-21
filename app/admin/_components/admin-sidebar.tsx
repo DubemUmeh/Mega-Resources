@@ -8,8 +8,10 @@ import {
   FaImages,
   FaExternalLinkAlt,
   FaTint,
+  FaUserLock,
 } from "react-icons/fa";
 import { LogOutIcon } from "lucide-react";
+import { Mega_Logo } from "@/components/logo";
 
 const NAV_ITEMS = [
   { href: "/admin", label: "Overview", icon: FaTachometerAlt, exact: true },
@@ -27,18 +29,20 @@ export function AdminSidebar() {
 
   return (
     <aside className="fixed inset-y-0 left-0 z-40 hidden w-64 flex-none border-r border-[rgba(10,10,10,0.08)] bg-[rgba(20,20,20,0.6)] backdrop-blur-xl lg:flex lg:flex-col">
-      <div className="flex items-center gap-2.5 px-6 py-7">
-        <div className="flex h-9 w-9 flex-none items-center justify-center rounded-xl bg-blue-600/15">
-          <FaTint className="h-4 w-4 text-blue-600" />
+      <div className="flex flex-col items-start gap-2.5 px-0 pb-7">
+        <div className="w-full bg-gray-400 pt-5">
+          <Mega_Logo
+            logo_height="50"
+            logo_width="200"
+            className='rotate-1'
+          />
         </div>
-        <div className="leading-tight">
-          <p className="font-display text-[0.95rem] font-semibold text-foreground">
-            Mega Resources LTD
-          </p>
-          <p className="text-[0.7rem] uppercase tracking-widest text-muted-foreground">
-            Admin
-          </p>
-        </div>
+        <p className="uppercase font-bold tracking-widest text-muted-foreground leading-tight mt-3 px-4">
+          <span className="flex gap-2">
+            <FaUserLock size={25} color="blue" />
+            <span className="text-sm mt-2">Admin</span>
+          </span>
+        </p>
       </div>
 
       <nav className="flex-1 space-y-1 px-3">

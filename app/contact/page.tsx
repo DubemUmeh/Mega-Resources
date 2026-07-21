@@ -88,13 +88,13 @@ const contactInfo = [
   {
     icon: FaEnvelope,
     label: "Email Us",
-    value: "info@yourcompany.com",
-    href: "mailto:info@yourcompany.com",
+    value: "info@megaresourcesltd.com",
+    href: "mailto:info@megaresourcesltd.com",
   },
   {
     icon: FaMapMarkerAlt,
     label: "Head Office",
-    value: "Accra, Greater Accra Region, Ghana",
+    value: "Takoradi, Western Region, Ghana",
     href: undefined,
   },
   {

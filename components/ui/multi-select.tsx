@@ -43,7 +43,7 @@ export function MultiSelectField({
       <DropdownMenu.Root>
         <DropdownMenu.Trigger
           type="button"
-          className={`flex w-full items-center justify-between gap-2 rounded-xl border px-4 py-3 text-left text-[0.92rem] outline-none transition-colors focus:ring-2 focus:ring-blue-600 ${
+          className={`flex bg-background/70 w-full items-center justify-between gap-2 rounded-xl border px-4 py-3 text-left text-[0.92rem] outline-none transition-colors focus:ring-2 focus:ring-blue-600 no-scrollbar ${
             values.length > 0 ? "text-foreground" : "text-muted-foreground"
           } border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)]`}
         >
@@ -72,7 +72,7 @@ export function MultiSelectField({
                   onCheckedChange={() => toggle(item)}
                   // Keep the menu open after picking, since the point is to select several.
                   onSelect={(e) => e.preventDefault()}
-                  className="flex cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-2 text-[0.88rem] text-foreground outline-none data-highlighted:bg-blue-600/10 data-highlighted:text-blue-600"
+                  className="flex cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-2 text-[0.88rem] text-foreground outline-none data-highlighted:bg-blue-600/10 data-highlighted:text-blue-600 nos"
                 >
                   {item}
                   <DropdownMenu.ItemIndicator>

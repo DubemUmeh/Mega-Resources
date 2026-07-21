@@ -34,6 +34,7 @@ const SERVICES = [
   "Hydro-fracturing",
   "Geological Survey Only",
   "Water Treatment",
+  "Air Lifting / Developing of Borehole",
   "Not Sure Yet",
 ];
 

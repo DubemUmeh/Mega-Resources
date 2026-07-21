@@ -16,6 +16,7 @@ const serviceOptions = [
   "Pumping Test",
   "Air Lifting / Developing",
   "Not sure yet",
+  "Air Lifting / Developing of Borehole",
 ];
 
 const inputClasses =

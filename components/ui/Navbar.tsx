@@ -5,6 +5,7 @@ import Link from "next/link";
 import { FaArrowRight, FaBars, FaTimes } from "react-icons/fa";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
+import { Mega_Logo } from "@/components/logo";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -50,18 +51,23 @@ const Navbar = () => {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 z-50 transition-all duration-300",
+          "fixed inset-x-0 z-50 transition-all duration-300 backdrop-blur-2xl bg-linear-to-r from-foreground via-foreground/40 md:via-background/80 to-background/80",
           !isScrolled
-            ? "top-0 border-b border-border/60 bg-background/80 backdrop-blur-xl"
-            : "top-3 mx-3 rounded-2xl border border-border/80 bg-card/45 shadow-card backdrop-blur-xl md:mx-8 lg:mx-14"
+            ? "top-0 border-b border-border/60"
+            // ? "top-0 border-b border-border/60 bg-background/80 backdrop-blur-xl"
+            : "top-3 mx-3 rounded-2xl border border-border/80 md:mx-8 lg:mx-14"
         )}
       >
         <nav className="container-page w-full">
           <div className="flex h-16 w-full items-center justify-between">
             {/* Logo */}
-            <Link href="/" className="group flex items-center gap-2">
-              <div className="grid h-9 w-9 place-items-center rounded-xl transition-transform group-hover:-translate-y-0.5">
-                MEGA RESOURCES
+            <Link href="/" className="flex items-center gap-2">
+              <div className="h-15 w-full place-items-center rounded-xl transition-transform hover:scale-105">
+                <Mega_Logo
+                  logo_height="50"
+                  logo_width="200"
+                  className='rotate-1'
+                />
               </div>
             </Link>
 
@@ -78,9 +84,9 @@ const Navbar = () => {
               ))}
             </div>
 
-            <button className="hidden w-fit items-center gap-2 rounded-full border border-white/30 px-6 py-2.5 transition-colors hover:cursor-pointer hover:bg-foreground/60 hover:text-black md:flex">
+            <Link href='/quote' className="hidden w-fit items-center gap-2 rounded-full border border-white/30 px-6 py-2.5 transition-colors hover:cursor-pointer hover:bg-foreground/60 hover:text-black md:flex">
               Get a Quote <FaArrowRight className="-rotate-45 text-[10px]" />
-            </button>
+            </Link>
 
             {/* Mobile Menu Button */}
             <button
@@ -102,17 +108,22 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-70 bg-foreground/75 backdrop-blur-2xl md:hidden"
+            className="fixed inset-0 z-70 bg-foreground/75 backdrop-blur-2xl md:hidden w-full"
           >
-            <div className="flex h-full flex-col px-5 pb-8 pt-6">
+            <div className="flex h-full flex-col py-5">
               {/* Top row: logo + close */}
               <div className="flex items-center justify-between">
                 <Link
                   href="/"
+                  aria-label="Mega Resources Logo"
                   onClick={() => setMobileOpen(false)}
-                  className="grid h-9 w-9 place-items-center rounded-xl text-[0.6rem] font-semibold"
+                  className="h-9 rounded-xl text-[0.6rem] font-semibold block"
                 >
-                  MEGA RESOURCES
+                  <Mega_Logo
+                  logo_height="50"
+                  logo_width="200"
+                  className='rotate-1'
+                />
                 </Link>
                 <button
                   onClick={() => setMobileOpen(false)}
@@ -124,7 +135,7 @@ const Navbar = () => {
               </div>
 
               {/* Numbered link list, staggers in from below */}
-              <nav className="mt-auto flex flex-col">
+              <nav className="mt-auto flex flex-col py-3">
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.href}
@@ -157,15 +168,16 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 16 }}
                 transition={{ delay: 0.12 + navLinks.length * 0.06, duration: 0.5 }}
-                className="mt-8"
+                className="mt-3"
               >
-                <button
+                <Link
+                  href='/quote'
                   onClick={() => setMobileOpen(false)}
-                  className="flex w-full items-center justify-center gap-2 rounded-full border border-background/30 py-3.5 text-background transition-colors hover:bg-background hover:text-foreground"
+                  className="flex w-full items-center justify-center gap-2 rounded-full border border-background/30 py-3 text-background transition-colors hover:bg-background hover:text-foreground"
                 >
                   Get a Quote{" "}
                   <FaArrowRight className="-rotate-45 text-[10px]" />
-                </button>
+                </Link>
               </motion.div>
 
               {/* Contact footer */}

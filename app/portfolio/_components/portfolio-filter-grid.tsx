@@ -102,7 +102,7 @@ function SelectField({
 function ProjectCard({ project }: { project: Project }) {
   return (
     <div className="flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)]">
-      <div className="relative aspect-4/3 w-full overflow-hidden">
+      <div className="relative aspect-6/3 w-full overflow-hidden">
         <Image
           src={project.img}
           alt={project.title}
@@ -130,7 +130,7 @@ function ProjectCard({ project }: { project: Project }) {
           <FaMapMarkerAlt className="h-2.5 w-2.5 text-blue-600" />
           {project.location}
         </div>
-        <h3 className="font-display text-lg font-semibold text-foreground">
+        <h3 className="font-display text-lg font-semibold capitalize text-foreground">
           {project.title}
         </h3>
         <p className="flex-1 text-[0.9rem] leading-[1.6] text-muted-foreground">
@@ -138,16 +138,16 @@ function ProjectCard({ project }: { project: Project }) {
         </p>
         <div className="mt-2 grid grid-cols-3 gap-2 border-t border-[rgba(10,10,10,0.08)] pt-4 text-center">
           <div>
-            <p className="font-display text-sm font-semibold text-foreground">
-              {project.depth}
+            <p className="font-display text-sm font-semibold capitalize text-foreground">
+              {project.depth} ft
             </p>
             <p className="text-[0.68rem] uppercase tracking-[0.06em] text-muted-foreground">
               Depth
             </p>
           </div>
           <div>
-            <p className="font-display text-sm font-semibold text-foreground">
-              {project.yieldRate}
+            <p className="font-display text-sm font-semibold capitalize text-foreground">
+              {project.yieldRate} l/hr
             </p>
             <p className="text-[0.68rem] uppercase tracking-[0.06em] text-muted-foreground">
               Yield
@@ -155,7 +155,7 @@ function ProjectCard({ project }: { project: Project }) {
           </div>
           <div>
             <p className="font-display text-sm font-semibold text-foreground">
-              {project.duration}
+              {project.duration} Day(s)
             </p>
             <p className="text-[0.68rem] uppercase tracking-[0.06em] text-muted-foreground">
               Duration

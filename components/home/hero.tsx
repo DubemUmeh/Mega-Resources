@@ -40,7 +40,7 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 w-full max-w-xl">
-        <div data-hero-eyebrow className="text-[10px] uppercase tracking-widest text-gray-500 mb-8">Mega Resources Ltd.</div>
+        <div data-hero-eyebrow className="text-[10px] uppercase tracking-widest text-gray-500 mb-8">drilling for your future</div>
 
         <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-light leading-[1.05] tracking-tight mb-6">
           {HEADLINE.map((word, i) => (

@@ -34,9 +34,9 @@ const Testimonials = () => {
 
   return (
     <section className="min-h-screen h-full w-full px-8 lg:px-24 pt-15 pb-35 border-b border-gray-800 bg-black text-white overflow-hidden">
-      <div className="inline-flex items-center gap-[0.45rem] border border-foreground/20 rounded-full bg-foreground/72 shadow-[0_8px_20px_rgba(15,23,42,0.05)] px-[0.8rem] py-[0.45rem] text-[0.95rem] font-semibold tracking-[0.12em] uppercase text-[#0a0a0a]">Client Stories</div>
+      <div className="inline-flex items-center border border-foreground/20 rounded-full bg-foreground/72 shadow-[0_8px_20px_rgba(15,23,42,0.05)] px-3 py-1 text-sm font-semibold tracking-[0.12em] uppercase text-[#0a0a0a]">Client Stories</div>
 
-      <div className="max-w-4xl mx-auto relative h-125 flex items-center justify-center">
+      <div className="max-w-4xl mx-auto relative h-127 mt-6 md:mt-0 flex items-center justify-center">
         <div className="relative w-full max-w-3xl h-full flex items-center justify-center">
           <AnimatePresence mode="popLayout">
             {testimonials.map((t, idx) => {
@@ -149,7 +149,7 @@ const Testimonials = () => {
 
         </div>
       </div>
-      <div className="w-full hfit flex items-center justify-center  relative left-0 top-28 md:top-8">
+      <div className="w-full h-full flex items-center justify-center  relative left-0 top-28 md:top-8">
         <Link href='/reviews' className="w-fit flex items-center cursor-pointer rounded-2xl z-0 group pl-1 py-1.5 pr-4 gap-3 bg-blue-600 hover:bg-blue-700 active:scale-95 h-12 transition-all duration-300 ease-out">
           <div className="flex justify-start items-center">
             <div className="flex justify-center items-center size-10 flex-none rounded-xl bg-white">

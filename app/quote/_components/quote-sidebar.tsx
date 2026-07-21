@@ -80,7 +80,7 @@ export default function QuoteSidebar() {
           <ArrowCta href="tel:+233240000000" label="Call Now" />
           <a
             href="https://wa.me/233240000000"
-            className="inline-flex h-12 items-center gap-2.5 rounded-2xl border border-white/20 px-5 text-[0.9rem] font-medium text-primary-foreground transition-colors hover:bg-white/10"
+            className="inline-flex h-12 items-center gap-2.5 rounded-2xl border border-white/60 px-5 text-[0.9rem] font-medium text-primary-foreground transition-colors hover:bg-white/10"
           >
             <FaWhatsapp className="h-4 w-4" />
             WhatsApp

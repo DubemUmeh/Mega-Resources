@@ -65,7 +65,7 @@ function SelectField({
 export function ReviewsFilterGrid({ reviews }: { reviews: Review[] }) {
   const [service, setService] = useState("all");
   const [rating, setRating] = useState("all");
-  const [visible, setVisible] = useState(9);
+  const [visible, setVisible] = useState(6);
 
   const serviceItems = [
     { value: "all", label: "All Services" },
@@ -126,7 +126,7 @@ export function ReviewsFilterGrid({ reviews }: { reviews: Review[] }) {
             {visible < filtered.length && (
               <div className="mt-10 flex justify-center">
                 <button
-                  onClick={() => setVisible((v) => v + 9)}
+                  onClick={() => setVisible((v) => v + 3)}
                   className="rounded-full border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-6 py-3 text-[0.85rem] font-medium text-foreground hover:bg-blue-600/10 hover:text-blue-600 transition-colors"
                 >
                   Load More Reviews
