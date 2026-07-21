@@ -1,9 +1,10 @@
 "use server";
 
-import { eq, desc } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { db } from "@/db/db";
 import { reviews } from "@/db/schema";
+import { getApprovedReviews, getReviews } from "@/src/lib/reviews";
 import { reviewSchema } from "@/db/validation-schema";
 import {
   createEmailTransporter,
@@ -32,7 +33,12 @@ export async function createReview(input: {
   try {
     const [inserted] = await db
       .insert(reviews)
-      .values({ ...parsed.data, status: "pending" })
+      .values({
+        ...parsed.data,
+        id: crypto.randomUUID(),
+        date: new Date().toLocaleDateString("en-US", { month: "long", year: "numeric" }),
+        status: "pending",
+      })
       .returning();
 
     // Best-effort admin notification — doesn't block the response.
@@ -67,35 +73,11 @@ export async function createReview(input: {
 }
 
 /* ------------------------------------------------------- Public: read */
-// Also exposed via GET /api/reviews for client components that fetch()
-// the way your Wishes component does. This is here for server
-// components / server actions that want it directly.
-export async function getApprovedReviews() {
-  const rows = await db
-    .select()
-    .from(reviews)
-    .where(eq(reviews.status, "approved"))
-    .orderBy(desc(reviews.createdAt));
-
-  return rows.map((r) => ({
-    id: r.id,
-    name: r.name,
-    title: r.title ?? undefined,
-    location: r.location,
-    services: r.services,
-    rating: r.rating,
-    message: r.message,
-    date: new Date(r.createdAt).toLocaleDateString("en-US", {
-      month: "long",
-      year: "numeric",
-    }),
-    verified: r.verified,
-  }));
-}
+export { getApprovedReviews };
 
 /* -------------------------------------------------------- Admin only */
 export async function getAllReviewsForAdmin() {
-  return db.select().from(reviews).orderBy(desc(reviews.createdAt));
+  return getReviews();
 }
 
 export async function updateReviewStatus(
