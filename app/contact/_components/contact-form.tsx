@@ -132,6 +132,7 @@ export default function ContactForm() {
           onChange={setService}
           items={serviceOptions}
           name="service"
+          exclusiveItems={["Not sure yet"]}
         />
 
         <Field id="message" label="Tell us about your water problem">

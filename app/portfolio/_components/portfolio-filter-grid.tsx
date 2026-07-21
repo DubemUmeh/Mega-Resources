@@ -3,7 +3,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import * as Select from "@radix-ui/react-select";
-import { FaChevronDown, FaCheck, FaPlay, FaMapMarkerAlt } from "react-icons/fa";
+import * as Dialog from "@radix-ui/react-dialog";
+import { FaChevronDown, FaCheck, FaPlay, FaMapMarkerAlt, FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
 import { Reveal, BG_GLOW } from "@/components/motion-kit";
 
 export interface Project {
@@ -19,6 +20,7 @@ export interface Project {
   img: string;
   isVideo?: boolean;
   summary: string;
+  gallery?: string[];
 }
 
 export const REGIONS = [
@@ -48,6 +50,7 @@ function toProject(row: Project & { depth?: string | null; yieldRate?: string | 
     duration: row.duration ?? "N/A",
     year: row.year ?? "",
     isVideo: row.isVideo ?? false,
+    gallery: row.gallery?.length ? row.gallery : [row.img],
   };
 }
 
@@ -99,9 +102,9 @@ function SelectField({
   );
 }
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void }) {
   return (
-    <div className="flex h-full flex-col overflow-hidden rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)]">
+    <button type="button" onClick={onOpen} className="flex h-full w-full flex-col overflow-hidden rounded-[1.5rem] border text-left border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)]">
       <div className="relative aspect-6/3 w-full overflow-hidden">
         <Image
           src={project.img}
@@ -163,7 +166,53 @@ function ProjectCard({ project }: { project: Project }) {
           </div>
         </div>
       </div>
-    </div>
+    </button>
+  );
+}
+
+
+function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
+  const images = project.gallery?.length ? project.gallery : [project.img];
+  const [active, setActive] = useState(0);
+
+  return (
+    <Dialog.Root open onOpenChange={(open) => !open && onClose()}>
+      <Dialog.Portal>
+        <Dialog.Overlay className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm" />
+        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-[92vh] w-[min(64rem,95vw)] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-3xl border border-white/10 bg-background p-4 shadow-2xl outline-none sm:p-6">
+          <Dialog.Title className="sr-only">{project.title}</Dialog.Title>
+          <Dialog.Close className="absolute right-4 top-4 z-20 rounded-full bg-black/60 p-2 text-white">
+            <FaTimes />
+          </Dialog.Close>
+          <div className="grid gap-4 lg:grid-cols-[6rem_1fr]">
+            <div className="hide-scrollbar order-2 flex gap-2 overflow-x-auto lg:order-1 lg:max-h-[34rem] lg:flex-col lg:overflow-y-auto">
+              {images.map((src, index) => (
+                <button key={`${src}-${index}`} type="button" onClick={() => setActive(index)} className={`relative h-20 w-20 flex-none overflow-hidden rounded-xl border ${index === active ? "border-blue-500" : "border-white/10"}`}>
+                  <Image src={src} alt={`${project.title} thumbnail ${index + 1}`} fill className="object-cover" />
+                </button>
+              ))}
+            </div>
+            <div className="order-1 space-y-5 lg:order-2">
+              <div className="relative aspect-video overflow-hidden rounded-2xl bg-black">
+                <Image src={images[active]} alt={project.title} fill className="object-contain" />
+                <button type="button" onClick={() => setActive((i) => (i - 1 + images.length) % images.length)} className="absolute left-3 top-1/2 rounded-full bg-black/60 p-3 text-white"><FaChevronLeft /></button>
+                <button type="button" onClick={() => setActive((i) => (i + 1) % images.length)} className="absolute right-3 top-1/2 rounded-full bg-black/60 p-3 text-white"><FaChevronRight /></button>
+              </div>
+              <div className="space-y-4 px-1 pb-2">
+                <div className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground"><FaMapMarkerAlt className="text-blue-600" />{project.location}<span>•</span><span>{project.year}</span><span>•</span><span>{project.service}</span></div>
+                <h3 className="font-display text-2xl font-semibold text-foreground">{project.title}</h3>
+                <p className="leading-7 text-muted-foreground">{project.summary}</p>
+                <div className="grid gap-3 sm:grid-cols-3">
+                  {[["Depth", `${project.depth} ft`], ["Yield", `${project.yieldRate} l/hr`], ["Duration", `${project.duration} Day(s)`]].map(([label, value]) => (
+                    <div key={label} className="rounded-2xl border border-white/10 bg-white/5 p-4"><p className="font-display font-semibold text-foreground">{value}</p><p className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{label}</p></div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   );
 }
 
@@ -176,6 +225,7 @@ export function PortfolioFilterGrid() {
   const [visible, setVisible] = useState(INITIAL_VISIBLE);
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const gridTopRef = useRef<HTMLDivElement>(null);
 
   const regionItems = [
@@ -283,7 +333,7 @@ export function PortfolioFilterGrid() {
             <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {filtered.slice(0, visible).map((project, i) => (
                 <Reveal key={project.id} delay={(i % 3) * 0.06}>
-                  <ProjectCard project={project} />
+                  <ProjectCard project={project} onOpen={() => setSelectedProject(project)} />
                 </Reveal>
               ))}
             </div>
@@ -309,6 +359,9 @@ export function PortfolioFilterGrid() {
               </div>
             )}
           </>
+        )}
+        {selectedProject && (
+          <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
         )}
       </div>
     </section>

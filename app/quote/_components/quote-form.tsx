@@ -149,6 +149,7 @@ export default function QuoteForm() {
     if (!form.phone.trim()) next.phone = "Please enter a phone number we can reach you on.";
     if (!form.region) next.region = "Please select your region.";
     if (form.service.length === 0) next.service = "Please select at least one service.";
+    if (form.contactMethod === "email" && !form.email.trim()) next.email = "Please enter an email address when email is your preferred contact method.";
     if (!form.consent) next.consent = "Please confirm you're okay with us contacting you.";
     return next;
   }
@@ -242,6 +243,7 @@ export default function QuoteForm() {
           maxLength={120}
           className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-3 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600"
         />
+        {errors.email && <p className="text-xs text-red-400">{errors.email}</p>}
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
@@ -260,6 +262,7 @@ export default function QuoteForm() {
           onChange={(v) => update("service", v)}
           items={SERVICES}
           error={errors.service}
+          exclusiveItems={["Not Sure Yet"]}
         />
       </div>
 
@@ -299,6 +302,12 @@ export default function QuoteForm() {
             </RadioGroup.Item>
           ))}
         </RadioGroup.Root>
+        {form.contactMethod === "whatsapp" && (
+          <p className="text-xs leading-relaxed text-blue-300">
+            Please make sure the phone number above is active on WhatsApp so we can reach you there.
+          </p>
+        )}
+        {errors.contactMethod && <p className="text-xs text-red-400">{errors.contactMethod}</p>}
       </div>
 
       <div className="flex flex-col gap-1.5">

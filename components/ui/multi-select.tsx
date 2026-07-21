@@ -11,6 +11,7 @@ export function MultiSelectField({
   items,
   error,
   name,
+  exclusiveItems = [],
 }: {
   label?: string;
   placeholder: string;
@@ -20,13 +21,16 @@ export function MultiSelectField({
   error?: string;
   /** If provided, renders hidden inputs so plain FormData submission still captures every selected value under this name. */
   name?: string;
+  /** Items that cannot be combined with any other item, e.g. "Not sure yet". */
+  exclusiveItems?: string[];
 }) {
   function toggle(item: string) {
-    onChange(
-      values.includes(item)
-        ? values.filter((v) => v !== item)
-        : [...values, item]
-    );
+    if (values.includes(item)) {
+      onChange(values.filter((v) => v !== item));
+      return;
+    }
+
+    onChange(exclusiveItems.includes(item) ? [item] : [...values.filter((v) => !exclusiveItems.includes(v)), item]);
   }
 
   return (
@@ -61,7 +65,7 @@ export function MultiSelectField({
           <DropdownMenu.Content
             align="start"
             sideOffset={8}
-            className="z-50 max-h-72 w-(--radix-dropdown-menu-trigger-width) overflow-y-auto overflow-x-hidden rounded-xl border border-[rgba(10,10,10,0.08)] bg-background p-1.5 shadow-xl"
+            className="z-50 hide-scrollbar no-scrollbar max-h-72 w-(--radix-dropdown-menu-trigger-width) overflow-y-auto overflow-x-hidden rounded-xl border border-[rgba(10,10,10,0.08)] bg-background p-1.5 shadow-xl"
           >
             {items.map((item) => {
               const checked = values.includes(item);
