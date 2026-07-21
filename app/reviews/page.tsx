@@ -1,4 +1,4 @@
-import { getApprovedReviews } from "@/src/lib/reviews";
+import { getApprovedReviews } from "@/lib/reviews";
 import { ReviewsPageClient } from "./_components/reviews-page-client";
 
 export default async function ReviewsPage() {

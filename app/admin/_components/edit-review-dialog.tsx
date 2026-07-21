@@ -104,7 +104,7 @@ function EditReviewDialogForm({
                     className="flex w-full items-center justify-between rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-left text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
                   >
                     <span className="truncate">
-                      {draft.service.length > 0 ? draft.service.join(", ") : "Select services"}
+                      {draft.services.length > 0 ? draft.services.join(", ") : "Select services"}
                     </span>
                     <FaChevronDown className="h-2.5 w-2.5 shrink-0 text-muted-foreground" />
                   </button>
@@ -116,7 +116,7 @@ function EditReviewDialogForm({
                     className="z-60 w-(--radix-dropdown-menu-trigger-width) overflow-hidden rounded-xl border border-[rgba(10,10,10,0.08)] bg-background p-1.5 shadow-xl"
                   >
                     {SERVICE_TYPES.map((s) => {
-                      const checked = draft.service.includes(s);
+                      const checked = draft.services.includes(s);
                       return (
                         <DropdownMenu.CheckboxItem
                           key={s}
@@ -125,9 +125,9 @@ function EditReviewDialogForm({
                           onCheckedChange={(isChecked) =>
                             setDraft({
                               ...draft,
-                              service: isChecked
-                                ? [...draft.service, s]
-                                : draft.service.filter((x) => x !== s),
+                              services: isChecked
+                                ? [...draft.services, s]
+                                : draft.services.filter((x) => x !== s),
                             })
                           }
                           className="flex cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-2 text-[0.88rem] text-foreground outline-none data-highlighted:bg-blue-600/10 data-highlighted:text-blue-600"

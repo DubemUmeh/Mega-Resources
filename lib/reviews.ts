@@ -9,7 +9,7 @@ export function formatReview(row: typeof reviews.$inferSelect): Review {
     name: row.name,
     title: row.title ?? undefined,
     location: row.location,
-    service: row.services as Review["service"],
+    services: row.services as Review["services"],
     rating: row.rating,
     message: row.message,
     date:
@@ -48,7 +48,11 @@ export async function getApprovedReviews() {
 }
 
 export async function getReviewById(id: string) {
-  const [row] = await db.select().from(reviews).where(eq(reviews.id, id)).limit(1);
+  const [row] = await db
+    .select()
+    .from(reviews)
+    .where(eq(reviews.id, id))
+    .limit(1);
   return row ? formatReview(row) : null;
 }
 

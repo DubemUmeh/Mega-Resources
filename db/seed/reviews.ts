@@ -4,7 +4,7 @@ import { reviews } from "@/db/schema";
 
 const reviewSeeds = [
   {
-    id: "rv-001",
+    id: "10326a78-1e6f-405d-874d-37467b3922aa",
     name: "Mrs. Ama Owusu",
     location: "Tema, Greater Accra",
     services: ["Borehole Drilling"],
@@ -15,7 +15,7 @@ const reviewSeeds = [
     verified: true,
   },
   {
-    id: "rv-002",
+    id: "06c42f4a-3bc4-4ec0-a6b3-e28eb0c9fc15",
     name: "Aisha Mensah",
     title: "Operations Director \u2014 Green Farms Ghana",
     location: "Kumasi, Ashanti Region",
@@ -27,7 +27,7 @@ const reviewSeeds = [
     verified: true,
   },
   {
-    id: "rv-003",
+    id: "b01ca3ad-0081-4412-8f90-e2c9130f2fda",
     name: "David Osei",
     title: "Facilities Manager \u2014 Tamale",
     location: "Tamale, Northern Region",
@@ -39,7 +39,7 @@ const reviewSeeds = [
     verified: true,
   },
   {
-    id: "rv-004",
+    id: "28a4167d-305a-4a75-aba0-ca6dc43d3f7a",
     name: "Kwabena Asante",
     location: "Takoradi, Western Region",
     services: ["Borehole Rehabilitation"],
@@ -50,7 +50,7 @@ const reviewSeeds = [
     verified: true,
   },
   {
-    id: "rv-005",
+    id: "544eca82-42e2-459e-aad2-49a62fe01a2f",
     name: "Grace Adjei",
     location: "East Legon, Accra",
     services: ["Borehole Drilling"],
@@ -61,7 +61,7 @@ const reviewSeeds = [
     verified: true,
   },
   {
-    id: "rv-006",
+    id: "d89a11db-1c98-4f83-9806-4969307f0cab",
     name: "Samuel Boateng",
     title: "Site Supervisor \u2014 Sunyani",
     location: "Sunyani, Bono Region",
@@ -73,7 +73,7 @@ const reviewSeeds = [
     verified: true,
   },
   {
-    id: "rv-007",
+    id: "a08d039e-59e3-48cc-9a05-359ea821bfd5",
     name: "Efua Darko",
     location: "Cape Coast, Central Region",
     services: ["Geological Survey"],
@@ -84,7 +84,7 @@ const reviewSeeds = [
     verified: true,
   },
   {
-    id: "rv-008",
+    id: "cdb55877-d7c5-4b35-afce-e6da451df041",
     name: "Yaw Mensah",
     location: "Koforidua, Eastern Region",
     services: ["Hydro-fracturing"],
@@ -95,7 +95,7 @@ const reviewSeeds = [
     verified: false,
   },
   {
-    id: "rv-009",
+    id: "cc1943d1-7a4f-4d78-96d9-45648a4a4817",
     name: "Comfort Nyarko",
     title: "Facilities Coordinator \u2014 St. Peter's Parish",
     location: "Ho, Volta Region",
@@ -107,7 +107,7 @@ const reviewSeeds = [
     verified: true,
   },
   {
-    id: "rv-010",
+    id: "c7036c70-5e67-4c75-9b5f-d5d939b4b7f8",
     name: "Isaac Appiah",
     location: "Wa, Upper West Region",
     services: ["Borehole Rehabilitation"],
@@ -118,7 +118,7 @@ const reviewSeeds = [
     verified: true,
   },
   {
-    id: "rv-011",
+    id: "6c9a8210-160c-4590-bdc2-659158d316cc",
     name: "Abena Frimpong",
     location: "Obuasi, Ashanti Region",
     services: ["Pump Installation"],
@@ -129,7 +129,7 @@ const reviewSeeds = [
     verified: true,
   },
   {
-    id: "rv-012",
+    id: "d4eb9f74-35ca-44d4-baff-2ab3e751f54f",
     name: "Kofi Amoah",
     title: "Site Manager \u2014 Tarkwa Mining Camp",
     location: "Tarkwa, Western Region",
@@ -141,7 +141,7 @@ const reviewSeeds = [
     verified: true,
   },
   {
-    id: "rv-013",
+    id: "3acbfae3-b768-478d-9de5-768d688cdbef",
     name: "Linda Sarpong",
     title: "Estate Manager \u2014 Techiman Residences",
     location: "Techiman, Bono East Region",
@@ -153,7 +153,7 @@ const reviewSeeds = [
     verified: true,
   },
   {
-    id: "rv-014",
+    id: "11e3fde5-f6b2-4ea5-b010-382e49f2c381",
     name: "Emmanuel Tetteh",
     location: "Nungua, Greater Accra",
     services: ["Geological Survey"],
@@ -166,5 +166,8 @@ const reviewSeeds = [
 ] satisfies NewDbReview[];
 
 export async function seedReviews() {
-  await db.insert(reviews).values(reviewSeeds).onConflictDoNothing({ target: reviews.id });
+  await db
+    .insert(reviews)
+    .values(reviewSeeds)
+    .onConflictDoNothing({ target: reviews.id });
 }

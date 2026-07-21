@@ -2,6 +2,7 @@
 
 import { useRef, useLayoutEffect } from "react";
 import { FaArrowRight, FaTint, FaWhatsapp, FaCheckCircle } from "react-icons/fa";
+import Link from "next/link";
 import { gsap } from "@/lib/gsap";
 
 const HEADLINE = ["WATER.", "EXPERTISE.", "RELIABILITY."];
@@ -61,10 +62,10 @@ export default function Hero() {
         </div>
 
         <div data-hero-cta className="flex flex-wrap items-center gap-4 mb-10">
-          <button className="flex items-center gap-3 text-xs font-medium bg-white text-black rounded-full px-6 py-3.5 hover:bg-gray-200 transition-colors group">
+          <Link href='/quote' className="flex items-center gap-3 text-xs font-medium bg-white text-black rounded-full px-6 py-3.5 hover:bg-gray-200 transition-colors group">
             Get a Free Site Survey
             <FaArrowRight className="transform -rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-[10px]" />
-          </button>
+          </Link>
           <button className="flex items-center gap-3 text-xs font-medium border border-white/25 rounded-full px-6 py-3.5 hover:bg-white/10 transition-colors text-white">
             <FaWhatsapp className="text-sm" />
             024 XXX XXXX

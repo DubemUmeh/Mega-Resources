@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 import * as schema from "./schema";
@@ -8,8 +9,8 @@ const pool = new Pool({
 
 export const db = drizzle(pool, { schema });
 
-/* If you deploy on Vercel/Neon and want the serverless (edge-friendly)
-   driver instead of a long-lived pool, swap the two lines above for:
+/* Whwn deployed on Vercel/Neon, for serverless (edge-friendly) driver instead of a long-lived pool, 
+    swap the two lines above for:
 
    import { drizzle } from "drizzle-orm/neon-http";
    import { neon } from "@neondatabase/serverless";

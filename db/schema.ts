@@ -9,11 +9,6 @@ import {
   pgEnum,
 } from "drizzle-orm/pg-core";
 
-/* ------------------------------------------------------------------ */
-/*  Add these alongside your existing `wishes` / `images` / `admins`   */
-/*  tables in schema.ts. Nothing here touches those.                   */
-/* ------------------------------------------------------------------ */
-
 export const reviewStatusEnum = pgEnum("review_status", [
   "pending",
   "approved",
