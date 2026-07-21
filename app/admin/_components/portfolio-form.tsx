@@ -6,6 +6,7 @@ import Image from "next/image";
 import * as Select from "@radix-ui/react-select";
 import { FaChevronDown, FaCheck, FaCloudUploadAlt, FaTimes } from "react-icons/fa";
 import { useToast } from "@/components/ui/toast";
+import { uploadImageToCloudinary } from "@/lib/cloudinary-upload";
 import {
   Portfolio,
   PortfolioFormErrors,
@@ -123,6 +124,7 @@ export function PortfolioForm({
   const [draft, setDraft] = useState<Portfolio>(initial ?? emptyDraft());
   const [errors, setErrors] = useState<PortfolioFormErrors>({});
   const [isPending, setIsPending] = useState(false);
+  const [selectedCoverFile, setSelectedCoverFile] = useState<File | null>(null);
 
   function update<K extends keyof Portfolio>(key: K, value: Portfolio[K]) {
     setDraft((d) => ({ ...d, [key]: value }));
@@ -130,6 +132,7 @@ export function PortfolioForm({
 
   function handleImageSelect(file: File | null) {
     if (!file) return;
+    setSelectedCoverFile(file);
     const reader = new FileReader();
     reader.onload = () => update("img", reader.result as string);
     reader.readAsDataURL(file);
@@ -163,12 +166,18 @@ export function PortfolioForm({
     }
 
     setIsPending(true);
-    const saved: Portfolio = {
-      ...draft,
-      id: draft.id,
-    };
-
     try {
+      const uploadedCover = selectedCoverFile
+        ? await uploadImageToCloudinary(selectedCoverFile)
+        : null;
+
+      const saved: Portfolio = {
+        ...draft,
+        id: draft.id,
+        img: uploadedCover?.url ?? draft.img,
+        imgPublicId: uploadedCover?.publicId ?? draft.imgPublicId,
+      };
+
       await onSubmit(saved);
       showToast({
         title: initial ? "Project updated" : "Project created",
@@ -339,6 +348,8 @@ export function PortfolioForm({
                   onClick={(e) => {
                     e.stopPropagation();
                     update("img", "");
+                    update("imgPublicId", undefined);
+                    setSelectedCoverFile(null);
                   }}
                   className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white transition-colors hover:bg-black/70"
                   aria-label="Remove photo"
