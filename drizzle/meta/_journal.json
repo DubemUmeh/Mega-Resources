@@ -15,6 +15,13 @@
       "when": 1784631678683,
       "tag": "0001_special_vector",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1784638111177,
+      "tag": "0002_drop_review_verified",
+      "breakpoints": true
     }
   ]
 }

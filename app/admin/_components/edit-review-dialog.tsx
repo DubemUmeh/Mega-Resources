@@ -3,9 +3,16 @@
 import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
+import * as Select from "@radix-ui/react-select";
 import { FaTimes, FaChevronDown, FaCheck } from "react-icons/fa";
 import { StarInput } from "./star-input";
-import { Review, SERVICE_TYPES } from "@/db/types";
+import { Review, ReviewStatus, SERVICE_TYPES } from "@/db/types";
+
+const REVIEW_STATUS_OPTIONS: { value: ReviewStatus; label: string }[] = [
+  { value: "pending", label: "Pending" },
+  { value: "approved", label: "Approved" },
+  { value: "rejected", label: "Rejected" },
+];
 
 export function EditReviewDialog({
   review,
@@ -155,15 +162,45 @@ function EditReviewDialogForm({
               />
             </div>
 
-            <label className="flex items-center gap-2.5 text-[0.85rem] text-foreground">
-              <input
-                type="checkbox"
-                checked={draft.verified}
-                onChange={(e) => setDraft({ ...draft, verified: e.target.checked })}
-                className="h-4 w-4 rounded border-[rgba(10,10,10,0.2)] accent-blue-600"
-              />
-              Verified client
-            </label>
+            <div className="flex flex-col gap-1.5">
+              <label className="text-sm font-medium text-foreground">Moderation Status</label>
+              <Select.Root
+                value={draft.status}
+                onValueChange={(value) => setDraft({ ...draft, status: value as ReviewStatus })}
+              >
+                <Select.Trigger
+                  aria-label="Review moderation status"
+                  className="flex w-full items-center justify-between rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-left text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
+                >
+                  <Select.Value />
+                  <Select.Icon>
+                    <FaChevronDown className="h-2.5 w-2.5 shrink-0 text-muted-foreground" />
+                  </Select.Icon>
+                </Select.Trigger>
+                <Select.Portal>
+                  <Select.Content
+                    position="popper"
+                    sideOffset={8}
+                    className="z-60 overflow-hidden rounded-xl border border-[rgba(10,10,10,0.08)] bg-background shadow-xl"
+                  >
+                    <Select.Viewport className="p-1.5">
+                      {REVIEW_STATUS_OPTIONS.map((option) => (
+                        <Select.Item
+                          key={option.value}
+                          value={option.value}
+                          className="flex cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-2 text-[0.88rem] text-foreground outline-none data-highlighted:bg-blue-600/10 data-highlighted:text-blue-600"
+                        >
+                          <Select.ItemText>{option.label}</Select.ItemText>
+                          <Select.ItemIndicator>
+                            <FaCheck className="h-2.5 w-2.5 text-blue-600" />
+                          </Select.ItemIndicator>
+                        </Select.Item>
+                      ))}
+                    </Select.Viewport>
+                  </Select.Content>
+                </Select.Portal>
+              </Select.Root>
+            </div>
 
             <div className="flex justify-end gap-3 pt-1">
               <Dialog.Close asChild>
