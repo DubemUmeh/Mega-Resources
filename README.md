@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mega Resources LTD
 
-## Getting Started
+A complete marketing website and admin dashboard for a borehole drilling and water solutions company in Ghana. It helps the business showcase services, project history, and client reviews, while giving the team a straightforward way to manage content, moderate reviews, and capture quote requests — all without needing to touch code.
 
-First, run the development server:
+## System Architecture
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```mermaid
+flowchart LR
+    WebBrowser["Web Browser"]
+    NextApp["Website & Admin Dashboard"]
+    Database[("PostgreSQL")]
+    Cloudinary["Cloudinary Image Storage"]
+
+    WebBrowser --> NextApp
+    NextApp --> Database
+    NextApp --> Cloudinary
+
+    style WebBrowser fill:#1e1b4b,stroke:#6366f1,stroke-width:2px,color:#fff
+    style NextApp fill:#2e1065,stroke:#8b5cf6,stroke-width:2px,color:#fff
+    style Database fill:#0f172a,stroke:#3b82f6,stroke-width:2px,color:#fff
+    style Cloudinary fill:#164e63,stroke:#06b6d4,stroke-width:2px,color:#fff
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Public website pages
+- A fully responsive, animated front-end built with Next.js and Tailwind CSS. Visitors can browse services, read detailed project case studies, view a live reviews feed, and request a free site survey or custom quote.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Admin dashboard
+A dedicated admin area allows the team to manage site content without developer involvement. The three core administrative workflows are:
 
-## Learn More
+#### Portfolio Management
+Add, edit, or delete completed projects. Each project includes a cover image (or video indicator), multiple gallery photos, location, service type, depth, yield, and a summary. Images are uploaded directly to Cloudinary before the record is saved in the database.
 
-To learn more about Next.js, take a look at the following resources:
+```mermaid
+sequenceDiagram
+    actor Admin as Admin User
+    participant Dashboard as Admin Dashboard
+    participant Cloud as Cloudinary
+    participant DB as Database
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    Admin->>Dashboard: Fill project form + select images
+    Dashboard->>Cloud: Upload image files
+    Cloud-->>Dashboard: Return image URLs
+    Dashboard->>DB: Insert project record with images
+    DB-->>Dashboard: Project saved
+    Dashboard-->>Admin: Show success & updated list
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+#### Review Moderation
+Visitors submit reviews through a public form. Every submission lands in the database with a ‘pending’ status. Admins can approve, reject, or edit a review before it appears on the public reviews page.
 
-## Deploy on Vercel
+```mermaid
+sequenceDiagram
+    actor Visitor
+    participant Site as Public Site
+    participant DB as Database
+    actor Admin as Admin User
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    Visitor->>Site: Submit a review (name, rating, message)
+    Site->>DB: Insert review with status ‘pending’
+    DB-->>Site: Confirmation
+    Site-->>Visitor: Thank you message
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    Admin->>Site: Open admin reviews list
+    Site->>DB: Fetch all reviews
+    DB-->>Site: Return list (including pending)
+    Site-->>Admin: Display reviews
+
+    Admin->>Site: Approve or edit a review
+    Site->>DB: Update review record (status / content)
+    DB-->>Site: Success
+    Site-->>Admin: Updated list
+```
+
+#### Quote Request Handling
+Potential clients fill out a multi-step form specifying their location, service needs, property type, and contact preferences. The submission is stored in the database and the team receives a notification. A free site survey promise is built into the flow.
+
+```mermaid
+sequenceDiagram
+    actor Client
+    participant Web as Website
+    participant DB as Database
+
+    Client->>Web: Complete quote request form
+    Web->>Web: Validate inputs
+    Web->>DB: Save quote request record
+    DB-->>Web: OK
+    Web-->>Client: Confirmation screen (“We’ll contact you within 24h”)
+```
+
+### Additional highlights
+- GSAP-powered scroll animations and interactive service showcase that freezes the page until the viewer scrolls through all seven services.
+- A live survey depth diagram using Framer Motion to animate borehole scanning.
+- Cloudinary upload widget integration for signature-based upload security.
+- Drizzle ORM for type-safe database operations and migrations.
+- Built-in toast notifications for form feedback and admin actions.
+- Separate legal pages (Privacy Policy, Terms of Service) that can be updated as static content.
+
+## Technologies Used
+
+| Technology | Purpose | Link |
+| --- | --- | --- |
+| Next.js 16 | React framework (app router) | https://nextjs.org |
+| TypeScript | Static typing | https://www.typescriptlang.org |
+| React 19 | UI library | https://react.dev |
+| Tailwind CSS 4 | Utility-first CSS framework | https://tailwindcss.com |
+| Radix UI | Accessible headless UI primitives | https://www.radix-ui.com |
+| Drizzle ORM | SQL toolkit and ORM for TypeScript | https://orm.drizzle.team |
+| PostgreSQL | Relational database | https://www.postgresql.org |
+| Cloudinary | Image hosting and transformation | https://cloudinary.com |
+| Nodemailer | Email sending (SMTP) | https://nodemailer.com |
+| Framer Motion | Animation library for React | https://www.framer.com/motion |
+| GSAP | Advanced scroll-triggered animations | https://gsap.com |
+| Zod | Schema validation | https://zod.dev |
+| Lucide React | Icon library | https://lucide.dev |
+| shadcn/ui | Components built on Radix & Tailwind | https://ui.shadcn.com |
+
+## Author
+
+- LinkedIn: [https://linkedin.com/in/dubem-umeh-raphael](https://linkedin.com/in/dubem-umeh-raphael)
+- X (Twitter): [https://x.com/dubem_umeh](https://x.com/dubem_umeh)
+
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![Drizzle](https://img.shields.io/badge/Drizzle-C5F74F?style=for-the-badge&logo=drizzle&logoColor=black)](https://orm.drizzle.team)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org)
+
+[![Readme was generated by Dokugen](https://img.shields.io/badge/Readme%20was%20generated%20by-Dokugen-brightgreen)](https://dokugen.samueltuoyo.com)
