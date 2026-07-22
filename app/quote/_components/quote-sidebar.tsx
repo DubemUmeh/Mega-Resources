@@ -73,7 +73,7 @@ export default function QuoteSidebar() {
 
       <div className="flex flex-col gap-4 rounded-[1.5rem] bg-foreground/80 p-6">
         <p className="text-[0.9rem] leading-relaxed text-primary-foreground/80">
-          Prefer to skip the form? Reach us directly and we'll take your
+          Prefer to skip the form? Reach us directly and we&apos;ll take your
           details over the phone.
         </p>
         <div className="flex flex-wrap gap-3">

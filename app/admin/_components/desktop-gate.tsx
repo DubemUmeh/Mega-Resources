@@ -24,10 +24,13 @@ export function DesktopGate({
 
   useEffect(() => {
     const mq = window.matchMedia("(min-width: 1024px)");
-    setIsDesktop(mq.matches);
+    const frame = requestAnimationFrame(() => setIsDesktop(mq.matches));
     const listener = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
     mq.addEventListener("change", listener);
-    return () => mq.removeEventListener("change", listener);
+    return () => {
+      cancelAnimationFrame(frame);
+      mq.removeEventListener("change", listener);
+    };
   }, []);
 
   // Avoid a flash of the wrong state during hydration.
