@@ -1,15 +1,9 @@
-import type { Metadata } from "next";
 import ServiceTemplate, {
   type ServiceData,
 } from "../_components/service-template";
+import { createServiceMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Hydro-fracturing | Unlock Higher Yield From Low-Yield Rock",
-  description:
-    "Hydro-fracturing enhances low-yield rock formations by opening and widening fractures, unlocking higher and more reliable water flow.",
-};
-
-const data: ServiceData = {
+export const data: ServiceData = {
   num: "04",
   slug: "hydro-fracturing",
   eyebrow: "Service 04",
@@ -76,7 +70,14 @@ const data: ServiceData = {
   ctaBody:
     "If your borehole was drilled correctly but the yield is low, hydro-fracturing may be the fix — without a new well.",
   next: { slug: "geological-surveys", title: "Geological Surveys" },
+  related: [
+    { slug: "geological-surveys", title: "Geological Surveys", reason: "Confirm fracture targets from site geology." },
+    { slug: "air-lifting-developing", title: "Air Lifting / Developing", reason: "Remove fines released during stimulation." },
+    { slug: "pumping-tests", title: "Pumping Tests", reason: "Quantify the yield improvement after fracturing." },
+  ],
 };
+
+export const metadata = createServiceMetadata(data);
 
 export default function Page() {
   return <ServiceTemplate data={data} />;

@@ -16,6 +16,8 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Reveal, ArrowCta, BG_GLOW } from "@/components/motion-kit";
+import { StructuredData } from "@/components/structured-data";
+import { serviceSchema } from "@/lib/seo";
 
 // Map string keys -> icon components so page.tsx files (server components)
 // can stay plain data files without importing framer-motion / lucide directly.
@@ -59,13 +61,18 @@ export interface ServiceData {
   ctaHeading: string;
   ctaBody: string;
   next?: { slug: string; title: string };
+  related?: { slug: string; title: string; reason: string }[];
 }
 
 export default function ServiceTemplate({ data }: { data: ServiceData }) {
   const HeroIcon = ICONS[data.icon];
 
+  const serviceName = `${data.title.replace(/\s*\/\s*$/, "")} ${data.titleAccent}`.trim();
+  const relatedLinks = data.related ?? [];
+
   return (
     <div className="w-full bg-background/50">
+      <StructuredData data={serviceSchema(data)} />
       {/* ---------------------------------------------------------- HERO */}
       <div className={BG_GLOW} />
       <section className="relative overflow-hidden px-5 pt-32 pb-16 md:px-10 md:pt-40 md:pb-24">
@@ -268,6 +275,38 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
           </div>
         </div>
       </section>
+
+
+
+      {/* ----------------------------------------------- INTERNAL LINKS */}
+      {relatedLinks.length > 0 ? (
+        <section className="relative px-5 pb-16 md:px-10 md:pb-20">
+          <Reveal className="mx-auto w-[min(100%,76rem)] rounded-[1.8rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.45)] p-7 md:p-10">
+            <span className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+              Plan the complete water system
+            </span>
+            <h2 className="mt-3 font-display text-2xl font-semibold text-foreground md:text-3xl">
+              Services commonly paired with {serviceName}
+            </h2>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {relatedLinks.map((link) => (
+                <Link
+                  key={link.slug}
+                  href={`/services/${link.slug}`}
+                  className="group rounded-2xl border border-foreground/10 bg-background/40 p-5 transition-colors hover:border-blue-600/40 hover:bg-background/60"
+                >
+                  <span className="font-display text-lg font-semibold text-foreground group-hover:text-blue-600">
+                    {link.title}
+                  </span>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                    {link.reason}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </Reveal>
+        </section>
+      ) : null}
 
       {/* ------------------------------------------------------------ CTA */}
       <section className="px-5 pb-24 md:px-10">

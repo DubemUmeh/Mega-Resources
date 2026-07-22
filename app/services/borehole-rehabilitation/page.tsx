@@ -1,15 +1,9 @@
-import type { Metadata } from "next";
 import ServiceTemplate, {
   type ServiceData,
 } from "../_components/service-template";
+import { createServiceMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Borehole Rehabilitation | Restore Low-Yield & Muddy Wells",
-  description:
-    "We clean, redevelop, and restore old or clogged boreholes suffering from low yield or muddy water — often without a full re-drill.",
-};
-
-const data: ServiceData = {
+export const data: ServiceData = {
   num: "03",
   slug: "borehole-rehabilitation",
   eyebrow: "Service 03",
@@ -76,7 +70,14 @@ const data: ServiceData = {
   ctaBody:
     "Before you write off an old well, let us diagnose it — rehabilitation restores many boreholes to full working order.",
   next: { slug: "hydro-fracturing", title: "Hydro-fracturing" },
+  related: [
+    { slug: "air-lifting-developing", title: "Air Lifting / Developing", reason: "Clear loosened sediment after cleaning work." },
+    { slug: "pumping-tests", title: "Pumping Tests", reason: "Measure recovery after rehabilitation." },
+    { slug: "pump-installation", title: "Pump Installation", reason: "Replace worn pumps only after well performance is restored." },
+  ],
 };
+
+export const metadata = createServiceMetadata(data);
 
 export default function Page() {
   return <ServiceTemplate data={data} />;

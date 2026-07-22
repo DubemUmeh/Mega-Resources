@@ -1,15 +1,9 @@
-import type { Metadata } from "next";
 import ServiceTemplate, {
   type ServiceData,
 } from "../_components/service-template";
+import { createServiceMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Geological Surveys | Confirm Water Depth & Volume Before Drilling",
-  description:
-    "Geophysical surveys that confirm likely water depth and volume on your land before drilling begins, so every borehole is placed with confidence.",
-};
-
-const data: ServiceData = {
+export const data: ServiceData = {
   num: "05",
   slug: "geological-surveys",
   eyebrow: "Service 05",
@@ -76,7 +70,14 @@ const data: ServiceData = {
   ctaBody:
     "A geological survey tells us where the water is likely to be before we commit a rig to your land.",
   next: { slug: "pumping-tests", title: "Pumping Tests" },
+  related: [
+    { slug: "borehole-drilling", title: "Borehole Drilling", reason: "Turn the strongest survey target into a productive well." },
+    { slug: "hydro-fracturing", title: "Hydro-fracturing", reason: "Assess whether tight rock can be stimulated." },
+    { slug: "pumping-tests", title: "Pumping Tests", reason: "Validate groundwater potential with production data." },
+  ],
 };
+
+export const metadata = createServiceMetadata(data);
 
 export default function Page() {
   return <ServiceTemplate data={data} />;

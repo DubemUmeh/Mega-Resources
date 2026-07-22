@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getApprovedReviews } from "@/lib/reviews";
 import { ReviewsPageClient } from "./_components/reviews-page-client";
 
