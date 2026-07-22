@@ -1,3 +1,12 @@
+export const MEGA_LOGO_EMAIL_SVG = `
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 112" width="160" height="56" role="img" aria-label="Mega Resources" style="display:block;margin:0 auto;">
+    <rect width="320" height="112" rx="20" fill="#ffffff"/>
+    <path d="M28 76 42 28h40l6 34 19-34h42l-8 48h-29l4-22-13 22H76l-4-23-6 23H28Z" fill="#b1814d"/>
+    <path d="M156 29h74v16h-45v9h39v15h-39v9h46v16h-75V29Zm84 0h32c29 0 48 12 48 32s-19 33-48 33h-32V29Zm30 17v31h5c10 0 17-6 17-16s-7-15-17-15h-5Z" fill="#262c37"/>
+    <path d="M28 92h264" stroke="#b1814d" stroke-width="6" stroke-linecap="round"/>
+  </svg>
+`;
+
 type LogoSize = {
   logo_height: string;
   logo_width: string;

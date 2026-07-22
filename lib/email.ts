@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { MEGA_LOGO_EMAIL_SVG } from "@/components/logo";
 
 export const emailConfig = {
   host: "smtp-relay.brevo.com",
@@ -16,6 +17,8 @@ export const createEmailTransporter = () => {
   return nodemailer.createTransport(emailConfig);
 };
 
+const brandLogo = MEGA_LOGO_EMAIL_SVG;
+
 const emailShell = (
   title: string,
   fields: { label: string; value: string }[],
@@ -25,19 +28,22 @@ const emailShell = (
   <html>
     <head>
       <style>
-        body { font-family: 'Courier New', monospace; background: #000; color: #fff; padding: 40px; }
-        .container { max-width: 600px; margin: 0 auto; background: #0a0a0a; border: 1px solid #262626; padding: 30px; }
-        .header { border-bottom: 2px solid #fff; padding-bottom: 20px; margin-bottom: 30px; }
-        .header h1 { margin: 0; font-size: 24px; letter-spacing: 2px; }
+        body { font-family: Arial, Helvetica, sans-serif; background: #f4f7fb; color: #1f2937; padding: 40px; }
+        .container { max-width: 600px; margin: 0 auto; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 18px; padding: 30px; box-shadow: 0 18px 48px rgba(15, 23, 42, 0.08); }
+        .brand { text-align: center; margin-bottom: 24px; }
+        .brand-logo { margin: 0 auto; }
+        .header { border-bottom: 2px solid #b1814d; padding-bottom: 20px; margin-bottom: 30px; }
+        .header h1 { margin: 0; color: #262c37; font-size: 24px; letter-spacing: 2px; }
         .field { margin-bottom: 20px; }
         .label { color: #a3a3a3; font-size: 12px; letter-spacing: 1px; margin-bottom: 5px; }
         .value { font-size: 16px; line-height: 1.6; }
-        .message-box { background: #1a1a1a; border: 1px solid #333; padding: 20px; margin-top: 20px; }
-        .footer { margin-top: 30px; padding-top: 20px; border-top: 1px solid #262626; color: #737373; font-size: 12px; }
+        .message-box { background: #f9fafb; border: 1px solid #e5e7eb; padding: 20px; margin-top: 20px; }
+        .footer { margin-top: 30px; padding-top: 20px; border-top: 1px solid #e5e7eb; color: #737373; font-size: 12px; }
       </style>
     </head>
     <body>
       <div class="container">
+        <div class="brand">${brandLogo}</div>
         <div class="header"><h1>${title}</h1></div>
         ${fields
           .map(
