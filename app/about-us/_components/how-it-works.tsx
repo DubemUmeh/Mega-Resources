@@ -111,8 +111,8 @@ export default function HowItWorks() {
           </h2>
           <p className="mt-4 text-[1.02rem] leading-[1.75] text-muted-foreground">
             Not knowing what comes next is the most stressful part of any
-            home project — and it's exactly where most drilling jobs in
-            Ghana go wrong. Here's the whole process, start to finish, in
+            home project — and it&apos;s exactly where most drilling jobs in
+            Ghana go wrong. Here&apos;s the whole process, start to finish, in
             four steps. No vague timelines, no contractor who disappears
             after the deposit.
           </p>

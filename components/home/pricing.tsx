@@ -24,7 +24,7 @@ const Pricing = () => {
           </h2>
         </div>
         <p className="text-[13px] text-gray-400 leading-relaxed max-w-sm font-light">
-          Every site is different, so a number on a webpage would just be a guess. Here's what genuinely moves the cost — and how we quote it properly.
+          Every site is different, so a number on a webpage would just be a guess. Here&apos;s what genuinely moves the cost — and how we quote it properly.
         </p>
       </div>
 
