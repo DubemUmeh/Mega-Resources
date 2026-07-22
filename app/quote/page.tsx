@@ -40,8 +40,8 @@ export default function QuotePage() {
 
                 <Reveal delay={0.16} className="mt-6 max-w-xl">
                   <p className="text-[1.02rem] leading-[1.75] text-muted-foreground">
-                    Tell us about your land below. We'll schedule a free
-                    site survey, confirm what's actually under the
+                    Tell us about your land below. We&apos;ll schedule a free
+                    site survey, confirm what&apos;s actually under the
                     ground, and hand you a fixed, written quote — before
                     you commit to anything.
                   </p>

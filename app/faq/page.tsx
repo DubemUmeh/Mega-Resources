@@ -50,7 +50,7 @@ export default function FaqPage() {
                 Still have a question?
               </h2>
               <p className="max-w-lg text-[0.98rem] leading-[1.7] text-primary-foreground/75">
-                If it's specific to your land, your budget, or your
+                If it&apos;s specific to your land, your budget, or your
                 timeline, the fastest answer is a real conversation — not
                 another FAQ entry.
               </p>

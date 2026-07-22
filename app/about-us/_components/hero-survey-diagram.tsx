@@ -42,8 +42,8 @@ export default function HeroSurveyDiagram() {
   useEffect(() => {
     if (!inView) return;
     if (prefersReducedMotion) {
-      setDepth(WATER_DEPTH);
-      return;
+      const frame = requestAnimationFrame(() => setDepth(WATER_DEPTH));
+      return () => cancelAnimationFrame(frame);
     }
     return animateValue(0, WATER_DEPTH, 2200, setDepth);
   }, [inView, prefersReducedMotion]);

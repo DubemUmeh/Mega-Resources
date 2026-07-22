@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ServiceData } from "@/app/services/_components/service-template";
 
+
 export const siteConfig = {
   name: "Mega Resources LTD",
   domain: process.env.NEXT_PUBLIC_SITE_URL || "https://megaresourcesltd.com",

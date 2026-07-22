@@ -10,7 +10,7 @@ const CTA = () => {
           <h2 className="text-3xl md:text-4xl lg:text-[2.5rem] font-light leading-[1.1] text-gray-200">
             Ready for<br />
             24/7 Water?<br />
-            Let's Talk.
+            Let&apos;s Talk.
           </h2>
         </div>
 
