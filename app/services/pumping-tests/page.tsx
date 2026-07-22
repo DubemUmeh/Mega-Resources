@@ -1,15 +1,9 @@
-import type { Metadata } from "next";
 import ServiceTemplate, {
   type ServiceData,
 } from "../_components/service-template";
+import { createServiceMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Pumping Tests | Measure Sustainable Borehole Yield",
-  description:
-    "Step-drawdown and constant-rate pumping tests that measure sustainable yield, so your pump is sized correctly and your borehole isn't over-pumped.",
-};
-
-const data: ServiceData = {
+export const data: ServiceData = {
   num: "06",
   slug: "pumping-tests",
   eyebrow: "Service 06",
@@ -76,7 +70,14 @@ const data: ServiceData = {
   ctaBody:
     "Before we install a pump, we test the well so it's sized to what your borehole can actually sustain.",
   next: { slug: "air-lifting-developing", title: "Air Lifting / Developing" },
+  related: [
+    { slug: "pump-installation", title: "Pump Installation", reason: "Select the right pump from the test curve." },
+    { slug: "borehole-rehabilitation", title: "Borehole Rehabilitation", reason: "Investigate weak yields before redrilling." },
+    { slug: "air-lifting-developing", title: "Air Lifting / Developing", reason: "Clear fines before final test readings." },
+  ],
 };
+
+export const metadata = createServiceMetadata(data);
 
 export default function Page() {
   return <ServiceTemplate data={data} />;

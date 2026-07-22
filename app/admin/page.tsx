@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import { getReviewStats } from "@/lib/reviews";
 import { AdminOverviewClient } from "./admin-overview-client";
 

@@ -1,6 +1,17 @@
+import type { Metadata } from "next";
 import { AdminSidebar } from "./_components/admin-sidebar";
 import { ToastProvider } from "@/components/ui/toast";
 import { PortfolioProvider } from "./_components/portfolio-store";
+import { createMetadata } from "@/lib/seo";
+
+export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = createMetadata({
+  title: "Admin | Mega Resources LTD",
+  description: "Private Mega Resources LTD content management area.",
+  path: "/admin",
+  noIndex: true,
+});
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   return (
