@@ -1,15 +1,9 @@
-import type { Metadata } from "next";
 import ServiceTemplate, {
   type ServiceData,
 } from "../_components/service-template";
+import { createServiceMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Pump Installation | Submersible, Solar & Surface Pumps",
-  description:
-    "Submersible, solar, and surface pump installation — fully installed, wired, and tested to match your borehole's yield.",
-};
-
-const data: ServiceData = {
+export const data: ServiceData = {
   num: "02",
   slug: "pump-installation",
   eyebrow: "Service 02",
@@ -76,7 +70,14 @@ const data: ServiceData = {
   ctaBody:
     "We'll assess your well's yield and depth and recommend the pump system that fits — submersible, solar, or surface.",
   next: { slug: "borehole-rehabilitation", title: "Borehole Rehabilitation" },
+  related: [
+    { slug: "pumping-tests", title: "Pumping Tests", reason: "Use measured yield data to avoid over-pumping." },
+    { slug: "borehole-rehabilitation", title: "Borehole Rehabilitation", reason: "Restore older wells before replacing pump hardware." },
+    { slug: "hydro-fracturing", title: "Hydro-fracturing", reason: "Improve low-yield wells before final pump sizing." },
+  ],
 };
+
+export const metadata = createServiceMetadata(data);
 
 export default function Page() {
   return <ServiceTemplate data={data} />;

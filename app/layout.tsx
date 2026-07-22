@@ -1,34 +1,29 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { createMetadata, siteConfig } from "@/lib/seo";
 import "./globals.css";
 import AppLayout from "./app-layout";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: "Mega Resources LTD",
-  description: "Drilling For Your Future",
+const iconMetadata: Pick<Metadata, "icons" | "manifest"> = {
   icons: {
     icon: [
-      { url: '/icons/favicon.ico' },
-      { url: '/icons/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
-      { url: '/icons/favicon-16x16.png', type: 'image/png', sizes: '16x16' },
-      { url: '/icons/android-chrome-192x192.png', type: 'image/png', sizes: '192x192' },
-      { url: '/icons/android-chrome-512x512.png', type: 'image/png', sizes: '512x512' },
+      { url: "/icons/favicon.ico" },
+      { url: "/icons/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/icons/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/icons/android-chrome-192x192.png", type: "image/png", sizes: "192x192" },
+      { url: "/icons/android-chrome-512x512.png", type: "image/png", sizes: "512x512" },
     ],
-    apple: [
-      { url: '/icons/apple-touch-icon.png', type: 'image/png', sizes: '180x180' },
-    ],
+    apple: [{ url: "/icons/apple-touch-icon.png", type: "image/png", sizes: "180x180" }],
   },
-  manifest: '/icons/site.webmanifest',
+  manifest: "/icons/site.webmanifest",
+};
+
+export const metadata: Metadata = {
+  ...createMetadata({
+    title: siteConfig.defaultTitle,
+    description: siteConfig.defaultDescription,
+    path: "/",
+  }),
+  ...iconMetadata,
 };
 
 export default function RootLayout({
@@ -38,13 +33,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" />
-      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
-        // className={`antialiased min-h-screen`}
+        className="antialiased min-h-screen"
       >
         <AppLayout>
           {children}

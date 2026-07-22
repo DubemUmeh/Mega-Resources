@@ -1,15 +1,9 @@
-import type { Metadata } from "next";
 import ServiceTemplate, {
   type ServiceData,
 } from "../_components/service-template";
+import { createServiceMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Air Lifting & Developing | Clear Debris for Maximum Flow",
-  description:
-    "Compressed-air airlifting clears drilling debris and develops a newly drilled borehole so it delivers clean water at maximum flow.",
-};
-
-const data: ServiceData = {
+export const data: ServiceData = {
   num: "07",
   slug: "air-lifting-developing",
   eyebrow: "Service 07",
@@ -75,7 +69,14 @@ const data: ServiceData = {
   ctaHeading: "Just finished drilling?",
   ctaBody:
     "Let us develop your borehole properly before it's tested and pumped — it's the step that unlocks full performance.",
+  related: [
+    { slug: "pumping-tests", title: "Pumping Tests", reason: "Run accurate tests once the well clears." },
+    { slug: "pump-installation", title: "Pump Installation", reason: "Protect new pumps from grit and sediment." },
+    { slug: "borehole-drilling", title: "Borehole Drilling", reason: "Complete the drilling workflow with proper development." },
+  ],
 };
+
+export const metadata = createServiceMetadata(data);
 
 export default function Page() {
   return <ServiceTemplate data={data} />;
