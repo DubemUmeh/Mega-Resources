@@ -179,13 +179,13 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
     <Dialog.Root open onOpenChange={(open) => !open && onClose()}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-[92vh] w-[min(64rem,95vw)] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-3xl border border-white/10 bg-background p-4 shadow-2xl outline-none sm:p-6">
+        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-[92vh] w-[min(64rem,95vw)] -translate-x-1/2 -translate-y-1/2 overflow-y-auto no-scrollbar rounded-3xl border border-white/10 bg-background p-4 shadow-2xl outline-none sm:p-6">
           <Dialog.Title className="sr-only">{project.title}</Dialog.Title>
           <Dialog.Close className="absolute right-4 top-4 z-20 rounded-full bg-black/60 p-2 text-white">
             <FaTimes />
           </Dialog.Close>
           <div className="grid gap-4 lg:grid-cols-[6rem_1fr]">
-            <div className="hide-scrollbar order-2 flex gap-2 overflow-x-auto lg:order-1 lg:max-h-[34rem] lg:flex-col lg:overflow-y-auto">
+            <div className="hide-scrollbar order-2 flex gap-2 overflow-x-auto lg:order-1 lg:max-h-136 lg:flex-col lg:overflow-y-auto">
               {images.map((src, index) => (
                 <button key={`${src}-${index}`} type="button" onClick={() => setActive(index)} className={`relative h-20 w-20 flex-none overflow-hidden rounded-xl border ${index === active ? "border-blue-500" : "border-white/10"}`}>
                   <Image src={src} alt={`${project.title} thumbnail ${index + 1}`} fill className="object-cover" />
