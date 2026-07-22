@@ -116,6 +116,63 @@ sequenceDiagram
 | Lucide React | Icon library | https://lucide.dev |
 | shadcn/ui | Components built on Radix & Tailwind | https://ui.shadcn.com |
 
+
+## Local Setup
+
+### Install dependencies
+
+This project uses pnpm. Install the existing project dependencies with:
+
+```bash
+pnpm install
+```
+
+No extra Gmail SDK package is required for the current implementation: Google OAuth and Gmail API calls use server-side `fetch`, Node `crypto`, and the existing Drizzle/PostgreSQL stack.
+
+### Environment variables
+
+Copy the example file and fill in real credentials:
+
+```bash
+cp .env.example .env.local
+```
+
+Required for the admin Gmail workflow:
+
+| Variable | Required | Purpose |
+| --- | --- | --- |
+| `DATABASE_URL` | Yes | Neon PostgreSQL connection string used by Drizzle for auth data, authorized users, settings, and handled metadata. |
+| `AUTH_SECRET` | Yes | Secret used to derive the AES-GCM encryption key for Google OAuth tokens. Generate with `openssl rand -base64 32`. |
+| `NEXT_PUBLIC_APP_URL` | Yes | Public app origin used to build the Google OAuth redirect URL. Use `http://localhost:3000` locally and your production domain in production. |
+| `GOOGLE_CLIENT_ID` | Yes | Google Cloud OAuth client ID. |
+| `GOOGLE_CLIENT_SECRET` | Yes | Google Cloud OAuth client secret. |
+| `BETTER_AUTH_URL` | Optional | Supported as an app URL fallback for deployments that already standardize on Better Auth-style env names. |
+| `BETTER_AUTH_SECRET` | Optional | Supported as an auth-secret fallback if `AUTH_SECRET` is not set. |
+
+Existing non-admin integrations also use the Cloudinary and Brevo variables shown in `.env.example`.
+
+### Google Cloud setup
+
+1. Create or select a Google Cloud project.
+2. Enable the Gmail API for the project.
+3. Configure the OAuth consent screen for the business Google account.
+4. Create an OAuth 2.0 Web application client.
+5. Add this authorized redirect URI locally: `http://localhost:3000/api/auth/google/callback`.
+6. Add the production redirect URI using your domain: `https://YOUR_DOMAIN/api/auth/google/callback`.
+7. Put the resulting client ID and secret in `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`.
+
+The app requests Gmail read/search/thread metadata plus compose/send scopes so admins can view request notifications and open Gmail compose shortcuts without storing Gmail message bodies in the application database.
+
+### Database setup
+
+Run migrations after setting `DATABASE_URL`:
+
+```bash
+pnpm db:migrate
+```
+
+The migration seeds `raphaelumeh21@gmail.com` as the initial `SUPER_ADMIN` in `authorized_admins`. Additional admins can be managed from `/admin/settings` after the super admin signs in.
+
 ## Author
 
 - Portfolio: [https://umeh.site](https://umeh.site)
