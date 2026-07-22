@@ -149,6 +149,7 @@ export function PortfolioForm({
   });
   const [activeImageIndex, setActiveImageIndex] = useState<number | null>(null);
   const [removeIndex, setRemoveIndex] = useState<number | null>(null);
+  const [isDraggingPhotos, setIsDraggingPhotos] = useState(false);
   const storageKey = useMemo(() => `portfolio-form-draft:${initial?.id ?? "new"}`, [initial?.id]);
 
   useEffect(() => {
@@ -160,7 +161,7 @@ export function PortfolioForm({
     setDraft((d) => ({ ...d, [key]: value }));
   }
 
-  function handleImageSelect(files: FileList | null) {
+  function handleImageSelect(files: FileList | File[] | null) {
     if (!files?.length) return;
     const incoming = Array.from(files).filter((file) => file.type.startsWith("image/"));
     if (incoming.length === 0) return;
@@ -183,6 +184,13 @@ export function PortfolioForm({
     const response = await fetch(dataUrl);
     const blob = await response.blob();
     return new File([blob], name, { type: blob.type || "image/png" });
+  }
+
+  function handlePhotoDrop(event: React.DragEvent<HTMLDivElement>) {
+    event.preventDefault();
+    setIsDraggingPhotos(false);
+    if (isPending) return;
+    handleImageSelect(Array.from(event.dataTransfer.files));
   }
 
   function confirmRemoveImage(index: number) {
@@ -402,45 +410,42 @@ export function PortfolioForm({
       <div className="space-y-4">
         <Field label="Cover Photo" error={errors.img?.[0]}>
           <div
-            onClick={() => fileInputRef.current?.click()}
-            className="group relative flex aspect-4/3 w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-4xl border-2 border-dashed border-[rgba(10,10,10,0.15)] bg-[rgba(36,35,35,0.35)] transition-colors hover:border-blue-600/40"
+            onClick={() => !isPending && fileInputRef.current?.click()}
+            onDragEnter={(event) => {
+              event.preventDefault();
+              setIsDraggingPhotos(true);
+            }}
+            onDragOver={(event) => {
+              event.preventDefault();
+              setIsDraggingPhotos(true);
+            }}
+            onDragLeave={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                setIsDraggingPhotos(false);
+              }
+            }}
+            onDrop={handlePhotoDrop}
+            className={`relative flex aspect-4/3 w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-4xl border-2 border-dashed bg-[rgba(36,35,35,0.35)] transition-colors hover:border-blue-600/40 ${
+              isDraggingPhotos ? "border-blue-600 bg-blue-600/10" : "border-[rgba(10,10,10,0.15)]"
+            }`}
           >
-            {galleryPreviews.length > 0 ? (
-              <>
-                <Image src={galleryPreviews[0]} alt="Cover preview" fill className="object-cover" />
-                <div className="absolute inset-0 flex items-center justify-center gap-2 bg-black/0 opacity-0 transition-all group-hover:bg-black/40 group-hover:opacity-100">
-                  <span className="rounded-full bg-white/90 px-4 py-2 text-[0.8rem] font-medium text-background">
-                    Replace photo
-                  </span>
-                </div>
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    confirmRemoveImage(0);
-                  }}
-                  className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white transition-colors hover:bg-black/70"
-                  aria-label="Remove photo"
-                >
-                  <FaTimes className="h-3 w-3" />
-                </button>
-              </>
-            ) : (
-              <div className="flex flex-col items-center gap-2 px-6 text-center">
-                <FaCloudUploadAlt className="h-6 w-6 text-muted-foreground" />
-                <p className="text-[0.85rem] font-medium text-foreground">
-                  Click to upload photos
-                </p>
-                <p className="text-[0.75rem] text-muted-foreground">PNG or JPG, up to ~5MB</p>
-              </div>
-            )}
+            <div className="flex flex-col items-center gap-2 px-6 text-center">
+              <FaCloudUploadAlt className="h-6 w-6 text-muted-foreground" />
+              <p className="text-[0.85rem] font-medium text-foreground">
+                Click to upload photos
+              </p>
+              <p className="text-[0.75rem] text-muted-foreground">Or drag and drop PNG or JPG files here, up to ~5MB each</p>
+            </div>
           </div>
           <input
             ref={fileInputRef}
             type="file"
             accept="image/*"
             multiple
-            onChange={(e) => handleImageSelect(e.target.files)}
+            onChange={(e) => {
+              handleImageSelect(e.target.files);
+              e.target.value = "";
+            }}
             className="hidden"
           />
 
