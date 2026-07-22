@@ -11,6 +11,9 @@ import {
   FaUserLock,
   FaBars,
   FaTimes,
+  FaEnvelope,
+  FaFileInvoice,
+  FaCog,
 } from "react-icons/fa";
 import { LogOutIcon } from "lucide-react";
 import { Mega_Logo } from "@/components/logo";
@@ -19,6 +22,9 @@ const NAV_ITEMS = [
   { href: "/admin", label: "Overview", icon: FaTachometerAlt, exact: true },
   { href: "/admin/reviews", label: "Reviews", icon: FaStar, exact: false },
   { href: "/admin/portfolio", label: "Portfolio", icon: FaImages, exact: false },
+  { href: "/admin/contact-requests", label: "Contact Requests", icon: FaEnvelope, exact: false },
+  { href: "/admin/quote-requests", label: "Quote Requests", icon: FaFileInvoice, exact: false },
+  { href: "/admin/settings", label: "Settings", icon: FaCog, exact: false },
 ];
 
 function isActive(pathname: string, href: string, exact: boolean) {
@@ -67,8 +73,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 
       <div className="border-t border-[rgba(10,10,10,0.08)] p-3">
         <Link
-          href="/"
-          target="_blank"
+          href="/api/auth/logout"
           onClick={onNavigate}
           className="flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-[0.85rem] font-medium text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground"
         >

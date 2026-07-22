@@ -106,3 +106,57 @@ export type DbReview = typeof reviews.$inferSelect;
 export type NewDbReview = typeof reviews.$inferInsert;
 export type DbPortfolioProject = typeof portfolioProjects.$inferSelect;
 export type NewDbPortfolioProject = typeof portfolioProjects.$inferInsert;
+
+export const adminRoleEnum = pgEnum("admin_role", ["SUPER_ADMIN", "ADMIN"]);
+
+export const authorizedAdmins = pgTable("authorized_admins", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  googleEmail: varchar("google_email", { length: 150 }).notNull().unique(),
+  name: varchar("name", { length: 120 }).notNull(),
+  role: adminRoleEnum("role").notNull().default("ADMIN"),
+  active: boolean("active").notNull().default(true),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const adminSessions = pgTable("admin_sessions", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  adminId: uuid("admin_id").notNull().references(() => authorizedAdmins.id, { onDelete: "cascade" }),
+  tokenHash: varchar("token_hash", { length: 64 }).notNull().unique(),
+  expiresAt: timestamp("expires_at").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export const googleOAuthTokens = pgTable("google_oauth_tokens", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  adminId: uuid("admin_id").notNull().references(() => authorizedAdmins.id, { onDelete: "cascade" }).unique(),
+  googleEmail: varchar("google_email", { length: 150 }).notNull(),
+  accessToken: varchar("access_token", { length: 2000 }).notNull(),
+  refreshToken: varchar("refresh_token", { length: 2000 }),
+  scope: varchar("scope", { length: 1000 }),
+  expiresAt: timestamp("expires_at").notNull(),
+  revokedAt: timestamp("revoked_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
+export const businessSettings = pgTable("business_settings", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  businessName: varchar("business_name", { length: 150 }).notNull().default("Mega Resources LTD"),
+  businessEmail: varchar("business_email", { length: 150 }).notNull().default(""),
+  phone: varchar("phone", { length: 40 }).notNull().default(""),
+  address: varchar("address", { length: 300 }).notNull().default(""),
+  logoUrl: varchar("logo_url", { length: 500 }).notNull().default(""),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
+});
+
+export const gmailMessageMetadata = pgTable("gmail_message_metadata", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  gmailMessageId: varchar("gmail_message_id", { length: 120 }).notNull().unique(),
+  handled: boolean("handled").notNull().default(false),
+  handledBy: uuid("handled_by").references(() => authorizedAdmins.id, { onDelete: "set null" }),
+  handledAt: timestamp("handled_at"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+export type DbAuthorizedAdmin = typeof authorizedAdmins.$inferSelect;
+export type DbBusinessSettings = typeof businessSettings.$inferSelect;

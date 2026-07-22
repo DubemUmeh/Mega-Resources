@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { FaStar, FaImages, FaCheckCircle, FaPlus, FaArrowRight } from "react-icons/fa";
+import { FaStar, FaImages, FaCheckCircle, FaPlus, FaArrowRight, FaEnvelope, FaFileInvoice, FaPlug } from "react-icons/fa";
+import type { GmailListItem } from "@/lib/gmail-client";
 import { AdminTopbar } from "./_components/admin-topbar";
 import { usePortfolioStore } from "./_components/portfolio-store";
 
@@ -9,10 +10,18 @@ export function AdminOverviewClient({
   totalReviews,
   avgRating,
   pendingReviews,
+  unreadGmailMessages,
+  recentContactRequests,
+  recentQuoteRequests,
+  googleConnected,
 }: {
   totalReviews: number;
   avgRating: number;
   pendingReviews: number;
+  unreadGmailMessages: number;
+  recentContactRequests: GmailListItem[];
+  recentQuoteRequests: GmailListItem[];
+  googleConnected: boolean;
 }) {
   const { portfolios } = usePortfolioStore();
   const publishedPortfolio = portfolios.filter((p) => p.status === "published").length;
@@ -23,6 +32,8 @@ export function AdminOverviewClient({
     { label: "Total Reviews", value: String(totalReviews), icon: FaCheckCircle },
     { label: "Pending Approval", value: String(pendingReviews), icon: FaCheckCircle },
     { label: "Published Projects", value: String(publishedPortfolio), icon: FaImages },
+    { label: "Unread Gmail", value: String(unreadGmailMessages), icon: FaEnvelope },
+    { label: "Google", value: googleConnected ? "Connected" : "Offline", icon: FaPlug },
   ];
 
   return (
@@ -32,7 +43,7 @@ export function AdminOverviewClient({
         description="A quick look at reviews and portfolio activity."
       />
 
-      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {stats.map((stat) => {
           const Icon = stat.icon;
           return (
@@ -86,6 +97,13 @@ export function AdminOverviewClient({
               : "Every project in the portfolio is published."}
           </p>
         </div>
+      </div>
+
+      <div className="mt-6 grid gap-5 lg:grid-cols-2">
+        {[{ title: "Recent Contact Requests", href: "/admin/contact-requests", items: recentContactRequests, icon: FaEnvelope }, { title: "Recent Quote Requests", href: "/admin/quote-requests", items: recentQuoteRequests, icon: FaFileInvoice }].map((section) => {
+          const Icon = section.icon;
+          return <div key={section.title} className="rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-6"><div className="flex items-center justify-between"><h2 className="flex items-center gap-2 font-display text-base font-semibold text-foreground"><Icon className="h-3.5 w-3.5 text-blue-500" />{section.title}</h2><Link href={section.href} className="text-[0.8rem] font-medium text-blue-600">View all</Link></div><div className="mt-4 space-y-3">{section.items.length ? section.items.map((item) => <div key={item.id} className="rounded-xl bg-black/15 p-3"><p className="truncate text-sm font-medium">{item.subject}</p><p className="truncate text-xs text-muted-foreground">{item.fromName || item.fromEmail} — {item.preview}</p></div>) : <p className="text-sm text-muted-foreground">No recent matching Gmail messages.</p>}</div></div>;
+        })}
       </div>
     </div>
   );
