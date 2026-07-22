@@ -3,6 +3,7 @@ import { AdminSidebar } from "./_components/admin-sidebar";
 import { ToastProvider } from "@/components/ui/toast";
 import { PortfolioProvider } from "./_components/portfolio-store";
 import { createMetadata } from "@/lib/seo";
+import { getAdminSession } from "@/lib/admin-auth";
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +14,9 @@ export const metadata: Metadata = createMetadata({
   noIndex: true,
 });
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+export default async function AdminLayout({ children }: { children: React.ReactNode }) {
+  const session = await getAdminSession();
+  if (!session) return <ToastProvider>{children}</ToastProvider>;
   return (
     <ToastProvider>
       <PortfolioProvider>
