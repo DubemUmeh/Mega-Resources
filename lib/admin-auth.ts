@@ -5,7 +5,7 @@ import { createHash, randomBytes } from "crypto";
 import { db } from "@/db/db";
 import { adminSessions, authorizedAdmins } from "@/db/schema";
 
-export const SUPER_ADMIN_EMAIL = "raphaelumeh21@gmail.com";
+export const SUPER_ADMIN_EMAIL = "dubemu.umeh@gmail.com";
 export const ADMIN_SESSION_COOKIE = "mega_admin_session";
 export type AdminRole = "SUPER_ADMIN" | "ADMIN";
 
