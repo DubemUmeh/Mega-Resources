@@ -72,14 +72,14 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
       </nav>
 
       <div className="border-t border-[rgba(10,10,10,0.08)] p-3">
-        <Link
+        <a
           href="/api/auth/logout"
           onClick={onNavigate}
           className="flex items-center gap-3 rounded-xl px-3.5 py-2.5 text-[0.85rem] font-medium text-muted-foreground transition-colors hover:bg-foreground/5 hover:text-foreground"
         >
           <LogOutIcon className="h-3 w-3 flex-none" />
           Logout
-        </Link>
+        </a>
       </div>
     </>
   );

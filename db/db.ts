@@ -1,4 +1,12 @@
 import "dotenv/config";
+import { drizzle } from "drizzle-orm/neon-http";
+import { neon } from "@neondatabase/serverless";
+import * as schema from "./schema";
+
+const sql = neon(process.env.DATABASE_URL!);
+export const db = drizzle(sql, { schema });
+
+/*
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 import * as schema from "./schema";
@@ -8,6 +16,7 @@ const pool = new Pool({
 });
 
 export const db = drizzle(pool, { schema });
+*/
 
 /* Whwn deployed on Vercel/Neon, for serverless (edge-friendly) driver instead of a long-lived pool, 
     swap the two lines above for:
