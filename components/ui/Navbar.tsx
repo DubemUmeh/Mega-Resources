@@ -2,15 +2,17 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { FaArrowRight, FaBars, FaTimes } from "react-icons/fa";
+import { FaArrowRight, FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
+import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mega_Logo } from "@/components/logo";
+import { serviceSlugs } from "@/lib/services";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
-  { label: "Portfolio", href: "/portfolio" },
+  { label: "Services", href: "/services", children: serviceSlugs.map((slug) => ({ label: slug.split("-").map((part) => part[0].toUpperCase() + part.slice(1)).join(" "), href: `/services/${slug}` })) },
+  { label: "Portfolio", href: "/portfolio", children: [{ label: "All Projects", href: "/portfolio#all-projects" }, { label: "Featured Project", href: "/portfolio#featured" }] },
   { label: "About Us", href: "/about-us" },
   { label: "Reviews", href: "/reviews" },
   { label: "Contact", href: "/contact" },
@@ -72,16 +74,30 @@ const Navbar = () => {
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden items-center gap-1 md:flex">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="rounded-full px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-foreground"
-                >
-                  {link.label}
-                </Link>
-              ))}
+            <div className="relative hidden md:block">
+              <div className="flex items-center gap-1">
+                {navLinks.map((link) => (
+                  <div key={link.href}>
+                    {link.children ? (
+                      <DropdownMenu.Root>
+                        <DropdownMenu.Trigger className="flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-foreground data-[state=open]:bg-accent">
+                          {link.label} <FaChevronDown className="h-2.5 w-2.5" />
+                        </DropdownMenu.Trigger>
+                        <DropdownMenu.Content className="absolute left-1/2 top-full mt-3 w-[34rem] -translate-x-1/2 rounded-3xl border border-white/10 bg-background/95 p-4 shadow-2xl backdrop-blur-xl">
+                          <div className="grid grid-cols-2 gap-2">
+                            <Link href={link.href} className="col-span-2 rounded-2xl bg-blue-600/10 p-4 text-sm font-semibold text-blue-300">Explore {link.label}</Link>
+                            {link.children.map((child) => (
+                              <Link key={child.href} href={child.href} className="rounded-2xl p-3 text-sm text-foreground/80 transition hover:bg-white/10 hover:text-foreground">{child.label}</Link>
+                            ))}
+                          </div>
+                        </DropdownMenu.Content>
+                      </DropdownMenu.Root>
+                    ) : (
+                      <Link href={link.href} className="rounded-full px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-foreground">{link.label}</Link>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
 
             <Link href='/quote' className="hidden w-fit items-center gap-2 rounded-full border border-white/30 px-6 py-2.5 transition-colors hover:cursor-pointer hover:bg-foreground/60 hover:text-black md:flex">

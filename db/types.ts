@@ -87,6 +87,7 @@ export type PortfolioStatus = "published" | "draft";
 
 export interface Portfolio {
   id: string;
+  slug?: string;
   title: string;
   location: string;
   region: Region;
@@ -106,6 +107,7 @@ export interface Portfolio {
 }
 
 export interface PortfolioFormErrors {
+  slug?: string[];
   title?: string[];
   location?: string[];
   region?: string[];

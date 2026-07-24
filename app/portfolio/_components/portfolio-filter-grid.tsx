@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import * as Select from "@radix-ui/react-select";
 import * as Dialog from "@radix-ui/react-dialog";
 import { FaChevronDown, FaCheck, FaPlay, FaMapMarkerAlt, FaChevronLeft, FaChevronRight, FaTimes } from "react-icons/fa";
@@ -9,6 +10,7 @@ import { Reveal, BG_GLOW } from "@/components/motion-kit";
 
 export interface Project {
   id: string;
+  slug: string;
   title: string;
   location: string;
   region: string;
@@ -102,9 +104,9 @@ function SelectField({
   );
 }
 
-function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void }) {
+function ProjectCard({ project }: { project: Project }) {
   return (
-    <button type="button" onClick={onOpen} className="flex h-full w-full flex-col overflow-hidden rounded-[1.5rem] border text-left border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)]">
+    <Link href={`/portfolio/project/${project.slug}`} className="flex h-full w-full flex-col overflow-hidden rounded-[1.5rem] border text-left border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)]">
       <div className="relative aspect-6/3 w-full overflow-hidden">
         <Image
           src={project.img}
@@ -139,34 +141,9 @@ function ProjectCard({ project, onOpen }: { project: Project; onOpen: () => void
         <p className="flex-1 text-[0.9rem] leading-[1.6] text-muted-foreground">
           {project.summary}
         </p>
-        <div className="mt-2 grid grid-cols-3 gap-2 border-t border-[rgba(10,10,10,0.08)] pt-4 text-center">
-          <div>
-            <p className="font-display text-sm font-semibold capitalize text-foreground">
-              {project.depth} ft
-            </p>
-            <p className="text-[0.68rem] uppercase tracking-[0.06em] text-muted-foreground">
-              Depth
-            </p>
-          </div>
-          <div>
-            <p className="font-display text-sm font-semibold capitalize text-foreground">
-              {project.yieldRate} l/hr
-            </p>
-            <p className="text-[0.68rem] uppercase tracking-[0.06em] text-muted-foreground">
-              Yield
-            </p>
-          </div>
-          <div>
-            <p className="font-display text-sm font-semibold text-foreground">
-              {project.duration} Day(s)
-            </p>
-            <p className="text-[0.68rem] uppercase tracking-[0.06em] text-muted-foreground">
-              Duration
-            </p>
-          </div>
-        </div>
+        <span className="mt-2 text-sm font-semibold text-blue-500">View project details →</span>
       </div>
-    </button>
+    </Link>
   );
 }
 
@@ -225,7 +202,6 @@ export function PortfolioFilterGrid() {
   const [visible, setVisible] = useState(INITIAL_VISIBLE);
   const [projects, setProjects] = useState<Project[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const gridTopRef = useRef<HTMLDivElement>(null);
 
   const regionItems = [
@@ -333,7 +309,7 @@ export function PortfolioFilterGrid() {
             <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {filtered.slice(0, visible).map((project, i) => (
                 <Reveal key={project.id} delay={(i % 3) * 0.06}>
-                  <ProjectCard project={project} onOpen={() => setSelectedProject(project)} />
+                  <ProjectCard project={project} />
                 </Reveal>
               ))}
             </div>
@@ -359,9 +335,6 @@ export function PortfolioFilterGrid() {
               </div>
             )}
           </>
-        )}
-        {selectedProject && (
-          <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
         )}
       </div>
     </section>
