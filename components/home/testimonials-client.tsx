@@ -36,7 +36,7 @@ const TestimonialsClient = ({ testimonials }: { testimonials: Testimonial[] }) =
   const next = () => setActive((c) => (c === items.length - 1 ? 0 : c + 1));
 
   return (
-    <section className="min-h-screen h-full w-full px-8 lg:px-24 pt-15 pb-35 border-b border-gray-800 bg-black text-white overflow-hidden">
+    <section className="min-h-screen h-full w-full px-8 lg:px-24 pt-15 pb-35 border-b border-gray-800 bg-foreground/10 text-white overflow-hidden">
       <div className="inline-flex items-center border border-foreground/20 rounded-full bg-foreground/72 shadow-[0_8px_20px_rgba(15,23,42,0.05)] px-3 py-1 text-sm font-semibold tracking-[0.12em] uppercase text-[#0a0a0a]">Client Stories</div>
 
       <div className="max-w-4xl mx-auto relative h-127 mt-6 md:mt-0 flex items-center justify-center">
@@ -105,7 +105,7 @@ const TestimonialsClient = ({ testimonials }: { testimonials: Testimonial[] }) =
                   className="absolute w-full max-w-3xl"
                 >
                   <div className="border border-gray-800 rounded-2xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 items-center bg-gray-950/80 backdrop-blur-sm shadow-2xl">
-                    <div className="w-full h-40 md:h-48 rounded-xl overflow-hidden border border-gray-800">
+                    <div className="w-full h-40 md:h-48 bg-foreground/60 rounded-xl overflow-hidden border border-gray-800">
                       <img src={t.img} alt={t.name} className="w-full h-full object-cover grayscale-30" />
                     </div>
 

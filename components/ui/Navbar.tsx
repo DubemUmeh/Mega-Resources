@@ -83,7 +83,7 @@ const Navbar = () => {
                         <DropdownMenu.Trigger className="flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-foreground data-[state=open]:bg-accent">
                           {link.label} <FaChevronDown className="h-2.5 w-2.5" />
                         </DropdownMenu.Trigger>
-                        <DropdownMenu.Content className="absolute left-1/2 top-full mt-3 w-[34rem] -translate-x-1/2 rounded-3xl border border-white/10 bg-background/95 p-4 shadow-2xl backdrop-blur-xl">
+                        <DropdownMenu.Content className="absolute left-1/2 top-full mt-3 w-136 -translate-x-1/2 rounded-3xl border border-white/10 bg-background/95 p-4 shadow-2xl backdrop-blur-xl">
                           <div className="grid grid-cols-2 gap-2">
                             <Link href={link.href} className="col-span-2 rounded-2xl bg-blue-600/10 p-4 text-sm font-semibold text-blue-300">Explore {link.label}</Link>
                             {link.children.map((child) => (
