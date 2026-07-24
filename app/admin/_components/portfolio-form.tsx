@@ -94,6 +94,7 @@ const inputClass =
 function emptyDraft(): Portfolio {
   return {
     id: "",
+    slug: "",
     title: "",
     location: "",
     region: REGIONS[0],
@@ -285,6 +286,17 @@ export function PortfolioForm({
             placeholder="e.g., Estate Water Supply — Trasacco Valley"
             disabled={isPending}
             maxLength={120}
+            className={inputClass}
+          />
+        </Field>
+
+        <Field label="SEO Slug" optional error={errors.slug?.[0]}>
+          <input
+            value={draft.slug ?? ""}
+            onChange={(e) => update("slug", e.target.value)}
+            placeholder="Auto-generated from service and location if left blank"
+            disabled={isPending}
+            maxLength={180}
             className={inputClass}
           />
         </Field>

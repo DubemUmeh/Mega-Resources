@@ -65,6 +65,7 @@ export const reviewSchema = z.object({
 export type ReviewFormData = z.infer<typeof reviewSchema>;
 
 export const portfolioSchema = z.object({
+  slug: z.string().trim().max(180).optional(),
   title: z.string().trim().min(2).max(150),
   location: z.string().trim().min(2).max(150),
   region: z.string().trim().min(2).max(60),

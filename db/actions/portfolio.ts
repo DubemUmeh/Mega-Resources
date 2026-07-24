@@ -1,10 +1,11 @@
 "use server";
 
-import { eq, and, desc, type SQL } from "drizzle-orm";
+import { eq, and, desc, ne, type SQL } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { db } from "@/db/db";
 import { portfolioProjects } from "@/db/schema";
 import { portfolioSchema } from "@/db/validation-schema";
+import { generateUniqueSlug, slugify } from "@/lib/slug";
 import type { ActionResult } from "@/db/action-types";
 
 /* ------------------------------------------------------- Public: read */
@@ -26,6 +27,38 @@ export async function getPublishedPortfolio(filters?: {
     .from(portfolioProjects)
     .where(and(...conditions))
     .orderBy(desc(portfolioProjects.createdAt));
+}
+
+export async function getPublishedPortfolioBySlug(slug: string) {
+  const [project] = await db
+    .select()
+    .from(portfolioProjects)
+    .where(and(eq(portfolioProjects.slug, slug), eq(portfolioProjects.status, "published")))
+    .limit(1);
+
+  return project ?? null;
+}
+
+export async function getRelatedPortfolioProjects(project: { id: string; service: string; region: string }, limit = 3) {
+  return db
+    .select()
+    .from(portfolioProjects)
+    .where(and(eq(portfolioProjects.status, "published"), eq(portfolioProjects.service, project.service), ne(portfolioProjects.id, project.id)))
+    .orderBy(desc(portfolioProjects.createdAt))
+    .limit(limit);
+}
+
+async function portfolioSlugExists(slug: string, ignoreId?: string) {
+  const conditions: SQL[] = [eq(portfolioProjects.slug, slug)];
+  if (ignoreId) conditions.push(ne(portfolioProjects.id, ignoreId));
+  const [existing] = await db.select({ id: portfolioProjects.id }).from(portfolioProjects).where(and(...conditions)).limit(1);
+  return Boolean(existing);
+}
+
+async function resolvePortfolioSlug(data: { slug?: string; service?: string; location?: string; title?: string }, ignoreId?: string) {
+  const requested = slugify(data.slug ?? "");
+  const base = requested || [data.service, data.location, data.title].filter(Boolean).join(" ");
+  return generateUniqueSlug(base, (slug) => portfolioSlugExists(slug, ignoreId));
 }
 
 /* -------------------------------------------------------- Admin only */
@@ -51,9 +84,13 @@ export async function createPortfolioProject(
   try {
     const [inserted] = await db
       .insert(portfolioProjects)
-      .values(parsed.data)
+      .values({
+        ...parsed.data,
+        slug: await resolvePortfolioSlug(parsed.data),
+      })
       .returning();
     revalidatePath("/portfolio");
+    revalidatePath("/sitemap.xml");
     revalidatePath("/admin/portfolio");
     return {
       success: true,
@@ -86,9 +123,13 @@ export async function updatePortfolioProject(
   try {
     await db
       .update(portfolioProjects)
-      .set(parsed.data)
+      .set({
+        ...parsed.data,
+        slug: await resolvePortfolioSlug(parsed.data, id),
+      })
       .where(eq(portfolioProjects.id, id));
     revalidatePath("/portfolio");
+    revalidatePath("/sitemap.xml");
     revalidatePath("/admin/portfolio");
     return { success: true, message: "Project updated." };
   } catch (err) {

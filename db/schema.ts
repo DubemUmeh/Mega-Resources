@@ -79,6 +79,7 @@ export const reviews = pgTable("reviews", {
 /* ----------------------------------------------------- Portfolio --- */
 export const portfolioProjects = pgTable("portfolio_projects", {
   id: uuid("id").primaryKey().defaultRandom(),
+  slug: varchar("slug", { length: 180 }).notNull().unique(),
   title: varchar("title", { length: 150 }).notNull(),
   location: varchar("location", { length: 150 }).notNull(),
   region: varchar("region", { length: 60 }).notNull(),
