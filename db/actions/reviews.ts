@@ -4,7 +4,7 @@ import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
 import { db } from "@/db/db";
 import { reviews } from "@/db/schema";
-import { getApprovedReviews, getReviews } from "@/lib/reviews";
+import { getApprovedReviews, getRandomApprovedReviews, getReviews } from "@/lib/reviews";
 import { reviewSchema } from "@/db/validation-schema";
 import {
   createEmailTransporter,
@@ -77,7 +77,7 @@ export async function createReview(input: {
 }
 
 /* ------------------------------------------------------- Public: read */
-export { getApprovedReviews };
+export { getApprovedReviews, getRandomApprovedReviews };
 
 /* -------------------------------------------------------- Admin only */
 export async function getAllReviewsForAdmin() {

@@ -1,4 +1,4 @@
-import { avg, count, desc, eq } from "drizzle-orm";
+import { avg, count, desc, eq, sql } from "drizzle-orm";
 import { db } from "@/db/db";
 import { reviews } from "@/db/schema";
 import type { Review } from "@/db/types";
@@ -33,6 +33,17 @@ export async function getApprovedReviews() {
     .from(reviews)
     .where(eq(reviews.status, "approved"))
     .orderBy(desc(reviews.createdAt));
+
+  return rows.map(formatReview);
+}
+
+export async function getRandomApprovedReviews(limit = 5) {
+  const rows = await db
+    .select()
+    .from(reviews)
+    .where(eq(reviews.status, "approved"))
+    .orderBy(sql`random()`)
+    .limit(limit);
 
   return rows.map(formatReview);
 }
