@@ -5,19 +5,16 @@ const points = [
     icon: <FaBolt />,
     q: "Frequent Water Cuts?",
     a: "A borehole gives you 24/7 independence from Ghana Water — no more waiting on the tanker.",
-    c: 'rounded-t-md md:rounded-l-md'
   },
   {
     icon: <FaCoins />,
     q: "Tired of Buying Water?",
     a: "Most clients recover their drilling cost in 18–24 months of avoided water bills.",
-    c: ''
   },
   {
     icon: <FaSearchLocation />,
     q: "Worried the Borehole Runs Dry?",
     a: "Our geophysical survey confirms water is there before a single drop is spent drilling.",
-    c: 'rounded-b-md md:rounded-r-md'
   },
 ];
 
@@ -27,12 +24,12 @@ const ProblemSolution = () => {
       <div className="pointer-events-none absolute inset-0 -z-10 [background:radial-gradient(circle_at_10%_10%,rgba(255,205,112,0.16),transparent_38%),radial-gradient(circle_at_90%_20%,rgba(255,184,142,0.14),transparent_40%)]" />
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
         <div>
-          <div className="text-[10px] uppercase tracking-widest text-gray-500 mb-6">Why Act Now</div>
-          <h2 className="text-3xl md:text-4xl font-light leading-tight text-gray-200 max-w-lg">
+          <div className="text-xs uppercase tracking-widest border border-popover w-fit p-2 rounded-full bg-foreground/20 font-semibold mb-6">Why Act Now</div>
+          <h2 className="text-3xl md:text-4xl font-light leading-tight text-popover max-w-lg">
             The Problems We Solve, Before You Even Ask
           </h2>
         </div>
-        <p className="text-[13px] text-gray-400 leading-relaxed max-w-sm font-light">
+        <p className="text-[13px] md:text-lg text-popover leading-relaxed max-w-sm font-light">
           We handle everything from the first survey to the moment water flows from your tap.
         </p>
       </div>
@@ -43,9 +40,9 @@ const ProblemSolution = () => {
             <div className="w-11 h-11 border-gray-700 flex items-center justify-center text-gray-400 group-hover:bg-white group-hover:text-black transition-colors">
               <span className="text-sm">{p.icon}</span>
             </div>
-            <div>
-              <h4 className="text-[15px] font-medium text-gray-100 mb-3">{p.q}</h4>
-              <p className="text-[13px] text-gray-500 leading-relaxed font-light">{p.a}</p>
+            <div className="tracking-wide">
+              <h4 className="text-lg font-medium text-popover mb-3">{p.q}</h4>
+              <p className="text-sm text-background/80 leading-relaxed font-light">{p.a}</p>
             </div>
           </div>
         ))}

@@ -30,8 +30,8 @@ const HowItWorks = () => {
     <section className="px-8 lg:px-24 py-24 border-b border-black/10">
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
         <div>
-          <div className="text-[10px] uppercase tracking-widest text-gray-500 mb-6">How It Works</div>
-          <h2 className="text-3xl md:text-4xl font-light leading-tight text-gray-200 max-w-lg">
+          <div className="text-sm uppercase tracking-widest text-backround mb-6 border border-popover w-fit p-2 rounded-full bg-foreground/20 font-semibold">How It Works</div>
+          <h2 className="text-3xl md:text-4xl font-light leading-tight text-gray-200 max-w-lg w-fit">
             From First Call to Flowing Tap
           </h2>
         </div>
@@ -41,16 +41,16 @@ const HowItWorks = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6 relative">
-        <div className="hidden md:block absolute top-6 left-0 right-0 h-px bg-gray-800"></div>
+        <div className="hidden md:block absolute top-6 left-0 right-0 h-px bg-foreground"></div>
         {steps.map((s, idx) => (
           <div key={idx} className="relative flex flex-col gap-6">
             <div className="w-12 h-12 rounded-full bg-white border border-gray-700 flex items-center justify-center text-xs text-gray-300 relative z-10 shrink-0">
               {s.num}
             </div>
             <div>
-              <div className="text-[9px] uppercase tracking-widest text-gray-600 mb-2">{s.tag}</div>
-              <h4 className="text-[14px] font-medium text-gray-200 mb-2">{s.title}</h4>
-              <p className="text-xs text-gray-500 leading-relaxed font-light">{s.desc}</p>
+              <div className="text-xs uppercase tracking-widest font-semibold text-foreground mb-2">{s.tag}</div>
+              <h4 className="text-sm font-medium tracking-wider text-popover mb-2">{s.title}</h4>
+              <p className="text-sm text-gray-300 leading-relaxed font-light">{s.desc}</p>
             </div>
           </div>
         ))}

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { FaMedal, FaCogs, FaMapMarkerAlt, FaShieldAlt } from "react-icons/fa";
 
 const reasons = [
@@ -44,7 +45,7 @@ const WhyChooseUs = () => {
               Driven by<br />
               Purpose.
             </h2>
-            <p className="text-[13px] text-gray-400 leading-relaxed max-w-sm font-light">
+            <p className="text-sm text-gray-300 leading-relaxed tracking-wide font-mono w-full font-light">
               With years of hands-on experience and advanced technology, we deliver reliable, sustainable, and cost-effective water solutions tailored to your needs.
             </p>
           </div>
@@ -56,18 +57,18 @@ const WhyChooseUs = () => {
         </div>
 
         <div className="h-100 md:h-150 w-full lg:col-span-2">
-          <img src="/images/home/why-choose-us.png" alt="Worker on a Mega Resources drill site" className="w-full h-full object-cover filter brightness-90 grayscale-20" />
+          <Image width={1000} height={1000} src="/images/home/why-choose-us.png" alt="Worker on a Mega Resources drill site" className="w-full h-full object-cover filter brightness-90 grayscale-20" priority />
         </div>
 
         <div className="flex flex-col justify-center gap-10">
           {reasons.map((item, idx) => (
             <div key={idx} className="flex gap-6 group">
-              <div className="mt-1 shrink-0 w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 group-hover:bg-white group-hover:text-black transition-colors">
-                <span className="text-xs">{item.icon}</span>
+              <div className="mt-1 shrink-0 w-12 h-12 rounded-full border-2 bg-muted/5 border-gray-500 flex items-center justify-center text-popover group-hover:bg-white group-hover:text-foreground transition-colors">
+                <span className="text-lg">{item.icon}</span>
               </div>
               <div>
-                <h4 className="text-[13px] font-medium text-gray-200 mb-2">{item.title}</h4>
-                <p className="text-xs text-gray-500 leading-relaxed font-light">{item.desc}</p>
+                <h4 className="text-[16px] font-medium text-popover mb-2">{item.title}</h4>
+                <p className="text-xs text-popover/50 leading-relaxed font-light">{item.desc}</p>
               </div>
             </div>
           ))}

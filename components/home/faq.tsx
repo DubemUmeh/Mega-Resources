@@ -33,8 +33,8 @@ const FAQ = () => {
     <section className="px-8 lg:px-24 py-24 border-b border-black/10">
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
         <div className="lg:w-1/3">
-          <div className="text-[10px] uppercase tracking-widest text-gray-500 mb-6">FAQ</div>
-          <h2 className="text-3xl md:text-4xl font-light leading-tight text-gray-200">
+          <div className="text-sm uppercase font-semibold tracking-widest text-popover mb-6">FAQ</div>
+          <h2 className="text-3xl md:text-4xl font-light leading-tight text-gray-100">
             Questions,<br />Answered.
           </h2>
         </div>
@@ -48,15 +48,15 @@ const FAQ = () => {
                   onClick={() => setOpen(isOpen ? null : idx)}
                   className="w-full flex items-center justify-between text-left py-6 gap-6"
                 >
-                  <span className="text-sm md:text-[15px] font-medium text-gray-200">{f.q}</span>
-                  <span className={`shrink-0 w-8 h-8 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}>
-                    <FaPlus className="text-[10px]" />
+                  <span className="text-lg font-medium text-gray-100">{f.q}</span>
+                  <span className={`shrink-0 w-8 h-8 rounded-full border border-muted-foreground flex items-center justify-center text-gray-50 transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}>
+                    <FaPlus className="size-4" />
                   </span>
                 </button>
                 <div
                   className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-40 opacity-100 pb-6" : "max-h-0 opacity-0"}`}
                 >
-                  <p className="text-[13px] text-gray-500 leading-relaxed font-light max-w-xl">{f.a}</p>
+                  <p className="text-[16px] text-popover leading-relaxed font-light max-w-xl">{f.a}</p>
                 </div>
               </div>
             );
