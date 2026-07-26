@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaQuoteLeft, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import Link from "next/link";
+import Image from "next/image";
 
 type Testimonial = { quote: string; name: string; title: string; img: string };
 
@@ -36,10 +37,10 @@ const TestimonialsClient = ({ testimonials }: { testimonials: Testimonial[] }) =
   const next = () => setActive((c) => (c === items.length - 1 ? 0 : c + 1));
 
   return (
-    <section className="min-h-screen h-full w-full px-8 lg:px-24 pt-15 pb-35 border-b border-gray-800 bg-foreground/10 text-white overflow-hidden">
-      <div className="inline-flex items-center border border-foreground/20 rounded-full bg-foreground/72 shadow-[0_8px_20px_rgba(15,23,42,0.05)] px-3 py-1 text-sm font-semibold tracking-[0.12em] uppercase text-[#0a0a0a]">Client Stories</div>
+    <section className="min-h-screen bg-linear-to-b from-foreground/40 via-background/20 to-foreground/30 h-full w-full px-8 lg:px-24 py-15 border-b border-muted-foreground bg-foreground/10 text-white overflow-hidden">
+      <Link href='/reviews' className="w-fit h-full inline-flex items-center shadow-[0_8px_20px_rgba(15,23,42,0.05)] text-sm font-semibold tracking-widest uppercase underline underline-offset-3 text-popover -mt-20 mb-5 md:m-0">Client Stories</Link>
 
-      <div className="max-w-4xl mx-auto relative h-127 mt-6 md:mt-0 flex items-center justify-center">
+      <div className="max-w-4xl mx-auto relative top-25 md:top-0 h-80 md:h-127 mt-6 md:mt-0 flex items-center justify-center">
         <div className="relative w-full max-w-3xl h-full flex items-center justify-center">
           <AnimatePresence mode="popLayout">
             {items.map((t, idx) => {
@@ -104,16 +105,16 @@ const TestimonialsClient = ({ testimonials }: { testimonials: Testimonial[] }) =
                   }}
                   className="absolute w-full max-w-3xl"
                 >
-                  <div className="border border-gray-800 rounded-2xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 items-center bg-gray-950/80 backdrop-blur-sm shadow-2xl">
-                    <div className="w-full h-40 md:h-48 bg-foreground/60 rounded-xl overflow-hidden border border-gray-800">
-                      <img src={t.img} alt={t.name} className="w-full h-full object-cover grayscale-30" />
+                  <div className="border-2 border-background/40 rounded-2xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 items-center bg-foreground/80 backdrop-blur-sm shadow-2xl">
+                    <div className="w-full h-25 md:h-48 bg-background/80 rounded-xl overflow-hidden border border-gray-800">
+                      <Image width={100} height={100} src={t.img} alt={t.name} className="w-full h-full object-cover grayscale-30" />
                     </div>
 
                     <div>
-                      <FaQuoteLeft className="text-gray-700 text-2xl mb-4" />
+                      <FaQuoteLeft className="text-blue-700 text-2xl mb-4" />
                       <p className="text-lg md:text-xl font-light text-gray-200 leading-relaxed mb-6">{t.quote}</p>
                       <div className="text-[13px] text-gray-200 font-medium">{t.name}</div>
-                      <div className="text-[11px] uppercase tracking-widest text-gray-500 mt-1">{t.title}</div>
+                      <div className="text-[11px] uppercase tracking-widest text-gray-400 mt-1">{t.title}</div>
                     </div>
                   </div>
                 </motion.div>
@@ -122,13 +123,13 @@ const TestimonialsClient = ({ testimonials }: { testimonials: Testimonial[] }) =
           </AnimatePresence>
         </div>
 
-        <div className="absolute z-50 -bottom-17 md:bottom-0 left-0 right-0 flex items-center justify-center gap-6">
+        <div className="absolute z-50 -bottom-42 md:bottom-0 left-0 right-0 flex items-center justify-center gap-6">
           <button 
             onClick={prev} 
             aria-label="Previous testimonial" 
-            className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:bg-white hover:text-black transition-colors"
+            className="w-10 h-10 rounded-full border border-popover flex items-center justify-center text-popover hover:bg-white hover:text-black transition-colors bg-foreground/20"
           >
-            <FaArrowLeft className="text-xs" />
+            <FaArrowLeft className="size-5" />
           </button>
 
           <div className="flex items-center gap-2 border border-blue-200/10 p-1 rounded-full">
@@ -145,14 +146,14 @@ const TestimonialsClient = ({ testimonials }: { testimonials: Testimonial[] }) =
           <button 
             onClick={next} 
             aria-label="Next testimonial" 
-            className="w-10 h-10 rounded-full border border-gray-700 flex items-center justify-center text-gray-400 hover:bg-white hover:text-black transition-colors"
+            className="w-10 h-10 rounded-full border border-popover flex items-center justify-center text-popover hover:bg-white hover:text-black transition-colors bg-foreground/20"
           >
-            <FaArrowRight className="text-xs" />
+            <FaArrowRight className="size-5" />
           </button>
 
         </div>
       </div>
-      <div className="w-full h-full flex items-center justify-center  relative left-0 top-28 md:top-8">
+      <div className="w-full h-full md:flex items-center justify-center relative left-0 top-70 z-100! md:top-8 hidden">
         <Link href='/reviews' className="w-fit flex items-center cursor-pointer rounded-2xl z-0 group pl-1 py-1.5 pr-4 gap-3 bg-blue-600 hover:bg-blue-700 active:scale-95 h-12 transition-all duration-300 ease-out">
           <div className="flex justify-start items-center">
             <div className="flex justify-center items-center size-10 flex-none rounded-xl bg-white">

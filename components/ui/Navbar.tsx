@@ -53,11 +53,11 @@ const Navbar = () => {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 z-50 transition-all duration-300 backdrop-blur-2xl bg-linear-to-r from-foreground via-foreground/40 md:via-background/80 to-background/80",
+          "fixed inset-x-0 z-50 transition-all duration-300 backdrop-blur-3xl bg-linear-to-r from-background md:via-background/5 to-background/80",
           !isScrolled
             ? "top-0 border-b border-border/60"
             // ? "top-0 border-b border-border/60 bg-background/80 backdrop-blur-xl"
-            : "top-3 mx-3 rounded-2xl border border-border/80 md:mx-8 lg:mx-14"
+            : "top-3 mx-3 rounded-2xl border border-foreground/30 md:mx-8 lg:mx-14"
         )}
       >
         <nav className="container-page w-full">
@@ -68,32 +68,36 @@ const Navbar = () => {
                 <Mega_Logo
                   logo_height="50"
                   logo_width="200"
-                  className='rotate-1'
+                  className='rotate-1 w-full'
                 />
               </div>
             </Link>
 
             {/* Desktop Nav */}
             <div className="relative hidden md:block">
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1 tracking-wide">
                 {navLinks.map((link) => (
                   <div key={link.href}>
                     {link.children ? (
                       <DropdownMenu.Root>
-                        <DropdownMenu.Trigger className="flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-foreground data-[state=open]:bg-accent">
+                        <DropdownMenu.Trigger className="flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-popover transition-colors hover:bg-accent hover:text-foreground data-[state=open]:bg-accent data-[state=open]:text-foreground">
                           {link.label} <FaChevronDown className="h-2.5 w-2.5" />
                         </DropdownMenu.Trigger>
-                        <DropdownMenu.Content className="absolute left-1/2 top-full mt-3 w-136 -translate-x-1/2 rounded-3xl border border-white/10 bg-background/95 p-4 shadow-2xl backdrop-blur-xl">
+                        <DropdownMenu.Content className="absolute left-1/2 top-full mt-3 w-136 -translate-x-1/2 rounded-3xl border border-white/10 bg-foreground backdrop-blur-2xl p-4 shadow-2xl">
                           <div className="grid grid-cols-2 gap-2">
-                            <Link href={link.href} className="col-span-2 rounded-2xl bg-blue-600/10 p-4 text-sm font-semibold text-blue-300">Explore {link.label}</Link>
+                            <DropdownMenu.Item asChild>
+                              <Link href={link.href} className="col-span-2 rounded-2xl bg-blue-600/10 p-4 text-sm font-semibold text-background">Explore {link.label}</Link>
+                            </DropdownMenu.Item>
                             {link.children.map((child) => (
-                              <Link key={child.href} href={child.href} className="rounded-2xl p-3 text-sm text-foreground/80 transition hover:bg-white/10 hover:text-foreground">{child.label}</Link>
+                              <DropdownMenu.Item key={child.href} asChild>
+                                <Link key={child.href} href={child.href} className="rounded-2xl p-3 text-sm text-background transition hover:bg-white/10 hover:text-popover tracking-wide">{child.label}</Link>
+                              </DropdownMenu.Item>
                             ))}
                           </div>
                         </DropdownMenu.Content>
                       </DropdownMenu.Root>
                     ) : (
-                      <Link href={link.href} className="rounded-full px-3 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-foreground">{link.label}</Link>
+                      <Link href={link.href} className="rounded-full px-3 py-2 text-sm font-medium text-popover transition-colors hover:bg-foreground hover:text-popover">{link.label}</Link>
                     )}
                   </div>
                 ))}
@@ -124,7 +128,7 @@ const Navbar = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-70 bg-foreground/75 backdrop-blur-2xl md:hidden w-full"
+            className="fixed inset-0 z-70 bg-background/40 backdrop-blur-2xl md:hidden w-full"
           >
             <div className="flex h-full flex-col py-5">
               {/* Top row: logo + close */}
@@ -133,7 +137,7 @@ const Navbar = () => {
                   href="/"
                   aria-label="Mega Resources Logo"
                   onClick={() => setMobileOpen(false)}
-                  className="h-9 rounded-xl text-[0.6rem] font-semibold block"
+                  className="rounded-xl text-[0.6rem] font-semibold block"
                 >
                   <Mega_Logo
                   logo_height="50"
@@ -144,14 +148,14 @@ const Navbar = () => {
                 <button
                   onClick={() => setMobileOpen(false)}
                   aria-label="Close menu"
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-background/25 text-background transition-colors hover:bg-background hover:text-foreground"
+                  className="flex h-9 w-9 items-center justify-center rounded-full mr-3 p-1 border border-foreground/25 text-popover transition-colors hover:bg-background hover:text-foreground"
                 >
-                  <FaTimes className="size-4" />
+                  <FaTimes className="size-7" />
                 </button>
               </div>
 
               {/* Numbered link list, staggers in from below */}
-              <nav className="mt-auto flex flex-col py-3">
+              <nav className="flex flex-col py-10">
                 {navLinks.map((link, i) => (
                   <motion.div
                     key={link.href}
@@ -167,10 +171,10 @@ const Navbar = () => {
                       onClick={() => setMobileOpen(false)}
                       className="group flex items-baseline gap-4 text-background"
                     >
-                      <span className="text-sm font-semibold text-blue-400">
+                      <span className="text-sm font-semibold text-blue-500">
                         0{i + 1}
                       </span>
-                      <span className="text-3xl font-medium tracking-tight transition-transform duration-300 group-hover:translate-x-2">
+                      <span className="text-3xl text-popover font-medium tracking-wide transition-transform duration-300 group-hover:translate-x-2">
                         {link.label}
                       </span>
                     </Link>
@@ -184,12 +188,12 @@ const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 16 }}
                 transition={{ delay: 0.12 + navLinks.length * 0.06, duration: 0.5 }}
-                className="mt-3"
+                className="mt-3 flex items-center justify-center"
               >
                 <Link
                   href='/quote'
                   onClick={() => setMobileOpen(false)}
-                  className="flex w-full items-center justify-center gap-2 rounded-full border border-background/30 py-3 text-background transition-colors hover:bg-background hover:text-foreground"
+                  className="flex w-fit items-center justify-center gap-2 rounded-2xl mx-5 border border-background/30 py-3 text-background bg-foreground/20 transition-colors hover:bg-background hover:text-foreground"
                 >
                   Get a Quote{" "}
                   <FaArrowRight className="-rotate-45 text-[10px]" />
@@ -202,18 +206,18 @@ const Navbar = () => {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ delay: 0.24 + navLinks.length * 0.06, duration: 0.5 }}
-                className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.78rem] uppercase tracking-[0.18em] text-background/55"
+                className="mt-6 mx-1 flex flex-wrap items-center gap-x-6 gap-y-2 text-[0.78rem] uppercase tracking-[0.18em] text-popover/90"
               >
                 <a href="tel:+233240000000" className="hover:text-background">
                   +233 24 000 0000
                 </a>
                 <a
-                  href="mailto:info@yourcompany.com"
+                  href="mailto:info@megaresourcesltd.com"
                   className="hover:text-background"
                 >
-                  info@yourcompany.com
+                  info@megaresourcesltd.com
                 </a>
-                <span>Mon–Sat · 8am–6pm</span>
+                <span>Mon–Sat · 8am–5pm</span>
               </motion.div>
             </div>
           </motion.div>

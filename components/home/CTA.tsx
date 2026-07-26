@@ -3,10 +3,10 @@ import { FaArrowRight, FaWhatsapp } from "react-icons/fa";
 
 const CTA = () => {
   return (
-    <section className="px-8 lg:px-24 py-24">
+    <section className="px-8 lg:px-24 py-24 bg-accent-foreground">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         <div className="lg:col-span-4">
-          <div className="text-[10px] uppercase tracking-widest text-gray-500 mb-6">Ready When You Are</div>
+          <div className="text-sm uppercase tracking-wide text-gray-500 mb-6">Ready When You Are</div>
           <h2 className="text-3xl md:text-4xl lg:text-[2.5rem] font-light leading-[1.1] text-gray-200">
             Ready for<br />
             24/7 Water?<br />
@@ -15,7 +15,7 @@ const CTA = () => {
         </div>
 
         <div className="lg:col-span-3 flex flex-col gap-8">
-          <p className="text-[13px] text-gray-400 leading-relaxed max-w-56 font-light">
+          <p className="text-sm text-gray-300 leading-relaxed max-w-56 font-light">
             Book your free site survey today. No payment until we confirm water on your land.
           </p>
           <div className="flex flex-col gap-3 w-fit">
@@ -28,21 +28,21 @@ const CTA = () => {
           </div>
         </div>
 
-        <div className="lg:col-span-3 flex flex-col gap-8 text-[11px] text-gray-500 tracking-wide font-light">
+        <div className="lg:col-span-3 flex flex-col gap-8 text-sm tracking-wide font-light">
           <div>
-            <div className="mb-1 text-gray-600 uppercase text-[9px] tracking-widest font-medium">Call Us</div>
+            <div className="mb-1 text-gray-500 uppercase text-xs tracking-widest font-medium">Call Us</div>
             <div className="text-gray-300">+233 24 123 4567<br />+233 54 987 6543</div>
           </div>
           <div>
-            <div className="mb-1 text-gray-600 uppercase text-[9px] tracking-widest font-medium">Email Us</div>
-            <div className="text-gray-300">info@mega-resources.com</div>
+            <div className="mb-1 text-gray-500 uppercase text-xs tracking-widest font-medium">Email Us</div>
+            <div className="text-gray-300">info@megaresourcesltd.com</div>
           </div>
           <div>
-            <div className="mb-1 text-gray-600 uppercase text-[9px] tracking-widest font-medium">Our Office</div>
+            <div className="mb-1 text-gray-500 uppercase text-xs tracking-widest font-medium">Our Office</div>
             <div className="text-gray-300">Takoradi, Western Region, Ghana</div>
           </div>
           <div>
-            <div className="mb-1 text-gray-600 uppercase text-[9px] tracking-widest font-medium">Hours</div>
+            <div className="mb-1 text-gray-500 uppercase text-xs tracking-widest font-medium">Hours</div>
             <div className="text-gray-300">Mon–Sat, 8am–5pm<br />24/7 emergency support</div>
           </div>
         </div>

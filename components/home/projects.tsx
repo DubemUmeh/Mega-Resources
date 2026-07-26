@@ -36,18 +36,18 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section className="px-8 lg:px-24 py-24 border-b border-gray-800">
-      <div className="text-[10px] uppercase tracking-widest text-gray-500 mb-16">Our Projects</div>
+    <section className="px-8 lg:px-24 py-24 border-b-2 border-muted-foreground bg-linear-to-b from-foreground/40 via-foreground/30 to-foreground/50">
+      <div className="text-sm uppercase tracking-widest border border-popover w-fit p-2 rounded-full bg-foreground/20 font-semibold mb-16">Our Projects</div>
 
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 mb-12">
         <div className="lg:w-1/4 flex flex-col justify-between">
-          <h2 className="text-3xl md:text-4xl font-light leading-tight text-gray-200 mb-8">
+          <h2 className="text-3xl md:text-4xl font-thin drop-shadow-2xl drop-shadow-background leading-tight font-mono text-gray-200 mb-8">
             Delivering<br />
             Impact Across<br />
             Ghana
           </h2>
           <Link href='/portfolio' className="w-full">
-            <div className="flex items-center gap-3 text-xs font-medium cursor-pointer group w-fit text-gray-400 hover:text-white transition-colors">
+            <div className="flex items-center gap-3 text-sm md:text-lg drop-shadow-2xl drop-shadow-popover underline underline-offset-3 font-medium cursor-pointer group w-fit text-popover hover:text-white transition-colors">
               Explore our project portfolio
               <FaArrowRight className="transform -rotate-45" />
             </div>
@@ -61,13 +61,13 @@ const Projects = () => {
               <div className="absolute inset-0 bg-linear-to-t from-dark via-dark/50 to-transparent"></div>
 
               <div className="absolute bottom-6 left-6 right-6">
-                <h4 className="text-[11px] font-semibold text-white tracking-wide mb-1 uppercase">{p.title}</h4>
-                <p className="text-[10px] text-gray-400 font-light mb-4">{p.location}</p>
+                <h4 className="text-sm font-semibold text-popover tracking-wider mb-1 uppercase">{p.title}</h4>
+                <p className="text-xs text-muted/70 font-light tracking-wide mb-4">{p.location}</p>
 
                 <div className="flex gap-4 opacity-0 group-hover:opacity-100 max-h-0 group-hover:max-h-20 transition-all duration-500 overflow-hidden">
                   {p.meta.map((m) => (
                     <div key={m.label} className="flex flex-col">
-                      <span className="text-[8px] uppercase tracking-widest text-gray-500">{m.label}</span>
+                      <span className="text-[8px] uppercase tracking-widest text-gray-300">{m.label}</span>
                       <span className="text-[11px] text-gray-200 font-light">{m.value}</span>
                     </div>
                   ))}

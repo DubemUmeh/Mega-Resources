@@ -4,6 +4,7 @@ import { useRef, useLayoutEffect } from "react";
 import { FaArrowRight, FaTint, FaWhatsapp, FaCheckCircle } from "react-icons/fa";
 import Link from "next/link";
 import { gsap } from "@/lib/gsap";
+import Image from "next/image";
 
 const HEADLINE = ["WATER.", "EXPERTISE.", "RELIABILITY."];
 
@@ -32,15 +33,15 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={root} className="relative pt-24 pb-24 md:pb-32 px-6 lg:px-24 min-h-[92vh] flex items-center overflow-hidden">
+    <section ref={root} className="relative pt-24 pb-10 md:pb-32 px-6 lg:px-24 min-h-[92vh] flex items-center overflow-hidden bg-foreground">
       <div className="absolute top-0 right-0 w-full md:w-[65%] h-full z-0">
-        <img src="/images/home/hero-2.png" className="w-full h-full object-cover opacity-60 md:opacity-100" alt="Drilling rig on site in Ghana" fetchPriority="high" />
-        <div className="absolute inset-0 bg-linear-to-r from-background via-background/80 to-transparent w-full md:w-[70%]"></div>
-        <div className="absolute inset-0 bg-linear-to-t from-background via-background/10 to-transparent"></div>
+        <Image src="/images/home/hero-2.png" className="w-full h-full object-cover opacity-60 md:opacity-100" alt="Drilling rig on site in Ghana" fetchPriority="high" priority width={1000} height={1000} />
+        <div className="absolute inset-0 bg-linear-to-r from-foreground via-foreground/60 to-foreground/0 w-full md:w-[70%]"></div>
+        <div className="absolute inset-0 bg-linear-to-t from-foreground via-foreground/30 to-foreground/0"></div>
       </div>
 
       <div className="relative z-10 w-full max-w-xl">
-        <div data-hero-eyebrow className="text-[10px] uppercase tracking-widest text-gray-500 mb-8">drilling for your future</div>
+        <div data-hero-eyebrow className="text-[10px] uppercase tracking-widest text-gray-200 mb-8">drilling for your future</div>
 
         <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-light leading-[1.05] tracking-tight mb-6">
           {HEADLINE.map((word, i) => (
