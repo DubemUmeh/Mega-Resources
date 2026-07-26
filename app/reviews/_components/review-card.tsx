@@ -4,7 +4,7 @@ import { StarRatingDisplay } from "./star-rating";
 
 export function ReviewCard({ review }: { review: Review }) {
   return (
-    <div className="relative flex h-full flex-col gap-4 rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-6">
+    <div className="relative flex h-full flex-col gap-4 rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-white/75 p-6">
       <div className="flex items-start justify-between gap-3">
         <div className="flex h-10 w-10 flex-none items-center justify-center rounded-full bg-blue-600/10">
           <FaQuoteLeft className="h-3.5 w-3.5 text-blue-600" />

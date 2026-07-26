@@ -23,6 +23,7 @@ const PortfolioContext = createContext<PortfolioStore | null>(null);
 function toPortfolio(row: Awaited<ReturnType<typeof getAllPortfolioForAdmin>>[number]): Portfolio {
   return {
     id: row.id,
+    slug: row.slug,
     title: row.title,
     location: row.location,
     region: row.region as Portfolio["region"],
@@ -44,6 +45,7 @@ function toPortfolio(row: Awaited<ReturnType<typeof getAllPortfolioForAdmin>>[nu
 
 function toPortfolioInput(portfolio: Portfolio) {
   return {
+    slug: portfolio.slug,
     title: portfolio.title,
     location: portfolio.location,
     region: portfolio.region,

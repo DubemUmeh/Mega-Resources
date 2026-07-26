@@ -71,7 +71,7 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
   const relatedLinks = data.related ?? [];
 
   return (
-    <div className="w-full bg-background/50">
+    <div className="w-full bg-background">
       <StructuredData data={serviceSchema(data)} />
       {/* ---------------------------------------------------------- HERO */}
       <div className={BG_GLOW} />
@@ -81,7 +81,7 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
           <Reveal>
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 rounded-full border border-foreground/20 bg-background/72 px-4 py-2 text-sm font-semibold uppercase tracking-[0.12em] text-muted-foreground shadow-[0_8px_20px_rgba(15,23,42,0.05)] transition-colors hover:text-foreground"
+              className="inline-flex items-center gap-2 rounded-full border border-foreground/20 bg-white/80 px-4 py-2 text-sm font-semibold uppercase tracking-[0.12em] text-muted-foreground shadow-[0_8px_20px_rgba(15,23,42,0.05)] transition-colors hover:text-foreground"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               All Services
@@ -148,7 +148,7 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
       {/* ------------------------------------------------------ OVERVIEW */}
       <section className="relative px-5 py-16 md:px-10 md:py-24">
         <div className="mx-auto grid w-[min(100%,76rem)] gap-8 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-12">
-          <Reveal className="rounded-[1.8rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-7 shadow-[0_18px_50px_rgba(15,23,42,0.05)] md:p-12">
+          <Reveal className="rounded-[1.8rem] border border-[rgba(10,10,10,0.08)] bg-white/75 p-7 shadow-[0_18px_50px_rgba(15,23,42,0.05)] md:p-12">
             <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(10,10,10,0.1)] bg-foreground/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
               Service Explained
             </span>
@@ -188,7 +188,7 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
 
           <Reveal
             delay={0.1}
-            className="sticky md:top-25 h-fit flex flex-col justify-center gap-6 overflow-hidden rounded-[1.8rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-7 md:p-10"
+            className="sticky md:top-25 h-fit flex flex-col justify-center gap-6 overflow-hidden rounded-[1.8rem] border border-[rgba(10,10,10,0.08)] bg-white/75 p-7 md:p-10"
           >
             <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,rgba(37,99,235,0.14),transparent_55%)]" />
             <h3 className="font-display text-xl font-semibold text-foreground">
@@ -204,7 +204,7 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
       </section>
 
       {/* -------------------------------------------------------- PROCESS */}
-      <section className="relative overflow-hidden bg-background/90 px-5 py-16 md:px-10 md:py-24">
+      <section className="relative overflow-hidden bg-background/95 px-5 py-16 md:px-10 md:py-24">
         <div className={BG_GLOW} />
         <div className="mx-auto w-[min(100%,76rem)]">
           <Reveal className="flex flex-col gap-3 md:max-w-xl">
@@ -222,7 +222,7 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
           <div className="mt-12 grid gap-8 md:grid-cols-3 md:gap-6">
             {data.process.map((step, i) => (
               <Reveal key={step.title} delay={i * 0.08}>
-                <div className="relative flex flex-col gap-4 rounded-[1.6rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-6">
+                <div className="relative flex flex-col gap-4 rounded-[1.6rem] border border-[rgba(10,10,10,0.08)] bg-white/75 p-6">
                   <div className="flex h-14 w-14 items-center justify-center rounded-full bg-background/60 font-display text-lg font-semibold text-blue-600 ring-1 ring-[rgba(10,10,10,0.08)]">
                     {String(i + 1).padStart(2, "0")}
                   </div>
@@ -256,7 +256,7 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
               const BenefitIcon = ICONS[benefit.icon];
               return (
                 <Reveal key={benefit.title} delay={i * 0.06}>
-                  <div className="hover-lift h-full rounded-[1.6rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-6">
+                  <div className="hover-lift h-full rounded-[1.6rem] border border-[rgba(10,10,10,0.08)] bg-white/75 p-6">
                     <div className="flex h-11 w-11 items-center justify-center rounded-full bg-blue-600/10">
                       {BenefitIcon ? (
                         <BenefitIcon className="h-5 w-5 text-blue-600" />
@@ -338,7 +338,7 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
           <Reveal className="mx-auto mt-8 w-[min(100%,76rem)]">
             <Link
               href={`/services/${data.next.slug}`}
-              className="group flex items-center justify-between rounded-[1.6rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-7 py-6 transition-colors hover:bg-[rgba(36,35,35,0.7)]"
+              className="group flex items-center justify-between rounded-[1.6rem] border border-[rgba(10,10,10,0.08)] bg-white/75 px-7 py-6 transition-colors hover:bg-[rgba(36,35,35,0.7)]"
             >
               <span className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                 Next Service

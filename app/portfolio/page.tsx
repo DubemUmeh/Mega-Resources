@@ -13,14 +13,14 @@ const stats = [
 
 export default function PortfolioPage() {
   return (
-    <div className="w-full bg-background/50">
+    <div className="w-full bg-background">
       {/* ---------------------------------------------------------- HERO */}
       <div className={BG_GLOW} />
       <section className="relative overflow-hidden px-5 pb-16 pt-32 md:px-10 md:pb-20 md:pt-40">
         <div className={BG_GLOW} />
         <div className="mx-auto w-[min(100%,76rem)]">
           <Reveal>
-            <div className="inline-flex items-center gap-[0.45rem] rounded-full border border-foreground/20 bg-background/72 px-[0.8rem] py-[0.45rem] text-[0.85rem] font-semibold uppercase tracking-[0.12em] text-[#e4eff3] shadow-[0_8px_20px_rgba(15,23,42,0.05)]">
+            <div className="inline-flex items-center gap-[0.45rem] rounded-full border border-foreground/20 bg-white/80 px-[0.8rem] py-[0.45rem] text-[0.85rem] font-semibold uppercase tracking-[0.12em] text-blue-700 shadow-[0_8px_20px_rgba(15,23,42,0.05)]">
               Portfolio
             </div>
           </Reveal>
@@ -56,7 +56,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* -------------------------------------------------------- STATS */}
-      <section className="relative overflow-hidden bg-background/90 px-5 py-14 md:px-10 md:py-16">
+      <section className="relative overflow-hidden bg-background/95 px-5 py-14 md:px-10 md:py-16">
         <div className={BG_GLOW} />
         <div className="mx-auto w-[min(100%,76rem)]">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-6">
@@ -147,7 +147,7 @@ export default function PortfolioPage() {
                 </p>
               </div>
 
-              <div className="mt-2 grid grid-cols-3 gap-4 rounded-2xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-5 text-center">
+              <div className="mt-2 grid grid-cols-3 gap-4 rounded-2xl border border-[rgba(10,10,10,0.08)] bg-white/75 p-5 text-center">
                 <div>
                   <p className="font-display text-lg font-semibold text-foreground">
                     310ft

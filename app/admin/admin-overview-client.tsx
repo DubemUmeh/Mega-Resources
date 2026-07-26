@@ -49,7 +49,7 @@ export function AdminOverviewClient({
           return (
             <div
               key={stat.label}
-              className="rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-6"
+              className="rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-white/75 p-6"
             >
               <div className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-600/10">
                 <Icon className="h-3.5 w-3.5 text-blue-600" />
@@ -64,7 +64,7 @@ export function AdminOverviewClient({
       </div>
 
       <div className="mt-6 grid gap-5 lg:grid-cols-2">
-        <div className="rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-6">
+        <div className="rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-white/75 p-6">
           <div className="flex items-center justify-between">
             <h2 className="font-display text-base font-semibold text-foreground">Reviews</h2>
             <Link
@@ -81,7 +81,7 @@ export function AdminOverviewClient({
           </p>
         </div>
 
-        <div className="rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-6">
+        <div className="rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-white/75 p-6">
           <div className="flex items-center justify-between">
             <h2 className="font-display text-base font-semibold text-foreground">Portfolio</h2>
             <Link
@@ -102,7 +102,7 @@ export function AdminOverviewClient({
       <div className="mt-6 grid gap-5 lg:grid-cols-2">
         {[{ title: "Recent Contact Requests", href: "/admin/contact-requests", items: recentContactRequests, icon: FaEnvelope }, { title: "Recent Quote Requests", href: "/admin/quote-requests", items: recentQuoteRequests, icon: FaFileInvoice }].map((section) => {
           const Icon = section.icon;
-          return <div key={section.title} className="rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-6"><div className="flex items-center justify-between"><h2 className="flex items-center gap-2 font-display text-base font-semibold text-foreground"><Icon className="h-3.5 w-3.5 text-blue-500" />{section.title}</h2><Link href={section.href} className="text-[0.8rem] font-medium text-blue-600">View all</Link></div><div className="mt-4 space-y-3">{section.items.length ? section.items.map((item) => <div key={item.id} className="rounded-xl bg-black/15 p-3"><p className="truncate text-sm font-medium">{item.subject}</p><p className="truncate text-xs text-muted-foreground">{item.fromName || item.fromEmail} — {item.preview}</p></div>) : <p className="text-sm text-muted-foreground">No recent matching Gmail messages.</p>}</div></div>;
+          return <div key={section.title} className="rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-white/75 p-6"><div className="flex items-center justify-between"><h2 className="flex items-center gap-2 font-display text-base font-semibold text-foreground"><Icon className="h-3.5 w-3.5 text-blue-500" />{section.title}</h2><Link href={section.href} className="text-[0.8rem] font-medium text-blue-600">View all</Link></div><div className="mt-4 space-y-3">{section.items.length ? section.items.map((item) => <div key={item.id} className="rounded-xl bg-black/5 p-3"><p className="truncate text-sm font-medium">{item.subject}</p><p className="truncate text-xs text-muted-foreground">{item.fromName || item.fromEmail} — {item.preview}</p></div>) : <p className="text-sm text-muted-foreground">No recent matching Gmail messages.</p>}</div></div>;
         })}
       </div>
     </div>

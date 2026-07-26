@@ -15,7 +15,7 @@ export default function HomePage() {
     <main className="text-white font-sans min-h-screen selection:bg-gray-800 selection:text-white">
       <HomeSchema />
       <Hero />
-      <section className="relative overflow-hidden bg-background/80">
+      <section className="relative overflow-hidden bg-background/95">
         <div className="pointer-events-none absolute inset-0 -z-10 [background:radial-gradient(circle_at_10%_10%,rgba(255,205,112,0.16),transparent_38%),radial-gradient(circle_at_90%_20%,rgba(255,184,142,0.14),transparent_40%)]" />
         <ProblemSolution />
         <Services />

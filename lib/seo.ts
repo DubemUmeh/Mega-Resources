@@ -31,7 +31,7 @@ export function createMetadata({
   title,
   description,
   path,
-  image = "/images/home/borehole-drilling.jpeg",
+  image = "/images/og-image.svg",
   type = "website",
   noIndex = false,
 }: PageSeo): Metadata {

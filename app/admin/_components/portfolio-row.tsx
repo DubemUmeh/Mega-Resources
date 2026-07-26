@@ -19,7 +19,7 @@ export function PortfolioRow({
   const router = useRouter();
 
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] transition-colors hover:border-blue-600/25">
+    <div className="group relative flex flex-col overflow-hidden rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-white/75 transition-colors hover:border-blue-600/25">
       <div className="relative aspect-4/3 w-full overflow-hidden">
         <Image
           src={portfolio.img}
@@ -29,7 +29,7 @@ export function PortfolioRow({
           className="object-cover"
         />
         {portfolio.isVideo && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+          <div className="absolute inset-0 flex items-center justify-center bg-black/5">
             <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-background">
               <FaPlay className="ml-0.5 h-3 w-3" />
             </span>
@@ -42,7 +42,7 @@ export function PortfolioRow({
         <span
           className={`absolute right-3 top-3 rounded-full px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.06em] backdrop-blur-sm ${
             portfolio.status === "published"
-              ? "bg-black/40 text-white"
+              ? "bg-slate-900/60 text-white"
               : "bg-amber-400/90 text-black"
           }`}
         >
@@ -86,7 +86,7 @@ export function PortfolioRow({
         <div className="mt-2 flex items-center justify-between border-t border-[rgba(10,10,10,0.08)] pt-3 text-[0.75rem] text-muted-foreground">
           <span>{portfolio.depth} · {portfolio.duration}</span>
           <Link
-            href={`/portfolio#${portfolio.id}`}
+            href={`/portfolio/project/${portfolio.slug ?? portfolio.id}`}
             target="_blank"
             className="flex items-center gap-1 font-medium text-blue-600"
           >

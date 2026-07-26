@@ -78,7 +78,7 @@ function EditReviewDialogForm({
                 <input
                   value={draft.name}
                   onChange={(e) => setDraft({ ...draft, name: e.target.value })}
-                  className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
+                  className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-white/75 px-4 py-2.5 text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
                 />
               </div>
               <div className="flex flex-col gap-1.5">
@@ -86,7 +86,7 @@ function EditReviewDialogForm({
                 <input
                   value={draft.location}
                   onChange={(e) => setDraft({ ...draft, location: e.target.value })}
-                  className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
+                  className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-white/75 px-4 py-2.5 text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
                 />
               </div>
             </div>
@@ -98,7 +98,7 @@ function EditReviewDialogForm({
               <input
                 value={draft.title ?? ""}
                 onChange={(e) => setDraft({ ...draft, title: e.target.value })}
-                className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
+                className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-white/75 px-4 py-2.5 text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
               />
             </div>
 
@@ -108,7 +108,7 @@ function EditReviewDialogForm({
                 <DropdownMenu.Trigger asChild>
                   <button
                     type="button"
-                    className="flex w-full items-center justify-between rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-left text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
+                    className="flex w-full items-center justify-between rounded-xl border border-[rgba(10,10,10,0.08)] bg-white/75 px-4 py-2.5 text-left text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
                   >
                     <span className="truncate">
                       {draft.services.length > 0 ? draft.services.join(", ") : "Select services"}
@@ -158,7 +158,7 @@ function EditReviewDialogForm({
                 onChange={(e) => setDraft({ ...draft, message: e.target.value })}
                 rows={4}
                 maxLength={500}
-                className="w-full resize-none rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
+                className="w-full resize-none rounded-xl border border-[rgba(10,10,10,0.08)] bg-white/75 px-4 py-2.5 text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
               />
             </div>
 
@@ -170,7 +170,7 @@ function EditReviewDialogForm({
               >
                 <Select.Trigger
                   aria-label="Review moderation status"
-                  className="flex w-full items-center justify-between rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-left text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
+                  className="flex w-full items-center justify-between rounded-xl border border-[rgba(10,10,10,0.08)] bg-white/75 px-4 py-2.5 text-left text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
                 >
                   <Select.Value />
                   <Select.Icon>

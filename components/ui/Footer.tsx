@@ -54,7 +54,7 @@ export default function Footer() {
         ))}
       </div>
 
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[16px] md:text-[16px] text-gray-400 font-light border-t border-gray-800/80 pt-8 w-full">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-[16px] md:text-[16px] text-gray-400 font-light border-t border-black/10/80 pt-8 w-full">
         <div>© 2026 Mega Resources Ltd. All Rights Reserved.</div>
         <div className="flex gap-6 w-fit">
           <Link href='/privacy-policy' className="hover:text-white cursor-pointer transition-colors">Privacy Policy</Link>

@@ -37,14 +37,14 @@ export default function LegalPageLayout({
   }
 
   return (
-    <div className="w-full bg-background/50">
+    <div className="w-full bg-background">
       {/* ---------------------------------------------------------- HERO */}
       <div className={BG_GLOW} />
       <section className="relative overflow-hidden px-5 pb-12 pt-32 md:px-10 md:pb-16 md:pt-40">
         <div className={BG_GLOW} />
         <div className="mx-auto w-[min(100%,76rem)]">
           <Reveal>
-            <div className="inline-flex items-center gap-[0.45rem] rounded-full border border-foreground/20 bg-background/72 px-[0.8rem] py-[0.45rem] text-[0.85rem] font-semibold uppercase tracking-[0.12em] text-[#e4eff3] shadow-[0_8px_20px_rgba(15,23,42,0.05)]">
+            <div className="inline-flex items-center gap-[0.45rem] rounded-full border border-foreground/20 bg-white/80 px-[0.8rem] py-[0.45rem] text-[0.85rem] font-semibold uppercase tracking-[0.12em] text-blue-700 shadow-[0_8px_20px_rgba(15,23,42,0.05)]">
               {eyebrow}
             </div>
           </Reveal>
@@ -70,7 +70,7 @@ export default function LegalPageLayout({
       </section>
 
       {/* --------------------------------------------------- TOC + BODY */}
-      <section className="relative overflow-hidden bg-background/90 px-5 pb-24 pt-4 md:px-10">
+      <section className="relative overflow-hidden bg-background/95 px-5 pb-24 pt-4 md:px-10">
         <div className={BG_GLOW} />
         <div className="mx-auto grid w-[min(100%,76rem)] gap-10 md:grid-cols-[0.8fr_2.2fr] md:gap-16">
           {/* Table of contents */}
@@ -103,7 +103,7 @@ export default function LegalPageLayout({
                 <AccordionPrimitive.Item
                   value={s.id}
                   id={`section-${s.id}`}
-                  className="scroll-mt-28 overflow-hidden rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)]"
+                  className="scroll-mt-28 overflow-hidden rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-white/75"
                 >
                   <AccordionPrimitive.Header>
                     <AccordionPrimitive.Trigger className="group flex w-full items-center justify-between gap-4 px-5 py-5 text-left md:px-6">

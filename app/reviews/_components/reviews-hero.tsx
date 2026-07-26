@@ -17,7 +17,7 @@ export function ReviewsHero({
       <div className={BG_GLOW} />
       <div className="mx-auto w-[min(100%,76rem)]">
         <Reveal>
-          <div className="inline-flex items-center gap-[0.45rem] rounded-full border border-foreground/20 bg-background/72 px-[0.8rem] py-[0.45rem] text-[0.85rem] font-semibold uppercase tracking-[0.12em] text-[#e4eff3] shadow-[0_8px_20px_rgba(15,23,42,0.05)]">
+          <div className="inline-flex items-center gap-[0.45rem] rounded-full border border-foreground/20 bg-white/80 px-[0.8rem] py-[0.45rem] text-[0.85rem] font-semibold uppercase tracking-[0.12em] text-blue-700 shadow-[0_8px_20px_rgba(15,23,42,0.05)]">
             Client Reviews
           </div>
         </Reveal>
@@ -40,7 +40,7 @@ export function ReviewsHero({
         </Reveal>
 
         <Reveal delay={0.22} className="mt-8 flex flex-wrap items-center gap-5">
-          <div className="flex items-center gap-3 rounded-2xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-5 py-3">
+          <div className="flex items-center gap-3 rounded-2xl border border-[rgba(10,10,10,0.08)] bg-white/75 px-5 py-3">
             <span className="font-display text-2xl font-bold text-foreground">
               {averageRating.toFixed(1)}
             </span>

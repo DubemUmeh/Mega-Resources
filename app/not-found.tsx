@@ -74,7 +74,7 @@ export default function NotFound() {
   }, [pathName]);
   
   return (
-    <div className="w-full bg-background/50">
+    <div className="w-full bg-background">
       <div className={BG_GLOW} />
       <section className="relative overflow-hidden px-5 pb-16 pt-32 md:px-10 md:pb-20 md:pt-40">
         <div className={BG_GLOW} />
@@ -111,7 +111,7 @@ export default function NotFound() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-background/90 px-5 pb-24 md:px-10">
+      <section className="relative overflow-hidden bg-background/95 px-5 pb-24 md:px-10">
         <div className={BG_GLOW} />
         <div className="mx-auto w-[min(100%,76rem)]">
           <Reveal className="max-w-2xl">
@@ -127,7 +127,7 @@ export default function NotFound() {
                 <Reveal key={link.href} delay={(i % 4) * 0.06}>
                   <Link
                     href={link.href}
-                    className="group flex h-full flex-col gap-3 rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-6 transition-colors hover:bg-[rgba(36,35,35,0.75)]"
+                    className="group flex h-full flex-col gap-3 rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-white/75 p-6 transition-colors hover:bg-[rgba(36,35,35,0.75)]"
                   >
                     <div className="flex h-11 w-11 items-center justify-center rounded-full bg-blue-600/10">
                       <Icon className="h-4.5 w-4.5 text-blue-600" />

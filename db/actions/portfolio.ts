@@ -29,6 +29,16 @@ export async function getPublishedPortfolio(filters?: {
     .orderBy(desc(portfolioProjects.createdAt));
 }
 
+
+export async function getFeaturedPortfolioProjects(limit = 3) {
+  return db
+    .select()
+    .from(portfolioProjects)
+    .where(and(eq(portfolioProjects.status, "published"), eq(portfolioProjects.featured, true)))
+    .orderBy(desc(portfolioProjects.createdAt))
+    .limit(limit);
+}
+
 export async function getPublishedPortfolioBySlug(slug: string) {
   const [project] = await db
     .select()
@@ -89,6 +99,7 @@ export async function createPortfolioProject(
         slug: await resolvePortfolioSlug(parsed.data),
       })
       .returning();
+    revalidatePath("/");
     revalidatePath("/portfolio");
     revalidatePath("/sitemap.xml");
     revalidatePath("/admin/portfolio");
@@ -128,6 +139,7 @@ export async function updatePortfolioProject(
         slug: await resolvePortfolioSlug(parsed.data, id),
       })
       .where(eq(portfolioProjects.id, id));
+    revalidatePath("/");
     revalidatePath("/portfolio");
     revalidatePath("/sitemap.xml");
     revalidatePath("/admin/portfolio");

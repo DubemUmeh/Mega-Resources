@@ -32,7 +32,7 @@ const stats = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="px-8 lg:px-24 py-24 border-b border-gray-800">
+    <section className="px-8 lg:px-24 py-24 border-b border-black/10">
       <div className="text-[10px] uppercase tracking-widest text-gray-500 mb-16">Why Choose Us</div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12 lg:gap-20 mb-20">
@@ -74,9 +74,9 @@ const WhyChooseUs = () => {
         </div>
       </div>
 
-      <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-800 border-2 border-gray-800 rounded-sm">
+      <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-800 border-2 border-black/10 rounded-sm">
         {stats.map((s) => (
-          <div key={s.label} className="bg-dark px-6 py-8 text-center">
+          <div key={s.label} className="bg-white px-6 py-8 text-center">
             <div className="text-3xl md:text-4xl font-light text-gray-100 mb-2">{s.value}</div>
             <div className="text-[10px] uppercase tracking-widest text-gray-500">{s.label}</div>
           </div>

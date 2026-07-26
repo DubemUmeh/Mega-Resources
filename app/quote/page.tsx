@@ -17,7 +17,7 @@ const included = [
 export default function QuotePage() {
   return (
     <ToastProvider>
-      <div className="w-full bg-background/50">
+      <div className="w-full bg-background">
         {/* ---------------------------------------------------------- HERO */}
         <div className={BG_GLOW} />
         <section className="relative overflow-hidden px-5 pb-16 pt-32 md:px-10 md:pb-20 md:pt-40">
@@ -26,7 +26,7 @@ export default function QuotePage() {
             <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
               <div>
                 <Reveal>
-                  <div className="inline-flex items-center gap-[0.45rem] rounded-full border border-foreground/20 bg-background/72 px-[0.8rem] py-[0.45rem] text-[0.85rem] font-semibold uppercase tracking-[0.12em] text-[#e4eff3] shadow-[0_8px_20px_rgba(15,23,42,0.05)]">
+                  <div className="inline-flex items-center gap-[0.45rem] rounded-full border border-foreground/20 bg-white/80 px-[0.8rem] py-[0.45rem] text-[0.85rem] font-semibold uppercase tracking-[0.12em] text-blue-700 shadow-[0_8px_20px_rgba(15,23,42,0.05)]">
                     Get a Quote
                   </div>
                 </Reveal>
@@ -60,7 +60,7 @@ export default function QuotePage() {
         </section>
 
         {/* ------------------------------------------------ INCLUDED STRIP */}
-        <section className="relative overflow-hidden bg-background/90 px-5 py-10 md:px-10">
+        <section className="relative overflow-hidden bg-background/95 px-5 py-10 md:px-10">
           <div className="mx-auto w-[min(100%,76rem)]">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {included.map((item, i) => (
@@ -78,7 +78,7 @@ export default function QuotePage() {
           <div className={BG_GLOW} />
           <div className="mx-auto grid w-[min(100%,76rem)] gap-10 md:grid-cols-[1.15fr_0.85fr] md:gap-10">
             <Reveal>
-              <div className="rounded-[2rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.35)] p-6 shadow-[0_18px_50px_rgba(0,0,0,0.15)] md:p-10">
+              <div className="rounded-[2rem] border border-[rgba(10,10,10,0.08)] bg-white/70 p-6 shadow-[0_18px_50px_rgba(0,0,0,0.15)] md:p-10">
                 <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
                   Request A Survey
                 </span>

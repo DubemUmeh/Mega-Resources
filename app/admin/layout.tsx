@@ -20,7 +20,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
   return (
     <ToastProvider>
       <PortfolioProvider>
-        <div className="min-h-screen w-full bg-background/50">
+        <div className="min-h-screen w-full bg-background">
           <AdminSidebar />
           <main className="px-5 py-8 lg:pl-68 lg:pr-10 lg:py-10">
             <div className="mx-auto w-full max-w-304">{children}</div>

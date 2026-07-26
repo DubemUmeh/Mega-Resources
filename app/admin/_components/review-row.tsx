@@ -42,7 +42,7 @@ export function ReviewRow({
   const statusActions: ReviewStatus[] = ["pending", "approved", "rejected"];
 
   return (
-    <div className="group relative grid grid-cols-1 gap-3 rounded-2xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-5 transition-colors hover:border-blue-600/25 md:grid-cols-[1.6fr_0.9fr_0.6fr_0.9fr] md:items-center md:gap-4">
+    <div className="group relative grid grid-cols-1 gap-3 rounded-2xl border border-[rgba(10,10,10,0.08)] bg-white/75 p-5 transition-colors hover:border-blue-600/25 md:grid-cols-[1.6fr_0.9fr_0.6fr_0.9fr] md:items-center md:gap-4">
       {/* Reviewer + message */}
       <div className="min-w-0">
         <div className="flex items-center gap-2">

@@ -71,7 +71,7 @@ function SelectField({
     <Select.Root value={value} onValueChange={onChange}>
       <Select.Trigger
         aria-label={ariaLabel}
-        className="inline-flex items-center gap-2 rounded-full border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.85rem] font-medium text-foreground outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+        className="inline-flex items-center gap-2 rounded-full border border-[rgba(10,10,10,0.08)] bg-white/75 px-4 py-2.5 text-[0.85rem] font-medium text-foreground outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
       >
         <Select.Value />
         <Select.Icon>
@@ -106,7 +106,7 @@ function SelectField({
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <Link href={`/portfolio/project/${project.slug}`} className="flex h-full w-full flex-col overflow-hidden rounded-[1.5rem] border text-left border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)]">
+    <Link href={`/portfolio/project/${project.slug}`} className="flex h-full w-full flex-col overflow-hidden rounded-[1.5rem] border text-left border-[rgba(10,10,10,0.08)] bg-white/75">
       <div className="relative aspect-6/3 w-full overflow-hidden">
         <Image
           src={project.img}
@@ -116,7 +116,7 @@ function ProjectCard({ project }: { project: Project }) {
           className="object-cover transition-transform duration-500 hover:scale-105"
         />
         {project.isVideo && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+          <div className="absolute inset-0 flex items-center justify-center bg-black/5">
             <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-background">
               <FaPlay className="ml-0.5 h-3.5 w-3.5" />
             </span>
@@ -125,7 +125,7 @@ function ProjectCard({ project }: { project: Project }) {
         <span className="absolute left-3 top-3 rounded-full bg-blue-600 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.06em] text-white">
           {project.service}
         </span>
-        <span className="absolute right-3 top-3 rounded-full bg-black/40 px-3 py-1 text-[0.7rem] font-medium text-white backdrop-blur-sm">
+        <span className="absolute right-3 top-3 rounded-full bg-slate-900/60 px-3 py-1 text-[0.7rem] font-medium text-white backdrop-blur-sm">
           {project.year}
         </span>
       </div>
@@ -156,7 +156,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
     <Dialog.Root open onOpenChange={(open) => !open && onClose()}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-[92vh] w-[min(64rem,95vw)] -translate-x-1/2 -translate-y-1/2 overflow-y-auto no-scrollbar rounded-3xl border border-white/10 bg-background p-4 shadow-2xl outline-none sm:p-6">
+        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-[92vh] w-[min(64rem,95vw)] -translate-x-1/2 -translate-y-1/2 overflow-y-auto no-scrollbar rounded-3xl border border-black/10 bg-background p-4 shadow-2xl outline-none sm:p-6">
           <Dialog.Title className="sr-only">{project.title}</Dialog.Title>
           <Dialog.Close className="absolute right-4 top-4 z-20 rounded-full bg-black/60 p-2 text-white">
             <FaTimes />
@@ -164,7 +164,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
           <div className="grid gap-4 lg:grid-cols-[6rem_1fr]">
             <div className="hide-scrollbar order-2 flex gap-2 overflow-x-auto lg:order-1 lg:max-h-136 lg:flex-col lg:overflow-y-auto">
               {images.map((src, index) => (
-                <button key={`${src}-${index}`} type="button" onClick={() => setActive(index)} className={`relative h-20 w-20 flex-none overflow-hidden rounded-xl border ${index === active ? "border-blue-500" : "border-white/10"}`}>
+                <button key={`${src}-${index}`} type="button" onClick={() => setActive(index)} className={`relative h-20 w-20 flex-none overflow-hidden rounded-xl border ${index === active ? "border-blue-500" : "border-black/10"}`}>
                   <Image src={src} alt={`${project.title} thumbnail ${index + 1}`} fill className="object-cover" />
                 </button>
               ))}
@@ -181,7 +181,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                 <p className="leading-7 text-muted-foreground">{project.summary}</p>
                 <div className="grid gap-3 sm:grid-cols-3">
                   {[["Depth", `${project.depth} ft`], ["Yield", `${project.yieldRate} l/hr`], ["Duration", `${project.duration} Day(s)`]].map(([label, value]) => (
-                    <div key={label} className="rounded-2xl border border-white/10 bg-white/5 p-4"><p className="font-display font-semibold text-foreground">{value}</p><p className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{label}</p></div>
+                    <div key={label} className="rounded-2xl border border-black/10 bg-white/5 p-4"><p className="font-display font-semibold text-foreground">{value}</p><p className="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{label}</p></div>
                   ))}
                 </div>
               </div>
@@ -319,7 +319,7 @@ export function PortfolioFilterGrid() {
                 {hasMore && (
                   <button
                     onClick={() => setVisible((v) => v + PAGE_SIZE)}
-                    className="rounded-full border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-6 py-3 text-[0.85rem] font-medium text-foreground transition-colors hover:bg-blue-600/10 hover:text-blue-600"
+                    className="rounded-full border border-[rgba(10,10,10,0.08)] bg-white/75 px-6 py-3 text-[0.85rem] font-medium text-foreground transition-colors hover:bg-blue-600/10 hover:text-blue-600"
                   >
                     Load More Projects
                   </button>

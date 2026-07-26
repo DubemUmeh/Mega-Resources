@@ -25,7 +25,7 @@ export default function EditPortfolioPage() {
       {!ready ? (
         <p className="text-muted-foreground">Loading project…</p>
       ) : !existing ? (
-        <div className="rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-8 text-center">
+        <div className="rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-white/75 p-8 text-center">
           <p className="text-foreground">We couldn&apos;t find that project.</p>
           <Link
             href="/admin/portfolio"

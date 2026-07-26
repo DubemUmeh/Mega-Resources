@@ -177,7 +177,7 @@ export default function ServiceShowcase() {
   return (
     <section id="service-grid" className="relative">
       {/* --------------------------------------------------- INTRO COPY */}
-      <div className="relative overflow-hidden bg-background/90 px-5 py-16 md:px-10 md:py-20">
+      <div className="relative overflow-hidden bg-background/95 px-5 py-16 md:px-10 md:py-20">
         <motion.div
           className="mx-auto w-[min(100%,76rem)]"
           initial={{ opacity: 0, y: 24 }}

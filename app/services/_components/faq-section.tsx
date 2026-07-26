@@ -33,7 +33,7 @@ export default function FaqSection() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="relative overflow-hidden bg-background/90 px-5 py-16 md:px-10 md:py-20">
+    <section className="relative overflow-hidden bg-background/95 px-5 py-16 md:px-10 md:py-20">
       <div className={BG_GLOW} />
       <div className="mx-auto w-[min(100%,76rem)]">
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-24">

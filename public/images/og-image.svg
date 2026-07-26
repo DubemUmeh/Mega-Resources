@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#fff8ea"/>
+      <stop offset="0.55" stop-color="#f8f4ec"/>
+      <stop offset="1" stop-color="#e7f0ff"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="20%" cy="18%" r="55%">
+      <stop offset="0" stop-color="#ffcd70" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#ffcd70" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#sun)"/>
+  <circle cx="1020" cy="120" r="170" fill="#ffb88e" opacity="0.22"/>
+  <path d="M0 455C170 410 265 520 435 470C600 422 720 315 900 360C1030 392 1110 470 1200 435V630H0Z" fill="#2563eb" opacity="0.14"/>
+  <path d="M0 502C180 462 310 545 475 515C690 476 778 388 956 430C1072 458 1128 516 1200 493V630H0Z" fill="#1f2937" opacity="0.9"/>
+  <text x="86" y="170" fill="#2563eb" font-family="Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="6">MEGA RESOURCES LTD</text>
+  <text x="84" y="280" fill="#1f2937" font-family="Arial, sans-serif" font-size="76" font-weight="700">Borehole Drilling</text>
+  <text x="88" y="360" fill="#1f2937" font-family="Arial, sans-serif" font-size="58" font-weight="400">&amp; Water Systems Ghana</text>
+  <text x="90" y="440" fill="#4b5563" font-family="Arial, sans-serif" font-size="30">Surveys • Drilling • Pump Installation • Rehabilitation</text>
+</svg>

@@ -47,7 +47,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="px-8 lg:px-24 py-24 border-b border-gray-800 overflow-hidden bg-linear-to-b from-background/10 via-background/50 to-background/20 text-white">
+    <section className="px-8 lg:px-24 py-24 border-b border-black/10 overflow-hidden bg-linear-to-b from-background/10 via-background/50 to-background/20 text-white">
       <div className="text-[10px] uppercase tracking-widest text-gray-500 mb-16">Our Services</div>
 
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
@@ -77,7 +77,7 @@ const Services = () => {
               }}
             >
               {[...services, ...services].map((svc, idx) => (
-                <div key={idx} className="relative min-w-45 md:min-w-52 h-90 md:h-105 group/card cursor-pointer overflow-hidden bg-gray-900 shrink-0">
+                <div key={idx} className="relative min-w-45 md:min-w-52 h-90 md:h-105 group/card cursor-pointer overflow-hidden bg-white shrink-0">
                   <img 
                     src={svc.img} 
                     alt={svc.title.replace("\n", " ")} 

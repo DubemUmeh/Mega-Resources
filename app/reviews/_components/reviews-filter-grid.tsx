@@ -29,7 +29,7 @@ function SelectField({
     <Select.Root value={value} onValueChange={onChange}>
       <Select.Trigger
         aria-label={ariaLabel}
-        className="inline-flex items-center gap-2 rounded-full border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.85rem] font-medium text-foreground outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+        className="inline-flex items-center gap-2 rounded-full border border-[rgba(10,10,10,0.08)] bg-white/75 px-4 py-2.5 text-[0.85rem] font-medium text-foreground outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
       >
         <Select.Value />
         <Select.Icon>
@@ -127,7 +127,7 @@ export function ReviewsFilterGrid({ reviews }: { reviews: Review[] }) {
               <div className="mt-10 flex justify-center">
                 <button
                   onClick={() => setVisible((v) => v + 3)}
-                  className="rounded-full border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-6 py-3 text-[0.85rem] font-medium text-foreground hover:bg-blue-600/10 hover:text-blue-600 transition-colors"
+                  className="rounded-full border border-[rgba(10,10,10,0.08)] bg-white/75 px-6 py-3 text-[0.85rem] font-medium text-foreground hover:bg-blue-600/10 hover:text-blue-600 transition-colors"
                 >
                   Load More Reviews
                 </button>
