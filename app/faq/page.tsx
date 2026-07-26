@@ -6,14 +6,14 @@ import { FaqTabs } from "./_faq-tabs";
 
 export default function FaqPage() {
   return (
-    <div className="w-full bg-background/50">
+    <div className="w-full bg-background">
       {/* ---------------------------------------------------------- HERO */}
       <div className={BG_GLOW} />
       <section className="relative overflow-hidden px-5 pb-16 pt-32 md:px-10 md:pb-20 md:pt-40">
         <div className={BG_GLOW} />
         <div className="mx-auto w-[min(100%,76rem)]">
           <Reveal>
-            <div className="inline-flex items-center gap-[0.45rem] rounded-full border border-foreground/20 bg-background/72 px-[0.8rem] py-[0.45rem] text-[0.85rem] font-semibold uppercase tracking-[0.12em] text-[#e4eff3] shadow-[0_8px_20px_rgba(15,23,42,0.05)]">
+            <div className="inline-flex items-center gap-[0.45rem] rounded-full border border-foreground/20 bg-white/80 px-[0.8rem] py-[0.45rem] text-[0.85rem] font-semibold uppercase tracking-[0.12em] text-blue-700 shadow-[0_8px_20px_rgba(15,23,42,0.05)]">
               FAQ
             </div>
           </Reveal>

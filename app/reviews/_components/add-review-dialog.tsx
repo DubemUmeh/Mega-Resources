@@ -127,7 +127,7 @@ export function AddReviewDialog({ open, onOpenChange }: AddReviewDialogProps) {
                   placeholder="e.g., Mrs. Ama Owusu"
                   disabled={isPending}
                   maxLength={100}
-                  className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600"
+                  className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-white/75 px-4 py-2.5 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600"
                 />
                 {state.errors.name?.[0] && (
                   <p className="text-xs text-red-400">{state.errors.name[0]}</p>
@@ -143,7 +143,7 @@ export function AddReviewDialog({ open, onOpenChange }: AddReviewDialogProps) {
                   placeholder="e.g., Tema, Greater Accra"
                   disabled={isPending}
                   maxLength={100}
-                  className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600"
+                  className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-white/75 px-4 py-2.5 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600"
                 />
                 {state.errors.location?.[0] && (
                   <p className="text-xs text-red-400">{state.errors.location[0]}</p>
@@ -162,7 +162,7 @@ export function AddReviewDialog({ open, onOpenChange }: AddReviewDialogProps) {
                 placeholder="e.g., Operations Director — Green Farms Ghana"
                 disabled={isPending}
                 maxLength={100}
-                className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600"
+                className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-white/75 px-4 py-2.5 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600"
               />
             </div>
 
@@ -184,7 +184,7 @@ export function AddReviewDialog({ open, onOpenChange }: AddReviewDialogProps) {
                 rows={4}
                 disabled={isPending}
                 maxLength={500}
-                className="w-full resize-none rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600"
+                className="w-full resize-none rounded-xl border border-[rgba(10,10,10,0.08)] bg-white/75 px-4 py-2.5 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600"
               />
               {state.errors.message?.[0] && (
                 <p className="text-xs text-red-400">{state.errors.message[0]}</p>

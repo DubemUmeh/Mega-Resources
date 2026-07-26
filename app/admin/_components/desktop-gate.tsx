@@ -40,7 +40,7 @@ export function DesktopGate({
     return (
       <div className="relative flex min-h-[70vh] items-center justify-center overflow-hidden px-6 py-16">
         <div className={BG_GLOW} />
-        <div className="relative flex max-w-sm flex-col items-center gap-5 rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-8 text-center">
+        <div className="relative flex max-w-sm flex-col items-center gap-5 rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-white/75 p-8 text-center">
           <div className="flex h-14 w-14 items-center justify-center rounded-full bg-blue-600/10">
             <FaDesktop className="h-5 w-5 text-blue-600" />
           </div>

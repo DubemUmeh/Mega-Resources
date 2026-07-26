@@ -30,7 +30,7 @@ const FAQ = () => {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="px-8 lg:px-24 py-24 border-b border-gray-800">
+    <section className="px-8 lg:px-24 py-24 border-b border-black/10">
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
         <div className="lg:w-1/3">
           <div className="text-[10px] uppercase tracking-widest text-gray-500 mb-6">FAQ</div>
@@ -43,7 +43,7 @@ const FAQ = () => {
           {faqs.map((f, idx) => {
             const isOpen = open === idx;
             return (
-              <div key={idx} className="border-b border-gray-800">
+              <div key={idx} className="border-b border-black/10">
                 <button
                   onClick={() => setOpen(isOpen ? null : idx)}
                   className="w-full flex items-center justify-between text-left py-6 gap-6"

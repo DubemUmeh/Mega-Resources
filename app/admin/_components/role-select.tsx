@@ -21,7 +21,7 @@ export function RoleSelect({
       <input type="hidden" name={name} value={value} />
       <SelectPrimitive.Root value={value} onValueChange={setValue}>
         <SelectPrimitive.Trigger
-          className="flex w-full items-center justify-between gap-2 rounded-xl border border-white/10 bg-black/20 px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-blue-600/50"
+          className="flex w-full items-center justify-between gap-2 rounded-xl border border-black/10 bg-black/5 px-3 py-2 text-sm text-foreground outline-none focus:ring-2 focus:ring-blue-600/50"
           aria-label="Role"
         >
           <SelectPrimitive.Value />
@@ -33,7 +33,7 @@ export function RoleSelect({
           <SelectPrimitive.Content
             position="popper"
             sideOffset={6}
-            className="z-50 overflow-hidden rounded-xl border border-white/10 bg-[#1c1c1c] text-sm text-foreground shadow-xl"
+            className="z-50 overflow-hidden rounded-xl border border-black/10 bg-[#1c1c1c] text-sm text-foreground shadow-xl"
           >
             <SelectPrimitive.Viewport className="p-1">
               {ROLES.map((role) => (

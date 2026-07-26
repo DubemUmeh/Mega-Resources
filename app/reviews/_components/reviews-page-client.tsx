@@ -22,7 +22,7 @@ export function ReviewsPageClient({ initialReviews }: { initialReviews: Review[]
 
   return (
     <ToastProvider>
-      <div className="w-full bg-background/50">
+      <div className="w-full bg-background">
         <ReviewsHero
           averageRating={averageRating}
           totalReviews={reviews.length}

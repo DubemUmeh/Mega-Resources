@@ -98,7 +98,7 @@ export function AdminSidebar() {
         <Dialog.Trigger asChild>
           <button
             type="button"
-            className="fixed left-4 top-4 z-50 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-background/85 text-white shadow-lg backdrop-blur lg:hidden"
+            className="fixed left-4 top-4 z-50 inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/10 bg-background/85 text-white shadow-lg backdrop-blur lg:hidden"
             aria-label="Open admin menu"
           >
             <FaBars className="h-4 w-4" />
@@ -106,12 +106,12 @@ export function AdminSidebar() {
         </Dialog.Trigger>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm data-[state=closed]:animate-out data-[state=open]:animate-in" />
-          <Dialog.Content className="fixed inset-y-0 left-0 z-50 flex w-[min(20rem,85vw)] flex-col border-r border-white/10 bg-background shadow-2xl outline-none data-[state=closed]:animate-out data-[state=closed]:slide-out-to-left data-[state=open]:animate-in data-[state=open]:slide-in-from-left lg:hidden">
+          <Dialog.Content className="fixed inset-y-0 left-0 z-50 flex w-[min(20rem,85vw)] flex-col border-r border-black/10 bg-background shadow-2xl outline-none data-[state=closed]:animate-out data-[state=closed]:slide-out-to-left data-[state=open]:animate-in data-[state=open]:slide-in-from-left lg:hidden">
             <Dialog.Title className="sr-only">Admin navigation menu</Dialog.Title>
             <Dialog.Close asChild>
               <button
                 type="button"
-                className="absolute right-3 top-3 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/40 text-white transition-colors hover:bg-black/60"
+                className="absolute right-3 top-3 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-900/60 text-white transition-colors hover:bg-black/60"
                 aria-label="Close admin menu"
               >
                 <FaTimes className="h-3.5 w-3.5" />

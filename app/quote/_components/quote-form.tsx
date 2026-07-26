@@ -97,7 +97,7 @@ function FieldSelect({
         <Select.Trigger
           className={`flex w-full items-center justify-between rounded-xl border px-4 py-3 text-[0.92rem] outline-none focus:ring-2 focus:ring-blue-600 ${
             value ? "text-foreground" : "text-muted-foreground"
-          } border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)]`}
+          } border-[rgba(10,10,10,0.08)] bg-white/75`}
         >
           <Select.Value placeholder={placeholder} />
           <Select.Icon>
@@ -210,7 +210,7 @@ export default function QuoteForm() {
             placeholder="e.g., Kwame Asante"
             disabled={isPending}
             maxLength={100}
-            className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-3 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600"
+            className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-white/75 px-4 py-3 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600"
           />
           {errors.name && <p className="text-xs text-red-400">{errors.name}</p>}
         </div>
@@ -224,7 +224,7 @@ export default function QuoteForm() {
             placeholder="e.g., +233 24 000 0000"
             disabled={isPending}
             maxLength={30}
-            className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-3 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600"
+            className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-white/75 px-4 py-3 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600"
           />
           {errors.phone && <p className="text-xs text-red-400">{errors.phone}</p>}
         </div>
@@ -241,7 +241,7 @@ export default function QuoteForm() {
           placeholder="e.g., you@example.com"
           disabled={isPending}
           maxLength={120}
-          className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-3 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600"
+          className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-white/75 px-4 py-3 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600"
         />
         {errors.email && <p className="text-xs text-red-400">{errors.email}</p>}
       </div>
@@ -277,7 +277,7 @@ export default function QuoteForm() {
             <RadioGroup.Item
               key={p.value}
               value={p.value}
-              className="rounded-full border px-4 py-2 text-[0.82rem] font-medium outline-none transition-colors border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] text-muted-foreground data-[state=checked]:border-blue-600 data-[state=checked]:bg-blue-600/10 data-[state=checked]:text-blue-600 focus-visible:ring-2 focus-visible:ring-blue-600"
+              className="rounded-full border px-4 py-2 text-[0.82rem] font-medium outline-none transition-colors border-[rgba(10,10,10,0.08)] bg-white/75 text-muted-foreground data-[state=checked]:border-blue-600 data-[state=checked]:bg-blue-600/10 data-[state=checked]:text-blue-600 focus-visible:ring-2 focus-visible:ring-blue-600"
             >
               {p.label}
             </RadioGroup.Item>
@@ -296,7 +296,7 @@ export default function QuoteForm() {
             <RadioGroup.Item
               key={c.value}
               value={c.value}
-              className="rounded-full border px-4 py-2 text-[0.82rem] font-medium outline-none transition-colors border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] text-muted-foreground data-[state=checked]:border-blue-600 data-[state=checked]:bg-blue-600/10 data-[state=checked]:text-blue-600 focus-visible:ring-2 focus-visible:ring-blue-600"
+              className="rounded-full border px-4 py-2 text-[0.82rem] font-medium outline-none transition-colors border-[rgba(10,10,10,0.08)] bg-white/75 text-muted-foreground data-[state=checked]:border-blue-600 data-[state=checked]:bg-blue-600/10 data-[state=checked]:text-blue-600 focus-visible:ring-2 focus-visible:ring-blue-600"
             >
               {c.label}
             </RadioGroup.Item>
@@ -321,7 +321,7 @@ export default function QuoteForm() {
           rows={4}
           disabled={isPending}
           maxLength={600}
-          className="w-full resize-none rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-3 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600"
+          className="w-full resize-none rounded-xl border border-[rgba(10,10,10,0.08)] bg-white/75 px-4 py-3 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600"
         />
       </div>
 
@@ -329,7 +329,7 @@ export default function QuoteForm() {
         <Checkbox.Root
           checked={form.consent}
           onCheckedChange={(v) => update("consent", v === true)}
-          className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-md border border-[rgba(10,10,10,0.15)] bg-[rgba(36,35,35,0.5)] outline-none data-[state=checked]:border-blue-600 data-[state=checked]:bg-blue-600 focus-visible:ring-2 focus-visible:ring-blue-600"
+          className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-md border border-[rgba(10,10,10,0.15)] bg-white/75 outline-none data-[state=checked]:border-blue-600 data-[state=checked]:bg-blue-600 focus-visible:ring-2 focus-visible:ring-blue-600"
         >
           <Checkbox.Indicator>
             <FaCheck className="h-2.5 w-2.5 text-white" />

@@ -29,7 +29,7 @@ const faqs = [
 export default function QuoteSidebar() {
   return (
     <div className="flex flex-col gap-6">
-      <div className="rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-6">
+      <div className="rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-white/75 p-6">
         <span className="text-[0.75rem] font-semibold uppercase tracking-widest text-muted-foreground">
           What Happens Next
         </span>
@@ -48,7 +48,7 @@ export default function QuoteSidebar() {
         </div>
       </div>
 
-      <div className="rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-6">
+      <div className="rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-white/75 p-6">
         <span className="text-[0.75rem] font-semibold uppercase tracking-widest text-muted-foreground">
           Quick Questions
         </span>

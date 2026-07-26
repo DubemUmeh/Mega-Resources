@@ -33,7 +33,7 @@ function SelectField({
     <Select.Root value={value} onValueChange={onChange}>
       <Select.Trigger
         aria-label={ariaLabel}
-        className="flex w-full items-center justify-between rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
+        className="flex w-full items-center justify-between rounded-xl border border-[rgba(10,10,10,0.08)] bg-white/75 px-4 py-2.5 text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
       >
         <Select.Value />
         <Select.Icon>
@@ -89,7 +89,11 @@ function Field({
 }
 
 const inputClass =
-  "w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600";
+  "w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-white/75 px-4 py-2.5 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600";
+
+function isVideoSource(src: string) {
+  return src.startsWith("data:video") || /\.(mp4|webm|mov|m4v)(\?|$)/i.test(src);
+}
 
 function emptyDraft(): Portfolio {
   return {
@@ -164,8 +168,11 @@ export function PortfolioForm({
 
   function handleImageSelect(files: FileList | File[] | null) {
     if (!files?.length) return;
-    const incoming = Array.from(files).filter((file) => file.type.startsWith("image/"));
-    if (incoming.length === 0) return;
+    const incoming = Array.from(files).filter((file) => file.type.startsWith("image/") || file.type.startsWith("video/"));
+    if (incoming.length === 0) {
+      showToast({ title: "Unsupported files", description: "Please choose images or videos only.", variant: "error" });
+      return;
+    }
     setGalleryFiles((current) => [...current, ...incoming]);
     incoming.forEach((file, offset) => {
       const reader = new FileReader();
@@ -437,22 +444,22 @@ export function PortfolioForm({
               }
             }}
             onDrop={handlePhotoDrop}
-            className={`relative flex aspect-4/3 w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-4xl border-2 border-dashed bg-[rgba(36,35,35,0.35)] transition-colors hover:border-blue-600/40 ${
+            className={`relative flex aspect-4/3 w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-4xl border-2 border-dashed bg-white/70 transition-colors hover:border-blue-600/40 ${
               isDraggingPhotos ? "border-blue-600 bg-blue-600/10" : "border-[rgba(10,10,10,0.15)]"
             }`}
           >
             <div className="flex flex-col items-center gap-2 px-6 text-center">
               <FaCloudUploadAlt className="h-6 w-6 text-muted-foreground" />
               <p className="text-[0.85rem] font-medium text-foreground">
-                Click to upload photos
+                Click to upload photos or videos
               </p>
-              <p className="text-[0.75rem] text-muted-foreground">Or drag and drop PNG or JPG files here, up to ~5MB each</p>
+              <p className="text-[0.75rem] text-muted-foreground">Or drag and drop multiple images or videos here, up to ~5MB each</p>
             </div>
           </div>
           <input
             ref={fileInputRef}
             type="file"
-            accept="image/*"
+            accept="image/*,video/*"
             multiple
             onChange={(e) => {
               handleImageSelect(e.target.files);
@@ -468,9 +475,13 @@ export function PortfolioForm({
                   key={`${src}-${index}`}
                   type="button"
                   onClick={() => setActiveImageIndex(index)}
-                  className="group relative aspect-square overflow-hidden rounded-xl border border-white/10"
+                  className="group relative aspect-square overflow-hidden rounded-xl border border-black/10"
                 >
-                  <Image src={src} alt={`Added project image ${index + 1}`} fill className="object-cover" />
+                  {isVideoSource(src) ? (
+                    <video src={src} className="h-full w-full object-cover" muted playsInline />
+                  ) : (
+                    <Image src={src} alt={`Added project image ${index + 1}`} fill className="object-cover" />
+                  )}
                   <span
                     onClick={(e) => {
                       e.stopPropagation();
@@ -487,7 +498,7 @@ export function PortfolioForm({
           )}
         </Field>
 
-        <div className="rounded-4xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.3)] p-5">
+        <div className="rounded-4xl border border-[rgba(10,10,10,0.08)] bg-white/70 p-5">
           <p className="text-[0.8rem] font-medium text-foreground">Live preview</p>
           <p className="mt-1 text-[0.78rem] leading-normal text-muted-foreground">
             {draft.title || "Project title"} · {draft.location || "Location"}
@@ -520,21 +531,29 @@ export function PortfolioForm({
     <Dialog.Root open={activeImageIndex !== null && galleryPreviews.length > 0} onOpenChange={(open) => !open && setActiveImageIndex(null)}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-black/80" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-[92vh] w-[min(56rem,94vw)] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-3xl border border-white/10 bg-background p-4 shadow-2xl outline-none">
+        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-[92vh] w-[min(56rem,94vw)] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-3xl border border-black/10 bg-background p-4 shadow-2xl outline-none">
           <Dialog.Title className="sr-only">Project image preview</Dialog.Title>
           <Dialog.Close className="absolute right-4 top-4 z-10 rounded-full bg-black/60 p-2 text-white"><FaTimes /></Dialog.Close>
           {activeImageIndex !== null && galleryPreviews[activeImageIndex] && (
             <div className="space-y-4">
               <div className="relative aspect-video overflow-hidden rounded-2xl bg-black">
-                <Image src={galleryPreviews[activeImageIndex]} alt="Full project preview" fill className="object-contain" />
+                {isVideoSource(galleryPreviews[activeImageIndex]) ? (
+                  <video src={galleryPreviews[activeImageIndex]} className="h-full w-full object-contain" controls />
+                ) : (
+                  <Image src={galleryPreviews[activeImageIndex]} alt="Full project preview" fill className="object-contain" />
+                )}
                 <button type="button" onClick={() => setActiveImageIndex((i) => (i === null ? 0 : (i - 1 + galleryPreviews.length) % galleryPreviews.length))} className="absolute left-3 top-1/2 rounded-full bg-black/60 p-3 text-white"><FaChevronLeft /></button>
                 <button type="button" onClick={() => setActiveImageIndex((i) => (i === null ? 0 : (i + 1) % galleryPreviews.length))} className="absolute right-3 top-1/2 rounded-full bg-black/60 p-3 text-white"><FaChevronRight /></button>
                 <button type="button" onClick={() => confirmRemoveImage(activeImageIndex)} className="absolute bottom-3 right-3 rounded-full bg-red-600 px-4 py-2 text-sm font-semibold text-white">Remove</button>
               </div>
               <div className="hide-scrollbar flex gap-2 overflow-x-auto pb-1">
                 {galleryPreviews.map((src, index) => (
-                  <button key={`${src}-modal-${index}`} type="button" onClick={() => setActiveImageIndex(index)} className={`relative h-16 w-16 flex-none overflow-hidden rounded-xl border ${index === activeImageIndex ? "border-blue-500" : "border-white/10"}`}>
-                    <Image src={src} alt={`Thumbnail ${index + 1}`} fill className="object-cover" />
+                  <button key={`${src}-modal-${index}`} type="button" onClick={() => setActiveImageIndex(index)} className={`relative h-16 w-16 flex-none overflow-hidden rounded-xl border ${index === activeImageIndex ? "border-blue-500" : "border-black/10"}`}>
+                    {isVideoSource(src) ? (
+                      <video src={src} className="h-full w-full object-cover" muted playsInline />
+                    ) : (
+                      <Image src={src} alt={`Thumbnail ${index + 1}`} fill className="object-cover" />
+                    )}
                   </button>
                 ))}
               </div>
@@ -547,11 +566,11 @@ export function PortfolioForm({
     <AlertDialog.Root open={removeIndex !== null} onOpenChange={(open) => !open && setRemoveIndex(null)}>
       <AlertDialog.Portal>
         <AlertDialog.Overlay className="fixed inset-0 z-60 bg-black/70" />
-        <AlertDialog.Content className="fixed left-1/2 top-1/2 z-60 w-[min(24rem,92vw)] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-white/10 bg-background p-6 shadow-2xl">
+        <AlertDialog.Content className="fixed left-1/2 top-1/2 z-60 w-[min(24rem,92vw)] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-black/10 bg-background p-6 shadow-2xl">
           <AlertDialog.Title className="font-display text-lg font-semibold text-foreground">Remove image?</AlertDialog.Title>
           <AlertDialog.Description className="mt-2 text-sm text-muted-foreground">This image will be removed from the project image list.</AlertDialog.Description>
           <div className="mt-6 flex justify-end gap-3">
-            <AlertDialog.Cancel className="rounded-full border border-white/10 px-4 py-2 text-sm">Cancel</AlertDialog.Cancel>
+            <AlertDialog.Cancel className="rounded-full border border-black/10 px-4 py-2 text-sm">Cancel</AlertDialog.Cancel>
             <AlertDialog.Action onClick={() => removeIndex !== null && removeGalleryImage(removeIndex)} className="rounded-full bg-red-600 px-4 py-2 text-sm font-semibold text-white">Remove</AlertDialog.Action>
           </div>
         </AlertDialog.Content>

@@ -27,7 +27,7 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <section className="px-8 lg:px-24 py-24 border-b border-gray-800">
+    <section className="px-8 lg:px-24 py-24 border-b border-black/10">
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
         <div>
           <div className="text-[10px] uppercase tracking-widest text-gray-500 mb-6">How It Works</div>
@@ -44,7 +44,7 @@ const HowItWorks = () => {
         <div className="hidden md:block absolute top-6 left-0 right-0 h-px bg-gray-800"></div>
         {steps.map((s, idx) => (
           <div key={idx} className="relative flex flex-col gap-6">
-            <div className="w-12 h-12 rounded-full bg-dark border border-gray-700 flex items-center justify-center text-xs text-gray-300 relative z-10 shrink-0">
+            <div className="w-12 h-12 rounded-full bg-white border border-gray-700 flex items-center justify-center text-xs text-gray-300 relative z-10 shrink-0">
               {s.num}
             </div>
             <div>

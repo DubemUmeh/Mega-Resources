@@ -132,7 +132,7 @@ function FaqAccordion({ items }: { items: QA[] }) {
         <Reveal key={item.q} delay={(i % 4) * 0.05}>
           <AccordionPrimitive.Item
             value={String(i)}
-            className="overflow-hidden rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)]"
+            className="overflow-hidden rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-white/75"
           >
             <AccordionPrimitive.Header>
               <AccordionPrimitive.Trigger className="group flex w-full items-center justify-between gap-4 px-5 py-5 text-left md:px-6">
@@ -154,7 +154,7 @@ function FaqAccordion({ items }: { items: QA[] }) {
 
 export function FaqTabs() {
   return (
-    <section className="relative overflow-hidden bg-background/90 px-5 py-16 md:px-10 md:py-20">
+    <section className="relative overflow-hidden bg-background/95 px-5 py-16 md:px-10 md:py-20">
       <div className={BG_GLOW} />
       <div className="mx-auto w-[min(100%,76rem)]">
         <TabsPrimitive.Root defaultValue="trust">
@@ -163,7 +163,7 @@ export function FaqTabs() {
               <TabsPrimitive.Trigger
                 key={cat.value}
                 value={cat.value}
-                className="rounded-full border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-5 py-2.5 text-[0.85rem] font-medium text-muted-foreground transition-colors data-[state=active]:border-transparent data-[state=active]:bg-blue-600 data-[state=active]:text-white"
+                className="rounded-full border border-[rgba(10,10,10,0.08)] bg-white/75 px-5 py-2.5 text-[0.85rem] font-medium text-muted-foreground transition-colors data-[state=active]:border-transparent data-[state=active]:bg-blue-600 data-[state=active]:text-white"
               >
                 {cat.label}
               </TabsPrimitive.Trigger>

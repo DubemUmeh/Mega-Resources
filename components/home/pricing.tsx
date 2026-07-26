@@ -15,7 +15,7 @@ const included = [
 
 const Pricing = () => {
   return (
-    <section className="px-8 lg:px-24 py-24 border-b border-gray-800">
+    <section className="px-8 lg:px-24 py-24 border-b border-black/10">
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
         <div>
           <div className="text-[10px] uppercase tracking-widest text-gray-500 mb-6">Quote Guide</div>
@@ -37,7 +37,7 @@ const Pricing = () => {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 items-end border-t border-gray-800 pt-10">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 items-end border-t border-black/10 pt-10">
         <div className="flex flex-col gap-3">
           {included.map((item) => (
             <div key={item} className="flex items-start gap-3">

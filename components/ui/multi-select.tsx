@@ -47,9 +47,9 @@ export function MultiSelectField({
       <DropdownMenu.Root>
         <DropdownMenu.Trigger
           type="button"
-          className={`flex bg-background/70 w-full items-center justify-between gap-2 rounded-xl border px-4 py-3 text-left text-[0.92rem] outline-none transition-colors focus:ring-2 focus:ring-blue-600 no-scrollbar ${
+          className={`flex bg-white/80 w-full items-center justify-between gap-2 rounded-xl border px-4 py-3 text-left text-[0.92rem] outline-none transition-colors focus:ring-2 focus:ring-blue-600 no-scrollbar ${
             values.length > 0 ? "text-foreground" : "text-muted-foreground"
-          } border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)]`}
+          } border-[rgba(10,10,10,0.08)] bg-white/75`}
         >
           <span className="truncate">
             {values.length === 0

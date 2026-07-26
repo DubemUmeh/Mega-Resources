@@ -99,7 +99,7 @@ export default function HowItWorks() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-background/90 px-5 py-16 md:px-10 md:py-24">
+    <section className="relative overflow-hidden bg-background/95 px-5 py-16 md:px-10 md:py-24">
       <div className={BG_GLOW} />
       <div className="mx-auto w-[min(100%,76rem)]">
         <motion.div className="max-w-2xl" {...fadeUpProps()}>
@@ -126,7 +126,7 @@ export default function HowItWorks() {
               <motion.div
                 key={step.num}
                 {...fadeUpProps((i % 2) * 0.08)}
-                className="flex flex-col gap-4 rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-6 md:p-7"
+                className="flex flex-col gap-4 rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-white/75 p-6 md:p-7"
               >
                 <div className="flex items-center gap-3">
                   <div className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-blue-600/10">

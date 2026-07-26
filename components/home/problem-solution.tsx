@@ -23,7 +23,7 @@ const points = [
 
 const ProblemSolution = () => {
   return (
-    <section className="w-full bg-background/10 px-8 lg:px-24 py-24 border-b border-gray-800">
+    <section className="w-full bg-background/10 px-8 lg:px-24 py-24 border-b border-black/10">
       <div className="pointer-events-none absolute inset-0 -z-10 [background:radial-gradient(circle_at_10%_10%,rgba(255,205,112,0.16),transparent_38%),radial-gradient(circle_at_90%_20%,rgba(255,184,142,0.14),transparent_40%)]" />
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
         <div>
@@ -39,7 +39,7 @@ const ProblemSolution = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-px">
         {points.map((p, idx) => (
-          <div key={idx} className={`bg-dark p-8 md:p-10 flex flex-col gap-6 group hover:bg-gray-950/60 transition-colors ${p.c}`}>
+          <div key={idx} className={`bg-white p-8 md:p-10 flex flex-col gap-6 group hover:bg-gray-950/60 transition-colors ${p.c}`}>
             <div className="w-11 h-11 border-gray-700 flex items-center justify-center text-gray-400 group-hover:bg-white group-hover:text-black transition-colors">
               <span className="text-sm">{p.icon}</span>
             </div>

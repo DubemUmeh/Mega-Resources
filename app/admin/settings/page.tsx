@@ -26,7 +26,7 @@ export default async function SettingsPage() {
       />
 
       <div className="grid gap-5">
-        <section className="rounded-[1.5rem] border border-white/10 bg-[rgba(36,35,35,0.5)] p-6">
+        <section className="rounded-[1.5rem] border border-black/10 bg-white/75 p-6">
           <h2 className="font-display text-lg font-semibold">Business Profile</h2>
           <form action={saveBusinessSettings} className="mt-4 grid gap-3 md:grid-cols-2">
             {[
@@ -41,7 +41,7 @@ export default async function SettingsPage() {
                 <input
                   name={n}
                   defaultValue={v || ""}
-                  className="mt-1 w-full rounded-xl border border-white/10 bg-black/20 px-3 py-2 text-foreground"
+                  className="mt-1 w-full rounded-xl border border-black/10 bg-black/5 px-3 py-2 text-foreground"
                 />
               </label>
             ))}
@@ -51,7 +51,7 @@ export default async function SettingsPage() {
           </form>
         </section>
 
-        <section className="rounded-[1.5rem] border border-white/10 bg-[rgba(36,35,35,0.5)] p-6">
+        <section className="rounded-[1.5rem] border border-black/10 bg-white/75 p-6">
           <h2 className="font-display text-lg font-semibold">Google Connection</h2>
           <div className="mt-3 grid gap-2 text-sm text-muted-foreground">
             <p>
@@ -73,25 +73,25 @@ export default async function SettingsPage() {
               Reconnect
             </a>
             <form action={disconnectGoogle}>
-              <button className="rounded-full border border-white/10 px-4 py-2 text-sm">Disconnect</button>
+              <button className="rounded-full border border-black/10 px-4 py-2 text-sm">Disconnect</button>
             </form>
           </div>
         </section>
 
-        <section className="rounded-[1.5rem] border border-white/10 bg-[rgba(36,35,35,0.5)] p-6">
+        <section className="rounded-[1.5rem] border border-black/10 bg-white/75 p-6">
           <h2 className="font-display text-lg font-semibold">Authorized Users</h2>
           {session.role === "SUPER_ADMIN" && (
             <form action={addAuthorizedUser} className="mt-4 grid gap-3 md:grid-cols-[1fr_1fr_160px_auto]">
               <input
                 name="name"
                 placeholder="Name"
-                className="rounded-xl border border-white/10 bg-black/20 px-3 py-2"
+                className="rounded-xl border border-black/10 bg-black/5 px-3 py-2"
               />
               <input
                 name="email"
                 type="email"
                 placeholder="Google email"
-                className="rounded-xl border border-white/10 bg-black/20 px-3 py-2"
+                className="rounded-xl border border-black/10 bg-black/5 px-3 py-2"
               />
               <RoleSelect name="role" defaultValue="ADMIN" />
               <button className="rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white">
@@ -112,7 +112,7 @@ export default async function SettingsPage() {
               </thead>
               <tbody>
                 {users.map((u) => (
-                  <tr key={u.id} className="border-t border-white/10">
+                  <tr key={u.id} className="border-t border-black/10">
                     <td className="py-3">{u.name}</td>
                     <td>{u.googleEmail}</td>
                     <td>{u.role}</td>

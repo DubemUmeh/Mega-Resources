@@ -33,7 +33,7 @@ function SelectField({
     <Select.Root value={value} onValueChange={onChange}>
       <Select.Trigger
         aria-label={ariaLabel}
-        className="inline-flex items-center gap-2 rounded-full border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.85rem] font-medium text-foreground outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+        className="inline-flex items-center gap-2 rounded-full border border-[rgba(10,10,10,0.08)] bg-white/75 px-4 py-2.5 text-[0.85rem] font-medium text-foreground outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
       >
         <Select.Value />
         <Select.Icon>

@@ -19,7 +19,7 @@ export function RowActionsMenu({ actions }: { actions: RowAction[] }) {
         <button
           type="button"
           aria-label="Row actions"
-          className="flex h-8 w-8 items-center justify-center rounded-full bg-background/80 text-muted-foreground backdrop-blur-sm transition-colors hover:bg-foreground/10 hover:text-foreground data-[state=open]:bg-foreground/10 data-[state=open]:text-foreground"
+          className="flex h-8 w-8 items-center justify-center rounded-full bg-background/95 text-muted-foreground backdrop-blur-sm transition-colors hover:bg-foreground/10 hover:text-foreground data-[state=open]:bg-foreground/10 data-[state=open]:text-foreground"
         >
           <FaEllipsisV className="h-3.5 w-3.5" />
         </button>
