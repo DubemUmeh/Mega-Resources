@@ -49,9 +49,9 @@ export default function HeroSurveyDiagram() {
   }, [inView, prefersReducedMotion]);
 
   return (
-    <div ref={ref} className="relative mx-auto w-full max-w-105">
+    <div ref={ref} className="relative mx-auto w-full max-w-105 bg-foreground/2">
       {/* live depth readout */}
-      <div className="absolute -top-4 right-2 z-10 flex items-center gap-2 rounded-2xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.55)] px-4 py-2.5 backdrop-blur-sm">
+      <div className="absolute -top-4 right-2 z-10 flex items-center gap-2 rounded-2xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.57)] px-4 py-2.5 backdrop-blur-sm">
         <span className="relative flex h-2 w-2">
           {!prefersReducedMotion && (
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-500 opacity-60" />
@@ -59,7 +59,7 @@ export default function HeroSurveyDiagram() {
           <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-500" />
         </span>
         <div>
-          <p className="text-[0.65rem] uppercase tracking-widest text-muted-foreground">
+          <p className="text-[0.65rem] uppercase tracking-widest text-background">
             Confirmed Depth
           </p>
           <p className="font-display text-sm font-semibold tabular-nums text-foreground">
@@ -68,7 +68,7 @@ export default function HeroSurveyDiagram() {
         </div>
       </div>
 
-      <svg viewBox="0 0 480 520" className="h-auto w-full" fill="none">
+      <svg viewBox="0 0 480 520" className="h-auto w-full tracking-widest" fill="none">
         {/* ground line */}
         <line
           x1="20"
@@ -80,7 +80,7 @@ export default function HeroSurveyDiagram() {
           strokeWidth="1.5"
           strokeDasharray="2 6"
         />
-        <text x="20" y={GROUND_Y - 12} className="fill-muted-foreground text-[11px]">
+        <text x="20" y={GROUND_Y - 12} className="fill-foreground text-[11px]">
           Ground Level
         </text>
 
@@ -93,10 +93,10 @@ export default function HeroSurveyDiagram() {
               x2="460"
               y2={l.y}
               stroke="currentColor"
-              className="text-foreground/10"
+              className="text-foreground/40"
               strokeWidth="1"
             />
-            <text x="370" y={l.y - 6} className="fill-muted-foreground text-[10px]">
+            <text x="370" y={l.y - 6} className="fill-foreground text-[10px]">
               {l.note}
             </text>
             <text x="370" y={l.y + 12} className="fill-foreground text-[10px] font-semibold">
@@ -132,7 +132,7 @@ export default function HeroSurveyDiagram() {
 
         {/* water-confirmed marker + pulse rings */}
         <g>
-          <rect x="20" y={WATER_Y - 10} width="440" height="20" className="fill-blue-600/10" />
+          <rect x="20" y={WATER_Y - 10} width="440" height="20" className="fill-blue-600/30" />
           <circle cx={BOREHOLE_X} cy={WATER_Y} r="6" className="fill-blue-600" />
           {!prefersReducedMotion &&
             [0, 0.6, 1.2].map((delay, i) => (

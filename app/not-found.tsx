@@ -74,7 +74,7 @@ export default function NotFound() {
   }, [pathName]);
   
   return (
-    <div className="w-full bg-background/50">
+    <div className="w-full bg-foreground/50">
       <div className={BG_GLOW} />
       <section className="relative overflow-hidden px-5 pb-16 pt-32 md:px-10 md:pb-20 md:pt-40">
         <div className={BG_GLOW} />
@@ -86,13 +86,13 @@ export default function NotFound() {
           </Reveal>
 
           <Reveal delay={0.08} className="mt-4 max-w-2xl">
-            <h1 className="font-display text-[2rem] font-semibold leading-[1.15] tracking-tight text-foreground md:text-[2.75rem]">
+            <h1 className="font-display text-[2rem] font-semibold leading-[1.15] tracking-tight text-background md:text-[2.75rem]">
               Looks like this page ran dry.
             </h1>
           </Reveal>
 
           <Reveal delay={0.16} className="mt-5 max-w-xl">
-            <p className="text-[1.02rem] leading-[1.75] text-muted-foreground">
+            <p className="text-[1.02rem] leading-[1.75] text-popover/70">
               The page you&apos;re looking for doesn&apos;t exist, may have
               moved, or the link might just be off. Here&apos;s where you
               were probably headed.
@@ -103,7 +103,7 @@ export default function NotFound() {
             <ArrowCta href="/" label="Back to Home" />
             <Link
               href="/quote"
-              className="text-sm font-semibold text-foreground underline decoration-blue-600 decoration-2 underline-offset-4"
+              className="text-sm font-semibold text-background underline decoration-blue-600 decoration-2 underline-offset-4"
             >
               Or get a free survey
             </Link>
@@ -111,11 +111,11 @@ export default function NotFound() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-background/90 px-5 pb-24 md:px-10">
+      <section className="relative overflow-hidden bg-foreground/90 px-5 py-24 md:px-10">
         <div className={BG_GLOW} />
         <div className="mx-auto w-[min(100%,76rem)]">
           <Reveal className="max-w-2xl">
-            <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+            <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-popover/70">
               You Might Be Looking For
             </span>
           </Reveal>
@@ -132,10 +132,10 @@ export default function NotFound() {
                     <div className="flex h-11 w-11 items-center justify-center rounded-full bg-blue-600/10">
                       <Icon className="h-4.5 w-4.5 text-blue-600" />
                     </div>
-                    <h3 className="font-display text-base font-semibold text-foreground transition-colors group-hover:text-blue-600">
+                    <h3 className="font-display text-base font-semibold text-background transition-colors group-hover:text-blue-600">
                       {link.label}
                     </h3>
-                    <p className="text-[0.85rem] leading-normal text-muted-foreground">
+                    <p className="text-[0.85rem] leading-normal text-popover/70">
                       {link.desc}
                     </p>
                   </Link>

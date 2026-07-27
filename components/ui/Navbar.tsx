@@ -53,14 +53,14 @@ const Navbar = () => {
     <>
       <header
         className={cn(
-          "fixed inset-x-0 z-50 transition-all duration-300 backdrop-blur-3xl bg-linear-to-r from-background md:via-background/5 to-background/80",
+          "fixed inset-x-0 z-50 transition-all duration-300 backdrop-blur-3xl bg-linear-to-r from-background md:via-foreground/15 to-background/80",
           !isScrolled
             ? "top-0 border-b border-border/60"
             // ? "top-0 border-b border-border/60 bg-background/80 backdrop-blur-xl"
             : "top-3 mx-3 rounded-2xl border border-foreground/30 md:mx-8 lg:mx-14"
         )}
       >
-        <nav className="container-page w-full">
+        <nav className={`container-page w-full bg-foreground/10 ${!isScrolled ? '' : 'rounded-2xl'}`}>
           <div className="flex h-16 w-full items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
@@ -80,10 +80,10 @@ const Navbar = () => {
                   <div key={link.href}>
                     {link.children ? (
                       <DropdownMenu.Root>
-                        <DropdownMenu.Trigger className="flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-popover transition-colors hover:bg-accent hover:text-foreground data-[state=open]:bg-accent data-[state=open]:text-foreground">
+                        <DropdownMenu.Trigger className="flex items-center gap-1 rounded-full px-3 py-2 text-sm xl:text-lg font-medium text-popover transition-colors hover:bg-accent hover:text-foreground data-[state=open]:bg-accent data-[state=open]:text-foreground">
                           {link.label} <FaChevronDown className="h-2.5 w-2.5" />
                         </DropdownMenu.Trigger>
-                        <DropdownMenu.Content className="absolute left-1/2 top-full mt-3 w-136 -translate-x-1/2 rounded-3xl border border-white/10 bg-foreground backdrop-blur-2xl p-4 shadow-2xl">
+                        <DropdownMenu.Content className="absolute left-1/2 top-full mt-3 w-136 -translate-x-1/2 rounded-3xl border border-white/10 bg-foreground/95 backdrop-blur-3xl z-100! p-4 shadow-2xl">
                           <div className="grid grid-cols-2 gap-2">
                             <DropdownMenu.Item asChild>
                               <Link href={link.href} className="col-span-2 rounded-2xl bg-blue-600/10 p-4 text-sm font-semibold text-background">Explore {link.label}</Link>
@@ -97,14 +97,14 @@ const Navbar = () => {
                         </DropdownMenu.Content>
                       </DropdownMenu.Root>
                     ) : (
-                      <Link href={link.href} className="rounded-full px-3 py-2 text-sm font-medium text-popover transition-colors hover:bg-foreground hover:text-popover">{link.label}</Link>
+                      <Link href={link.href} className="rounded-full px-3 py-2 text-sm xl:text-lg font-medium text-popover transition-colors hover:bg-foreground hover:text-popover">{link.label}</Link>
                     )}
                   </div>
                 ))}
               </div>
             </div>
 
-            <Link href='/quote' className="hidden w-fit items-center gap-2 rounded-full border border-white/30 px-6 py-2.5 transition-colors hover:cursor-pointer hover:bg-foreground/60 hover:text-black md:flex">
+            <Link href='/quote' className="hidden w-fit items-center gap-2 rounded-full border border-popover/50 px-6 py-2.5 transition-colors hover:cursor-pointer bg-background/20 hover:bg-background/60 hover:text-fooreground md:flex">
               Get a Quote <FaArrowRight className="-rotate-45 text-[10px]" />
             </Link>
 

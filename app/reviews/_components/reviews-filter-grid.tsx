@@ -29,25 +29,25 @@ function SelectField({
     <Select.Root value={value} onValueChange={onChange}>
       <Select.Trigger
         aria-label={ariaLabel}
-        className="inline-flex items-center gap-2 rounded-full border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.85rem] font-medium text-foreground outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+        className="inline-flex items-center gap-2 rounded-full border border-neutral-300 bg-white px-4 py-2.5 text-[0.85rem] font-medium text-neutral-700 outline-none focus-visible:ring-2 focus-visible:ring-blue-600/15 focus-visible:border-blue-600"
       >
         <Select.Value />
         <Select.Icon>
-          <FaChevronDown className="h-2.5 w-2.5 text-muted-foreground" />
+          <FaChevronDown className="h-2.5 w-2.5 text-neutral-400" />
         </Select.Icon>
       </Select.Trigger>
       <Select.Portal>
         <Select.Content
           position="popper"
           sideOffset={8}
-          className="z-50 overflow-hidden rounded-xl border border-[rgba(10,10,10,0.08)] bg-background shadow-xl"
+          className="z-50 overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-xl"
         >
           <Select.Viewport className="p-1.5">
             {items.map((item) => (
               <Select.Item
                 key={item.value}
                 value={item.value}
-                className="flex cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-2 text-[0.85rem] text-foreground outline-none data-highlighted:bg-blue-600/10 data-highlighted:text-blue-600"
+                className="flex cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-2 text-[0.85rem] text-neutral-800 outline-none data-highlighted:bg-blue-600/10 data-highlighted:text-blue-600"
               >
                 <Select.ItemText>{item.label}</Select.ItemText>
                 <Select.ItemIndicator>
@@ -85,10 +85,10 @@ export function ReviewsFilterGrid({ reviews }: { reviews: Review[] }) {
       <div className={BG_GLOW} />
       <div className="mx-auto w-[min(100%,76rem)]">
         <Reveal className="max-w-2xl">
-          <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+          <span className="text-base font-semibold uppercase tracking-[0.12em] text-popover">
             All Reviews
           </span>
-          <h2 className="mt-4 font-display text-[1.9rem] font-semibold leading-[1.2] tracking-tight text-foreground md:text-[2.5rem]">
+          <h2 className="mt-4 font-display text-[1.9rem] font-semibold leading-[1.2] tracking-tight text-neutral-900 md:text-[2.5rem]">
             Browse by service or rating
           </h2>
         </Reveal>
@@ -110,7 +110,7 @@ export function ReviewsFilterGrid({ reviews }: { reviews: Review[] }) {
         </Reveal>
 
         {filtered.length === 0 ? (
-          <p className="mt-16 text-center text-muted-foreground">
+          <p className="mt-16 text-center text-neutral-500">
             No reviews match those filters yet.
           </p>
         ) : (
@@ -127,7 +127,7 @@ export function ReviewsFilterGrid({ reviews }: { reviews: Review[] }) {
               <div className="mt-10 flex justify-center">
                 <button
                   onClick={() => setVisible((v) => v + 3)}
-                  className="rounded-full border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-6 py-3 text-[0.85rem] font-medium text-foreground hover:bg-blue-600/10 hover:text-blue-600 transition-colors"
+                  className="rounded-full border border-neutral-200 bg-neutral-100 px-6 py-3 text-[0.85rem] font-semibold text-neutral-700 hover:bg-blue-600/10 hover:text-popover transition-colors"
                 >
                   Load More Reviews
                 </button>

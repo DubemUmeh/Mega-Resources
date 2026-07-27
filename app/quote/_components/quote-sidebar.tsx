@@ -1,7 +1,7 @@
 "use client";
 
 import * as Accordion from "@radix-ui/react-accordion";
-import { FaPhoneAlt, FaWhatsapp, FaChevronDown } from "react-icons/fa";
+import { FaWhatsapp, FaChevronDown } from "react-icons/fa";
 import { ArrowCta } from "@/components/motion-kit";
 
 const steps = [
@@ -29,27 +29,27 @@ const faqs = [
 export default function QuoteSidebar() {
   return (
     <div className="flex flex-col gap-6">
-      <div className="rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-6">
-        <span className="text-[0.75rem] font-semibold uppercase tracking-widest text-muted-foreground">
+      <div className="rounded-[1.5rem] border border-neutral-200 bg-neutral-100 p-6">
+        <span className="text-[0.78rem] font-semibold uppercase tracking-[0.08em] text-neutral-400">
           What Happens Next
         </span>
         <div className="mt-5 flex flex-col gap-5">
           {steps.map((s) => (
             <div key={s.num} className="flex gap-4">
-              <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full border border-[rgba(10,10,10,0.1)] text-[0.75rem] font-semibold text-foreground">
+              <span className="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-white text-[0.75rem] font-semibold text-blue-600 shadow-[0_6px_18px_rgba(15,23,42,0.06)]">
                 {s.num}
               </span>
               <div>
-                <p className="text-[0.9rem] font-medium text-foreground">{s.title}</p>
-                <p className="mt-0.5 text-[0.8rem] leading-relaxed text-muted-foreground">{s.desc}</p>
+                <p className="text-[0.9rem] font-medium text-neutral-800">{s.title}</p>
+                <p className="mt-0.5 text-[0.8rem] leading-relaxed text-neutral-500">{s.desc}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      <div className="rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-6">
-        <span className="text-[0.75rem] font-semibold uppercase tracking-widest text-muted-foreground">
+      <div className="rounded-[1.5rem] border border-neutral-200 bg-neutral-100 p-6">
+        <span className="text-[0.78rem] font-semibold uppercase tracking-[0.08em] text-neutral-400">
           Quick Questions
         </span>
         <Accordion.Root type="single" collapsible className="mt-4">
@@ -57,13 +57,13 @@ export default function QuoteSidebar() {
             <Accordion.Item
               key={f.q}
               value={`item-${i}`}
-              className="border-b border-[rgba(10,10,10,0.08)] last:border-b-0"
+              className="border-b border-neutral-200 last:border-b-0"
             >
-              <Accordion.Trigger className="group flex w-full items-center justify-between gap-4 py-4 text-left text-[0.86rem] font-medium text-foreground outline-none">
+              <Accordion.Trigger className="group flex w-full items-center justify-between gap-4 py-4 text-left text-[0.86rem] font-medium text-neutral-800 outline-none">
                 {f.q}
-                <FaChevronDown className="h-2.5 w-2.5 flex-none text-muted-foreground transition-transform duration-300 group-data-[state=open]:rotate-180" />
+                <FaChevronDown className="h-2.5 w-2.5 flex-none text-neutral-400 transition-transform duration-300 group-data-[state=open]:rotate-180" />
               </Accordion.Trigger>
-              <Accordion.Content className="overflow-hidden text-[0.82rem] leading-relaxed text-muted-foreground data-[state=open]:pb-4 data-[state=open]:animate-in data-[state=open]:fade-in data-[state=closed]:animate-out data-[state=closed]:fade-out">
+              <Accordion.Content className="overflow-hidden text-[0.82rem] leading-relaxed text-neutral-500 data-[state=open]:pb-4 data-[state=open]:animate-in data-[state=open]:fade-in data-[state=closed]:animate-out data-[state=closed]:fade-out">
                 {f.a}
               </Accordion.Content>
             </Accordion.Item>
@@ -71,8 +71,8 @@ export default function QuoteSidebar() {
         </Accordion.Root>
       </div>
 
-      <div className="flex flex-col gap-4 rounded-[1.5rem] bg-foreground/80 p-6">
-        <p className="text-[0.9rem] leading-relaxed text-primary-foreground/80">
+      <div className="flex flex-col gap-4 rounded-[1.5rem] bg-neutral-900 p-6">
+        <p className="text-[0.9rem] leading-relaxed text-neutral-300">
           Prefer to skip the form? Reach us directly and we&apos;ll take your
           details over the phone.
         </p>
@@ -80,7 +80,7 @@ export default function QuoteSidebar() {
           <ArrowCta href="tel:+233240000000" label="Call Now" />
           <a
             href="https://wa.me/233240000000"
-            className="inline-flex h-12 items-center gap-2.5 rounded-2xl border border-white/60 px-5 text-[0.9rem] font-medium text-primary-foreground transition-colors hover:bg-white/10"
+            className="inline-flex h-12 items-center gap-2.5 rounded-2xl border border-white/20 px-5 text-[0.9rem] font-medium text-white transition-colors hover:bg-white/10"
           >
             <FaWhatsapp className="h-4 w-4" />
             WhatsApp

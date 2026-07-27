@@ -125,14 +125,14 @@ const promises = [
 
 export default function ContactPage() {
   return (
-    <div className="w-full bg-background/20">
+    <div className="w-full bg-linear-to-b from-foreground/10 via-foreground/50 to-foreground/25">
       {/* ---------------------------------------------------------- HERO */}
       <div className={BG_GLOW} />
       <section className="relative overflow-hidden px-5 pb-16 pt-32 md:px-10 md:pb-20 md:pt-40">
         <div className={BG_GLOW} />
         <div className="mx-auto w-[min(100%,76rem)]">
           <Reveal>
-            <div className="inline-flex items-center gap-[0.45rem] rounded-full border border-neutral-200 bg-white px-[0.8rem] py-[0.45rem] text-[0.85rem] font-semibold uppercase tracking-[0.12em] text-neutral-600 shadow-[0_8px_20px_rgba(15,23,42,0.05)]">
+            <div className="inline-flex items-center gap-[0.45rem] tracking-wider rounded-full border border-neutral-200 bg-white px-[0.8rem] py-[0.45rem] text-[0.85rem] font-semibold uppercase text-neutral-600 shadow-[0_8px_20px_rgba(15,23,42,0.05)]">
               Contact
             </div>
           </Reveal>
@@ -140,12 +140,12 @@ export default function ContactPage() {
           <Reveal delay={0.08} className="mt-6 max-w-3xl">
             <h1 className="font-display text-[2.25rem] font-semibold leading-[1.1] tracking-tight text-foreground md:text-[3.5rem]">
               Let&apos;s talk about{" "}
-              <span className="text-neutral-400">your water problem.</span>
+              <span className="text-neutral-600">your water problem.</span>
             </h1>
           </Reveal>
 
           <Reveal delay={0.16} className="mt-6 max-w-2xl">
-            <p className="text-[1.05rem] leading-[1.75] text-neutral-400">
+            <p className="text-base tracking-wider leading-[1.75] text-foreground/80">
               Whether you&apos;re planning a new borehole or dealing with
               one that&apos;s stopped delivering, tell us what&apos;s going
               on and we&apos;ll get back to you — usually within 24 hours.
@@ -226,21 +226,21 @@ export default function ContactPage() {
       </section>
 
       {/* ------------------------------------------------------ PROMISES */}
-      <section className="relative overflow-hidden bg-neutral-50 px-5 py-16 md:px-10 md:py-20">
+      <section className="relative overflow-hidden bg-background/30 px-5 py-16 md:px-10 md:py-20">
         <div className="mx-auto w-[min(100%,76rem)]">
           <div className="grid gap-4 sm:grid-cols-3">
             {promises.map((p, i) => {
               const Icon = p.icon;
               return (
                 <Reveal key={p.title} delay={(i % 3) * 0.06}>
-                  <div className="flex h-full flex-col gap-3 rounded-[1.5rem] border border-neutral-200 bg-white p-6">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-full bg-blue-600/10 text-blue-600">
+                  <div className="flex h-full flex-col gap-3 rounded-[1.5rem] border border-neutral-200 bg-background p-6">
+                    <span className="flex h-11 w-11 items-center border border-popover/70 justify-center rounded-full bg-blue-600/10 text-blue-600">
                       <Icon className="h-4.5 w-4.5" />
                     </span>
-                    <h3 className="font-display text-base font-semibold text-neutral-900">
+                    <h3 className="font-display tracking-wider text-base font-semibold text-neutral-900">
                       {p.title}
                     </h3>
-                    <p className="text-[0.9rem] leading-[1.6] text-neutral-500">
+                    <p className="text-sm leading-[1.6] text-foreground/70 tracking-wider">
                       {p.desc}
                     </p>
                   </div>

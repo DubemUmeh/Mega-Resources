@@ -21,7 +21,7 @@ const points = [
 const ProblemSolution = () => {
   return (
     <section className="w-full bg-foreground/30 px-8 lg:px-24 py-24 border-b-2 border-muted-foreground">
-      <div className="pointer-events-none absolute inset-0 -z-10 [foreground:radial-gradient(circle_at_10%_10%,rgba(255,205,112,0.16),transparent_38%),radial-gradient(circle_at_90%_20%,rgba(255,184,142,0.14),transparent_40%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 [background:radial-gradient(circle_at_10%_10%,rgba(255,205,112,0.16),transparent_38%),radial-gradient(circle_at_90%_20%,rgba(255,184,142,0.14),transparent_40%)]" />
       <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
         <div>
           <div className="text-xs uppercase tracking-widest border border-popover w-fit p-2 rounded-full bg-foreground/20 font-semibold mb-6">Why Act Now</div>

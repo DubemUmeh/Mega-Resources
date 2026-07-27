@@ -30,7 +30,7 @@ const FAQ = () => {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="bg-linear-to-b from-foreground/30 via-froeground/5 to-foreground/10 px-8 lg:px-24 py-24 border-b-2 border-muted-foreground">
+    <section className="bg-linear-to-b from-foreground/40 via-froeground/20 to-foreground/40 px-8 lg:px-24 py-24 border-b-2 border-muted-foreground">
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
         <div className="lg:w-1/3">
           <div className="text-sm uppercase font-semibold tracking-widest text-popover mb-6">FAQ</div>
@@ -43,20 +43,20 @@ const FAQ = () => {
           {faqs.map((f, idx) => {
             const isOpen = open === idx;
             return (
-              <div key={idx} className="border-b border-muted-foreground">
+              <div key={idx} className="border-b border-blue-500">
                 <button
                   onClick={() => setOpen(isOpen ? null : idx)}
                   className="w-full flex items-center justify-between text-left py-6 gap-6"
                 >
-                  <span className="text-lg font-medium text-gray-100">{f.q}</span>
-                  <span className={`shrink-0 w-8 h-8 rounded-full border border-muted-foreground flex items-center justify-center text-gray-50 transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}>
+                  <span className={`text-lg font-medium ${isOpen ? 'text-gray-300 tracking-wide' : 'text-gray-100 tracking-wider'}`}>{f.q}</span>
+                  <span className={`shrink-0 w-8 h-8 rounded-full border border-blue-400 flex items-center justify-center text-gray-50 transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}>
                     <FaPlus className="size-4" />
                   </span>
                 </button>
                 <div
                   className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-40 opacity-100 pb-6" : "max-h-0 opacity-0"}`}
                 >
-                  <p className="text-[16px] text-popover leading-relaxed font-light max-w-xl">{f.a}</p>
+                  <p className={`text-[16px] tracking-wider text-popover leading-relaxed font-light max-w-xl`}>{f.a}</p>
                 </div>
               </div>
             );

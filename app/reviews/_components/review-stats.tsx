@@ -28,7 +28,7 @@ export function ReviewsStats({ reviews }: { reviews: Review[] }) {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-background/90 px-5 py-16 md:px-10 md:py-20">
+    <section className="relative overflow-hidden bg-background/30 px-5 py-16 md:px-10 md:py-20">
       <div className={BG_GLOW} />
       <div className="mx-auto w-[min(100%,76rem)] grid gap-12 md:grid-cols-[1.1fr_0.9fr] md:gap-16">
         <div className="grid grid-cols-2 gap-8 md:gap-6">
@@ -38,7 +38,7 @@ export function ReviewsStats({ reviews }: { reviews: Review[] }) {
                 <span className="font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl">
                   {stat.value}
                 </span>
-                <span className="text-[0.85rem] uppercase tracking-[0.08em] text-muted-foreground">
+                <span className="text-[0.85rem] uppercase tracking-[0.08em] text-background">
                   {stat.label}
                 </span>
               </div>

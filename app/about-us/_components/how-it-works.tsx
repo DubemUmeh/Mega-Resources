@@ -99,17 +99,17 @@ export default function HowItWorks() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-background/90 px-5 py-16 md:px-10 md:py-24">
+    <section className="relative overflow-hidden bg-foreground/50 px-5 py-16 md:px-10 md:py-24">
       <div className={BG_GLOW} />
       <div className="mx-auto w-[min(100%,76rem)]">
         <motion.div className="max-w-2xl" {...fadeUpProps()}>
-          <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+          <span className="text-sm font-semibold uppercase tracking-wider text-popover/70">
             How It Works
           </span>
-          <h2 className="mt-4 font-display text-[1.9rem] font-semibold leading-[1.2] tracking-tight text-foreground md:text-[2.5rem]">
+          <h2 className="mt-4 font-display text-[1.9rem] font-semibold leading-[1.2] tracking-tight text-popover md:text-[2.5rem]">
             What happens after you call us
           </h2>
-          <p className="mt-4 text-[1.02rem] leading-[1.75] text-muted-foreground">
+          <p className="mt-4 text-[1.02rem] leading-[1.75] text-background/80 tracking-wide">
             Not knowing what comes next is the most stressful part of any
             home project — and it&apos;s exactly where most drilling jobs in
             Ghana go wrong. Here&apos;s the whole process, start to finish, in
@@ -126,20 +126,20 @@ export default function HowItWorks() {
               <motion.div
                 key={step.num}
                 {...fadeUpProps((i % 2) * 0.08)}
-                className="flex flex-col gap-4 rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-6 md:p-7"
+                className="flex flex-col gap-4 rounded-[1.5rem] border-2 border-[rgba(133,133,148,0.76)] bg-[rgba(69,76,76,0.5)] p-6 md:p-7"
               >
                 <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-blue-600/10">
-                    <Icon className="h-4.5 w-4.5 text-blue-600" />
+                  <div className="flex h-11 w-11 flex-none border border-background/20 items-center justify-center rounded-full bg-[rgba(89,90,112,0.79)]">
+                    <Icon className="size-5 text-blue-600" />
                   </div>
-                  <span className="font-display text-sm font-semibold text-blue-600">
+                  <span className="font-display text-base font-semibold text-blue-200">
                     Step {step.num}
                   </span>
                 </div>
-                <h3 className="font-display text-lg font-semibold text-foreground md:text-xl">
+                <h3 className="font-display text-lg font-semibold text-foreground tracking-wide md:text-xl">
                   {step.title}
                 </h3>
-                <p className="text-[0.92rem] leading-[1.65] text-muted-foreground">
+                <p className="text-base tracking-wide leading-normal text-popover/60">
                   {step.desc}
                 </p>
               </motion.div>
@@ -148,13 +148,13 @@ export default function HowItWorks() {
         </div>
 
         {/* --------------------------------------------------- TIMELINE */}
-        <motion.div className="mt-16" {...fadeUpProps(0.1)}>
-          <p className="mb-8 text-[0.98rem] font-semibold text-foreground">
+        <motion.div className="mt-16 z-50!" {...fadeUpProps(0.1)}>
+          <p className="mb-8 text-lg tracking-wider font-semibold text-background">
             From first call to running water in as little as two weeks.
           </p>
 
           <div ref={trackRef} className="relative">
-            <div className="relative h-1.5 w-full overflow-hidden rounded-full bg-foreground/10">
+            <div className="relative h-1.5 w-full overflow-hidden rounded-full bg-background/50">
               <div
                 ref={fillRef}
                 className="h-full w-full origin-left rounded-full bg-blue-600"
@@ -176,10 +176,10 @@ export default function HowItWorks() {
                       : "items-center text-center"
                   }`}
                 >
-                  <span className="font-display text-sm font-semibold text-foreground md:text-base">
+                  <span className="font-display text-sm font-semibold text-popover/50">
                     {stop.day}
                   </span>
-                  <span className="text-[0.82rem] uppercase tracking-widest text-muted-foreground">
+                  <span className="text-base uppercase font-bold tracking-widest text-background">
                     {stop.label}
                   </span>
                 </div>

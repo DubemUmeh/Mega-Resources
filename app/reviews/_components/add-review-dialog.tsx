@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { FaTimes } from "react-icons/fa";
+import { FaTimes, FaArrowRight } from "react-icons/fa";
 import { StarRatingInput } from "./star-rating";
 import { MultiSelectField } from "@/components/ui/multi-select";
 import { useToast } from "@/components/ui/toast";
@@ -15,6 +15,9 @@ interface AddReviewDialogProps {
 }
 
 const emptyState: ReviewState = { message: null, errors: {}, success: false };
+
+const inputClasses =
+  "w-full rounded-xl border border-neutral-300 bg-white px-4 py-2.5 text-[0.92rem] text-neutral-900 placeholder:text-neutral-400 outline-none transition-colors focus:border-blue-600 focus:ring-2 focus:ring-blue-600/15";
 
 export function AddReviewDialog({ open, onOpenChange }: AddReviewDialogProps) {
   const { showToast } = useToast();
@@ -96,30 +99,27 @@ export function AddReviewDialog({ open, onOpenChange }: AddReviewDialogProps) {
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm data-[state=open]:animate-in data-[state=open]:fade-in" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 w-[min(95vw,44rem)] -translate-x-1/2 -translate-y-1/2 rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-background p-5 shadow-2xl md:p-7">
+        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 w-[min(95vw,44rem)] max-h-[90vh] -translate-x-1/2 -translate-y-1/2 overflow-y-auto no-scrollbar rounded-[1.5rem] border border-neutral-200 bg-neutral-100 p-5 shadow-2xl md:p-7">
           <div className="mb-4 flex items-start justify-between">
             <div>
-              <Dialog.Title className="font-display text-xl font-semibold text-foreground md:text-2xl">
+              <Dialog.Title className="font-display text-xl font-semibold text-neutral-900 md:text-2xl">
                 Share Your Experience
               </Dialog.Title>
-              {/* <Dialog.Description className="mt-1 text-[0.9rem] text-muted-foreground">
-                Tell other families and businesses what working with us was like.
-              </Dialog.Description> */}
             </div>
-            <Dialog.Close className="rounded-full p-2 text-muted-foreground hover:bg-foreground/10 hover:text-foreground transition-colors">
+            <Dialog.Close className="rounded-full p-2 text-neutral-400 hover:bg-white hover:text-neutral-700 transition-colors">
               <FaTimes className="h-3.5 w-3.5" />
             </Dialog.Close>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-medium text-foreground">Your Rating</label>
+              <label className="text-[0.85rem] font-semibold text-neutral-700">Your Rating</label>
               <StarRatingInput value={rating} onChange={setRating} />
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-medium text-foreground">Your Name</label>
+                <label className="text-[0.85rem] font-semibold text-neutral-700">Your Name</label>
                 <input
                   type="text"
                   value={name}
@@ -127,15 +127,15 @@ export function AddReviewDialog({ open, onOpenChange }: AddReviewDialogProps) {
                   placeholder="e.g., Mrs. Ama Owusu"
                   disabled={isPending}
                   maxLength={100}
-                  className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600"
+                  className={inputClasses}
                 />
                 {state.errors.name?.[0] && (
-                  <p className="text-xs text-red-400">{state.errors.name[0]}</p>
+                  <p className="text-xs text-red-500">{state.errors.name[0]}</p>
                 )}
               </div>
 
               <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-medium text-foreground">City / Region</label>
+                <label className="text-[0.85rem] font-semibold text-neutral-700">City / Region</label>
                 <input
                   type="text"
                   value={location}
@@ -143,17 +143,17 @@ export function AddReviewDialog({ open, onOpenChange }: AddReviewDialogProps) {
                   placeholder="e.g., Tema, Greater Accra"
                   disabled={isPending}
                   maxLength={100}
-                  className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600"
+                  className={inputClasses}
                 />
                 {state.errors.location?.[0] && (
-                  <p className="text-xs text-red-400">{state.errors.location[0]}</p>
+                  <p className="text-xs text-red-500">{state.errors.location[0]}</p>
                 )}
               </div>
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <label className="text-sm font-medium text-foreground">
-                Role / Company <span className="text-muted-foreground font-normal">(optional)</span>
+              <label className="text-[0.85rem] font-semibold text-neutral-700">
+                Role / Company <span className="text-neutral-400 font-normal">(optional)</span>
               </label>
               <input
                 type="text"
@@ -162,7 +162,7 @@ export function AddReviewDialog({ open, onOpenChange }: AddReviewDialogProps) {
                 placeholder="e.g., Operations Director — Green Farms Ghana"
                 disabled={isPending}
                 maxLength={100}
-                className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600"
+                className={inputClasses}
               />
             </div>
 
@@ -176,7 +176,7 @@ export function AddReviewDialog({ open, onOpenChange }: AddReviewDialogProps) {
             />
 
             <div className="flex flex-col gap-1.5">
-              <label className="text-sm font-medium text-foreground">Your Review</label>
+              <label className="text-[0.85rem] font-semibold text-neutral-700">Your Review</label>
               <textarea
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
@@ -184,19 +184,22 @@ export function AddReviewDialog({ open, onOpenChange }: AddReviewDialogProps) {
                 rows={4}
                 disabled={isPending}
                 maxLength={500}
-                className="w-full resize-none rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600"
+                className={`${inputClasses} resize-none`}
               />
               {state.errors.message?.[0] && (
-                <p className="text-xs text-red-400">{state.errors.message[0]}</p>
+                <p className="text-xs text-red-500">{state.errors.message[0]}</p>
               )}
             </div>
 
             <button
               type="submit"
               disabled={isPending}
-              className="w-full rounded-xl bg-blue-600 py-3.5 text-[0.92rem] font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
+              className="mt-2 flex w-fit items-center justify-center gap-3 rounded-2xl bg-blue-600 py-1.5 pl-6 pr-1.5 text-base font-medium text-white transition-all duration-300 ease-out hover:bg-blue-700 active:scale-95 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {isPending ? "Submitting..." : "Submit Review"}
+              <span className="flex h-9 w-9 flex-none items-center justify-center rounded-xl bg-white text-blue-600">
+                <FaArrowRight className="h-3.5 w-3.5" />
+              </span>
             </button>
           </form>
         </Dialog.Content>

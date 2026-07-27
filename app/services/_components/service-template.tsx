@@ -71,7 +71,7 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
   const relatedLinks = data.related ?? [];
 
   return (
-    <div className="w-full bg-background/50">
+    <div className="w-full bg-linear-to-b from-foreground/20 via-background/10 to-foreground/30">
       <StructuredData data={serviceSchema(data)} />
       {/* ---------------------------------------------------------- HERO */}
       <div className={BG_GLOW} />
@@ -81,7 +81,7 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
           <Reveal>
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 rounded-full border border-foreground/20 bg-background/72 px-4 py-2 text-sm font-semibold uppercase tracking-[0.12em] text-muted-foreground shadow-[0_8px_20px_rgba(15,23,42,0.05)] transition-colors hover:text-foreground"
+              className="inline-flex items-center gap-2 rounded-full border border-popover/70 bg-background/80 px-4 py-2 text-sm font-semibold uppercase tracking-[0.12em] text-muted-foreground shadow-[0_8px_20px_rgba(15,23,42,0.05)] transition-colors hover:text-foreground"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               All Services
@@ -95,8 +95,8 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
                   <span className="font-display text-lg font-semibold text-blue-600">
                     {data.num}
                   </span>
-                  <span className="h-px w-10 bg-foreground/15" />
-                  <span className="inline-flex items-center gap-2 rounded-full bg-foreground/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                  <span className="h-px w-10 bg-foreground/40" />
+                  <span className="inline-flex items-center gap-2 rounded-full bg-foreground/50 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-background">
                     {data.eyebrow}
                   </span>
                 </div>
@@ -108,13 +108,13 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
                   </span>
                 </h1>
 
-                <p className="max-w-lg text-[1.05rem] leading-[1.7] text-muted-foreground">
+                <p className="max-w-lg text-base leading-[1.7] text-foreground/70 tracking-wider">
                   {data.heroDescription}
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4 pt-2">
                   <ArrowCta href="/#contact" label="Request This Service" />
-                  <span className="text-sm text-muted-foreground">
+                  <span className="text-base text-foreground/60">
                     {data.tagline}
                   </span>
                 </div>
@@ -122,8 +122,7 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
             </Reveal>
 
             <Reveal delay={0.15}>
-              <div className="relative overflow-hidden rounded-4xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.4)] p-3 shadow-[0_25px_65px_rgba(15,23,42,0.15)]">
-                <div className={BG_GLOW} />
+              <div className="relative overflow-hidden rounded-4xl border border-popover/70 bg-popover/50 p-3 shadow-[0_25px_65px_rgba(15,23,42,0.15)]">
                 <div className="relative aspect-4/3 w-full overflow-hidden rounded-[1.6rem]">
                   <Image
                     src={data.img}
@@ -136,7 +135,7 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
                 </div>
                 <div className="absolute left-6 top-6 flex h-11 w-11 items-center justify-center rounded-full bg-[rgba(255,255,255,0.9)] shadow-[0_18px_45px_rgba(15,23,42,0.1)]">
                   {HeroIcon ? (
-                    <HeroIcon className="h-5 w-5 text-background" />
+                    <HeroIcon className="size-6 text-foreground" />
                   ) : null}
                 </div>
               </div>
@@ -146,14 +145,14 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
       </section>
 
       {/* ------------------------------------------------------ OVERVIEW */}
-      <section className="relative px-5 py-16 md:px-10 md:py-24">
+      <section className="relative px-5 py-16 md:px-10 md:py-24 bg-linear-to-b from-foreground/5 via-foreground/20 to-foreground/10 border border-b-2 border-muted-foreground/50">
         <div className="mx-auto grid w-[min(100%,76rem)] gap-8 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] lg:gap-12">
-          <Reveal className="rounded-[1.8rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-7 shadow-[0_18px_50px_rgba(15,23,42,0.05)] md:p-12">
-            <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(10,10,10,0.1)] bg-foreground/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+          <Reveal className="rounded-[1.8rem] border border-popover/70 bg-[rgba(36,35,35,0.5)] p-7 shadow-[0_18px_50px_rgba(15,23,42,0.05)] md:p-12">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[rgba(10,10,10,0.1)] bg-background px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
               Service Explained
             </span>
 
-            <h2 className="mt-5 font-display text-2xl font-semibold text-foreground md:text-3xl">
+            <h2 className="mt-5 font-display tracking-wide capitalize text-2xl font-semibold text-foreground md:text-3xl">
               {data.overviewHeading}
             </h2>
 
@@ -161,7 +160,7 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
               {data.overviewParagraphs.map((p, i) => (
                 <p
                   key={i}
-                  className="text-[1.02rem] leading-[1.75] text-muted-foreground"
+                  className="text-base leading-[1.75] text-background"
                 >
                   {p}
                 </p>
@@ -171,15 +170,15 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
             <ul className="mt-6 space-y-3">
               {data.overviewBullets.map((b) => (
                 <li key={b} className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-blue-600" />
-                  <span className="text-[0.98rem] leading-[1.6] text-foreground/80">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 rounded-full bg-popover shrink-0 text-blue-600" />
+                  <span className="text-[0.98rem] leading-[1.6] text-background/80 tracking-wide">
                     {b}
                   </span>
                 </li>
               ))}
             </ul>
 
-            <blockquote className="mt-8 rounded-2xl rounded-l-none border-l-4 border-blue-600 bg-blue-600/10 px-6 py-5">
+            <blockquote className="mt-8 rounded-2xl rounded-l-none border-l-4 border-blue-600 bg-blue-300/50 px-6 py-5">
               <p className="text-[0.98rem] italic leading-[1.7] text-foreground/80">
                 {data.quote}
               </p>
@@ -188,13 +187,13 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
 
           <Reveal
             delay={0.1}
-            className="sticky md:top-25 h-fit flex flex-col justify-center gap-6 overflow-hidden rounded-[1.8rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-7 md:p-10"
+            className="sticky md:top-25 h-fit flex flex-col justify-center gap-6 overflow-hidden rounded-[1.8rem] border border-popover/70 bg-[rgba(36,35,35,0.5)] p-7 md:p-10"
           >
             <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,rgba(37,99,235,0.14),transparent_55%)]" />
-            <h3 className="font-display text-xl font-semibold text-foreground">
+            <h3 className="font-display text-xl font-semibold text-foreground underline underline-offset-3 decoration-foreground/70 capitalize tracking-wide">
               Why it matters
             </h3>
-            <p className="text-[0.98rem] leading-[1.75] text-muted-foreground">
+            <p className="text-base leading-[1.75] text-background">
               {data.tagline} Every job is scoped to your land, your geology,
               and your budget — no guesswork, no oversized quotes.
             </p>
@@ -204,14 +203,13 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
       </section>
 
       {/* -------------------------------------------------------- PROCESS */}
-      <section className="relative overflow-hidden bg-background/90 px-5 py-16 md:px-10 md:py-24">
-        <div className={BG_GLOW} />
+      <section className="relative overflow-hidden bg-linear-to-b from-foreground/10 via-foreground/20 to-foreground/5 px-5 py-16 md:px-10">
         <div className="mx-auto w-[min(100%,76rem)]">
           <Reveal className="flex flex-col gap-3 md:max-w-xl">
             <span className="inline-flex w-fit items-center gap-2 rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-white">
               Our Process
             </span>
-            <h2 className="font-display text-2xl font-semibold text-foreground md:text-3xl">
+            <h2 className="font-display text-2xl tracking-wide font-semibold text-foreground md:text-3xl">
               How we deliver {data.title.replace("\n", " ").toLowerCase()}
               {data.titleAccent
                 ? ` ${data.titleAccent.replace("\n", " ").toLowerCase()}`
@@ -222,14 +220,14 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
           <div className="mt-12 grid gap-8 md:grid-cols-3 md:gap-6">
             {data.process.map((step, i) => (
               <Reveal key={step.title} delay={i * 0.08}>
-                <div className="relative flex flex-col gap-4 rounded-[1.6rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-6">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-background/60 font-display text-lg font-semibold text-blue-600 ring-1 ring-[rgba(10,10,10,0.08)]">
+                <div className="relative flex flex-col gap-4 rounded-[1.6rem] border border-popover/50 bg-blue-300/50 p-6">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-full bg-background/60 font-display text-lg font-semibold text-blue-600 ring-1 ring-popover/70">
                     {String(i + 1).padStart(2, "0")}
                   </div>
-                  <h3 className="font-display text-lg font-semibold text-foreground">
+                  <h3 className="font-display tracking-wide text-lg font-bold text-foreground">
                     {step.title}
                   </h3>
-                  <p className="text-[0.95rem] leading-[1.7] text-muted-foreground">
+                  <p className="text-sm md:text-base tracking-normal leading-6 text-foreground/80">
                     {step.description}
                   </p>
                 </div>
@@ -240,10 +238,10 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
       </section>
 
       {/* ------------------------------------------------------- BENEFITS */}
-      <section className="relative px-5 py-16 md:px-10 md:py-24">
+      <section className="relative bg-linear-to-b from-foreground/5 via-foreground/20 to-foreground/5 px-5 py-16 md:px-10 ">
         <div className="mx-auto w-[min(100%,76rem)]">
           <Reveal className="flex flex-col gap-3 text-center md:mx-auto md:max-w-xl">
-            <span className="mx-auto inline-flex w-fit items-center gap-2 rounded-full bg-foreground/5 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+            <span className="mx-auto inline-flex w-fit items-center gap-2 rounded-full bg-foreground/50 px-3 py-1 text-base font-semibold uppercase tracking-wider text-background border">
               Benefits
             </span>
             <h2 className="font-display text-2xl font-semibold text-foreground md:text-3xl">
@@ -256,16 +254,16 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
               const BenefitIcon = ICONS[benefit.icon];
               return (
                 <Reveal key={benefit.title} delay={i * 0.06}>
-                  <div className="hover-lift h-full rounded-[1.6rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-6">
+                  <div className="hover-lift h-full rounded-[1.6rem] border border-popover/70 bg-[rgba(209,220,230,0.5)] p-6">
                     <div className="flex h-11 w-11 items-center justify-center rounded-full bg-blue-600/10">
                       {BenefitIcon ? (
-                        <BenefitIcon className="h-5 w-5 text-blue-600" />
+                        <BenefitIcon className="h-5 w-5 text-blue-700" />
                       ) : null}
                     </div>
-                    <h3 className="mt-4 font-display text-base font-semibold text-foreground">
+                    <h3 className="mt-4 font-display tracking-wider capitalize text-base font-semibold text-foreground">
                       {benefit.title}
                     </h3>
-                    <p className="mt-2 text-[0.9rem] leading-[1.65] text-muted-foreground">
+                    <p className="mt-2 text-sm tracking-wider leading-[1.65] text-foreground/90">
                       {benefit.description}
                     </p>
                   </div>
@@ -280,9 +278,9 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
 
       {/* ----------------------------------------------- INTERNAL LINKS */}
       {relatedLinks.length > 0 ? (
-        <section className="relative px-5 pb-16 md:px-10 md:pb-20">
-          <Reveal className="mx-auto w-[min(100%,76rem)] rounded-[1.8rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.45)] p-7 md:p-10">
-            <span className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+        <section className="relative px-5 pb-16 md:px-10 bg-linear-to-b from-foreground/5 via-foreground/20 to-foreground/5">
+          <Reveal className="mx-auto w-[min(100%,76rem)] rounded-xl border-2 border-popover/30 bg-[rgba(128,122,122,0.45)] p-7 md:p-10">
+            <span className="text-sm font-semibold leading-8 uppercase tracking-wider text-popover">
               Plan the complete water system
             </span>
             <h2 className="mt-3 font-display text-2xl font-semibold text-foreground md:text-3xl">
@@ -293,12 +291,12 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
                 <Link
                   key={link.slug}
                   href={`/services/${link.slug}`}
-                  className="group rounded-2xl border border-foreground/10 bg-background/40 p-5 transition-colors hover:border-blue-600/40 hover:bg-background/60"
+                  className="group rounded-2xl border border-blue-600/30 bg-background/50 p-5 transition-colors hover:border-blue-600/40 hover:bg-background/60"
                 >
                   <span className="font-display text-lg font-semibold text-foreground group-hover:text-blue-600">
                     {link.title}
                   </span>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  <p className="mt-2 text-sm leading-6 tracking-wider text-foreground/70">
                     {link.reason}
                   </p>
                 </Link>
@@ -338,12 +336,12 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
           <Reveal className="mx-auto mt-8 w-[min(100%,76rem)]">
             <Link
               href={`/services/${data.next.slug}`}
-              className="group flex items-center justify-between rounded-[1.6rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-7 py-6 transition-colors hover:bg-[rgba(36,35,35,0.7)]"
+              className="group flex items-center justify-between rounded-[1.6rem] border border-popover/70 bg-[rgba(81,90,112,0.5)] px-7 py-6 transition-colors hover:bg-[rgba(124,137,155,0.7)]"
             >
-              <span className="text-xs font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+              <span className="text-sm font-semibold uppercase tracking-wider text-background">
                 Next Service
               </span>
-              <span className="flex items-center gap-2 font-display text-lg font-semibold text-foreground transition-colors group-hover:text-blue-600">
+              <span className="flex items-center gap-2 font-display text-lg font-semibold text-foreground transition-colors group-hover:text-popover">
                 {data.next.title}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </span>

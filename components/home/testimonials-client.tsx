@@ -153,7 +153,7 @@ const TestimonialsClient = ({ testimonials }: { testimonials: Testimonial[] }) =
 
         </div>
       </div>
-      <div className="w-full h-full md:flex items-center justify-center relative left-0 top-70 z-100! md:top-8 hidden">
+      <div className="w-full h-full md:flex items-center justify-center relative left-0 top-70 md:top-8 hidden">
         <Link href='/reviews' className="w-fit flex items-center cursor-pointer rounded-2xl z-0 group pl-1 py-1.5 pr-4 gap-3 bg-blue-600 hover:bg-blue-700 active:scale-95 h-12 transition-all duration-300 ease-out">
           <div className="flex justify-start items-center">
             <div className="flex justify-center items-center size-10 flex-none rounded-xl bg-white">

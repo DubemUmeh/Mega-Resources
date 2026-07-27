@@ -100,9 +100,17 @@ export default function ServiceShowcase() {
       document.documentElement.style.overflow = "hidden";
       engaged = true;
     }
-    function release() {
+    function release(direction?: 1 | -1) {
       document.documentElement.style.overflow = "";
       engaged = false;
+      // Sync real scroll position to match where the animation left off —
+      // otherwise scrollY is still frozen back at entry point and the user
+      // has to scroll through the entire remaining pinned height to catch up.
+      if (direction === 1) {
+        window.scrollTo({ top: trigger.end + 1 });
+      } else if (direction === -1) {
+        window.scrollTo({ top: trigger.start - 1 });
+      }
     }
 
     function step(direction: 1 | -1) {
@@ -111,7 +119,7 @@ export default function ServiceShowcase() {
       if (next < 0 || next > total - 1) {
         // Already at the first/last panel — release control so this same
         // gesture continues on as a normal page scroll.
-        release();
+        release(direction);
         return;
       }
       goTo(next, direction);
@@ -139,10 +147,18 @@ export default function ServiceShowcase() {
       step(dy > 0 ? 1 : -1);
     }
 
+    function onKeyDown(e: KeyboardEvent) {
+      if (!engaged) return;
+      if (e.key !== "ArrowDown" && e.key !== "ArrowUp") return;
+      e.preventDefault();
+      step(e.key === "ArrowDown" ? 1 : -1);
+    }
+
     window.addEventListener("wheel", onWheel, { passive: false });
     window.addEventListener("touchstart", onTouchStart, { passive: true });
     window.addEventListener("touchmove", onTouchMove, { passive: false });
     window.addEventListener("touchend", onTouchEnd, { passive: true });
+    window.addEventListener("keydown", onKeyDown, { passive: false });
 
     // Engage the moment the showcase reaches the top of the viewport
     // (scrolling down) or the bottom (scrolling back up from below), and
@@ -168,6 +184,7 @@ export default function ServiceShowcase() {
       window.removeEventListener("touchstart", onTouchStart);
       window.removeEventListener("touchmove", onTouchMove);
       window.removeEventListener("touchend", onTouchEnd);
+      window.removeEventListener("keydown", onKeyDown);
       document.documentElement.style.overflow = "";
       trigger.kill();
       splitHeadings.forEach((s) => s.revert());
@@ -177,7 +194,7 @@ export default function ServiceShowcase() {
   return (
     <section id="service-grid" className="relative">
       {/* --------------------------------------------------- INTRO COPY */}
-      <div className="relative overflow-hidden bg-background/90 px-5 py-16 md:px-10 md:py-20">
+      <div className="relative overflow-hidden bg-foreground/20 px-5 py-16 md:px-10 md:py-20">
         <motion.div
           className="mx-auto w-[min(100%,76rem)]"
           initial={{ opacity: 0, y: 24 }}
@@ -185,13 +202,13 @@ export default function ServiceShowcase() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+          <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-popover">
             Services
           </span>
           <h2 className="mt-4 max-w-2xl font-display text-[1.9rem] font-semibold leading-[1.2] tracking-tight text-foreground md:text-[2.5rem]">
             A closer look at what we do
           </h2>
-          <p className="mt-4 max-w-2xl text-[1.02rem] leading-[1.75] text-muted-foreground">
+          <p className="mt-4 max-w-2xl text-base tracking-wider leading-[1.75] text-popover">
             The seven services below represent seven distinct disciplines —
             from the first geophysical reading on your land to the pump
             that finally puts water in your hands. Scroll on to move
@@ -209,7 +226,7 @@ export default function ServiceShowcase() {
       >
         <div
           ref={stickyRef}
-          className="sticky top-0 h-screen w-full overflow-hidden bg-background"
+          className="sticky top-0 h-screen w-full overflow-hidden bg-foreground/50"
         >
           {servicesIndex.map((service, i) => (
             <div
@@ -252,7 +269,7 @@ export default function ServiceShowcase() {
                       </p>
                       <Link
                         href={`/services/${service.slug}`}
-                        className="mt-2 inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-background"
+                        className="mt-2 inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-popover/80 hover:text-foreground/80"
                       >
                         Learn more
                         <ArrowRight className="h-4 w-4" />

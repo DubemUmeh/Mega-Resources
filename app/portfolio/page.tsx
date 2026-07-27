@@ -13,14 +13,14 @@ const stats = [
 
 export default function PortfolioPage() {
   return (
-    <div className="w-full bg-background/50">
+    <div className="w-full bg-linear-to-b from-foreground/10 via-foreground/50 to-foreground/25">
       {/* ---------------------------------------------------------- HERO */}
       <div className={BG_GLOW} />
       <section className="relative overflow-hidden px-5 pb-16 pt-32 md:px-10 md:pb-20 md:pt-40">
         <div className={BG_GLOW} />
         <div className="mx-auto w-[min(100%,76rem)]">
           <Reveal>
-            <div className="inline-flex items-center gap-[0.45rem] rounded-full border border-foreground/20 bg-background/72 px-[0.8rem] py-[0.45rem] text-[0.85rem] font-semibold uppercase tracking-[0.12em] text-[#e4eff3] shadow-[0_8px_20px_rgba(15,23,42,0.05)]">
+            <div className="inline-flex items-center gap-[0.45rem] tracking-wider rounded-full border border-neutral-200 bg-white px-[0.8rem] py-[0.45rem] text-[0.85rem] font-semibold uppercase text-neutral-600 shadow-[0_8px_20px_rgba(15,23,42,0.05)]">
               Portfolio
             </div>
           </Reveal>
@@ -28,12 +28,12 @@ export default function PortfolioPage() {
           <Reveal delay={0.08} className="mt-6 max-w-3xl">
             <h1 className="font-display text-[2.25rem] font-semibold leading-[1.1] tracking-tight text-foreground md:text-[3.5rem]">
               A record of the water{" "}
-              <span className="text-muted-foreground">we&apos;ve found.</span>
+              <span className="text-neutral-600">we&apos;ve found.</span>
             </h1>
           </Reveal>
 
           <Reveal delay={0.16} className="mt-6 max-w-2xl">
-            <p className="text-[1.05rem] leading-[1.75] text-muted-foreground">
+            <p className="text-base tracking-wider leading-[1.75] text-foreground/80">
               This page is our actual project history — not a highlight
               reel. Every entry below is a real job we&apos;ve completed:
               the location, the service performed, and the depth and
@@ -56,7 +56,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* -------------------------------------------------------- STATS */}
-      <section className="relative overflow-hidden bg-background/90 px-5 py-14 md:px-10 md:py-16">
+      <section className="relative overflow-hidden bg-background/30 px-5 py-14 md:px-10 md:py-16">
         <div className={BG_GLOW} />
         <div className="mx-auto w-[min(100%,76rem)]">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-6">
@@ -66,7 +66,7 @@ export default function PortfolioPage() {
                   <span className="font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl">
                     {stat.value}
                   </span>
-                  <span className="text-[0.85rem] uppercase tracking-[0.08em] text-muted-foreground">
+                  <span className="text-[0.85rem] uppercase tracking-[0.08em] text-neutral-500">
                     {stat.label}
                   </span>
                 </div>
@@ -81,10 +81,10 @@ export default function PortfolioPage() {
         <div className={BG_GLOW} />
         <div className="mx-auto w-[min(100%,76rem)]">
           <Reveal className="max-w-2xl">
-            <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+            <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-neutral-400">
               Featured Project
             </span>
-            <h2 className="mt-4 font-display text-[1.9rem] font-semibold leading-[1.2] tracking-tight text-foreground md:text-[2.5rem]">
+            <h2 className="mt-4 font-display text-[1.9rem] font-semibold leading-[1.2] tracking-tight text-neutral-900 md:text-[2.5rem]">
               Turning a weak site into a working one
             </h2>
           </Reveal>
@@ -104,10 +104,10 @@ export default function PortfolioPage() {
 
             <Reveal delay={0.1} className="flex flex-col gap-6">
               <div>
-                <span className="text-[0.75rem] font-semibold uppercase tracking-widest text-blue-600">
+                <span className="text-base font-semibold uppercase tracking-widest text-blue-800">
                   The Challenge
                 </span>
-                <p className="mt-2 text-[0.98rem] leading-[1.75] text-muted-foreground">
+                <p className="mt-2 text-[0.98rem] leading-[1.75] tracking-wide text-popover/90">
                   A school compound in Kumasi sat on hard basement rock —
                   the kind of geology that regularly defeats a standard
                   drilling approach. Our first pass hit water at 310ft, but
@@ -118,10 +118,10 @@ export default function PortfolioPage() {
               </div>
 
               <div>
-                <span className="text-[0.75rem] font-semibold uppercase tracking-widest text-blue-600">
+                <span className="text-base font-semibold uppercase tracking-widest text-blue-800">
                   Our Approach
                 </span>
-                <p className="mt-2 text-[0.98rem] leading-[1.75] text-muted-foreground">
+                <p className="mt-2 text-[0.98rem] leading-[1.75] tracking-wide text-popover/90">
                   Rather than abandon the site or re-drill blind elsewhere
                   on the compound, we ran hydro-fracturing on the existing
                   borehole — pumping water under controlled high pressure
@@ -135,10 +135,10 @@ export default function PortfolioPage() {
               </div>
 
               <div>
-                <span className="text-[0.75rem] font-semibold uppercase tracking-widest text-blue-600">
+                <span className="text-base font-semibold uppercase tracking-widest text-blue-800">
                   The Outcome
                 </span>
-                <p className="mt-2 text-[0.98rem] leading-[1.75] text-muted-foreground">
+                <p className="mt-2 text-[0.98rem] leading-[1.75] tracking-wide text-popover/90">
                   Yield rose from under 400 L/hr to 2,400 L/hr — a six-fold
                   increase from the same borehole, at a fraction of the
                   cost of drilling a second hole elsewhere on the site.
@@ -147,28 +147,28 @@ export default function PortfolioPage() {
                 </p>
               </div>
 
-              <div className="mt-2 grid grid-cols-3 gap-4 rounded-2xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-5 text-center">
+              <div className="mt-2 grid grid-cols-3 gap-4 rounded-2xl border border-neutral-200 bg-neutral-100 p-5 text-center">
                 <div>
-                  <p className="font-display text-lg font-semibold text-foreground">
+                  <p className="font-display text-lg font-semibold text-neutral-900">
                     310ft
                   </p>
-                  <p className="text-[0.7rem] uppercase tracking-[0.06em] text-muted-foreground">
+                  <p className="text-[0.7rem] uppercase tracking-[0.06em] text-neutral-600">
                     Depth
                   </p>
                 </div>
                 <div>
-                  <p className="font-display text-lg font-semibold text-foreground">
+                  <p className="font-display text-lg font-semibold text-neutral-900">
                     6×
                   </p>
-                  <p className="text-[0.7rem] uppercase tracking-[0.06em] text-muted-foreground">
+                  <p className="text-[0.7rem] uppercase tracking-[0.06em] text-neutral-600">
                     Yield Increase
                   </p>
                 </div>
                 <div>
-                  <p className="font-display text-lg font-semibold text-foreground">
+                  <p className="font-display text-lg font-semibold text-neutral-900">
                     5 days
                   </p>
-                  <p className="text-[0.7rem] uppercase tracking-[0.06em] text-muted-foreground">
+                  <p className="text-[0.7rem] uppercase tracking-[0.06em] text-neutral-600">
                     Total Duration
                   </p>
                 </div>
@@ -184,14 +184,13 @@ export default function PortfolioPage() {
       {/* ------------------------------------------------------------ CTA */}
       <section className="px-5 pb-24 md:px-10">
         <Reveal className="mx-auto w-[min(100%,76rem)]">
-          <div className="relative overflow-hidden rounded-[2rem] bg-foreground/80 px-8 py-14 text-center md:px-16 md:py-20">
-            <div className={BG_GLOW} />
-            <div className="pointer-events-none absolute inset-0 opacity-40 [background:radial-gradient(circle_at_top,rgba(255,184,142,0.25),transparent_55%)]" />
+          <div className="relative overflow-hidden rounded-[2rem] bg-neutral-900 px-8 py-14 text-center md:px-16 md:py-20">
+            <div className="pointer-events-none absolute inset-0 opacity-60 [background:radial-gradient(circle_at_top,rgba(255,184,142,0.18),transparent_55%)]" />
             <div className="relative flex flex-col items-center gap-5">
-              <h2 className="max-w-xl font-display text-2xl font-semibold text-primary-foreground md:text-3xl">
+              <h2 className="max-w-xl font-display text-2xl font-semibold text-white md:text-3xl">
                 Want your project on this page?
               </h2>
-              <p className="max-w-lg text-[0.98rem] leading-[1.7] text-primary-foreground/75">
+              <p className="max-w-lg text-[0.98rem] leading-[1.7] text-neutral-300">
                 Every project here started with a free site survey. Yours
                 can too.
               </p>
