@@ -41,7 +41,7 @@ export default async function PortfolioProjectPage({ params }: { params: Promise
   const gallery = project.gallery?.length ? project.gallery : [project.img];
 
   return (
-    <main className="w-full bg-linear-to-b from-foreground/10 via-foreground/50 to-foreground/25">
+    <main className="w-full bg-background/50">
       <section className="relative overflow-hidden px-5 pb-16 pt-32 md:px-10 md:pb-24 md:pt-40">
         <div className="pointer-events-none absolute inset-0 [background:radial-gradient(circle_at_15%_10%,rgba(37,99,235,0.12),transparent_36%),radial-gradient(circle_at_80%_15%,rgba(255,205,112,0.16),transparent_38%)]" />
         <div className="relative mx-auto grid w-[min(100%,76rem)] gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">

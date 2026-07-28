@@ -71,7 +71,7 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
   const relatedLinks = data.related ?? [];
 
   return (
-    <div className="w-full bg-linear-to-b from-foreground/10 via-foreground/50 to-foreground/25">
+    <div className="w-full bg-background/50">
       <StructuredData data={serviceSchema(data)} />
       {/* ---------------------------------------------------------- HERO */}
       <div className={BG_GLOW} />

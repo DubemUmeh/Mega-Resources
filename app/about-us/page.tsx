@@ -106,7 +106,7 @@ const values = [
 
 export default function AboutPage() {
   return (
-    <div className="w-full bg-linear-to-b from-foreground/10 via-foreground/50 to-foreground/25">
+    <div className="w-full bg-background/50">
       {/* ---------------------------------------------------------- HERO */}
       <section className="relative overflow-hidden px-5 pb-16 pt-32 md:px-10 md:pb-24 md:pt-40">
         <div className={BG_GLOW} />
