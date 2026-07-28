@@ -124,7 +124,7 @@ const advantages = [
 
 export default function ServicesPage() {
   return (
-    <div className="w-full bg-linear-to-r from-foreground/30 via-background/1 to-foreground/50">
+    <div className="w-full bg-linear-to-b from-foreground/10 via-foreground/50 to-foreground/25">
       {/* ---------------------------------------------------------- HERO */}
       <div className={BG_GLOW} />
       <section className="relative overflow-hidden px-5 pb-16 pt-32 md:px-10 md:pb-24 md:pt-40">
@@ -132,7 +132,7 @@ export default function ServicesPage() {
 
         <div className="mx-auto w-[min(100%,76rem)]">
           <Reveal>
-            <div className="inline-flex items-center gap-[0.45rem] rounded-full border border-foreground/20 bg-foreground/52 px-[0.8rem] py-[0.45rem] text-[0.85rem] font-semibold uppercase tracking-[0.12em] text-[#e4eff3] shadow-[0_8px_20px_rgba(15,23,42,0.05)]">
+            <div className="inline-flex items-center gap-[0.45rem] tracking-wider rounded-full border border-neutral-200 bg-white px-[0.8rem] py-[0.45rem] text-[0.85rem] font-semibold uppercase text-neutral-600 shadow-[0_8px_20px_rgba(15,23,42,0.05)]">
               What We Do
             </div>
           </Reveal>
@@ -140,14 +140,14 @@ export default function ServicesPage() {
           <Reveal delay={0.08} className="mt-6 max-w-3xl">
             <h1 className="font-display text-[2.25rem] font-semibold leading-[1.1] tracking-tight text-foreground md:text-[3.5rem]">
               Seven services. One goal:{" "}
-              <span className="text-blue-500">
+              <span className="text-blue-600">
                 water you can rely on.
               </span>
             </h1>
           </Reveal>
 
           <Reveal delay={0.16} className="mt-6 max-w-2xl">
-            <p className="text-lg tracking-wide leading-[1.75] font-normal font-sans text-foreground/70 drop-shadow-2xl drop-shadow-background">
+            <p className="text-lg tracking-wide leading-[1.75] font-normal font-sans text-foreground/80">
               From the first geophysical reading on your land to the final
               airlift that clears your borehole for use, every stage of a
               water project is its own craft. Explore each service below to
@@ -159,8 +159,8 @@ export default function ServicesPage() {
           <Reveal delay={0.24} className="mt-9 flex flex-wrap items-center gap-4">
             <ArrowCta href="#service-grid" label="Explore Services" />
             <Link
-              href="/#contact"
-              className="text-sm font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-4"
+              href="/contact"
+              className="text-sm font-semibold text-foreground underline decoration-blue-600 decoration-2 underline-offset-4"
             >
               Talk to our team
             </Link>
@@ -172,7 +172,7 @@ export default function ServicesPage() {
       <section className="relative overflow-hidden px-5 py-16 md:px-10 md:py-20">
         <div className="mx-auto grid w-[min(100%,76rem)] gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
           <Reveal>
-            <span className="text-sm font-semibold uppercase tracking-wide text-foreground/50">
+            <span className="text-[0.8rem] font-serif font-semibold uppercase tracking-[0.12em] text-neutral-600">
               Our Expertise
             </span>
             <h2 className="mt-4 font-display text-[1.9rem] font-semibold leading-[1.15] tracking-tight text-foreground md:text-[2.5rem]">
@@ -180,15 +180,15 @@ export default function ServicesPage() {
             </h2>
           </Reveal>
           <Reveal delay={0.1} className="flex flex-col gap-5">
-            <p className="text-base ld:text-lg tracking-wide font-normal leading-[1.8] text-foreground/60">
+            <p className="text-base ld:text-lg tracking-wide font-sans font-normal leading-[1.8] text-foreground/80">
               Every successful borehole project involves far more than
               drilling a hole into the ground. It requires proper site
               investigation, experienced drilling, quality construction
               materials, performance testing, pump installation, and
               long-term maintenance.
             </p>
-            <span className="blow w-full border border-blue-500"></span>
-            <p className="text-base ld:text-lg tracking-wide font-normal leading-[1.8] text-foreground/60">
+            <span className="block w-16 border-t-2 border-blue-400"></span>
+            <p className="text-base font-sans ld:text-lg tracking-wide font-normal leading-[1.8] text-foreground/80">
               We provide end-to-end borehole water solutions for homeowners,
               farms, industries, schools, hospitals, commercial developments,
               and government projects. Whether you&apos;re developing a new
@@ -201,13 +201,13 @@ export default function ServicesPage() {
       </section>
 
       {/* ----------------------------------------------------- WHO WE SERVE */}
-      <section className="relative overflow-hidden bg-linear-to-b from-foreground/20 via-foreground/10 to-foreground/40 px-5 py-16 md:px-10 md:py-20">
+      <section className="relative overflow-hidden bg-background/30 px-5 py-16 md:px-10 md:py-20">
         <div className="mx-auto w-[min(100%,76rem)]">
           <Reveal className="max-w-2xl">
-            <span className="text-sm font-semibold uppercase tracking-wider text-popover">
+            <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-neutral-600">
               Who We Serve
             </span>
-            <h2 className="mt-4 font-display text-[1.75rem] font-semibold leading-[1.2] tracking-tight text-foreground md:text-[2.25rem]">
+            <h2 className="mt-4 font-sans text-[1.75rem] font-semibold leading-[1.2] tracking-tight text-foreground md:text-[2.25rem]">
               Water solutions built around your setting
             </h2>
           </Reveal>
@@ -217,14 +217,14 @@ export default function ServicesPage() {
               const Icon = c.icon;
               return (
                 <Reveal key={c.title} delay={(i % 3) * 0.06}>
-                  <div className="flex h-full flex-col gap-3 rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-6">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[rgba(255,255,255,0.9)] shadow-[0_10px_25px_rgba(15,23,42,0.1)]">
-                      <Icon className="size-5 text-foreground" />
+                  <div className="flex h-full flex-col gap-3 rounded-[1.5rem] border border-neutral-200 bg-neutral-100 p-6">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600/10">
+                      <Icon className="size-5 text-blue-600" />
                     </div>
-                    <h3 className="font-display tracking-wider text-base font-semibold text-popover">
+                    <h3 className="font-display tracking-wider text-base font-semibold text-neutral-900">
                       {c.title}
                     </h3>
-                    <p className="text-[0.9rem] leading-[1.6] text-background/80">
+                    <p className="text-[0.9rem] leading-[1.6] text-neutral-500">
                       {c.desc}
                     </p>
                   </div>
@@ -242,7 +242,7 @@ export default function ServicesPage() {
       <ServiceShowcase />
 
       {/* ------------------------------------------------- WHY CHOOSE US */}
-      <section className="relative overflow-hidden px-5 py-16 md:px-10 md:py-20">
+      <section className="relative overflow-hidden bg-background/30 px-5 py-16 md:px-10 md:py-20">
         <div className={BG_GLOW} />
         <div className="mx-auto grid w-[min(100%,76rem)] gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
           <Reveal>
@@ -272,16 +272,16 @@ export default function ServicesPage() {
       <FaqSection />
 
       {/* ------------------------------------------------------------ CTA */}
-      <section className="px-5 pb-24 md:px-10">
+      <section className="px-5 py-10 bg-background/50 md:px-10">
         <Reveal className="mx-auto w-[min(100%,76rem)]">
-          <div className="relative overflow-hidden rounded-[2rem] bg-foreground/80 px-8 py-14 text-center md:px-16 md:py-20">
+          <div className="relative overflow-hidden rounded-[2rem] bg-neutral-900 px-8 py-14 text-center md:px-16 md:py-20">
             <div className={BG_GLOW} />
             <div className="pointer-events-none absolute inset-0 opacity-40 [background:radial-gradient(circle_at_top,rgba(255,184,142,0.25),transparent_55%)]" />
             <div className="relative flex flex-col items-center gap-5">
-              <h2 className="max-w-xl font-display text-2xl font-semibold text-primary-foreground md:text-3xl">
+              <h2 className="max-w-xl font-display text-2xl font-semibold text-white md:text-3xl">
                 Not sure which service you need?
               </h2>
-              <p className="max-w-lg text-[0.98rem] leading-[1.7] text-primary-foreground/75">
+              <p className="max-w-lg text-[0.98rem] leading-[1.7] text-neutral-300">
                 Tell us about your land and your water problem — we&apos;ll
                 recommend the right combination of services, free of charge.
               </p>

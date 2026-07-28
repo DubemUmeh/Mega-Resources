@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FaArrowRight, FaCheckCircle } from "react-icons/fa";
+import { Reveal, BG_GLOW } from "@/components/motion-kit";
 
 const factors = [
   { title: "Depth", desc: "Deeper drilling means more casing, time, and material." },
@@ -15,45 +16,57 @@ const included = [
 
 const Pricing = () => {
   return (
-    <section className="px-8 lg:px-24 py-24 border-b-2 border-muted-foreground bg-foreground/40">
-      <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
-        <div>
-          <div className="text-sm uppercase font-light tracking-widest text-popover/80 mb-6 underline underline-offset-3">Quote Guide</div>
-          <h2 className="text-3xl md:text-4xl font-semibold leading-tight text-popover max-w-lg">
-            What Actually Determines Your Cost
-          </h2>
-        </div>
-        <p className="text-sm md:text-lg text-background leading-relaxed tracking-wide max-w-sm font-light">
-          Every site is different, so a number on a webpage would just be a guess. Here&apos;s what genuinely moves the cost — and how we quote it properly.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-16">
-        {factors.map((f) => (
-          <div key={f.title}>
-            <h4 className="text-[16px] tracking-wider text-popover mb-2 uppercase font-bold">{f.title}</h4>
-            <p className="text-[14px] text-popover/90 tracking-wide leading-relaxed font-light">{f.desc}</p>
+    <section className="relative w-full overflow-hidden bg-background/30 px-5 pt-5 pb-10 md:py-20 md:px-10">
+      <div className={BG_GLOW} />
+      <div className="mx-auto w-[min(100%,76rem)]">
+        <div className="mb-16 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <Reveal>
+              <div className="inline-flex items-center gap-[0.45rem] rounded-full border border-border bg-card px-[0.8rem] py-[0.45rem] text-[0.85rem] font-semibold uppercase tracking-wider text-muted-foreground shadow-[0_8px_20px_rgba(15,23,42,0.05)]">
+                Quote Guide
+              </div>
+            </Reveal>
+            <Reveal delay={0.08} className="mt-6 max-w-lg">
+              <h2 className="font-display text-3xl font-semibold leading-tight tracking-tight text-foreground md:text-4xl">
+                What Actually Determines Your Cost
+              </h2>
+            </Reveal>
           </div>
-        ))}
-      </div>
+          <Reveal delay={0.14} className="max-w-sm">
+            <p className="text-base leading-[1.75] text-foreground/80">
+              Every site is different, so a number on a webpage would just be a guess. Here&apos;s what genuinely moves the cost — and how we quote it properly.
+            </p>
+          </Reveal>
+        </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 items-end border-t-2 border-muted-foreground pt-10">
-        <div className="flex flex-col gap-3">
-          {included.map((item) => (
-            <div key={item} className="flex items-start gap-3">
-              <FaCheckCircle className="text-blue-600 text-lg bg-popover rounded-full mt-0.5 shrink-0" />
-              <p className="text-sm tracking-wide text-background font-light">{item}</p>
-            </div>
+        <div className="mb-16 grid grid-cols-1 gap-10 md:grid-cols-3">
+          {factors.map((f, idx) => (
+            <Reveal key={f.title} delay={idx * 0.06}>
+              <h4 className="mb-2 text-[0.85rem] font-semibold uppercase tracking-widest text-foreground">{f.title}</h4>
+              <p className="text-[0.9rem] leading-[1.75] text-muted-foreground">{f.desc}</p>
+            </Reveal>
           ))}
         </div>
 
-        <Link
-          href="/quote"
-          className="flex items-center gap-3 w-fit border border-popover/40 bg-popover/30 rounded-full px-6 py-3 hover:bg-white hover:text-black transition-colors text-sm md:text-lg tracking-wide font-medium"
-        >
-          Get Your Free Quote
-          <FaArrowRight className="text-[10px] transform -rotate-45" />
-        </Link>
+        <Reveal delay={0.1}>
+          <div className="grid grid-cols-1 items-end gap-10 rounded-[1.5rem] border border-border bg-card p-8 shadow-[0_18px_50px_rgba(15,23,42,0.05)] md:p-10 lg:grid-cols-[1fr_auto]">
+            <div className="flex flex-col gap-3">
+              {included.map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <FaCheckCircle className="mt-0.5 shrink-0 text-base text-blue-600" />
+                  <p className="text-[0.9rem] leading-relaxed text-muted-foreground">{item}</p>
+                </div>
+              ))}
+            </div>
+            <Link
+              href="/quote"
+              className="group flex w-fit items-center gap-3 rounded-full border border-border bg-primary px-6 py-3 text-[0.9rem] font-semibold text-primary-foreground transition-colors hover:bg-blue-600"
+            >
+              Get Your Free Quote
+              <FaArrowRight className="text-[10px] -rotate-45 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

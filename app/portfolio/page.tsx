@@ -107,7 +107,7 @@ export default function PortfolioPage() {
                 <span className="text-base font-semibold uppercase tracking-widest text-blue-800">
                   The Challenge
                 </span>
-                <p className="mt-2 text-[0.98rem] leading-[1.75] tracking-wide text-popover/90">
+                <p className="mt-2 text-[0.98rem] leading-[1.75] tracking-wide text-foreground/80">
                   A school compound in Kumasi sat on hard basement rock —
                   the kind of geology that regularly defeats a standard
                   drilling approach. Our first pass hit water at 310ft, but
@@ -121,7 +121,7 @@ export default function PortfolioPage() {
                 <span className="text-base font-semibold uppercase tracking-widest text-blue-800">
                   Our Approach
                 </span>
-                <p className="mt-2 text-[0.98rem] leading-[1.75] tracking-wide text-popover/90">
+                <p className="mt-2 text-[0.98rem] leading-[1.75] tracking-wide text-foreground/80">
                   Rather than abandon the site or re-drill blind elsewhere
                   on the compound, we ran hydro-fracturing on the existing
                   borehole — pumping water under controlled high pressure
@@ -138,7 +138,7 @@ export default function PortfolioPage() {
                 <span className="text-base font-semibold uppercase tracking-widest text-blue-800">
                   The Outcome
                 </span>
-                <p className="mt-2 text-[0.98rem] leading-[1.75] tracking-wide text-popover/90">
+                <p className="mt-2 text-[0.98rem] leading-[1.75] tracking-wide text-foreground/80">
                   Yield rose from under 400 L/hr to 2,400 L/hr — a six-fold
                   increase from the same borehole, at a fraction of the
                   cost of drilling a second hole elsewhere on the site.

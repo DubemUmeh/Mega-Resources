@@ -181,7 +181,7 @@ export default function ProcessSection() {
         <div className="mx-auto grid w-[min(100%,76rem)] gap-16 md:grid-cols-[1fr_1fr] md:items-center">
           {/* left: step list */}
           <div>
-            <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+            <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-neutral-400">
               How It Works
             </span>
             <h2 className="mt-4 font-display text-[1.9rem] font-semibold leading-[1.15] tracking-tight text-foreground md:text-[2.5rem]">
@@ -216,7 +216,7 @@ export default function ProcessSection() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute inset-x-0 text-[0.92rem] leading-[1.6] text-muted-foreground"
+                  className="absolute inset-x-0 text-[0.92rem] leading-[1.6] text-neutral-500"
                 >
                   {processSteps[active].desc}
                 </motion.p>
@@ -254,7 +254,7 @@ export default function ProcessSection() {
               <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white/90">
                 {(() => {
                   const Icon = processSteps[active].icon;
-                  return <Icon className="h-5 w-5 text-background" />;
+                  return <Icon className="h-5 w-5 text-blue-600" />;
                 })()}
               </div>
             </div>
@@ -277,7 +277,7 @@ export default function ProcessSection() {
       {/* -------------------------------------------------- MOBILE (stacked) */}
       <div className="relative py-16 md:hidden">
         <div className={BG_GLOW} />
-        <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+        <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-neutral-400">
           How It Works
         </span>
         <h2 className="mt-4 font-display text-[1.75rem] font-semibold leading-[1.2] tracking-tight text-foreground">
@@ -308,7 +308,7 @@ export default function ProcessSection() {
                   <h3 className="mt-1 font-display text-base font-semibold text-foreground">
                     {step.label}
                   </h3>
-                  <p className="mt-1 text-[0.9rem] leading-[1.55] text-muted-foreground">
+                  <p className="mt-1 text-[0.9rem] leading-[1.55] text-neutral-500">
                     {step.desc}
                   </p>
                 </div>

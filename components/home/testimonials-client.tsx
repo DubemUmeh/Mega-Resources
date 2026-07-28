@@ -31,16 +31,17 @@ const fallbackTestimonials: Testimonial[] = [
 
 const TestimonialsClient = ({ testimonials }: { testimonials: Testimonial[] }) => {
   const items = testimonials.length ? testimonials : fallbackTestimonials;
+  // const items = fallbackTestimonials;
   const [active, setActive] = useState(0);
 
   const prev = () => setActive((c) => (c === 0 ? items.length - 1 : c - 1));
   const next = () => setActive((c) => (c === items.length - 1 ? 0 : c + 1));
 
   return (
-    <section className="min-h-screen bg-linear-to-b from-foreground/40 via-background/20 to-foreground/30 h-full w-full px-8 lg:px-24 py-15 border-b border-muted-foreground bg-foreground/10 text-white overflow-hidden">
-      <Link href='/reviews' className="w-fit h-full inline-flex items-center shadow-[0_8px_20px_rgba(15,23,42,0.05)] text-sm font-semibold tracking-widest uppercase underline underline-offset-3 text-popover -mt-20 mb-5 md:m-0">Client Stories</Link>
+    <section className="min-h-screen bg-background/30 h-full w-full px-6 sm:px-8 lg:px-24 py-15 overflow-hidden">
+      <Link href='/reviews' className="w-fit h-full inline-flex items-center gap-2 text-sm font-semibold tracking-widest uppercase text-neutral-500 underline underline-offset-4 decoration-blue-600 decoration-2 hover:text-blue-600 transition-colors mb-5 md:m-0">Client Stories</Link>
 
-      <div className="max-w-4xl mx-auto relative top-25 md:top-0 h-80 md:h-127 mt-6 md:mt-0 flex items-center justify-center">
+      <div className="max-w-4xl mx-auto relative top-25 md:top-0 h-110 sm:h-96 md:h-127 md:mt-0 flex items-center justify-center">
         <div className="relative w-full max-w-3xl h-full flex items-center justify-center">
           <AnimatePresence mode="popLayout">
             {items.map((t, idx) => {
@@ -103,18 +104,19 @@ const TestimonialsClient = ({ testimonials }: { testimonials: Testimonial[] }) =
                     stiffness: 300,
                     damping: 30,
                   }}
-                  className="absolute w-full max-w-3xl"
+                  className="absolute w-full max-w-3xl px-2 sm:px-0"
                 >
-                  <div className="border-2 border-background/40 rounded-2xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-[200px_1fr] gap-8 items-center bg-foreground/80 backdrop-blur-sm shadow-2xl">
-                    <div className="w-full h-25 md:h-48 bg-background/80 rounded-xl overflow-hidden border border-gray-800">
-                      <Image width={100} height={100} src={t.img} alt={t.name} className="w-full h-full object-cover grayscale-30" />
+                  <div className="border border-white/10 rounded-2xl p-5 sm:p-6 md:p-12 grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 sm:gap-6 md:gap-8 items-center bg-neutral-900 backdrop-blur-sm shadow-2xl">
+                  <div className="pointer-events-none absolute inset-0 -z-10 [background:radial-gradient(circle_at_10%_10%,rgba(255,205,112,0.16),transparent_38%),radial-gradient(circle_at_90%_20%,rgba(255,184,142,0.14),transparent_40%)]"></div>
+                    <div className="w-full h-30 sm:h-35 md:h-48 bg-popover rounded-xl overflow-hidden border border-white/10">
+                      <Image width={100} height={100} src={t.img} alt={t.name} className="w-full h-full object-cover" />
                     </div>
 
                     <div>
-                      <FaQuoteLeft className="text-blue-700 text-2xl mb-4" />
-                      <p className="text-lg md:text-xl font-light text-gray-200 leading-relaxed mb-6">{t.quote}</p>
-                      <div className="text-[13px] text-gray-200 font-medium">{t.name}</div>
-                      <div className="text-[11px] uppercase tracking-widest text-gray-400 mt-1">{t.title}</div>
+                      <FaQuoteLeft className="text-blue-500 text-lg md:text-2xl mb-3 md:mb-4" />
+                      <p className="text-sm sm:text-base md:text-xl font-light text-neutral-200 leading-relaxed mb-4 md:mb-6 line-clamp-4 md:line-clamp-none">{t.quote}</p>
+                      <div className="text-[13px] text-blue-500 tracking-wide font-sans font-medium">{t.name}</div>
+                      <div className="text-[11px] uppercase tracking-widest text-neutral-400 mt-1">{t.title}</div>
                     </div>
                   </div>
                 </motion.div>
@@ -123,22 +125,22 @@ const TestimonialsClient = ({ testimonials }: { testimonials: Testimonial[] }) =
           </AnimatePresence>
         </div>
 
-        <div className="absolute z-50 -bottom-42 md:bottom-0 left-0 right-0 flex items-center justify-center gap-6">
+        <div className="absolute z-50 -bottom-20 sm:-bottom-16 md:bottom-0 left-0 right-0 flex items-center justify-center gap-6">
           <button 
             onClick={prev} 
             aria-label="Previous testimonial" 
-            className="w-10 h-10 rounded-full border border-popover flex items-center justify-center text-popover hover:bg-white hover:text-black transition-colors bg-foreground/20"
+            className="w-10 h-10 rounded-full border border-neutral-200 flex items-center justify-center text-neutral-500 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-colors bg-white"
           >
             <FaArrowLeft className="size-5" />
           </button>
 
-          <div className="flex items-center gap-2 border border-blue-200/10 p-1 rounded-full">
+          <div className="flex items-center gap-2 border border-neutral-200 p-1 rounded-full bg-white">
             {items.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setActive(idx)}
                 aria-label={`Go to testimonial ${idx + 1}`}
-                className={`h-1.5 rounded-full transition-all ${idx === active ? "w-8 bg-white p-1 border-2 border-blue-600" : "w-3 bg-gray-700"}`}
+                className={`h-1.5 rounded-full transition-all ${idx === active ? "w-8 bg-blue-600" : "w-3 bg-neutral-300"}`}
               />
             ))}
           </div>
@@ -146,14 +148,14 @@ const TestimonialsClient = ({ testimonials }: { testimonials: Testimonial[] }) =
           <button 
             onClick={next} 
             aria-label="Next testimonial" 
-            className="w-10 h-10 rounded-full border border-popover flex items-center justify-center text-popover hover:bg-white hover:text-black transition-colors bg-foreground/20"
+            className="w-10 h-10 rounded-full border border-neutral-200 flex items-center justify-center text-neutral-500 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-colors bg-white"
           >
             <FaArrowRight className="size-5" />
           </button>
 
         </div>
       </div>
-      <div className="w-full h-full md:flex items-center justify-center relative left-0 top-70 md:top-8 hidden">
+      <div className="w-full h-full flex items-center justify-center relative left-0 -bottom-47 md:top-8 md:bottom-0">
         <Link href='/reviews' className="w-fit flex items-center cursor-pointer rounded-2xl z-0 group pl-1 py-1.5 pr-4 gap-3 bg-blue-600 hover:bg-blue-700 active:scale-95 h-12 transition-all duration-300 ease-out">
           <div className="flex justify-start items-center">
             <div className="flex justify-center items-center size-10 flex-none rounded-xl bg-white">

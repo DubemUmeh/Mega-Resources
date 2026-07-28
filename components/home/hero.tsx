@@ -33,9 +33,9 @@ export default function Hero() {
   }, []);
 
   return (
-    <section ref={root} className="relative pt-24 pb-10 md:pb-32 px-6 lg:px-24 min-h-[92vh] flex items-center overflow-hidden bg-foreground">
-      <div className="absolute top-0 right-0 w-full md:w-[65%] h-full z-0">
-        <Image src="/images/home/hero-2.png" className="w-full h-full object-cover opacity-60 md:opacity-100" alt="Drilling rig on site in Ghana" fetchPriority="high" priority width={1000} height={1000} />
+    <section ref={root} className="relative pt-24 pb-10 md:pb-32 px-6 lg:px-24 min-h-[92vh] flex items-center overflow-hidden bg-transparent">
+      <div className="absolute top-0 right-0 w-full h-full z-0">
+        <Image src="/images/home/hero-2.png" className="w-full h-full object-cover opacity-100 md:opacity-100" alt="Drilling rig on site in Ghana" fetchPriority="high" priority width={1000} height={1000} />
         <div className="absolute inset-0 bg-linear-to-r from-foreground via-foreground/60 to-foreground/0 w-full md:w-[70%]"></div>
         <div className="absolute inset-0 bg-linear-to-t from-foreground via-foreground/30 to-foreground/0"></div>
       </div>
@@ -45,7 +45,7 @@ export default function Hero() {
 
         <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-light leading-[1.05] tracking-tight mb-6">
           {HEADLINE.map((word, i) => (
-            <span key={i} className="block overflow-hidden">
+            <span key={i} className="block overflow-hidden font-sans">
               <span data-word className="inline-block will-change-transform">
                 {word}
               </span>
@@ -53,14 +53,14 @@ export default function Hero() {
           ))}
         </h1>
 
-        <p data-hero-sub className="text-gray-400 text-sm leading-relaxed max-w-sm mb-4 font-light">
+        <p data-hero-sub className="text-gray-300 text-sm tracking-wide leading-relaxed max-w-sm mb-4 font-light font-mono">
           Reliable borehole drilling and clean water solutions across Ghana. Geological survey included on every job — we confirm water before we drill.
         </p>
 
-        <div data-hero-sub className="flex items-center gap-2 text-[11px] text-gray-300 font-light mb-10">
+        {/* <div data-hero-sub className="flex items-center gap-2 text-[11px] text-gray-300 font-light mb-10">
           <FaCheckCircle className="text-white/70 text-[10px]" />
           98% site success rate &nbsp;·&nbsp; Clean, year-round water in as little as 14 days
-        </div>
+        </div> */}
 
         <div data-hero-cta className="flex flex-wrap items-center gap-4 mb-10">
           <Link href='/quote' className="flex items-center gap-3 text-xs font-medium bg-white text-black rounded-full px-6 py-3.5 hover:bg-gray-200 transition-colors group">
@@ -75,28 +75,28 @@ export default function Hero() {
 
         <div data-hero-meta className="flex flex-wrap gap-x-6 gap-y-2">
           {badges.map((b) => (
-            <span key={b} className="text-[9px] uppercase tracking-[0.15em] text-gray-500 font-medium">
+            <span key={b} className="text-[9px] uppercase text-gray-400 font-semibold tracking-widest">
               {b}
             </span>
           ))}
         </div>
       </div>
 
-      <div data-hero-side className="hidden md:flex absolute right-8 lg:right-24 top-1/2 -translate-y-1/2 flex-col items-center gap-4 text-[10px] font-light z-10">
+      {/* <div data-hero-side className="hidden md:flex absolute right-8 lg:right-24 top-1/2 -translate-y-1/2 flex-col items-center gap-4 text-[10px] font-light z-10">
         <span className="text-white">01</span>
         <span className="w-px h-6 bg-white/30"></span>
-        <span className="text-gray-600">02</span>
-        <span className="text-gray-600">03</span>
-        <span className="text-gray-600">04</span>
-      </div>
+        <span className="text-gray-300">02</span>
+        <span className="text-gray-300">03</span>
+        <span className="text-gray-300">04</span>
+      </div> */}
 
       <div data-hero-caption className="absolute bottom-12 right-8 lg:right-24 z-10 hidden md:flex items-center gap-4">
-        <div className="flex flex-col text-right text-[9px] tracking-[0.15em] uppercase text-gray-400 font-medium">
+        <div className="flex flex-col text-right text-[9px] tracking-[0.15em] uppercase text-gray-200 font-medium">
           <span>Building</span>
           <span>Sustainable</span>
           <span>Water Futures</span>
         </div>
-        <div className="w-10 h-10 border border-gray-600 rounded-full flex items-center justify-center text-gray-400">
+        <div className="w-10 h-10 border border-gray-600 rounded-full flex items-center justify-center text-gray-100">
           <FaTint className="text-xs" />
         </div>
       </div>

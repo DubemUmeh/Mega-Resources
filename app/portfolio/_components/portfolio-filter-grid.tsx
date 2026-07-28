@@ -252,7 +252,7 @@ export function PortfolioFilterGrid() {
       <div className={BG_GLOW} />
       <div className="mx-auto w-[min(100%,76rem)]">
         <Reveal className="max-w-2xl">
-          <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-popover">
+          <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-neutral-400">
             All Projects
           </span>
           <h2 className="mt-4 font-display text-[1.9rem] font-semibold leading-[1.2] tracking-tight text-neutral-900 md:text-[2.5rem]">

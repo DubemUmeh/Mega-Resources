@@ -37,10 +37,10 @@ export default function LegalPageLayout({
   }
 
   return (
-    <div className="w-full bg-linear-to-b from-foreground/10 via-foreground/50 to-foreground/25">
+    <div className="w-full bg-background/40">
       {/* ---------------------------------------------------------- HERO */}
       <div className={BG_GLOW} />
-      <section className="relative overflow-hidden px-5 pb-12 pt-32 md:px-10 md:pb-16 md:pt-40">
+      <section className="relative px-5 pb-12 pt-32 md:px-10 md:pb-16 md:pt-40">
         <div className={BG_GLOW} />
         <div className="mx-auto w-[min(100%,76rem)]">
           <Reveal>
@@ -70,11 +70,11 @@ export default function LegalPageLayout({
       </section>
 
       {/* --------------------------------------------------- TOC + BODY */}
-      <section className="relative overflow-hidden bg-background/30 px-5 pb-24 pt-4 md:px-10">
-        <div className="mx-auto grid w-[min(100%,76rem)] gap-10 md:grid-cols-[0.8fr_2.2fr] md:gap-16">
+      <section className="relative bg-background/30 px-5 pb-24 pt-4 md:px-10">
+        <div className="mx-auto grid w-[min(100%,76rem)] gap-10 md:grid-cols-[0.8fr_2.2fr] md:gap-16 relative">
           {/* Table of contents */}
           <nav className="hidden md:block">
-            <div className="sticky top-28 flex flex-col gap-1">
+            <div className="sticky top-30 flex flex-col gap-1">
               <span className="mb-2 text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-neutral-400">
                 On This Page
               </span>

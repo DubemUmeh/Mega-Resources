@@ -13,8 +13,8 @@ interface QA {
 
 const trustFaqs: QA[] = [
   {
-    q: "How long has [Company Name] been in business?",
-    a: "We've been surveying, drilling, and commissioning boreholes across Ghana for over 15 years, working with homes, farms, schools, and businesses in ten regions.",
+    q: "How long has Mega Resources LTD been in business?",
+    a: "We've been surveying, drilling, and commissioning boreholes across Ghana for over 10 years, working with homes, farms, schools, and businesses in ten regions.",
   },
   {
     q: "Are you licensed to drill boreholes in Ghana?",
@@ -132,17 +132,17 @@ function FaqAccordion({ items }: { items: QA[] }) {
         <Reveal key={item.q} delay={(i % 4) * 0.05}>
           <AccordionPrimitive.Item
             value={String(i)}
-            className="overflow-hidden rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)]"
+            className="overflow-hidden rounded-[1.5rem] border border-neutral-200 bg-neutral-100 shadow-[0_18px_50px_rgba(15,23,42,0.05)]"
           >
             <AccordionPrimitive.Header>
               <AccordionPrimitive.Trigger className="group flex w-full items-center justify-between gap-4 px-5 py-5 text-left md:px-6">
-                <span className="font-display text-[1rem] font-semibold text-foreground md:text-[1.05rem]">
+                <span className="font-display text-base tracking-wider font-semibold text-neutral-900 md:text-[1.05rem]">
                   {item.q}
                 </span>
-                <FaChevronDown className="h-3.5 w-3.5 flex-none text-muted-foreground transition-transform duration-300 group-data-[state=open]:rotate-180 group-data-[state=open]:text-blue-600" />
+                <FaChevronDown className="h-3.5 w-3.5 flex-none text-neutral-400 transition-transform duration-300 group-data-[state=open]:rotate-180 group-data-[state=open]:text-blue-600" />
               </AccordionPrimitive.Trigger>
             </AccordionPrimitive.Header>
-            <AccordionPrimitive.Content className="overflow-hidden px-5 text-[0.92rem] leading-[1.7] text-muted-foreground transition-[height] duration-300 ease-out data-[state=closed]:h-0 data-[state=open]:h-(--radix-accordion-content-height) md:px-6">
+            <AccordionPrimitive.Content className="overflow-hidden px-5 text-sm md:text-base tracking-wide leading-[1.7] text-neutral-500 transition-[height] duration-300 ease-out data-[state=closed]:h-0 data-[state=open]:h-(--radix-accordion-content-height) md:px-6">
               <p className="pb-6">{item.a}</p>
             </AccordionPrimitive.Content>
           </AccordionPrimitive.Item>
@@ -163,7 +163,7 @@ export function FaqTabs() {
               <TabsPrimitive.Trigger
                 key={cat.value}
                 value={cat.value}
-                className="rounded-full border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-5 py-2.5 text-[0.85rem] font-medium text-muted-foreground transition-colors data-[state=active]:border-transparent data-[state=active]:bg-blue-600 data-[state=active]:text-white"
+                className="rounded-full border border-neutral-200 bg-neutral-100 px-5 py-2.5 text-[0.85rem] font-medium text-neutral-600 transition-colors hover:text-blue-600 data-[state=active]:border-transparent data-[state=active]:bg-blue-600 data-[state=active]:text-white"
               >
                 {cat.label}
               </TabsPrimitive.Trigger>

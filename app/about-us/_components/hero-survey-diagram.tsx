@@ -51,7 +51,7 @@ export default function HeroSurveyDiagram() {
   return (
     <div ref={ref} className="relative mx-auto w-full max-w-105 bg-foreground/2">
       {/* live depth readout */}
-      <div className="absolute -top-4 right-2 z-10 flex items-center gap-2 rounded-2xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.57)] px-4 py-2.5 backdrop-blur-sm">
+      <div className="absolute -top-4 right-2 z-10 flex items-center gap-2 rounded-2xl border border-neutral-200 bg-white px-4 py-2.5 shadow-[0_8px_20px_rgba(15,23,42,0.05)] backdrop-blur-sm">
         <span className="relative flex h-2 w-2">
           {!prefersReducedMotion && (
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-500 opacity-60" />
@@ -59,10 +59,10 @@ export default function HeroSurveyDiagram() {
           <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-500" />
         </span>
         <div>
-          <p className="text-[0.65rem] uppercase tracking-widest text-background">
+          <p className="text-[0.65rem] uppercase tracking-widest text-neutral-400">
             Confirmed Depth
           </p>
-          <p className="font-display text-sm font-semibold tabular-nums text-foreground">
+          <p className="font-display text-sm font-semibold tabular-nums text-neutral-900">
             {depth}ft
           </p>
         </div>
@@ -76,11 +76,11 @@ export default function HeroSurveyDiagram() {
           x2="460"
           y2={GROUND_Y}
           stroke="currentColor"
-          className="text-foreground/25"
+          className="text-neutral-400"
           strokeWidth="1.5"
           strokeDasharray="2 6"
         />
-        <text x="20" y={GROUND_Y - 12} className="fill-foreground text-[11px]">
+        <text x="20" y={GROUND_Y - 12} className="fill-neutral-500 text-[11px]">
           Ground Level
         </text>
 
@@ -93,13 +93,13 @@ export default function HeroSurveyDiagram() {
               x2="460"
               y2={l.y}
               stroke="currentColor"
-              className="text-foreground/40"
+              className="text-neutral-300"
               strokeWidth="1"
             />
-            <text x="370" y={l.y - 6} className="fill-foreground text-[10px]">
+            <text x="370" y={l.y - 6} className="fill-neutral-500 text-[10px]">
               {l.note}
             </text>
-            <text x="370" y={l.y + 12} className="fill-foreground text-[10px] font-semibold">
+            <text x="370" y={l.y + 12} className="fill-neutral-900 text-[10px] font-semibold">
               {l.label}
             </text>
           </g>

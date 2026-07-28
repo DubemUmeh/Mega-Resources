@@ -50,11 +50,11 @@ export default async function PortfolioProjectPage({ params }: { params: Promise
             <p className="mt-8 inline-flex rounded-full border border-neutral-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-blue-600 shadow-[0_8px_20px_rgba(15,23,42,0.05)]">{project.service}</p>
             <h1 className="mt-5 font-display text-4xl font-semibold leading-tight text-foreground md:text-6xl">{project.title}</h1>
             <p className="mt-5 flex items-center gap-2 text-neutral-100 tracking-wide"><FaMapMarkerAlt className="text-blue-600" /> {project.location}</p>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-popover tracking-wide">{project.summary}</p>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-foreground/80 tracking-wide">{project.summary}</p>
             <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
               {[["Depth", project.depth ?? "N/A"], ["Yield", project.yieldRate ?? "N/A"], ["Duration", project.duration ?? "N/A"], ["Year", project.year ?? "N/A"]].map(([label, value]) => (
                 <div key={label} className="rounded-2xl border border-neutral-200 bg-neutral-100 py-2 flex items-center justify-center flex-col">
-                  <p className="font-display text-lg font-semibold text-neutral-900">{value}</p>
+                  <p className="font-display text-lg font-semibold text-neutral-900">{value === project.duration ? (<>{value} <span className="text-neutral-600 font-sans text-sm">day(s)</span></>) : value}</p>
                   <p className="mt-1 text-xs uppercase tracking-widest text-neutral-600">{label}</p>
                 </div>
               ))}

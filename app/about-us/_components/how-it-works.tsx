@@ -99,17 +99,17 @@ export default function HowItWorks() {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-foreground/50 px-5 py-16 md:px-10 md:py-24">
+    <section className="relative overflow-hidden bg-background/30 px-5 py-16 md:px-10 md:py-24">
       <div className={BG_GLOW} />
       <div className="mx-auto w-[min(100%,76rem)]">
         <motion.div className="max-w-2xl" {...fadeUpProps()}>
-          <span className="text-sm font-semibold uppercase tracking-wider text-popover/70">
+          <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-neutral-400">
             How It Works
           </span>
-          <h2 className="mt-4 font-display text-[1.9rem] font-semibold leading-[1.2] tracking-tight text-popover md:text-[2.5rem]">
+          <h2 className="mt-4 font-display text-[1.9rem] font-semibold leading-[1.2] tracking-tight text-neutral-900 md:text-[2.5rem]">
             What happens after you call us
           </h2>
-          <p className="mt-4 text-[1.02rem] leading-[1.75] text-background/80 tracking-wide">
+          <p className="mt-4 text-[1.02rem] leading-[1.75] text-foreground/80 tracking-wide">
             Not knowing what comes next is the most stressful part of any
             home project — and it&apos;s exactly where most drilling jobs in
             Ghana go wrong. Here&apos;s the whole process, start to finish, in
@@ -126,20 +126,20 @@ export default function HowItWorks() {
               <motion.div
                 key={step.num}
                 {...fadeUpProps((i % 2) * 0.08)}
-                className="flex flex-col gap-4 rounded-[1.5rem] border-2 border-[rgba(133,133,148,0.76)] bg-[rgba(69,76,76,0.5)] p-6 md:p-7"
+                className="flex flex-col gap-4 rounded-[1.5rem] border border-neutral-200 bg-neutral-100 p-6 shadow-[0_18px_50px_rgba(15,23,42,0.05)] md:p-7"
               >
                 <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 flex-none border border-background/20 items-center justify-center rounded-full bg-[rgba(89,90,112,0.79)]">
+                  <div className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-blue-600/10">
                     <Icon className="size-5 text-blue-600" />
                   </div>
-                  <span className="font-display text-base font-semibold text-blue-200">
+                  <span className="font-display text-base font-semibold text-blue-600">
                     Step {step.num}
                   </span>
                 </div>
-                <h3 className="font-display text-lg font-semibold text-foreground tracking-wide md:text-xl">
+                <h3 className="font-display text-lg font-semibold text-neutral-900 tracking-wide md:text-xl">
                   {step.title}
                 </h3>
-                <p className="text-base tracking-wide leading-normal text-popover/60">
+                <p className="text-base tracking-wide leading-normal text-neutral-500">
                   {step.desc}
                 </p>
               </motion.div>
@@ -149,12 +149,12 @@ export default function HowItWorks() {
 
         {/* --------------------------------------------------- TIMELINE */}
         <motion.div className="mt-16 z-50!" {...fadeUpProps(0.1)}>
-          <p className="mb-8 text-lg tracking-wider font-semibold text-background">
+          <p className="mb-8 text-lg tracking-wider font-semibold text-foreground">
             From first call to running water in as little as two weeks.
           </p>
 
           <div ref={trackRef} className="relative">
-            <div className="relative h-1.5 w-full overflow-hidden rounded-full bg-background/50">
+            <div className="relative h-1.5 w-full overflow-hidden rounded-full bg-neutral-200">
               <div
                 ref={fillRef}
                 className="h-full w-full origin-left rounded-full bg-blue-600"
@@ -176,10 +176,10 @@ export default function HowItWorks() {
                       : "items-center text-center"
                   }`}
                 >
-                  <span className="font-display text-sm font-semibold text-popover/50">
+                  <span className="font-display text-sm font-semibold text-neutral-400">
                     {stop.day}
                   </span>
-                  <span className="text-base uppercase font-bold tracking-widest text-background">
+                  <span className="text-base uppercase font-bold tracking-widest text-neutral-900">
                     {stop.label}
                   </span>
                 </div>

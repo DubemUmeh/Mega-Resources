@@ -34,7 +34,7 @@ export function ReviewsPageClient({ initialReviews }: { initialReviews: Review[]
           <div className={BG_GLOW} />
           <div className="mx-auto w-[min(100%,76rem)]">
             <Reveal className="max-w-2xl mb-10">
-              <span className="text-base font-semibold uppercase tracking-[0.12em] text-popover">
+              <span className="text-base font-semibold uppercase tracking-[0.12em] text-neutral-400">
                 From Our Clients
               </span>
               <h2 className="mt-4 font-display text-[1.9rem] font-semibold leading-[1.2] tracking-tight text-neutral-900 md:text-[2.5rem]">

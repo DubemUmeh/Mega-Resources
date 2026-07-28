@@ -106,14 +106,15 @@ const values = [
 
 export default function AboutPage() {
   return (
-    <div className="w-full bg-linear-to-r from-foreground/30 via-foreground/40 to-foreground/20">
+    <div className="w-full bg-linear-to-b from-foreground/10 via-foreground/50 to-foreground/25">
       {/* ---------------------------------------------------------- HERO */}
       <section className="relative overflow-hidden px-5 pb-16 pt-32 md:px-10 md:pb-24 md:pt-40">
+        <div className={BG_GLOW} />
         <div className="mx-auto w-[min(100%,76rem)]">
           <div className="grid gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div>
               <Reveal>
-                <div className="inline-flex items-center gap-2 rounded-full border border-foreground/20 bg-blue-300/50 px-3 py-2 text-[0.85rem] font-semibold uppercase tracking-wider text-foreground/70 shadow-[0_8px_20px_rgba(15,23,42,0.05)]">
+                <div className="inline-flex items-center gap-[0.45rem] tracking-wider rounded-full border border-neutral-200 bg-white px-[0.8rem] py-[0.45rem] text-[0.85rem] font-semibold uppercase text-neutral-600 shadow-[0_8px_20px_rgba(15,23,42,0.05)]">
                   About Us
                 </div>
               </Reveal>
@@ -121,12 +122,12 @@ export default function AboutPage() {
               <Reveal delay={0.08} className="mt-6 max-w-3xl">
                 <h1 className="font-display text-[2.25rem] font-semibold leading-[1.1] tracking-tight text-foreground md:text-[3.5rem]">
                   We don&apos;t guess where the water is.{" "}
-                  <span className="text-foreground/60">We find it.</span>
+                  <span className="text-neutral-600">We find it.</span>
                 </h1>
               </Reveal>
 
               <Reveal delay={0.16} className="mt-6 max-w-2xl">
-                <p className="text-base tracking-wider leading-[1.75] text-foreground/60">
+                <p className="text-base tracking-wider leading-[1.75] text-foreground/80">
                   For over 10 years, we&apos;ve surveyed, drilled, and
                   commissioned boreholes for homes, farms, schools, and
                   businesses across Ghana. No shortcuts, no disappearing
@@ -139,7 +140,7 @@ export default function AboutPage() {
                 <ArrowCta href="/quote" label="Get a Free Survey" />
                 <Link
                   href="/services"
-                  className="text-sm font-semibold text-foreground underline decoration-accent decoration-2 underline-offset-3"
+                  className="text-sm font-semibold text-foreground underline decoration-blue-600 decoration-2 underline-offset-4"
                 >
                   See our services
                 </Link>
@@ -159,14 +160,14 @@ export default function AboutPage() {
         <div className={BG_GLOW} />
         <div className="mx-auto grid w-[min(100%,76rem)] gap-10 md:grid-cols-[0.9fr_1.1fr] md:gap-16">
           <Reveal>
-            <span className="text-sm font-semibold uppercase tracking-widest text-foreground/60">
+            <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-neutral-400">
               Our Story
             </span>
             <h2 className="mt-4 font-display text-[1.9rem] font-semibold leading-[1.15] tracking-tight text-foreground md:text-[2.5rem]">
               From one rig to a name families trust
             </h2>
           </Reveal>
-          <Reveal delay={0.1} className="flex flex-col gap-5 text-base lg:text-lg tracking-wide font-normal drop-shadow-2xl drop-shadow-foreground leading-7 text-foreground/70">
+          <Reveal delay={0.1} className="flex flex-col gap-5 text-base lg:text-lg tracking-wide font-normal leading-7 text-foreground/70">
             <p>
               We started with a single rig and a simple belief: a borehole
               is only as good as the survey that came before it. Too many
@@ -186,17 +187,17 @@ export default function AboutPage() {
       </section>
 
       {/* -------------------------------------------------------- STATS */}
-      <section className="relative overflow-hidden bg-foreground/60 px-5 py-16 md:px-10 md:py-20">
+      <section className="relative overflow-hidden bg-background/30 px-5 py-16 md:px-10 md:py-20">
         <div className={BG_GLOW} />
         <div className="mx-auto w-[min(100%,76rem)]">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-6">
             {stats.map((stat, i) => (
               <Reveal key={stat.label} delay={(i % 4) * 0.06}>
                 <div className="flex flex-col gap-1 text-center md:text-left">
-                  <span className="font-display text-4xl font-bold tracking-tight text-popover md:text-5xl">
+                  <span className="font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl">
                     {stat.value}
                   </span>
-                  <span className="text-[0.85rem] uppercase tracking-wide text-primary-foreground/60">
+                  <span className="text-[0.85rem] uppercase tracking-wide text-neutral-500">
                     {stat.label}
                   </span>
                 </div>
@@ -214,13 +215,13 @@ export default function AboutPage() {
         <div className={BG_GLOW} />
         <div className="mx-auto w-[min(100%,76rem)]">
           <Reveal className="max-w-2xl">
-            <span className="text-sm font-semibold uppercase tracking-[0.12em] text-popover underline underline-offset-3">
+            <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-neutral-400 underline decoration-blue-600 decoration-2 underline-offset-4">
               Why We&apos;re Different
             </span>
             <h2 className="mt-4 font-display text-3xl font-semibold leading-[1.2] tracking-tight text-foreground md:text-[2.5rem]">
               What sets us apart from other drillers
             </h2>
-            <p className="mt-4 text-base tracking-widest leading-[1.75] text-popover">
+            <p className="mt-4 text-base tracking-widest leading-[1.75] text-foreground/80">
               Most borehole disappointments in Ghana trace back to the same
               handful of shortcuts. Here&apos;s what we do instead.
             </p>
@@ -231,14 +232,14 @@ export default function AboutPage() {
               const Icon = v.icon;
               return (
                 <Reveal key={v.title} delay={(i % 2) * 0.08}>
-                  <div className="flex h-full flex-col gap-4 rounded-2xl border-2 border-[rgba(83,65,65,0.14)] bg-[rgba(94,83,83,0.5)] p-6">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-full bg-blue-300/40">
+                  <div className="flex h-full flex-col gap-4 rounded-2xl border border-neutral-200 bg-neutral-100 p-6 shadow-[0_18px_50px_rgba(15,23,42,0.05)]">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-full bg-blue-600/10">
                       <Icon className="size-5 text-blue-600" />
                     </div>
-                    <h3 className="font-display text-lg tracking-wider font-semibold text-foreground">
+                    <h3 className="font-display text-lg tracking-wider font-semibold text-neutral-900">
                       {v.title}
                     </h3>
-                    <p className="text-base tracking-wider leading-[1.65] text-background">
+                    <p className="text-base tracking-wider leading-[1.65] text-neutral-500">
                       {v.desc}
                     </p>
                   </div>
@@ -252,14 +253,13 @@ export default function AboutPage() {
       {/* ------------------------------------------------------------ CTA */}
       <section className="px-5 pb-24 md:px-10">
         <Reveal className="mx-auto w-[min(100%,76rem)]">
-          <div className="relative overflow-hidden rounded-[2rem] bg-foreground/80 px-8 py-14 text-center md:px-16 md:py-20">
-            <div className={BG_GLOW} />
-            <div className="pointer-events-none absolute inset-0 opacity-40 [background:radial-gradient(circle_at_top,rgba(255,184,142,0.25),transparent_55%)]" />
+          <div className="relative overflow-hidden rounded-[2rem] bg-neutral-900 px-8 py-14 text-center md:px-16 md:py-20">
+            <div className="pointer-events-none absolute inset-0 opacity-60 [background:radial-gradient(circle_at_top,rgba(255,184,142,0.18),transparent_55%)]" />
             <div className="relative flex flex-col items-center gap-5">
-              <h2 className="max-w-xl font-display text-2xl font-semibold text-primary-foreground md:text-3xl">
+              <h2 className="max-w-xl font-display text-2xl font-semibold text-white md:text-3xl">
                 Ready to find out what&apos;s under your land?
               </h2>
-              <p className="max-w-lg text-[0.98rem] leading-[1.7] text-primary-foreground/75">
+              <p className="max-w-lg text-[0.98rem] leading-[1.7] text-neutral-300">
                 Book a free site visit and survey — no obligation, and
                 you&apos;ll know your depth, yield, and cost before you
                 decide anything.

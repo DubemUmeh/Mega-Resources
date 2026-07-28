@@ -38,7 +38,7 @@ export function ReviewsStats({ reviews }: { reviews: Review[] }) {
                 <span className="font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl">
                   {stat.value}
                 </span>
-                <span className="text-[0.85rem] uppercase tracking-[0.08em] text-background">
+                <span className="text-[0.85rem] uppercase tracking-[0.08em] text-neutral-500">
                   {stat.label}
                 </span>
               </div>

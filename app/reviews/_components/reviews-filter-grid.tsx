@@ -85,7 +85,7 @@ export function ReviewsFilterGrid({ reviews }: { reviews: Review[] }) {
       <div className={BG_GLOW} />
       <div className="mx-auto w-[min(100%,76rem)]">
         <Reveal className="max-w-2xl">
-          <span className="text-base font-semibold uppercase tracking-[0.12em] text-popover">
+          <span className="text-base font-semibold uppercase tracking-[0.12em] text-neutral-400">
             All Reviews
           </span>
           <h2 className="mt-4 font-display text-[1.9rem] font-semibold leading-[1.2] tracking-tight text-neutral-900 md:text-[2.5rem]">
@@ -127,7 +127,7 @@ export function ReviewsFilterGrid({ reviews }: { reviews: Review[] }) {
               <div className="mt-10 flex justify-center">
                 <button
                   onClick={() => setVisible((v) => v + 3)}
-                  className="rounded-full border border-neutral-200 bg-neutral-100 px-6 py-3 text-[0.85rem] font-semibold text-neutral-700 hover:bg-blue-600/10 hover:text-popover transition-colors"
+                  className="rounded-full border border-neutral-200 bg-neutral-100 px-6 py-3 text-[0.85rem] font-semibold text-neutral-700 hover:bg-blue-600/10 hover:text-blue-600 transition-colors"
                 >
                   Load More Reviews
                 </button>

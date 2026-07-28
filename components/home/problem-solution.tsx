@@ -1,51 +1,52 @@
 import { FaBolt, FaCoins, FaSearchLocation } from "react-icons/fa";
+import { Reveal, BG_GLOW } from "@/components/motion-kit";
 
 const points = [
-  {
-    icon: <FaBolt />,
-    q: "Frequent Water Cuts?",
-    a: "A borehole gives you 24/7 independence from Ghana Water — no more waiting on the tanker.",
-  },
-  {
-    icon: <FaCoins />,
-    q: "Tired of Buying Water?",
-    a: "Most clients recover their drilling cost in 18–24 months of avoided water bills.",
-  },
-  {
-    icon: <FaSearchLocation />,
-    q: "Worried the Borehole Runs Dry?",
-    a: "Our geophysical survey confirms water is there before a single drop is spent drilling.",
-  },
+  { icon: <FaBolt />, q: "Frequent Water Cuts?", a: "A borehole gives you 24/7 independence from Ghana Water — no more waiting on the tanker." },
+  { icon: <FaCoins />, q: "Tired of Buying Water?", a: "Most clients recover their drilling cost in 18–24 months of avoided water bills." },
+  { icon: <FaSearchLocation />, q: "Worried the Borehole Runs Dry?", a: "Our geophysical survey confirms water is there before a single drop is spent drilling." },
 ];
 
 const ProblemSolution = () => {
   return (
-    <section className="w-full bg-foreground/30 px-8 lg:px-24 py-24 border-b-2 border-muted-foreground">
-      <div className="pointer-events-none absolute inset-0 -z-10 [background:radial-gradient(circle_at_10%_10%,rgba(255,205,112,0.16),transparent_38%),radial-gradient(circle_at_90%_20%,rgba(255,184,142,0.14),transparent_40%)]" />
-      <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
-        <div>
-          <div className="text-xs uppercase tracking-widest border border-popover w-fit p-2 rounded-full bg-foreground/20 font-semibold mb-6">Why Act Now</div>
-          <h2 className="text-3xl md:text-4xl font-light leading-tight text-popover max-w-lg">
-            The Problems We Solve, Before You Even Ask
-          </h2>
-        </div>
-        <p className="text-[13px] md:text-lg text-popover leading-relaxed max-w-sm font-light">
-          We handle everything from the first survey to the moment water flows from your tap.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-px">
-        {points.map((p, idx) => (
-          <div key={idx} className={`bg-foreground p-8 flex flex-col gap-6 group hover:bg-gray-950/60 transition-colors`}>
-            <div className="w-11 h-11 border-gray-700 flex items-center justify-center text-gray-400 group-hover:bg-white group-hover:text-black transition-colors rounded-full">
-              <span className="size-10 inline-flex items-center justify-center">{p.icon}</span>
-            </div>
-            <div className="tracking-wide">
-              <h4 className="text-lg font-medium text-popover mb-3">{p.q}</h4>
-              <p className="text-sm text-background/80 leading-relaxed font-light">{p.a}</p>
-            </div>
+    <section className="relative w-full overflow-hidden bg-background/40 px-5 py-10 md:py-20 md:px-10">
+      <div className={BG_GLOW} />
+      <div className="mx-auto w-[min(100%,76rem)]">
+        <div className="mb-16 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <Reveal>
+              <div className="inline-flex items-center gap-[0.45rem] rounded-full border border-border bg-card px-[0.8rem] py-[0.45rem] text-[0.85rem] font-semibold uppercase tracking-wider text-muted-foreground shadow-[0_8px_20px_rgba(15,23,42,0.05)]">
+                Why Act Now
+              </div>
+            </Reveal>
+            <Reveal delay={0.08} className="mt-6 max-w-lg">
+              <h2 className="font-display text-3xl font-semibold leading-tight tracking-tight text-foreground md:text-4xl">
+                The Problems We Solve, Before You Even Ask
+              </h2>
+            </Reveal>
           </div>
-        ))}
+          <Reveal delay={0.14} className="max-w-sm">
+            <p className="text-base leading-[1.75] text-foreground/80">
+              We handle everything from the first survey to the moment water flows from your tap.
+            </p>
+          </Reveal>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {points.map((p, idx) => (
+            <Reveal key={p.q} delay={idx * 0.06}>
+              <div className="group flex h-full flex-col gap-6 rounded-[1.5rem] border border-border bg-card p-8 shadow-[0_18px_50px_rgba(15,23,42,0.05)] transition-colors hover:bg-popover/70">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors group-hover:border-blue-600 group-hover:text-blue-600">
+                  <span className="text-lg">{p.icon}</span>
+                </div>
+                <div>
+                  <h4 className="font-display text-lg font-semibold text-foreground mb-3">{p.q}</h4>
+                  <p className="text-[0.94rem] leading-[1.75] text-muted-foreground">{p.a}</p>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );

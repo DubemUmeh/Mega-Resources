@@ -49,20 +49,20 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="px-8 lg:px-24 py-24 overflow-hidden bg-linear-to-b from-foreground/30 via-foreground/50 to-foreground/20 text-popover">
-      <div className="text-sm uppercase tracking-widest border border-popover w-fit p-2 rounded-full bg-foreground/20 font-semibold mb-16">Our Services</div>
+    <section className="px-8 lg:px-24 py-10 md:py-20 overflow-hidden bg-background/30 text-foreground">
+      <div className="inline-flex items-center gap-[0.45rem] tracking-wider rounded-full border border-neutral-200 bg-white px-[0.8rem] py-[0.45rem] text-[0.85rem] font-semibold uppercase text-neutral-600 shadow-[0_8px_20px_rgba(15,23,42,0.05)] mb-16">Our Services</div>
 
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
-        <div className="lg:w-1/4 flex flex-col justify-between">
+        <div className="lg:w-1/4 flex flex-row md:flex-col justify-between">
           <div>
-            <div className="text-6xl md:text-7xl font-light mb-6 text-gray-100">07</div>
-            <div className="text-sm md:text-lg text-popover/80 leading-relaxed font-light">
+            <div className="text-6xl md:text-7xl font-light mb-6 text-foreground">07</div>
+            <div className="text-sm md:text-lg text-foreground/70 leading-relaxed font-light">
               Specialized Services.<br />
               Complete Water<br />
               Solutions.
             </div>
           </div>
-          <Link href='/services' className="mt-12 w-16 h-16 rounded-full border-3 bg-primary-foreground/60 border-popover hover:border-gray-500 flex items-center justify-center hover:bg-white hover:text-foreground transition-colors cursor-pointer text-primary">
+          <Link href='/services' className="mt-12 w-16 h-16 rounded-full border border-neutral-200 bg-blue-600/10 hover:bg-blue-600 hover:border-blue-600 flex items-center justify-center transition-colors cursor-pointer text-blue-600 hover:text-white">
             <FaArrowRight className="transform -rotate-45" />
           </Link>
         </div>
@@ -76,7 +76,7 @@ const Services = () => {
               }}
             >
               {[...services, ...services].map((svc, idx) => (
-                <div key={idx} className="relative min-w-45 md:min-w-55 h-90 md:h-105 group/card cursor-pointer overflow-hidden bg-gray-900 shrink-0">
+                <div key={idx} className="relative min-w-45 md:min-w-55 h-90 md:h-105 group/card cursor-pointer overflow-hidden bg-neutral-900 shrink-0 rounded-2xl">
                   <Image
                     width={1000}
                     height={1000}
@@ -88,12 +88,12 @@ const Services = () => {
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent pointer-events-none"></div>
                   <div className="absolute bottom-6 left-5 right-5 tracking-wide">
-                    <div className="text-sm font-medium text-gray-400 mb-2">{svc.num}</div>
-                    <div className="w-6 h-px bg-popover/60 mb-3 group-hover/card:w-full transition-all duration-500"></div>
-                    <div className="text-lg font-medium whitespace-pre-line leading-tight text-gray-200 group-hover/card:text-white transition-colors mb-3">
+                    <div className="text-sm font-medium text-neutral-400 mb-2">{svc.num}</div>
+                    <div className="w-6 h-px bg-white/60 mb-3 group-hover/card:w-full transition-all duration-500"></div>
+                    <div className="text-lg font-medium whitespace-pre-line leading-tight text-neutral-200 group-hover/card:text-white transition-colors mb-3">
                       {svc.title}
                     </div>
-                    <p className="text-xs text-popover/70 leading-relaxed font-light max-h-0 opacity-0 group-hover/card:max-h-24 group-hover/card:opacity-100 transition-all duration-500 overflow-hidden">
+                    <p className="text-xs text-neutral-300 leading-relaxed font-light max-h-0 opacity-0 group-hover/card:max-h-24 group-hover/card:opacity-100 transition-all duration-500 overflow-hidden">
                       {svc.desc}
                     </p>
                   </div>

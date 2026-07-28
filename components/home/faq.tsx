@@ -30,11 +30,11 @@ const FAQ = () => {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="bg-linear-to-b from-foreground/40 via-froeground/20 to-foreground/40 px-8 lg:px-24 py-24 border-b-2 border-muted-foreground">
+    <section className="bg-background/30 px-8 lg:px-24 py-24">
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
         <div className="lg:w-1/3">
-          <div className="text-sm uppercase font-semibold tracking-widest text-popover mb-6">FAQ</div>
-          <h2 className="text-3xl md:text-4xl font-light leading-tight text-gray-100">
+          <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-neutral-400 mb-6 block">FAQ</span>
+          <h2 className="font-display text-3xl md:text-4xl font-semibold leading-tight text-foreground">
             Questions,<br />Answered.
           </h2>
         </div>
@@ -43,20 +43,20 @@ const FAQ = () => {
           {faqs.map((f, idx) => {
             const isOpen = open === idx;
             return (
-              <div key={idx} className="border-b border-blue-500">
+              <div key={idx} className="border-b border-neutral-200">
                 <button
                   onClick={() => setOpen(isOpen ? null : idx)}
                   className="w-full flex items-center justify-between text-left py-6 gap-6"
                 >
-                  <span className={`text-lg font-medium ${isOpen ? 'text-gray-300 tracking-wide' : 'text-gray-100 tracking-wider'}`}>{f.q}</span>
-                  <span className={`shrink-0 w-8 h-8 rounded-full border border-blue-400 flex items-center justify-center text-gray-50 transition-transform duration-300 ${isOpen ? "rotate-45" : ""}`}>
+                  <span className="text-lg font-medium text-neutral-900 tracking-wide">{f.q}</span>
+                  <span className={`shrink-0 w-8 h-8 rounded-full border border-neutral-200 flex items-center justify-center text-neutral-400 transition-transform duration-300 ${isOpen ? "rotate-45 text-blue-600" : ""}`}>
                     <FaPlus className="size-4" />
                   </span>
                 </button>
                 <div
                   className={`overflow-hidden transition-all duration-300 ${isOpen ? "max-h-40 opacity-100 pb-6" : "max-h-0 opacity-0"}`}
                 >
-                  <p className={`text-[16px] tracking-wider text-popover leading-relaxed font-light max-w-xl`}>{f.a}</p>
+                  <p className="text-[16px] tracking-wider text-neutral-500 leading-relaxed font-light max-w-xl">{f.a}</p>
                 </div>
               </div>
             );

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap");
+
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -28,6 +30,9 @@ body {
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
+  --font-sans: 'Fraunces', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces', serif;
+  --font-mono: 'Fraunces', ui-monospace, monospace;
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);

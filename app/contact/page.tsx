@@ -125,7 +125,7 @@ const promises = [
 
 export default function ContactPage() {
   return (
-    <div className="w-full bg-linear-to-b from-foreground/10 via-foreground/50 to-foreground/25">
+    <div className="w-full bg-background/50">
       {/* ---------------------------------------------------------- HERO */}
       <div className={BG_GLOW} />
       <section className="relative overflow-hidden px-5 pb-16 pt-32 md:px-10 md:pb-20 md:pt-40">
@@ -173,7 +173,7 @@ export default function ContactPage() {
 
           <Reveal delay={0.1} className="flex flex-col gap-6">
             <div>
-              <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-foreground">
+              <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-neutral-400">
                 Get In Touch
               </span>
               <h2 className="mt-3 font-display text-xl font-semibold text-foreground/80 md:text-2xl">
@@ -234,7 +234,7 @@ export default function ContactPage() {
               return (
                 <Reveal key={p.title} delay={(i % 3) * 0.06}>
                   <div className="flex h-full flex-col gap-3 rounded-[1.5rem] border border-neutral-200 bg-background p-6">
-                    <span className="flex h-11 w-11 items-center border border-popover/70 justify-center rounded-full bg-blue-600/10 text-blue-600">
+                    <span className="flex h-11 w-11 items-center border border-neutral-200 justify-center rounded-full bg-blue-600/10 text-blue-600">
                       <Icon className="h-4.5 w-4.5" />
                     </span>
                     <h3 className="font-display tracking-wider text-base font-semibold text-neutral-900">

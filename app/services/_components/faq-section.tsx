@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
+import { BG_GLOW } from "@/components/motion-kit";
 
 const faqs = [
   {
@@ -26,14 +27,11 @@ const faqs = [
   },
 ];
 
-const BG_GLOW =
-  "pointer-events-none absolute inset-0 -z-10 [background:radial-gradient(circle_at_10%_10%,rgba(255,205,112,0.16),transparent_38%),radial-gradient(circle_at_90%_20%,rgba(255,184,142,0.14),transparent_40%)]";
-
 export default function FaqSection() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="relative overflow-hidden bg-background/90 px-5 py-16 md:px-10 md:py-20">
+    <section className="relative overflow-hidden bg-background/40 px-5 py-16 md:px-10 md:py-20">
       <div className={BG_GLOW} />
       <div className="mx-auto w-[min(100%,76rem)]">
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-24">
@@ -52,15 +50,12 @@ export default function FaqSection() {
             {faqs.map((f, idx) => {
               const isOpen = open === idx;
               return (
-                <div
-                  key={f.q}
-                  className="border-b border-[rgba(10,10,10,0.08)]"
-                >
+                <div key={f.q} className="border-b border-border">
                   <button
                     onClick={() => setOpen(isOpen ? null : idx)}
                     className="flex w-full items-center justify-between gap-6 py-6 text-left"
                   >
-                    <span className="font-display text-[0.98rem] font-semibold text-foreground md:text-base">
+                    <span className="font-display tracking-wider text-[0.98rem] font-semibold text-foreground md:text-base">
                       {f.q}
                     </span>
                     <span
@@ -78,7 +73,7 @@ export default function FaqSection() {
                       isOpen ? "max-h-40 pb-6 opacity-100" : "max-h-0 opacity-0"
                     }`}
                   >
-                    <p className="max-w-xl text-[0.92rem] leading-[1.65] text-muted-foreground">
+                    <p className="max-w-xl text-[0.92rem] font-sans tracking-wide leading-[1.65] text-muted-foreground">
                       {f.a}
                     </p>
                   </div>
