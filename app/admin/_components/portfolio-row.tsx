@@ -19,7 +19,7 @@ export function PortfolioRow({
   const router = useRouter();
 
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] transition-colors hover:border-blue-600/25">
+    <div className="group relative flex flex-col overflow-hidden rounded-[1.5rem] border border-neutral-200 bg-white shadow-[0_8px_20px_rgba(15,23,42,0.04)] transition-colors hover:border-blue-600/25">
       <div className="relative aspect-4/3 w-full overflow-hidden">
         <Image
           src={portfolio.img}
@@ -29,8 +29,8 @@ export function PortfolioRow({
           className="object-cover"
         />
         {portfolio.isVideo && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-background">
+          <div className="absolute inset-0 flex items-center justify-center bg-neutral-900/20">
+            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-neutral-900">
               <FaPlay className="ml-0.5 h-3 w-3" />
             </span>
           </div>
@@ -42,8 +42,8 @@ export function PortfolioRow({
         <span
           className={`absolute right-3 top-3 rounded-full px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.06em] backdrop-blur-sm ${
             portfolio.status === "published"
-              ? "bg-black/40 text-white"
-              : "bg-amber-400/90 text-black"
+              ? "bg-neutral-900/60 text-white"
+              : "bg-amber-400/90 text-neutral-900"
           }`}
         >
           {portfolio.status === "published" ? portfolio.year : "Draft"}
@@ -72,18 +72,18 @@ export function PortfolioRow({
       </div>
 
       <div className="flex flex-1 flex-col gap-1.5 p-5">
-        <div className="flex items-center gap-1.5 text-[0.72rem] text-muted-foreground">
+        <div className="flex items-center gap-1.5 text-[0.72rem] text-neutral-500">
           {portfolio.location}
           {portfolio.featured && (
-            <span className="ml-auto flex items-center gap-1 text-[0.7rem] font-semibold text-amber-400">
+            <span className="ml-auto flex items-center gap-1 text-[0.7rem] font-semibold text-amber-500">
               <FaStar className="h-2.5 w-2.5" /> Featured
             </span>
           )}
         </div>
-        <h3 className="font-display text-[0.98rem] font-semibold leading-snug text-foreground">
+        <h3 className="font-display text-[0.98rem] font-semibold leading-snug text-neutral-900">
           {portfolio.title}
         </h3>
-        <div className="mt-2 flex items-center justify-between border-t border-[rgba(10,10,10,0.08)] pt-3 text-[0.75rem] text-muted-foreground">
+        <div className="mt-2 flex items-center justify-between border-t border-neutral-200 pt-3 text-[0.75rem] text-neutral-500">
           <span>{portfolio.depth} · {portfolio.duration}</span>
           <Link
             href={`/portfolio#${portfolio.id}`}

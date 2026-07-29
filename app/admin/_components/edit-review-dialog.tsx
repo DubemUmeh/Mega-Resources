@@ -45,16 +45,19 @@ function EditReviewDialogForm({
 }) {
   const [draft, setDraft] = useState<Review>(review);
 
+  const fieldClass =
+    "w-full rounded-xl border border-neutral-300 bg-white px-4 py-2.5 text-[0.92rem] text-neutral-900 placeholder:text-neutral-400 outline-none transition-colors focus:border-blue-600 focus:ring-2 focus:ring-blue-600/15";
+
   return (
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm data-[state=open]:animate-in data-[state=open]:fade-in" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 w-[min(95vw,42rem)] -translate-x-1/2 -translate-y-1/2 rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-background p-7 shadow-2xl">
+        <Dialog.Overlay className="fixed inset-0 z-50 bg-neutral-900/50 backdrop-blur-sm data-[state=open]:animate-in data-[state=open]:fade-in" />
+        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 w-[min(95vw,42rem)] -translate-x-1/2 -translate-y-1/2 rounded-[1.5rem] border border-neutral-200 bg-white p-7 shadow-[0_18px_50px_rgba(15,23,42,0.15)]">
           <div className="mb-5 flex items-start justify-between">
-            <Dialog.Title className="font-display text-xl font-semibold text-foreground">
+            <Dialog.Title className="font-display text-xl font-semibold text-neutral-900">
               Edit Review
             </Dialog.Title>
-            <Dialog.Close className="rounded-full p-2 text-muted-foreground hover:bg-foreground/10 hover:text-foreground transition-colors">
+            <Dialog.Close className="rounded-full p-2 text-neutral-400 transition-colors hover:bg-neutral-100 hover:text-neutral-900">
               <FaTimes className="h-3.5 w-3.5" />
             </Dialog.Close>
           </div>
@@ -68,59 +71,59 @@ function EditReviewDialogForm({
             className="space-y-5"
           >
             <div className="flex flex-col gap-2">
-              <label className="text-sm font-medium text-foreground">Rating</label>
+              <label className="text-sm font-medium text-neutral-700">Rating</label>
               <StarInput value={draft.rating} onChange={(n) => setDraft({ ...draft, rating: n })} />
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-medium text-foreground">Name</label>
+                <label className="text-sm font-medium text-neutral-700">Name</label>
                 <input
                   value={draft.name}
                   onChange={(e) => setDraft({ ...draft, name: e.target.value })}
-                  className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
+                  className={fieldClass}
                 />
               </div>
               <div className="flex flex-col gap-1.5">
-                <label className="text-sm font-medium text-foreground">City / Region</label>
+                <label className="text-sm font-medium text-neutral-700">City / Region</label>
                 <input
                   value={draft.location}
                   onChange={(e) => setDraft({ ...draft, location: e.target.value })}
-                  className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
+                  className={fieldClass}
                 />
               </div>
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <label className="text-sm font-medium text-foreground">
-                Role / Company <span className="text-muted-foreground font-normal">(optional)</span>
+              <label className="text-sm font-medium text-neutral-700">
+                Role / Company <span className="text-neutral-400 font-normal">(optional)</span>
               </label>
               <input
                 value={draft.title ?? ""}
                 onChange={(e) => setDraft({ ...draft, title: e.target.value })}
-                className="w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
+                className={fieldClass}
               />
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <label className="text-sm font-medium text-foreground">Services Used</label>
+              <label className="text-sm font-medium text-neutral-700">Services Used</label>
               <DropdownMenu.Root>
                 <DropdownMenu.Trigger asChild>
                   <button
                     type="button"
-                    className="flex w-full items-center justify-between rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-left text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
+                    className={`flex w-full items-center justify-between text-left outline-none ${fieldClass}`}
                   >
                     <span className="truncate">
                       {draft.services.length > 0 ? draft.services.join(", ") : "Select services"}
                     </span>
-                    <FaChevronDown className="h-2.5 w-2.5 shrink-0 text-muted-foreground" />
+                    <FaChevronDown className="h-2.5 w-2.5 shrink-0 text-neutral-400" />
                   </button>
                 </DropdownMenu.Trigger>
                 <DropdownMenu.Portal>
                   <DropdownMenu.Content
                     align="start"
                     sideOffset={8}
-                    className="z-60 w-(--radix-dropdown-menu-trigger-width) overflow-hidden rounded-xl border border-[rgba(10,10,10,0.08)] bg-background p-1.5 shadow-xl"
+                    className="z-60 w-(--radix-dropdown-menu-trigger-width) overflow-hidden rounded-xl border border-neutral-200 bg-white p-1.5 shadow-[0_18px_50px_rgba(15,23,42,0.12)]"
                   >
                     {SERVICE_TYPES.map((s) => {
                       const checked = draft.services.includes(s);
@@ -137,7 +140,7 @@ function EditReviewDialogForm({
                                 : draft.services.filter((x) => x !== s),
                             })
                           }
-                          className="flex cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-2 text-[0.88rem] text-foreground outline-none data-highlighted:bg-blue-600/10 data-highlighted:text-blue-600"
+                          className="flex cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-2 text-[0.88rem] text-neutral-900 outline-none data-highlighted:bg-blue-600/10 data-highlighted:text-blue-600"
                         >
                           {s}
                           <DropdownMenu.ItemIndicator>
@@ -152,43 +155,43 @@ function EditReviewDialogForm({
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <label className="text-sm font-medium text-foreground">Message</label>
+              <label className="text-sm font-medium text-neutral-700">Message</label>
               <textarea
                 value={draft.message}
                 onChange={(e) => setDraft({ ...draft, message: e.target.value })}
                 rows={4}
                 maxLength={500}
-                className="w-full resize-none rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
+                className={`${fieldClass} resize-none`}
               />
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <label className="text-sm font-medium text-foreground">Moderation Status</label>
+              <label className="text-sm font-medium text-neutral-700">Moderation Status</label>
               <Select.Root
                 value={draft.status}
                 onValueChange={(value) => setDraft({ ...draft, status: value as ReviewStatus })}
               >
                 <Select.Trigger
                   aria-label="Review moderation status"
-                  className="flex w-full items-center justify-between rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-left text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
+                  className={`flex w-full items-center justify-between text-left outline-none ${fieldClass}`}
                 >
                   <Select.Value />
                   <Select.Icon>
-                    <FaChevronDown className="h-2.5 w-2.5 shrink-0 text-muted-foreground" />
+                    <FaChevronDown className="h-2.5 w-2.5 shrink-0 text-neutral-400" />
                   </Select.Icon>
                 </Select.Trigger>
                 <Select.Portal>
                   <Select.Content
                     position="popper"
                     sideOffset={8}
-                    className="z-60 overflow-hidden rounded-xl border border-[rgba(10,10,10,0.08)] bg-background shadow-xl"
+                    className="z-60 overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.12)]"
                   >
                     <Select.Viewport className="p-1.5">
                       {REVIEW_STATUS_OPTIONS.map((option) => (
                         <Select.Item
                           key={option.value}
                           value={option.value}
-                          className="flex cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-2 text-[0.88rem] text-foreground outline-none data-highlighted:bg-blue-600/10 data-highlighted:text-blue-600"
+                          className="flex cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-2 text-[0.88rem] text-neutral-900 outline-none data-highlighted:bg-blue-600/10 data-highlighted:text-blue-600"
                         >
                           <Select.ItemText>{option.label}</Select.ItemText>
                           <Select.ItemIndicator>
@@ -206,7 +209,7 @@ function EditReviewDialogForm({
               <Dialog.Close asChild>
                 <button
                   type="button"
-                  className="rounded-full border border-[rgba(10,10,10,0.08)] px-5 py-2.5 text-[0.85rem] font-medium text-foreground transition-colors hover:bg-foreground/5"
+                  className="rounded-full border border-neutral-300 px-5 py-2.5 text-[0.85rem] font-medium text-neutral-700 transition-colors hover:bg-neutral-100"
                 >
                   Cancel
                 </button>

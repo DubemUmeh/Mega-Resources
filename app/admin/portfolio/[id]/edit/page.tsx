@@ -23,10 +23,10 @@ export default function EditPortfolioPage() {
       <AdminTopbar title="Edit Project" description={existing?.title} />
 
       {!ready ? (
-        <p className="text-muted-foreground">Loading project…</p>
+        <p className="text-neutral-500">Loading project…</p>
       ) : !existing ? (
-        <div className="rounded-[1.5rem] border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-8 text-center">
-          <p className="text-foreground">We couldn&apos;t find that project.</p>
+        <div className="rounded-[1.5rem] border border-neutral-200 bg-white p-8 text-center shadow-[0_18px_50px_rgba(15,23,42,0.05)]">
+          <p className="text-neutral-900">We couldn&apos;t find that project.</p>
           <Link
             href="/admin/portfolio"
             className="mt-4 inline-flex items-center gap-2 text-[0.85rem] font-medium text-blue-600"

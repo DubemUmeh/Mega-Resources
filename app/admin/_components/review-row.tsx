@@ -8,8 +8,8 @@ import { RowActionsMenu } from "./row-action-menu";
 const STATUS_META: Record<ReviewStatus, { label: string; className: string; iconClassName: string; icon: IconType }> = {
   pending: {
     label: "Pending",
-    className: "bg-foreground/8 text-muted-foreground",
-    iconClassName: "text-muted-foreground/50",
+    className: "bg-neutral-100 text-neutral-500",
+    iconClassName: "text-neutral-400",
     icon: FaClock,
   },
   approved: {
@@ -20,7 +20,7 @@ const STATUS_META: Record<ReviewStatus, { label: string; className: string; icon
   },
   rejected: {
     label: "Rejected",
-    className: "bg-red-500/10 text-red-500",
+    className: "bg-red-50 text-red-500",
     iconClassName: "text-red-500",
     icon: FaTimesCircle,
   },
@@ -42,33 +42,33 @@ export function ReviewRow({
   const statusActions: ReviewStatus[] = ["pending", "approved", "rejected"];
 
   return (
-    <div className="group relative grid grid-cols-1 gap-3 rounded-2xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] p-5 transition-colors hover:border-blue-600/25 md:grid-cols-[1.6fr_0.9fr_0.6fr_0.9fr] md:items-center md:gap-4">
+    <div className="group relative grid grid-cols-1 gap-3 rounded-2xl border border-neutral-200 bg-white p-5 shadow-[0_8px_20px_rgba(15,23,42,0.04)] transition-colors hover:border-blue-600/25 md:grid-cols-[1.6fr_0.9fr_0.6fr_0.9fr] md:items-center md:gap-4">
       {/* Reviewer + message */}
       <div className="min-w-0">
         <div className="flex items-center gap-2">
-          <h4 className="truncate font-display text-[0.92rem] font-semibold text-foreground">
+          <h4 className="truncate font-display text-[0.92rem] font-semibold text-neutral-900">
             {review.name}
           </h4>
           <StatusIcon className={`h-3 w-3 flex-none ${status.iconClassName}`} title={status.label} />
         </div>
-        <p className="mt-0.5 truncate text-[0.78rem] text-muted-foreground">
+        <p className="mt-0.5 truncate text-[0.78rem] text-neutral-500">
           {review.title ? `${review.title} · ` : ""}
           {review.location}
         </p>
-        <p className="mt-1.5 line-clamp-2 text-[0.82rem] leading-normal text-muted-foreground/90 md:hidden">
+        <p className="mt-1.5 line-clamp-2 text-[0.82rem] leading-normal text-neutral-500 md:hidden">
           {review.message}
         </p>
       </div>
 
       {/* Service + date */}
       <div className="text-[0.8rem]">
-        <span className="block font-medium text-foreground">{review.services.join(", ")}</span>
-        <span className="text-muted-foreground">{review.date}</span>
+        <span className="block font-medium text-neutral-900">{review.services.join(", ")}</span>
+        <span className="text-neutral-500">{review.date}</span>
       </div>
 
       {/* Rating */}
-      <div className="flex items-center gap-1 text-[0.8rem] text-foreground">
-        <FaStar className="h-2.5 w-2.5 text-amber-400" />
+      <div className="flex items-center gap-1 text-[0.8rem] text-neutral-900">
+        <FaStar className="h-2.5 w-2.5 text-amber-500" />
         {review.rating.toFixed(1)}
       </div>
 

@@ -6,7 +6,7 @@ import Image from "next/image";
 import * as Select from "@radix-ui/react-select";
 import * as Dialog from "@radix-ui/react-dialog";
 import * as AlertDialog from "@radix-ui/react-alert-dialog";
-import { FaChevronDown, FaCheck, FaCloudUploadAlt, FaTimes, FaChevronLeft, FaChevronRight, FaTrash } from "react-icons/fa";
+import { FaChevronDown, FaCheck, FaCloudUploadAlt, FaTimes, FaChevronLeft, FaChevronRight, FaTrash, FaArrowRight } from "react-icons/fa";
 import { useToast } from "@/components/ui/toast";
 import { uploadImageToCloudinary } from "@/lib/cloudinary-upload";
 import {
@@ -33,25 +33,25 @@ function SelectField({
     <Select.Root value={value} onValueChange={onChange}>
       <Select.Trigger
         aria-label={ariaLabel}
-        className="flex w-full items-center justify-between rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.92rem] text-foreground outline-none focus:ring-2 focus:ring-blue-600"
+        className="flex w-full items-center justify-between rounded-xl border border-neutral-300 bg-white px-4 py-3 text-[0.95rem] text-neutral-900 outline-none transition-colors focus:border-blue-600 focus:ring-2 focus:ring-blue-600/15"
       >
         <Select.Value />
         <Select.Icon>
-          <FaChevronDown className="h-2.5 w-2.5 text-muted-foreground" />
+          <FaChevronDown className="h-2.5 w-2.5 text-neutral-400" />
         </Select.Icon>
       </Select.Trigger>
       <Select.Portal>
         <Select.Content
           position="popper"
           sideOffset={8}
-          className="z-60 w-(--radix-select-trigger-width) overflow-hidden rounded-xl border border-[rgba(10,10,10,0.08)] bg-background shadow-xl"
+          className="z-60 w-(--radix-select-trigger-width) overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.12)]"
         >
           <Select.Viewport className="p-1.5">
             {items.map((item) => (
               <Select.Item
                 key={item.value}
                 value={item.value}
-                className="flex cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-2 text-[0.88rem] text-foreground outline-none data-highlighted:bg-blue-600/10 data-highlighted:text-blue-600"
+                className="flex cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-2 text-[0.88rem] text-neutral-700 outline-none data-highlighted:bg-blue-600/10 data-highlighted:text-blue-600"
               >
                 <Select.ItemText>{item.label}</Select.ItemText>
                 <Select.ItemIndicator>
@@ -78,18 +78,18 @@ function Field({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-1.5">
-      <label className="text-sm font-medium text-foreground">
-        {label} {optional && <span className="font-normal text-muted-foreground">(optional)</span>}
+    <div className="flex flex-col gap-2">
+      <label className="text-[0.85rem] font-semibold text-neutral-700">
+        {label} {optional && <span className="font-normal text-neutral-400">(optional)</span>}
       </label>
       {children}
-      {error && <p className="text-xs text-red-400">{error}</p>}
+      {error && <p className="text-xs font-medium text-red-500">{error}</p>}
     </div>
   );
 }
 
 const inputClass =
-  "w-full rounded-xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.92rem] text-foreground placeholder:text-muted-foreground outline-none focus:ring-2 focus:ring-blue-600";
+  "w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-[0.95rem] text-neutral-900 placeholder:text-neutral-400 transition-colors focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/15";
 
 function emptyDraft(): Portfolio {
   return {
@@ -397,21 +397,21 @@ export function PortfolioForm({
         </Field>
 
         <div className="flex flex-wrap gap-6 pt-1">
-          <label className="flex items-center gap-2.5 text-[0.85rem] text-foreground">
+          <label className="flex items-center gap-2.5 text-[0.85rem] text-neutral-700">
             <input
               type="checkbox"
               checked={draft.isVideo ?? false}
               onChange={(e) => update("isVideo", e.target.checked)}
-              className="h-4 w-4 rounded border-[rgba(10,10,10,0.2)] accent-blue-600"
+              className="h-4 w-4 rounded border-neutral-300 accent-blue-600"
             />
             Cover media is a video
           </label>
-          <label className="flex items-center gap-2.5 text-[0.85rem] text-foreground">
+          <label className="flex items-center gap-2.5 text-[0.85rem] text-neutral-700">
             <input
               type="checkbox"
               checked={draft.featured}
               onChange={(e) => update("featured", e.target.checked)}
-              className="h-4 w-4 rounded border-[rgba(10,10,10,0.2)] accent-blue-600"
+              className="h-4 w-4 rounded border-neutral-300 accent-blue-600"
             />
             Feature on homepage
           </label>
@@ -437,16 +437,16 @@ export function PortfolioForm({
               }
             }}
             onDrop={handlePhotoDrop}
-            className={`relative flex aspect-4/3 w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-4xl border-2 border-dashed bg-[rgba(36,35,35,0.35)] transition-colors hover:border-blue-600/40 ${
-              isDraggingPhotos ? "border-blue-600 bg-blue-600/10" : "border-[rgba(10,10,10,0.15)]"
+            className={`relative flex aspect-4/3 w-full cursor-pointer flex-col items-center justify-center overflow-hidden rounded-[1.5rem] border-2 border-dashed bg-neutral-50 transition-colors hover:border-blue-600/40 ${
+              isDraggingPhotos ? "border-blue-600 bg-blue-600/5" : "border-neutral-300"
             }`}
           >
             <div className="flex flex-col items-center gap-2 px-6 text-center">
-              <FaCloudUploadAlt className="h-6 w-6 text-muted-foreground" />
-              <p className="text-[0.85rem] font-medium text-foreground">
+              <FaCloudUploadAlt className="h-6 w-6 text-neutral-400" />
+              <p className="text-[0.85rem] font-semibold text-neutral-700">
                 Click to upload photos
               </p>
-              <p className="text-[0.75rem] text-muted-foreground">Or drag and drop PNG or JPG files here, up to ~5MB each</p>
+              <p className="text-[0.75rem] text-neutral-400">Or drag and drop PNG or JPG files here, up to ~5MB each</p>
             </div>
           </div>
           <input
@@ -468,7 +468,7 @@ export function PortfolioForm({
                   key={`${src}-${index}`}
                   type="button"
                   onClick={() => setActiveImageIndex(index)}
-                  className="group relative aspect-square overflow-hidden rounded-xl border border-white/10"
+                  className="group relative aspect-square overflow-hidden rounded-xl border border-neutral-200"
                 >
                   <Image src={src} alt={`Added project image ${index + 1}`} fill className="object-cover" />
                   <span
@@ -487,32 +487,35 @@ export function PortfolioForm({
           )}
         </Field>
 
-        <div className="rounded-4xl border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.3)] p-5">
-          <p className="text-[0.8rem] font-medium text-foreground">Live preview</p>
-          <p className="mt-1 text-[0.78rem] leading-normal text-muted-foreground">
+        <div className="rounded-[1.5rem] border border-neutral-200 bg-white p-5 shadow-[0_18px_50px_rgba(15,23,42,0.05)]">
+          <p className="font-display text-[0.85rem] font-semibold text-neutral-900">Live preview</p>
+          <p className="mt-1.5 text-[0.8rem] leading-normal text-neutral-500">
             {draft.title || "Project title"} · {draft.location || "Location"}
           </p>
-          <p className="mt-2 text-[0.78rem] leading-normal text-muted-foreground line-clamp-3">
+          <p className="mt-2 text-[0.8rem] leading-[1.6] text-neutral-500 line-clamp-3">
             {draft.summary || "Your project summary will appear here as you type."}
           </p>
         </div>
       </div>
 
       {/* Sticky action bar */}
-      <div className="flex items-center justify-end gap-3 border-t border-[rgba(10,10,10,0.08)] pt-6 lg:col-span-2">
+      <div className="flex items-center justify-end gap-3 border-t border-neutral-200 pt-6 lg:col-span-2">
         <button
           type="button"
           onClick={() => router.push("/admin/portfolio")}
-          className="rounded-full border border-[rgba(10,10,10,0.08)] px-5 py-2.5 text-[0.85rem] font-medium text-foreground transition-colors hover:bg-foreground/5"
+          className="rounded-full border border-neutral-300 px-5 py-2.5 text-[0.85rem] font-semibold text-neutral-700 transition-colors hover:bg-neutral-100"
         >
           Cancel
         </button>
         <button
           type="submit"
           disabled={isPending}
-          className="rounded-full bg-blue-600 px-6 py-2.5 text-[0.85rem] font-semibold text-white transition-colors hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
+          className="inline-flex items-center gap-3 rounded-2xl bg-blue-600 py-1.5 pl-5 pr-1.5 text-base font-medium text-white transition-all duration-300 ease-out hover:bg-blue-700 active:scale-95 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {isPending ? "Saving..." : submitLabel}
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-white text-blue-600">
+            <FaArrowRight className="h-3.5 w-3.5" />
+          </span>
         </button>
       </div>
     </form>
@@ -520,7 +523,7 @@ export function PortfolioForm({
     <Dialog.Root open={activeImageIndex !== null && galleryPreviews.length > 0} onOpenChange={(open) => !open && setActiveImageIndex(null)}>
       <Dialog.Portal>
         <Dialog.Overlay className="fixed inset-0 z-50 bg-black/80" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-[92vh] w-[min(56rem,94vw)] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-3xl border border-white/10 bg-background p-4 shadow-2xl outline-none">
+        <Dialog.Content className="fixed left-1/2 top-1/2 z-50 max-h-[92vh] w-[min(56rem,94vw)] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-3xl border border-neutral-200 bg-white p-4 shadow-2xl outline-none">
           <Dialog.Title className="sr-only">Project image preview</Dialog.Title>
           <Dialog.Close className="absolute right-4 top-4 z-10 rounded-full bg-black/60 p-2 text-white"><FaTimes /></Dialog.Close>
           {activeImageIndex !== null && galleryPreviews[activeImageIndex] && (
@@ -533,7 +536,7 @@ export function PortfolioForm({
               </div>
               <div className="hide-scrollbar flex gap-2 overflow-x-auto pb-1">
                 {galleryPreviews.map((src, index) => (
-                  <button key={`${src}-modal-${index}`} type="button" onClick={() => setActiveImageIndex(index)} className={`relative h-16 w-16 flex-none overflow-hidden rounded-xl border ${index === activeImageIndex ? "border-blue-500" : "border-white/10"}`}>
+                  <button key={`${src}-modal-${index}`} type="button" onClick={() => setActiveImageIndex(index)} className={`relative h-16 w-16 flex-none overflow-hidden rounded-xl border ${index === activeImageIndex ? "border-blue-500" : "border-neutral-200"}`}>
                     <Image src={src} alt={`Thumbnail ${index + 1}`} fill className="object-cover" />
                   </button>
                 ))}
@@ -547,12 +550,12 @@ export function PortfolioForm({
     <AlertDialog.Root open={removeIndex !== null} onOpenChange={(open) => !open && setRemoveIndex(null)}>
       <AlertDialog.Portal>
         <AlertDialog.Overlay className="fixed inset-0 z-60 bg-black/70" />
-        <AlertDialog.Content className="fixed left-1/2 top-1/2 z-60 w-[min(24rem,92vw)] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-white/10 bg-background p-6 shadow-2xl">
-          <AlertDialog.Title className="font-display text-lg font-semibold text-foreground">Remove image?</AlertDialog.Title>
-          <AlertDialog.Description className="mt-2 text-sm text-muted-foreground">This image will be removed from the project image list.</AlertDialog.Description>
+        <AlertDialog.Content className="fixed left-1/2 top-1/2 z-60 w-[min(24rem,92vw)] -translate-x-1/2 -translate-y-1/2 rounded-2xl border border-neutral-200 bg-white p-6 shadow-2xl">
+          <AlertDialog.Title className="font-display text-lg font-semibold text-neutral-900">Remove image?</AlertDialog.Title>
+          <AlertDialog.Description className="mt-2 text-sm text-neutral-500">This image will be removed from the project image list.</AlertDialog.Description>
           <div className="mt-6 flex justify-end gap-3">
-            <AlertDialog.Cancel className="rounded-full border border-white/10 px-4 py-2 text-sm">Cancel</AlertDialog.Cancel>
-            <AlertDialog.Action onClick={() => removeIndex !== null && removeGalleryImage(removeIndex)} className="rounded-full bg-red-600 px-4 py-2 text-sm font-semibold text-white">Remove</AlertDialog.Action>
+            <AlertDialog.Cancel className="rounded-full border border-neutral-300 px-4 py-2 text-sm font-semibold text-neutral-700 hover:bg-neutral-100">Cancel</AlertDialog.Cancel>
+            <AlertDialog.Action onClick={() => removeIndex !== null && removeGalleryImage(removeIndex)} className="rounded-full bg-red-600 px-4 py-2 text-sm font-semibold text-white hover:bg-red-700">Remove</AlertDialog.Action>
           </div>
         </AlertDialog.Content>
       </AlertDialog.Portal>

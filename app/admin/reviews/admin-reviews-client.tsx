@@ -33,25 +33,25 @@ function SelectField({
     <Select.Root value={value} onValueChange={onChange}>
       <Select.Trigger
         aria-label={ariaLabel}
-        className="inline-flex items-center gap-2 rounded-full border border-[rgba(10,10,10,0.08)] bg-[rgba(36,35,35,0.5)] px-4 py-2.5 text-[0.85rem] font-medium text-foreground outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+        className="inline-flex items-center gap-2 rounded-full border border-neutral-300 bg-white px-4 py-2.5 text-[0.85rem] font-medium text-neutral-900 outline-none transition-colors focus-visible:border-blue-600 focus-visible:ring-2 focus-visible:ring-blue-600/15"
       >
         <Select.Value />
         <Select.Icon>
-          <FaChevronDown className="h-2.5 w-2.5 text-muted-foreground" />
+          <FaChevronDown className="h-2.5 w-2.5 text-neutral-400" />
         </Select.Icon>
       </Select.Trigger>
       <Select.Portal>
         <Select.Content
           position="popper"
           sideOffset={8}
-          className="z-50 overflow-hidden rounded-xl border border-[rgba(10,10,10,0.08)] bg-background shadow-xl"
+          className="z-50 overflow-hidden rounded-xl border border-neutral-200 bg-white shadow-[0_18px_50px_rgba(15,23,42,0.12)]"
         >
           <Select.Viewport className="p-1.5">
             {items.map((item) => (
               <Select.Item
                 key={item.value}
                 value={item.value}
-                className="flex cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-2 text-[0.85rem] text-foreground outline-none data-highlighted:bg-blue-600/10 data-highlighted:text-blue-600"
+                className="flex cursor-pointer items-center justify-between gap-3 rounded-lg px-3 py-2 text-[0.85rem] text-neutral-900 outline-none data-highlighted:bg-blue-600/10 data-highlighted:text-blue-600"
               >
                 <Select.ItemText>{item.label}</Select.ItemText>
                 <Select.ItemIndicator>
@@ -178,7 +178,7 @@ export function AdminReviewsClient({ initialReviews }: { initialReviews: Review[
       </div>
 
       {filtered.length === 0 ? (
-        <p className="mt-16 text-center text-muted-foreground">No reviews match those filters.</p>
+        <p className="mt-16 text-center text-neutral-500">No reviews match those filters.</p>
       ) : (
         <div className="space-y-3">
           {filtered.map((review) => (
