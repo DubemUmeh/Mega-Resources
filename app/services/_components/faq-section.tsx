@@ -36,7 +36,7 @@ export default function FaqSection() {
       <div className="mx-auto w-[min(100%,76rem)]">
         <div className="flex flex-col gap-12 lg:flex-row lg:gap-24">
           <div className="lg:w-1/3">
-            <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+            <span className="font-brand text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
               FAQ
             </span>
             <h2 className="mt-4 font-display text-[1.75rem] font-semibold leading-[1.2] tracking-tight text-foreground md:text-[2.25rem]">
@@ -55,7 +55,7 @@ export default function FaqSection() {
                     onClick={() => setOpen(isOpen ? null : idx)}
                     className="flex w-full items-center justify-between gap-6 py-6 text-left"
                   >
-                    <span className="font-display tracking-wider text-[0.98rem] font-semibold text-foreground md:text-base">
+                    <span className="font-brand tracking-wider text-[0.98rem] font-semibold text-foreground md:text-base">
                       {f.q}
                     </span>
                     <span
@@ -73,7 +73,7 @@ export default function FaqSection() {
                       isOpen ? "max-h-40 pb-6 opacity-100" : "max-h-0 opacity-0"
                     }`}
                   >
-                    <p className="max-w-xl text-[0.92rem] font-sans tracking-wide leading-[1.65] text-muted-foreground">
+                    <p className="max-w-xl text-[0.92rem] font-body tracking-wide leading-[1.65] text-muted-foreground">
                       {f.a}
                     </p>
                   </div>

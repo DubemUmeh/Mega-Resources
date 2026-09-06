@@ -41,11 +41,11 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 w-full max-w-xl">
-        <div data-hero-eyebrow className="text-[10px] uppercase tracking-widest text-gray-200 mb-8">drilling for your future</div>
+        <div data-hero-eyebrow className="font-brand text-[10px] uppercase tracking-widest text-gray-200 mb-8">drilling for your future</div>
 
-        <h1 className="text-5xl md:text-7xl lg:text-[5.5rem] font-light leading-[1.05] tracking-tight mb-6">
+        <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] font-semibold leading-[1.05] tracking-tight mb-6 text-white">
           {HEADLINE.map((word, i) => (
-            <span key={i} className="block overflow-hidden font-sans">
+            <span key={i} className="block overflow-hidden font-display">
               <span data-word className="inline-block will-change-transform">
                 {word}
               </span>
@@ -53,7 +53,7 @@ export default function Hero() {
           ))}
         </h1>
 
-        <p data-hero-sub className="text-gray-300 text-sm tracking-wide leading-relaxed max-w-sm mb-4 font-light font-mono">
+        <p data-hero-sub className="font-body text-gray-300 text-sm tracking-wide leading-relaxed max-w-sm mb-4 font-normal">
           Reliable borehole drilling and clean water solutions across Ghana. Geological survey included on every job — we confirm water before we drill.
         </p>
 
@@ -63,11 +63,11 @@ export default function Hero() {
         </div> */}
 
         <div data-hero-cta className="flex flex-wrap items-center gap-4 mb-10">
-          <Link href='/quote' className="flex items-center gap-3 text-xs font-medium bg-white text-black rounded-full px-6 py-3.5 hover:bg-gray-200 transition-colors group">
+          <Link href='/quote' className="font-brand flex items-center gap-3 text-xs font-semibold bg-white text-black rounded-full px-6 py-3.5 hover:bg-gray-200 transition-colors group">
             Get a Free Site Survey
             <FaArrowRight className="transform -rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-[10px]" />
           </Link>
-          <button className="flex items-center gap-3 text-xs font-medium border border-white/25 rounded-full px-6 py-3.5 hover:bg-white/10 transition-colors text-white">
+          <button className="font-brand flex items-center gap-3 text-xs font-semibold border border-white/25 rounded-full px-6 py-3.5 hover:bg-white/10 transition-colors text-white">
             <FaWhatsapp className="text-sm" />
             024 XXX XXXX
           </button>
@@ -75,23 +75,15 @@ export default function Hero() {
 
         <div data-hero-meta className="flex flex-wrap gap-x-6 gap-y-2">
           {badges.map((b) => (
-            <span key={b} className="text-[9px] uppercase text-gray-400 font-semibold tracking-widest">
+            <span key={b} className="font-brand text-[9px] uppercase text-gray-400 font-semibold tracking-widest">
               {b}
             </span>
           ))}
         </div>
       </div>
 
-      {/* <div data-hero-side className="hidden md:flex absolute right-8 lg:right-24 top-1/2 -translate-y-1/2 flex-col items-center gap-4 text-[10px] font-light z-10">
-        <span className="text-white">01</span>
-        <span className="w-px h-6 bg-white/30"></span>
-        <span className="text-gray-300">02</span>
-        <span className="text-gray-300">03</span>
-        <span className="text-gray-300">04</span>
-      </div> */}
-
       <div data-hero-caption className="absolute bottom-12 right-8 lg:right-24 z-10 hidden md:flex items-center gap-4">
-        <div className="flex flex-col text-right text-[9px] tracking-[0.15em] uppercase text-gray-200 font-medium">
+        <div className="font-brand flex flex-col text-right text-[9px] tracking-[0.15em] uppercase text-gray-200 font-medium">
           <span>Building</span>
           <span>Sustainable</span>
           <span>Water Futures</span>

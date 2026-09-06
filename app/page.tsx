@@ -12,7 +12,7 @@ import HomeSchema from "./home-schema";
 
 export default function HomePage() {
   return (
-    <main className="text-white font-sans min-h-screen bg-background selection:bg-gray-800 selection:text-white">
+    <main className="text-white font-body min-h-screen bg-background selection:bg-gray-800 selection:text-white">
       <HomeSchema />
       <Hero />
       <section className="relative overflow-hidden bg-background/80">

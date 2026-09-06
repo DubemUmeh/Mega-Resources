@@ -203,13 +203,13 @@ export default function ServiceShowcase() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-popover">
+          <span className="font-brand text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-popover">
             Services
           </span>
           <h2 className="mt-4 max-w-2xl font-display text-[1.9rem] font-semibold leading-[1.2] tracking-tight text-foreground md:text-[2.5rem]">
             A closer look at what we do
           </h2>
-          <p className="mt-4 max-w-2xl text-base tracking-wider leading-[1.75] text-popover">
+          <p className="font-body mt-4 max-w-2xl text-base tracking-wider leading-[1.75] text-popover">
             The seven services below represent seven distinct disciplines —
             from the first geophysical reading on your land to the pump
             that finally puts water in your hands. Scroll on to move
@@ -275,7 +275,7 @@ export default function ServiceShowcase() {
 
                     {/* Content */}
                     <div className="relative z-10 flex max-w-3xl flex-col items-center gap-6 px-6 text-center">
-                      <span className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">
+                      <span className="font-brand text-sm font-semibold uppercase tracking-[0.3em] text-white/70">
                         Service {service.num}
                       </span>
 
@@ -283,13 +283,13 @@ export default function ServiceShowcase() {
                         {service.title}
                       </h2>
 
-                      <p className="max-w-lg text-base leading-[1.6] text-white/80 md:text-lg">
+                      <p className="font-body max-w-lg text-base leading-[1.6] text-white/80 md:text-lg">
                         {service.desc}
                       </p>
 
                       <Link
                         href={`/services/${service.slug}`}
-                        className="mt-2 inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-popover/80 hover:text-foreground/80"
+                        className="font-brand mt-2 inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-popover/80 hover:text-foreground/80"
                       >
                         Learn more
                         <ArrowRight className="h-4 w-4" />
