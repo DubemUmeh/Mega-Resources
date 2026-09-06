@@ -81,7 +81,7 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
           <Reveal>
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold uppercase tracking-[0.12em] text-neutral-600 shadow-[0_8px_20px_rgba(15,23,42,0.05)] transition-colors hover:text-blue-600"
+              className="font-brand inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold uppercase tracking-[0.12em] text-neutral-600 shadow-[0_8px_20px_rgba(15,23,42,0.05)] transition-colors hover:text-blue-600"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               All Services
@@ -92,29 +92,29 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
             <Reveal delay={0.05}>
               <div className="flex flex-col gap-6">
                 <div className="flex items-center gap-3">
-                  <span className="font-display text-lg font-semibold text-blue-600">
+                  <span className="font-brand text-lg font-semibold text-blue-600">
                     {data.num}
                   </span>
                   <span className="h-px w-10 bg-neutral-300" />
-                  <span className="inline-flex items-center gap-2 rounded-full bg-blue-600/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-blue-600">
+                  <span className="font-brand inline-flex items-center gap-2 rounded-full bg-blue-600/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-blue-600">
                     {data.eyebrow}
                   </span>
                 </div>
 
                 <h1 className="font-display text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-foreground md:text-[3.25rem]">
                   {data.title}
-                  <span className="block text-neutral-600">
+                  <span className="block text-neutral-600 font-display">
                     {data.titleAccent}
                   </span>
                 </h1>
 
-                <p className="max-w-lg text-base leading-[1.7] text-foreground/70 tracking-wider">
+                <p className="font-body max-w-lg text-base leading-[1.7] text-foreground/70 tracking-wider">
                   {data.heroDescription}
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4 pt-2">
                   <ArrowCta href="/#contact" label="Request This Service" />
-                  <span className="text-base text-foreground/60">
+                  <span className="font-body text-base text-foreground/60">
                     {data.tagline}
                   </span>
                 </div>

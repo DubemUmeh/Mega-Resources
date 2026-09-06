@@ -66,7 +66,7 @@ export default async function SettingsPage() {
             </p>
           </div>
           <div className="mt-5 flex gap-2">
-            
+            <a
               href="/api/auth/google"
               className="rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-700"
             >

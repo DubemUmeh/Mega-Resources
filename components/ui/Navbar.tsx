@@ -50,9 +50,10 @@ const Navbar = () => {
     };
   }, [mobileOpen]);
 
-  useEffect(() => {
-    if (!mobileOpen) setOpenSubmenu(null);
-  }, [mobileOpen]);
+  const handleCloseMobileMenu = () => {
+    setMobileOpen(false);
+    setOpenSubmenu(null);
+  };
 
   return (
     <>
@@ -84,38 +85,41 @@ const Navbar = () => {
                   <div key={link.href}>
                     {link.children ? (
                       <DropdownMenu.Root>
-                        <DropdownMenu.Trigger className="flex items-center gap-1 rounded-full px-3 py-2 text-sm xl:text-lg font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-blue-600 data-[state=open]:bg-neutral-100 data-[state=open]:text-blue-600">
+                        <DropdownMenu.Trigger className="font-brand flex items-center gap-1 rounded-full px-3 py-2 text-sm xl:text-lg font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-blue-600 data-[state=open]:bg-neutral-100 data-[state=open]:text-blue-600">
                           {link.label} <FaChevronDown className="h-2.5 w-2.5" />
                         </DropdownMenu.Trigger>
                         <DropdownMenu.Content className="absolute left-1/2 top-full mt-3 w-136 -translate-x-1/2 rounded-3xl border border-neutral-200 bg-white z-100! p-4 shadow-2xl">
                           <div className="grid grid-cols-2 gap-2">
                             <DropdownMenu.Item asChild>
-                              <Link href={link.href} className="col-span-2 rounded-2xl bg-blue-600/10 p-4 text-sm font-semibold text-blue-600">Explore {link.label}</Link>
+                              <Link href={link.href} className="font-brand col-span-2 rounded-2xl bg-blue-600/10 p-4 text-sm font-semibold text-blue-600">Explore {link.label}</Link>
                             </DropdownMenu.Item>
                             {link.children.map((child) => (
                               <DropdownMenu.Item key={child.href} asChild>
-                                <Link key={child.href} href={child.href} className="rounded-2xl p-3 text-sm text-neutral-600 transition hover:bg-neutral-100 hover:text-blue-600 tracking-wide">{child.label}</Link>
+                                <Link key={child.href} href={child.href} className="font-brand rounded-2xl p-3 text-sm text-neutral-600 transition hover:bg-neutral-100 hover:text-blue-600 tracking-wide">{child.label}</Link>
                               </DropdownMenu.Item>
                             ))}
                           </div>
                         </DropdownMenu.Content>
                       </DropdownMenu.Root>
                     ) : (
-                      <Link href={link.href} className="rounded-full px-3 py-2 text-sm xl:text-lg font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-blue-600">{link.label}</Link>
+                      <Link href={link.href} className="font-brand rounded-full px-3 py-2 text-sm xl:text-lg font-medium text-neutral-600 transition-colors hover:bg-neutral-100 hover:text-blue-600">{link.label}</Link>
                     )}
                   </div>
                 ))}
               </div>
             </div>
 
-            <Link href='/quote' className="hidden w-fit items-center gap-2 rounded-full border border-neutral-200 px-6 py-2.5 group transition-colors duration-400 hover:cursor-pointer bg-blue-600/10 text-blue-600 hover:bg-blue-600 hover:text-white md:flex">
+            <Link href='/quote' className="font-brand hidden w-fit items-center gap-2 rounded-full border border-neutral-200 px-6 py-2.5 group transition-colors duration-400 hover:cursor-pointer bg-blue-600/10 text-blue-600 hover:bg-blue-600 hover:text-white md:flex text-sm font-semibold">
               Get a Quote <FaArrowRight className="-rotate-45 text-[10px] group-hover:rotate-0 transition-all duration-300" />
             </Link>
 
             {/* Mobile Menu Button */}
             <button
               className="rounded-full border border-neutral-200 p-2 text-foreground transition-colors hover:bg-neutral-100 md:hidden"
-              onClick={() => setMobileOpen(true)}
+              onClick={() => {
+                setMobileOpen(true);
+                setOpenSubmenu(null);
+              }}
               aria-label="Open menu"
             >
               <FaBars className="size-5" />
@@ -143,7 +147,7 @@ const Navbar = () => {
                 <Link
                   href="/"
                   aria-label="Mega Resources Logo"
-                  onClick={() => setMobileOpen(false)}
+                  onClick={handleCloseMobileMenu}
                   className="rounded-xl text-[0.6rem] font-semibold block"
                 >
                   <Mega_Logo
@@ -153,7 +157,7 @@ const Navbar = () => {
                 />
                 </Link>
                 <button
-                  onClick={() => setMobileOpen(false)}
+                  onClick={handleCloseMobileMenu}
                   aria-label="Close menu"
                   className="flex h-9 w-9 items-center justify-center rounded-full mr-3 p-1 border border-white/20 text-white transition-colors hover:bg-white/10 bg-foreground/20"
                 >
@@ -211,7 +215,7 @@ const Navbar = () => {
                                 <div className="flex flex-col gap-1 pl-8 pt-5">
                                   <Link
                                     href={link.href}
-                                    onClick={() => setMobileOpen(false)}
+                                    onClick={handleCloseMobileMenu}
                                     className="text-sm font-semibold uppercase tracking-[0.18em] text-blue-500 py-1.5"
                                   >
                                     Explore {link.label}
@@ -220,7 +224,7 @@ const Navbar = () => {
                                     <Link
                                       key={child.href}
                                       href={child.href}
-                                      onClick={() => setMobileOpen(false)}
+                                      onClick={handleCloseMobileMenu}
                                       className="group/child flex items-baseline gap-3 py-1.5 text-white/80 transition-colors hover:text-white"
                                     >
                                       <span className="text-xs font-semibold text-blue-500/80">
@@ -239,7 +243,7 @@ const Navbar = () => {
                       ) : (
                         <Link
                           href={link.href}
-                          onClick={() => setMobileOpen(false)}
+                          onClick={handleCloseMobileMenu}
                           className="group flex items-baseline gap-4 text-white"
                         >
                           <span className="text-sm font-semibold text-blue-500">
@@ -263,7 +267,7 @@ const Navbar = () => {
                 >
                   <Link
                     href='/quote'
-                    onClick={() => setMobileOpen(false)}
+                    onClick={handleCloseMobileMenu}
                     className="flex w-fit items-center justify-center gap-2 rounded-2xl mx-5 border border-white/20 py-3 px-6 text-white bg-white/10 transition-colors hover:bg-white hover:text-neutral-900"
                   >
                     Get a Quote{" "}

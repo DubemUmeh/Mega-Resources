@@ -39,10 +39,10 @@ export default function Footer() {
 
           {Object.entries(quickLinks).map(([category, items]) => (
             <div className="col-span-1 w-fit" key={category}>
-              <h4 className="mb-6 text-lg font-semibold uppercase tracking-[0.12em] text-neutral-800">
+              <h4 className="font-brand mb-6 text-lg font-semibold uppercase tracking-[0.12em] text-neutral-800">
                 {category}
               </h4>
-              <ul className="flex flex-col gap-3 text-base text-neutral-600">
+              <ul className="font-body flex flex-col gap-3 text-base text-neutral-600">
                 {items.map((item) => (
                   <Link
                     key={item.href}
@@ -57,7 +57,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="flex w-full flex-col items-center justify-between gap-4 border-t border-neutral-200 pt-8 text-base text-neutral-800 md:flex-row">
+        <div className="font-body flex w-full flex-col items-center justify-between gap-4 border-t border-neutral-200 pt-8 text-base text-neutral-800 md:flex-row">
           <div>© 2026 Mega Resources Ltd. All Rights Reserved.</div>
           <div className="flex w-fit gap-6">
             <Link href="/privacy-policy" className="cursor-pointer transition-colors hover:text-blue-600">Privacy Policy</Link>

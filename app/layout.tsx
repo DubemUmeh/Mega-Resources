@@ -1,7 +1,26 @@
 import type { Metadata } from "next";
+import { Fraunces, Manrope, Inter } from "next/font/google";
 import { createMetadata, siteConfig } from "@/lib/seo";
 import "./globals.css";
 import AppLayout from "./app-layout";
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  display: "swap",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 const iconMetadata: Pick<Metadata, "icons" | "manifest"> = {
   icons: {
@@ -32,9 +51,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${fraunces.variable} ${manrope.variable} ${inter.variable}`}>
       <body
-        className="antialiased min-h-screen"
+        className="antialiased min-h-screen font-body"
       >
         <AppLayout>
           {children}
