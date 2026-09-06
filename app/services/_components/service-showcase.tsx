@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 import { SplitText } from "gsap/SplitText";
 import { ArrowRight } from "lucide-react";
 import { servicesIndex } from "@/app/services/_components/service-index";
@@ -252,21 +253,40 @@ export default function ServiceShowcase() {
                     ref={(el) => {
                       if (el) bgsRef.current[i] = el;
                     }}
-                    className="relative flex h-full w-full items-center justify-center bg-cover bg-center"
-                    style={{
-                      backgroundImage: `linear-gradient(180deg, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.15) 100%), url(${service.img})`,
-                    }}
+                    className="relative flex h-full w-full items-center justify-center"
                   >
+                    <Image
+                      src={service.img}
+                      alt={service.title}
+                      fill
+                      priority={i === 0}
+                      sizes="100vw"
+                      className="object-cover object-center"
+                    />
+
+                    {/* Gradient */}
+                    <div
+                      className="absolute inset-0"
+                      style={{
+                        background:
+                          "linear-gradient(180deg, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.15) 100%)",
+                      }}
+                    />
+
+                    {/* Content */}
                     <div className="relative z-10 flex max-w-3xl flex-col items-center gap-6 px-6 text-center">
                       <span className="text-sm font-semibold uppercase tracking-[0.3em] text-white/70">
                         Service {service.num}
                       </span>
+
                       <h2 className="service-heading font-display text-[2.5rem] font-semibold leading-[1.05] tracking-tight text-white md:text-[4.5rem]">
                         {service.title}
                       </h2>
+
                       <p className="max-w-lg text-base leading-[1.6] text-white/80 md:text-lg">
                         {service.desc}
                       </p>
+
                       <Link
                         href={`/services/${service.slug}`}
                         className="mt-2 inline-flex items-center gap-2 rounded-full border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-popover/80 hover:text-foreground/80"
