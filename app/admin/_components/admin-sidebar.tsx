@@ -87,7 +87,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
         })}
       </nav>
 
-      <div className="border-t border-[rgba(10,10,10,0.08)] p-3">
+      <div className="border-t border-[rgba(10,10,10,0.08)] p-3 bg-popover/80">
         <a
           href="/api/auth/logout"
           onClick={onNavigate}
