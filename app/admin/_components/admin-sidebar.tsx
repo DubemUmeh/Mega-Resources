@@ -53,7 +53,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 
   return (
     <>
-      <div className="flex flex-col items-start gap-2.5 px-0 pb-7">
+      <div className="flex flex-col items-start gap-2.5 px-0 pb-7 bg-popover/80">
         <div className="w-full bg-gray-400 pt-5">
           <Mega_Logo logo_height="50" logo_width="200" className="rotate-1" />
         </div>
@@ -65,7 +65,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
         </p>
       </div>
 
-      <nav className="flex-1 space-y-1 px-3">
+      <nav className="flex-1 space-y-1 px-3 bg-popover/80">
         {NAV_ITEMS.map((item) => {
           const active = isActive(pathname, item.href, item.exact);
           const Icon = item.icon;
