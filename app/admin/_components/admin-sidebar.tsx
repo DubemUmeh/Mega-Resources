@@ -53,7 +53,7 @@ function SidebarContent({ onNavigate }: { onNavigate?: () => void }) {
 
   return (
     <>
-      <div className="flex flex-col items-start gap-2.5 px-0 pb-7 bg-popover/80">
+      <div className="flex flex-col items-start gap-2.5 px-0 pb-7">
         <div className="w-full bg-gray-400 pt-5">
           <Mega_Logo logo_height="50" logo_width="200" className="rotate-1" />
         </div>
@@ -105,9 +105,9 @@ export function AdminSidebar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <>
-      <aside className="fixed inset-y-0 left-0 z-40 hidden w-64 flex-none border-r border-[rgba(10,10,10,0.08)] bg-background/40 backdrop-blur-xl overflow-hidden lg:flex lg:flex-col">
-        <div aria-hidden="true" className={BG_GLOW} />
+    <div className='bg-popover/80'>
+      <aside className="fixed inset-y-0 left-0 z-40 hidden w-64 flex-none border-r border-[rgba(10,10,10,0.08)] bg-popover/80 backdrop-blur-xl overflow-hidden lg:flex lg:flex-col">
+        <div aria-hidden="true" />
         <SidebarContent />
       </aside>
 
@@ -124,7 +124,7 @@ export function AdminSidebar() {
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm data-[state=closed]:animate-out data-[state=open]:animate-in" />
           <Dialog.Content className="fixed inset-y-0 left-0 z-50 flex w-[min(20rem,85vw)] flex-col border-r border-white/10 bg-background/40 overflow-hidden shadow-2xl outline-none data-[state=closed]:animate-out data-[state=closed]:slide-out-to-left data-[state=open]:animate-in data-[state=open]:slide-in-from-left lg:hidden">
-            <div aria-hidden="true" className={BG_GLOW} />
+            <div aria-hidden="true" />
             <Dialog.Title className="sr-only">
               Admin navigation menu
             </Dialog.Title>
@@ -141,6 +141,6 @@ export function AdminSidebar() {
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>
-    </>
+    </div>
   );
 }
