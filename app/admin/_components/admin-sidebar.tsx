@@ -17,13 +17,29 @@ import {
 } from "react-icons/fa";
 import { LogOutIcon } from "lucide-react";
 import { Mega_Logo } from "@/components/logo";
+import { BG_GLOW } from "@/components/motion-kit";
 
 const NAV_ITEMS = [
   { href: "/admin", label: "Overview", icon: FaTachometerAlt, exact: true },
   { href: "/admin/reviews", label: "Reviews", icon: FaStar, exact: false },
-  { href: "/admin/portfolio", label: "Portfolio", icon: FaImages, exact: false },
-  { href: "/admin/contact-requests", label: "Contact Requests", icon: FaEnvelope, exact: false },
-  { href: "/admin/quote-requests", label: "Quote Requests", icon: FaFileInvoice, exact: false },
+  {
+    href: "/admin/portfolio",
+    label: "Portfolio",
+    icon: FaImages,
+    exact: false,
+  },
+  {
+    href: "/admin/contact-requests",
+    label: "Contact Requests",
+    icon: FaEnvelope,
+    exact: false,
+  },
+  {
+    href: "/admin/quote-requests",
+    label: "Quote Requests",
+    icon: FaFileInvoice,
+    exact: false,
+  },
   { href: "/admin/settings", label: "Settings", icon: FaCog, exact: false },
 ];
 
@@ -90,7 +106,8 @@ export function AdminSidebar() {
 
   return (
     <>
-      <aside className="fixed inset-y-0 left-0 z-40 hidden w-64 flex-none border-r border-[rgba(10,10,10,0.08)] bg-[rgba(20,20,20,0.6)] backdrop-blur-xl lg:flex lg:flex-col">
+      <aside className="fixed inset-y-0 left-0 z-40 hidden w-64 flex-none border-r border-[rgba(10,10,10,0.08)] bg-background/40 backdrop-blur-xl relative overflow-hidden lg:flex lg:flex-col">
+        <div className={BG_GLOW} />
         <SidebarContent />
       </aside>
 
@@ -98,7 +115,7 @@ export function AdminSidebar() {
         <Dialog.Trigger asChild>
           <button
             type="button"
-            className="fixed left-4 top-4 z-50 inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-background/85 text-white shadow-lg backdrop-blur lg:hidden"
+            className="fixed left-4 top-4 z-50 inline-flex h-11 w-11 items-center justify-center rounded-full border border-black/30 bg-background/85 text-natuaral-600 shadow-lg backdrop-blur lg:hidden"
             aria-label="Open admin menu"
           >
             <FaBars className="h-4 w-4" />
@@ -106,8 +123,11 @@ export function AdminSidebar() {
         </Dialog.Trigger>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm data-[state=closed]:animate-out data-[state=open]:animate-in" />
-          <Dialog.Content className="fixed inset-y-0 left-0 z-50 flex w-[min(20rem,85vw)] flex-col border-r border-white/10 bg-background shadow-2xl outline-none data-[state=closed]:animate-out data-[state=closed]:slide-out-to-left data-[state=open]:animate-in data-[state=open]:slide-in-from-left lg:hidden">
-            <Dialog.Title className="sr-only">Admin navigation menu</Dialog.Title>
+          <Dialog.Content className="fixed inset-y-0 left-0 z-50 flex w-[min(20rem,85vw)] flex-col border-r border-white/10 bg-background/40 relative overflow-hidden shadow-2xl outline-none data-[state=closed]:animate-out data-[state=closed]:slide-out-to-left data-[state=open]:animate-in data-[state=open]:slide-in-from-left lg:hidden">
+            <div className={BG_GLOW} />
+            <Dialog.Title className="sr-only">
+              Admin navigation menu
+            </Dialog.Title>
             <Dialog.Close asChild>
               <button
                 type="button"

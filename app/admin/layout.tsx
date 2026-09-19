@@ -14,7 +14,11 @@ export const metadata: Metadata = createMetadata({
   noIndex: true,
 });
 
-export default async function AdminLayout({ children }: { children: React.ReactNode }) {
+export default async function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const session = await getAdminSession();
   if (!session) return <ToastProvider>{children}</ToastProvider>;
   return (
@@ -23,7 +27,9 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         <div className="min-h-screen w-full bg-background/50">
           <AdminSidebar />
           <main className="px-5 py-8 lg:pl-68 lg:pr-10 lg:py-10">
-            <div className="mx-auto w-full max-w-304">{children}</div>
+            <div className="mx-auto mt-10 md:mt-0 w-full max-w-304">
+              {children}
+            </div>
           </main>
         </div>
       </PortfolioProvider>

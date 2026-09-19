@@ -7,7 +7,7 @@ export default async function AdminLoginPage({
 
   return (
     <main className="min-h-screen bg-neutral-50 px-5 py-16 text-neutral-900">
-      <div className="mx-auto max-w-md rounded-[1.5rem] border border-neutral-200 bg-white p-8 text-center shadow-[0_18px_50px_rgba(15,23,42,0.06)]">
+      <div className="mx-auto max-w-md rounded-[1.5rem] border-2 border-neutral-300 bg-white p-8 text-center shadow-[0_18px_50px_rgba(15,23,42,0.06)]">
         <h1 className="font-display text-2xl font-semibold">Admin sign in</h1>
         <p className="mt-2 text-sm text-neutral-500">
           Use the authorized Google account connected to Gmail.
