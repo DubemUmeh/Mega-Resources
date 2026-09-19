@@ -106,8 +106,8 @@ export function AdminSidebar() {
 
   return (
     <>
-      <aside className="fixed inset-y-0 left-0 z-40 hidden w-64 flex-none border-r border-[rgba(10,10,10,0.08)] bg-background/40 backdrop-blur-xl relative overflow-hidden lg:flex lg:flex-col">
-        <div className={BG_GLOW} />
+      <aside className="fixed inset-y-0 left-0 z-40 hidden w-64 flex-none border-r border-[rgba(10,10,10,0.08)] bg-background/40 backdrop-blur-xl overflow-hidden lg:flex lg:flex-col">
+        <div aria-hidden="true" className={BG_GLOW} />
         <SidebarContent />
       </aside>
 
@@ -123,8 +123,8 @@ export function AdminSidebar() {
         </Dialog.Trigger>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm data-[state=closed]:animate-out data-[state=open]:animate-in" />
-          <Dialog.Content className="fixed inset-y-0 left-0 z-50 flex w-[min(20rem,85vw)] flex-col border-r border-white/10 bg-background/40 relative overflow-hidden shadow-2xl outline-none data-[state=closed]:animate-out data-[state=closed]:slide-out-to-left data-[state=open]:animate-in data-[state=open]:slide-in-from-left lg:hidden">
-            <div className={BG_GLOW} />
+          <Dialog.Content className="fixed inset-y-0 left-0 z-50 flex w-[min(20rem,85vw)] flex-col border-r border-white/10 bg-background/40 overflow-hidden shadow-2xl outline-none data-[state=closed]:animate-out data-[state=closed]:slide-out-to-left data-[state=open]:animate-in data-[state=open]:slide-in-from-left lg:hidden">
+            <div aria-hidden="true" className={BG_GLOW} />
             <Dialog.Title className="sr-only">
               Admin navigation menu
             </Dialog.Title>
