@@ -42,7 +42,7 @@ export function ScrollToTop() {
       aria-label="Chat with us on WhatsApp"
       className="fixed bottom-5 left-5 z-100 grid h- w- place-items-center rounded-full bg-[#25d366] shadow-xl backdrop-blur transition hover:scale-105"
     >
-      <FaWhatsapp className="h-10 w-10" />
+      <FaWhatsapp className="h-12 w-12" />
     </Link>
   );
 }
