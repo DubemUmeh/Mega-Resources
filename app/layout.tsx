@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Fraunces, Manrope, Inter } from "next/font/google";
 import { createMetadata, siteConfig } from "@/lib/seo";
 import "./globals.css";
@@ -52,6 +53,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${fraunces.variable} ${manrope.variable} ${inter.variable}`}>
+      <head>
+       <Script
+        async
+        src="//code.jivosite.com/widget/Kro6Czw7VL" />
+      </head>
       <body
         className="antialiased min-h-screen font-body"
       >
