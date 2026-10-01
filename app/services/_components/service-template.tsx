@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import {
   ArrowLeft,
   ArrowRight,
   CheckCircle2,
+  ChevronDown,
   Droplets,
   Gauge,
   Layers,
@@ -293,18 +295,31 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
               Frequently asked questions about {serviceName}
             </h2>
           </Reveal>
-          <div className="mt-8 divide-y divide-border rounded-[1.6rem] border border-border bg-background/60">
-            {data.faqs.map((faq) => (
-              <details key={faq.question} className="group p-6">
-                <summary className="cursor-pointer list-none pr-8 font-display text-base font-semibold text-foreground">
-                  {faq.question}
-                </summary>
-                <p className="mt-3 max-w-4xl text-[0.95rem] leading-[1.75] text-muted-foreground">
-                  {faq.answer}
-                </p>
-              </details>
+          <AccordionPrimitive.Root
+            type="multiple"
+            defaultValue={["0"]}
+            className="mt-8 flex flex-col gap-3"
+          >
+            {data.faqs.map((faq, i) => (
+              <AccordionPrimitive.Item
+                key={faq.question}
+                value={String(i)}
+                className="overflow-hidden rounded-[1.5rem] border border-neutral-200 bg-neutral-100 shadow-[0_18px_50px_rgba(15,23,42,0.05)] transition-colors data-[state=open]:border-blue-600/25 data-[state=open]:bg-white"
+              >
+                <AccordionPrimitive.Header>
+                  <AccordionPrimitive.Trigger className="group flex w-full items-center justify-between gap-4 px-5 py-5 text-left md:px-6">
+                    <span className="font-display text-base tracking-wider font-semibold text-neutral-900 md:text-[1.05rem]">
+                      {faq.question}
+                    </span>
+                    <ChevronDown className="h-4 w-4 flex-none text-neutral-400 transition-all duration-300 group-data-[state=open]:rotate-180 group-data-[state=open]:text-blue-600" />
+                  </AccordionPrimitive.Trigger>
+                </AccordionPrimitive.Header>
+                <AccordionPrimitive.Content className="overflow-hidden px-5 text-sm tracking-wide leading-[1.7] text-neutral-500 transition-[height] duration-300 ease-out data-[state=closed]:h-0 data-[state=open]:h-(--radix-accordion-content-height) md:px-6">
+                  <p className="pb-6">{faq.answer}</p>
+                </AccordionPrimitive.Content>
+              </AccordionPrimitive.Item>
             ))}
-          </div>
+          </AccordionPrimitive.Root>
         </div>
       </section>
 
