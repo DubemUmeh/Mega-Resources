@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { publicSitemapEntries } from "@/lib/programmatic-seo";
+import { boreholeSeoSitemapEntries } from "@/lib/borehole-seo";
 import { serviceSitemapEntries } from "@/lib/services";
 import { getPublishedPortfolio } from "@/db/actions/portfolio";
 import { absoluteUrl } from "@/lib/seo";
@@ -9,6 +10,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     ...publicSitemapEntries(),
+    ...boreholeSeoSitemapEntries(),
     ...serviceSitemapEntries(),
     ...projects.map((project) => ({
       url: absoluteUrl(`/portfolio/project/${project.slug}`),
