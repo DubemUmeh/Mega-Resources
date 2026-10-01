@@ -66,6 +66,24 @@ export const data: ServiceData = {
       description: "Correct sizing means less strain and fewer breakdowns.",
     },
   ],
+  faqs: [
+    {
+      "question": "Which type of borehole pump do I need?",
+      "answer": "The correct pump depends on borehole depth, tested yield, required flow, total head, water demand and available power. Mega Resources considers these factors before selecting a pump."
+    },
+    {
+      "question": "Can you install solar borehole pumps?",
+      "answer": "Yes. Solar pumping is one of the pump options offered for sites where solar power is appropriate for the required water demand."
+    },
+    {
+      "question": "Should I install a pump immediately after drilling?",
+      "answer": "The borehole should first be properly developed and its performance tested. Those results help prevent choosing a pump that is too large or too small for the well."
+    },
+    {
+      "question": "Do you test the pump after installation?",
+      "answer": "Yes. The installation process includes testing the system under operating conditions and checking flow and pressure before handover."
+    }
+  ],
   ctaHeading: "Have a borehole that needs a pump?",
   ctaBody:
     "We'll assess your well's yield and depth and recommend the pump system that fits — submersible, solar, or surface.",
