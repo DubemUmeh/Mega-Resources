@@ -66,6 +66,24 @@ export const data: ServiceData = {
       description: "Especially effective in basement-complex geology common across Ghana.",
     },
   ],
+  faqs: [
+    {
+      "question": "What is hydro-fracturing for a borehole?",
+      "answer": "Hydro-fracturing is a well-enhancement technique that uses controlled water pressure to open or extend existing fractures in suitable rock formations, improving groundwater flow into an existing borehole."
+    },
+    {
+      "question": "Can hydro-fracturing increase borehole yield?",
+      "answer": "It can improve yield in suitable low-yield boreholes where restricted groundwater flow through fractures is the limiting factor. Results depend on the geology and condition of the well."
+    },
+    {
+      "question": "Does hydro-fracturing use chemicals?",
+      "answer": "The process described by Mega Resources uses water under controlled pressure rather than introducing chemical additives into the formation."
+    },
+    {
+      "question": "Should I hydro-fracture before drilling another borehole?",
+      "answer": "If an existing borehole is structurally suitable but has low yield, assessment can determine whether rehabilitation or hydro-fracturing is a reasonable alternative to drilling a replacement well."
+    }
+  ],
   ctaHeading: "Getting less water than you expected?",
   ctaBody:
     "If your borehole was drilled correctly but the yield is low, hydro-fracturing may be the fix — without a new well.",
