@@ -66,6 +66,24 @@ export const data: ServiceData = {
       description: "Regular redevelopment keeps a borehole productive for longer.",
     },
   ],
+  faqs: [
+    {
+      "question": "When does a borehole need rehabilitation?",
+      "answer": "Common signs include reduced yield, cloudy or muddy water, increased sediment, declining performance or other changes from the borehole's previous operating condition."
+    },
+    {
+      "question": "Can an old borehole be restored instead of drilling a new one?",
+      "answer": "Often it can. The well should first be diagnosed to determine whether the problem is sediment, scaling, biological buildup, mechanical failure or another issue."
+    },
+    {
+      "question": "What does borehole rehabilitation involve?",
+      "answer": "Depending on the diagnosis, rehabilitation can include inspection, mechanical brushing, surging, airlifting and redevelopment to remove accumulated material and restore flow."
+    },
+    {
+      "question": "How much does borehole rehabilitation cost?",
+      "answer": "The cost depends on the borehole condition, depth, treatment required and equipment involved. Diagnosis is needed before a meaningful scope and quotation can be prepared."
+    }
+  ],
   ctaHeading: "Is your borehole underperforming?",
   ctaBody:
     "Before you write off an old well, let us diagnose it — rehabilitation restores many boreholes to full working order.",
