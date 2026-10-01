@@ -66,6 +66,24 @@ export const data: ServiceData = {
       description: "Leaves the borehole ready for an accurate pumping test.",
     },
   ],
+  faqs: [
+    {
+      "question": "What is air lifting in borehole development?",
+      "answer": "Compressed air is used to lift water, drilling mud, fines and loose sediment from the borehole so the casing and screen can develop clearer pathways for groundwater flow."
+    },
+    {
+      "question": "Why does a new borehole need development?",
+      "answer": "Drilling can leave mud, cuttings and fine sediment around the well. Development removes this material and helps the borehole reach stable performance before pumping tests and permanent pumping."
+    },
+    {
+      "question": "How do I know when a borehole is properly developed?",
+      "answer": "Development continues until the discharge becomes sufficiently clear and the flow stabilises according to the project's requirements, after which the borehole can be tested."
+    },
+    {
+      "question": "Can air lifting improve an old borehole?",
+      "answer": "Air lifting can be part of rehabilitation or redevelopment work where accumulated sediment and fines are contributing to poor borehole performance."
+    }
+  ],
   ctaHeading: "Just finished drilling?",
   ctaBody:
     "Let us develop your borehole properly before it's tested and pumped — it's the step that unlocks full performance.",

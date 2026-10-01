@@ -22,6 +22,130 @@ export type ProgrammaticSeoPage = PageSeo & {
   isProgrammatic?: boolean;
 };
 
+
+
+export const SERVICE_PAGE_SEO: ProgrammaticSeoPage[] = [
+  {
+    id: "service-borehole-drilling",
+    title: "Borehole Drilling Services in Ghana | Mega Resources LTD",
+    description: "Professional borehole drilling in Ghana, guided by groundwater surveys, site geology, proper casing, development and yield testing.",
+    path: "/services/borehole-drilling",
+    h1: "Borehole Drilling",
+    intent: "commercial",
+    summary: "Service page for clients looking for borehole drilling for homes, farms, businesses and institutions across Ghana.",
+    keywords: ["borehole drilling Ghana", "borehole drilling company Ghana", "borehole drilling services Ghana", "affordable borehole drilling Ghana", "best borehole drilling company Ghana"],
+    schema: ["WebPage", "BreadcrumbList"],
+    breadcrumbs: [{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Borehole Drilling", path: "/services/borehole-drilling" }],
+    priority: 0.9,
+  },
+  {
+    id: "service-pump-installation",
+    title: "Borehole Pump Installation in Ghana | Mega Resources LTD",
+    description: "Borehole pump installation in Ghana, including submersible, solar and surface pumps selected from borehole depth, yield and water demand.",
+    path: "/services/pump-installation",
+    h1: "Borehole Pump Installation",
+    intent: "commercial",
+    summary: "Service page for clients who need a correctly sized pump installed and commissioned.",
+    keywords: ["borehole pump installation Ghana", "water pump installation Ghana", "solar borehole pump Ghana", "professional pump installation Ghana", "affordable pump installation Ghana"],
+    schema: ["WebPage", "BreadcrumbList"],
+    breadcrumbs: [{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Pump Installation", path: "/services/pump-installation" }],
+    priority: 0.85,
+  },
+  {
+    id: "service-borehole-rehabilitation",
+    title: "Borehole Rehabilitation in Ghana | Mega Resources LTD",
+    description: "Restore underperforming boreholes with diagnosis, cleaning, surging, airlifting and redevelopment before considering a replacement well.",
+    path: "/services/borehole-rehabilitation",
+    h1: "Borehole Rehabilitation",
+    intent: "commercial",
+    summary: "Service page for owners dealing with reduced borehole yield, sediment or declining performance.",
+    keywords: ["borehole rehabilitation Ghana", "borehole repair Ghana", "borehole cleaning Ghana", "affordable borehole rehabilitation Ghana", "professional borehole rehabilitation Ghana"],
+    schema: ["WebPage", "BreadcrumbList"],
+    breadcrumbs: [{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Borehole Rehabilitation", path: "/services/borehole-rehabilitation" }],
+    priority: 0.85,
+  },
+  {
+    id: "service-hydro-fracturing",
+    title: "Borehole Hydro-Fracturing in Ghana | Mega Resources LTD",
+    description: "Hydro-fracturing for suitable low-yield boreholes in Ghana, using controlled water pressure to improve groundwater flow through existing fractures.",
+    path: "/services/hydro-fracturing",
+    h1: "Borehole Hydro-fracturing",
+    intent: "commercial",
+    summary: "Service page for suitable low-yield boreholes where groundwater flow through fractured rock is limited.",
+    keywords: ["borehole hydro-fracturing Ghana", "hydrofracturing Ghana", "low yield borehole Ghana", "professional hydro-fracturing Ghana", "affordable hydro-fracturing Ghana"],
+    schema: ["WebPage", "BreadcrumbList"],
+    breadcrumbs: [{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Hydro-fracturing", path: "/services/hydro-fracturing" }],
+    priority: 0.8,
+  },
+  {
+    id: "service-geological-surveys",
+    title: "Geological Surveys for Boreholes in Ghana | Mega Resources LTD",
+    description: "Geophysical and electrical resistivity surveys to identify promising groundwater targets and recommended borehole drill points in Ghana.",
+    path: "/services/geological-surveys",
+    h1: "Geological Surveys",
+    intent: "commercial",
+    summary: "Pre-drilling survey page for property owners who want groundwater investigation before mobilising a drilling rig.",
+    keywords: ["geological survey Ghana", "geophysical survey Ghana", "groundwater survey Ghana", "borehole survey Ghana", "best geological survey company Ghana"],
+    schema: ["WebPage", "BreadcrumbList"],
+    breadcrumbs: [{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Geological Surveys", path: "/services/geological-surveys" }],
+    priority: 0.8,
+  },
+  {
+    id: "service-pumping-tests",
+    title: "Borehole Pumping Tests in Ghana | Mega Resources LTD",
+    description: "Measure borehole response, recovery and sustainable yield with pumping tests used to guide reliable water-system and pump sizing.",
+    path: "/services/pumping-tests",
+    h1: "Borehole Pumping Tests",
+    intent: "commercial",
+    summary: "Testing page for establishing the sustainable performance of newly drilled or existing boreholes.",
+    keywords: ["borehole pumping test Ghana", "borehole yield test Ghana", "water well pumping test Ghana", "professional pumping tests Ghana", "borehole yield testing Ghana"],
+    schema: ["WebPage", "BreadcrumbList"],
+    breadcrumbs: [{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Pumping Tests", path: "/services/pumping-tests" }],
+    priority: 0.8,
+  },
+  {
+    id: "service-air-lifting-developing",
+    title: "Borehole Air Lifting & Development in Ghana | Mega Resources LTD",
+    description: "Develop drilled boreholes with compressed-air airlifting to remove drilling mud, fines and sediment and prepare the well for testing and pumping.",
+    path: "/services/air-lifting-developing",
+    h1: "Air Lifting & Borehole Development",
+    intent: "commercial",
+    summary: "Borehole-development page for clearing drilling debris and preparing a well for accurate testing and pumping.",
+    keywords: ["borehole air lifting Ghana", "borehole development Ghana", "airlifting borehole Ghana", "borehole cleaning Ghana", "professional borehole development Ghana"],
+    schema: ["WebPage", "BreadcrumbList"],
+    breadcrumbs: [{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Air Lifting / Developing", path: "/services/air-lifting-developing" }],
+    priority: 0.8,
+  },
+];
+
+export const SERVICE_SEO_LOCATIONS = [
+  { city: "Accra", region: "Greater Accra" },
+  { city: "Kumasi", region: "Ashanti" },
+  { city: "Tamale", region: "Northern" },
+  { city: "Sekondi-Takoradi", region: "Western" },
+  { city: "Cape Coast", region: "Central" },
+  { city: "Tema", region: "Greater Accra" },
+  { city: "Sunyani", region: "Bono" },
+  { city: "Koforidua", region: "Eastern" },
+  { city: "Obuasi", region: "Ashanti" },
+  { city: "Ho", region: "Volta" },
+  { city: "Wa", region: "Upper West" },
+  { city: "Bolgatanga", region: "Upper East" },
+  { city: "Techiman", region: "Bono East" },
+  { city: "Tarkwa", region: "Western" },
+  { city: "Ashaiman", region: "Greater Accra" },
+  { city: "Kasoa", region: "Central" },
+  { city: "Hohoe", region: "Volta" },
+  { city: "Aflao", region: "Volta" },
+  { city: "Winneba", region: "Central" },
+  { city: "Nkawkaw", region: "Eastern" },
+  { city: "Berekum", region: "Bono" },
+  { city: "Konongo", region: "Ashanti" },
+  { city: "Yendi", region: "Northern" },
+  { city: "Navrongo", region: "Upper East" },
+  { city: "Swedru", region: "Central" },
+] as const;
+
 export const PUBLIC_PAGE_SEO: ProgrammaticSeoPage[] = [
   {
     id: "home",
@@ -161,7 +285,7 @@ export const PUBLIC_PAGE_SEO: ProgrammaticSeoPage[] = [
 ];
 
 export function getPageSeo(path: string) {
-  return PUBLIC_PAGE_SEO.find((page) => page.path === path);
+  return [...PUBLIC_PAGE_SEO, ...SERVICE_PAGE_SEO].find((page) => page.path === path);
 }
 
 export function requirePageSeo(path: string) {
@@ -227,7 +351,7 @@ export function createPageSchema(page: ProgrammaticSeoPage) {
 
 export function publicSitemapEntries(): MetadataRoute.Sitemap {
   const now = new Date();
-  return PUBLIC_PAGE_SEO.map((page) => ({
+  return [...PUBLIC_PAGE_SEO, ...SERVICE_PAGE_SEO].map((page) => ({
     url: absoluteUrl(page.path),
     lastModified: now,
     changeFrequency: page.changeFrequency ?? "monthly",

@@ -42,6 +42,11 @@ export interface ServiceBenefit {
   description: string;
 }
 
+export interface ServiceFaq {
+  question: string;
+  answer: string;
+}
+
 export interface ServiceData {
   num: string;
   slug: string;
@@ -58,6 +63,7 @@ export interface ServiceData {
   quote: string;
   process: ServiceStep[];
   benefits: ServiceBenefit[];
+  faqs: ServiceFaq[];
   ctaHeading: string;
   ctaBody: string;
   next?: { slug: string; title: string };
@@ -275,6 +281,32 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
       </section>
 
 
+
+      {/* ----------------------------------------------------------- FAQ */}
+      <section className="relative bg-background/40 px-5 py-16 md:px-10 md:py-20">
+        <div className="mx-auto w-[min(100%,76rem)]">
+          <Reveal className="flex flex-col gap-3 md:max-w-2xl">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-neutral-200 bg-white px-3 py-1 text-sm font-semibold uppercase tracking-wider text-neutral-600">
+              FAQs
+            </span>
+            <h2 className="font-display text-2xl font-semibold text-foreground md:text-3xl">
+              Frequently asked questions about {serviceName}
+            </h2>
+          </Reveal>
+          <div className="mt-8 divide-y divide-border rounded-[1.6rem] border border-border bg-background/60">
+            {data.faqs.map((faq) => (
+              <details key={faq.question} className="group p-6">
+                <summary className="cursor-pointer list-none pr-8 font-display text-base font-semibold text-foreground">
+                  {faq.question}
+                </summary>
+                <p className="mt-3 max-w-4xl text-[0.95rem] leading-[1.75] text-muted-foreground">
+                  {faq.answer}
+                </p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ----------------------------------------------- INTERNAL LINKS */}
       {relatedLinks.length > 0 ? (
