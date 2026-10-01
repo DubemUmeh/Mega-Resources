@@ -66,6 +66,24 @@ export const data: ServiceData = {
       description: "A clear picture of the rock and soil layers on your land.",
     },
   ],
+  faqs: [
+    {
+      "question": "What is a geological survey for a borehole?",
+      "answer": "It investigates the subsurface to identify formations and locations that are more likely to contain usable groundwater before drilling begins."
+    },
+    {
+      "question": "How does electrical resistivity help locate groundwater?",
+      "answer": "Electrical resistivity measurements show how subsurface materials respond to an electrical current. Those readings can be interpreted to identify formations and depths that may be associated with groundwater."
+    },
+    {
+      "question": "Can a geological survey guarantee water?",
+      "answer": "No. A survey improves the basis for selecting a drill point, but groundwater conditions cannot be guaranteed from surface measurements alone."
+    },
+    {
+      "question": "How long does a geological survey take?",
+      "answer": "The time depends on the size and conditions of the site and the survey scope. The team can confirm the expected fieldwork duration when the property is assessed."
+    }
+  ],
   ctaHeading: "Planning to drill? Start with a survey.",
   ctaBody:
     "A geological survey tells us where the water is likely to be before we commit a rig to your land.",
