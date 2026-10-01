@@ -112,10 +112,10 @@ export function serviceSchema(service: ServiceData) {
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: service.process.map((step) => ({
+      mainEntity: service.faqs.map((faq) => ({
         "@type": "Question",
-        name: step.title,
-        acceptedAnswer: { "@type": "Answer", text: step.description },
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
       })),
     },
     breadcrumbSchema([
