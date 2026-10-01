@@ -66,6 +66,24 @@ export const data: ServiceData = {
       description: "Know your daily safe-yield figure for planning water use.",
     },
   ],
+  faqs: [
+    {
+      "question": "Why is a pumping test necessary?",
+      "answer": "It measures how the completed borehole responds to pumping and helps establish the yield that can be sustained over the required operating period."
+    },
+    {
+      "question": "How long does a borehole pumping test take?",
+      "answer": "The duration depends on the test design and project requirements. Step-drawdown and constant-rate testing may be used to understand the well's response and sustainable yield."
+    },
+    {
+      "question": "Does the pumping test determine which pump I need?",
+      "answer": "The test provides important yield and water-level data used when sizing the pump. Pump selection also considers borehole depth, required head, demand and power source."
+    },
+    {
+      "question": "Can a pumping test be done on an old borehole?",
+      "answer": "Yes. Testing can help establish the current performance of an existing borehole, particularly when investigating reduced yield or planning rehabilitation."
+    }
+  ],
   ctaHeading: "Just drilled a borehole?",
   ctaBody:
     "Before we install a pump, we test the well so it's sized to what your borehole can actually sustain.",
