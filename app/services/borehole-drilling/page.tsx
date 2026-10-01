@@ -66,6 +66,24 @@ export const data: ServiceData = {
       description: "Depth matched to the aquifer, not over- or under-drilled.",
     },
   ],
+  faqs: [
+    {
+      "question": "How deep can you drill a borehole?",
+      "answer": "Depth depends on the site's geology and the groundwater target. Mega Resources uses the survey results and drilling conditions to determine the appropriate depth rather than assuming the same depth for every site."
+    },
+    {
+      "question": "How much does borehole drilling cost?",
+      "answer": "Cost depends on factors such as geology, depth, casing, development, testing and the final water system. A site assessment gives a more useful basis for a quotation."
+    },
+    {
+      "question": "Do you install the pump after drilling?",
+      "answer": "Yes. After the borehole is developed and its yield is tested, the appropriate pump can be selected and installed based on the measured conditions."
+    },
+    {
+      "question": "Can you drill a borehole for a home or farm?",
+      "answer": "Yes. Boreholes can be designed for residential, agricultural, commercial, institutional and other water requirements, with the system sized to the intended demand."
+    }
+  ],
   ctaHeading: "Ready to sink a borehole on your land?",
   ctaBody:
     "We'll start with a geological survey to confirm the right spot, then drill and case your well from start to finish.",
