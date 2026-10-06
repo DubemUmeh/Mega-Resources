@@ -91,7 +91,6 @@ export const data: ServiceData = {
   related: [
     { slug: "borehole-drilling", title: "Borehole Drilling", reason: "Turn the strongest survey target into a productive well." },
     { slug: "hydro-fracturing", title: "Hydro-fracturing", reason: "Assess whether tight rock can be stimulated." },
-    { slug: "pumping-tests", title: "Pumping Tests", reason: "Validate groundwater potential with production data." },
   ],
 };
 
