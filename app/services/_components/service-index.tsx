@@ -12,7 +12,7 @@ export const servicesIndex: ServiceSummary[] = [
     num: "01",
     slug: "borehole-drilling",
     title: "Borehole Drilling",
-    desc: "100ft–400ft depth. Geophysical survey, drilling, and PVC casing to prevent collapse.",
+    desc: "100ft–350ft+ depth. Geophysical survey, drilling, and PVC casing to prevent collapse.",
     img: "/images/home/borehole-drilling.jpeg",
     icon: "map",
   },
