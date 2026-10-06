@@ -1,27 +1,21 @@
 const steps = [
   {
     num: "01",
-    title: "Free Site Visit & Survey",
-    desc: "We test your land and confirm water depth and cost. No obligation.",
-    tag: "Day 1–3",
+    title: "Site Visit & Survey at a token",
+    desc: "We test your land and confirm water depth and cost.",
+    tag: "A day Work",
   },
   {
     num: "02",
-    title: "Drilling & Casing",
-    desc: "2–4 days on site. We drill and protect the hole with PVC casing.",
-    tag: "Day 4–7",
+    title: "Drilling & Construction",
+    desc: "A day on site. We drill and construct the hole with PVC pipes.",
+    tag: "A day Work",
   },
   {
     num: "03",
-    title: "Pump & Tank Installation",
-    desc: "We install your pump and tank, then test water flow and quality.",
-    tag: "Day 8–12",
-  },
-  {
-    num: "04",
-    title: "Handover + Warranty",
-    desc: "Full training, a 2-year warranty, and support one call away.",
-    tag: "Day 13–14",
+    title: "Pump Installation",
+    desc: "We install submersible/hand pumps with fittings and accessories, and conduct pumping tests",
+    tag: "A day Work",
   },
 ];
 
