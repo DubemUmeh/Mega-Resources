@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+<title id="title">Water Quality Analysis</title>
+<desc id="desc">Illustration of a groundwater sample being tested in a laboratory.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f172a"/><stop offset="1" stop-color="#1e3a5f"/></linearGradient>
+  <linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
+</defs>
+<rect width="1200" height="900" fill="url(#bg)"/>
+<circle cx="950" cy="160" r="180" fill="#60a5fa" opacity=".12"/>
+<circle cx="180" cy="760" r="240" fill="#38bdf8" opacity=".08"/>
+<rect x="180" y="150" width="840" height="600" rx="48" fill="#f8fafc" opacity=".96"/>
+<rect x="250" y="220" width="300" height="430" rx="28" fill="#e2e8f0"/>
+<rect x="295" y="270" width="210" height="310" rx="18" fill="#fff"/>
+<path d="M330 390h140v150H330z" fill="url(#water)" opacity=".9"/>
+<path d="M330 390c35 18 65 18 100 0 35-18 65-18 40-18H330z" fill="#7dd3fc"/>
+<circle cx="400" cy="330" r="36" fill="#dbeafe" stroke="#2563eb" stroke-width="8"/>
+<path d="M400 308v44M378 330h44" stroke="#2563eb" stroke-width="8" stroke-linecap="round"/>
+<rect x="620" y="235" width="300" height="55" rx="27" fill="#dbeafe"/>
+<rect x="620" y="325" width="240" height="28" rx="14" fill="#cbd5e1"/>
+<rect x="620" y="385" width="280" height="28" rx="14" fill="#cbd5e1"/>
+<rect x="620" y="445" width="190" height="28" rx="14" fill="#cbd5e1"/>
+<rect x="620" y="535" width="260" height="90" rx="20" fill="#eff6ff"/>
+<circle cx="665" cy="580" r="22" fill="#2563eb"/><path d="M655 580l8 8 16-18" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="705" y="590" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#0f172a">Water Quality</text>
+<text x="705" y="625" font-family="Arial, sans-serif" font-size="18" fill="#475569">Laboratory analysis</text>
+</svg>
