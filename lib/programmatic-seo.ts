@@ -181,7 +181,7 @@ export const PUBLIC_PAGE_SEO: ProgrammaticSeoPage[] = [
   {
     id: "services",
     title: "Borehole Drilling Services in Ghana | Mega Resources LTD",
-    description: "Explore geological surveys, borehole drilling, pump installation, rehabilitation, hydro-fracturing, pumping tests, air lifting, and water quality analysis services in Ghana.",
+    description: "Explore geological surveys, borehole drilling, air lifting, pumping tests, water quality analysis, pump installation, rehabilitation, and hydro-fracturing services in Ghana.",
     path: "/services",
     h1: "Borehole drilling services in Ghana",
     intent: "commercial",
