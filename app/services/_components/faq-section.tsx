@@ -7,7 +7,7 @@ import { BG_GLOW } from "@/components/motion-kit";
 const faqs = [
   {
     q: "How deep can you drill a borehole?",
-    a: "Depth depends on local geology and groundwater conditions. Our geological survey determines the most suitable drilling depth before work begins, typically between 100ft and 400ft.",
+    a: "Depth depends on local geology and groundwater conditions. Our geological survey determines the most suitable drilling depth before work begins, typically between 100ft and 350ft+.",
   },
   {
     q: "Do I need a geological survey first?",
@@ -19,11 +19,11 @@ const faqs = [
   },
   {
     q: "Which pump should I install?",
-    a: "The right pump depends on borehole depth, yield, required water demand, and power availability. We confirm this with a pumping test before recommending a pump.",
+    a: "The right pump depends on borehole depth, yield, required water demand, and power availability. We confirm this before recommending a pump.",
   },
   {
     q: "How long does a full project take, start to finish?",
-    a: "A straightforward residential borehole, from survey to a commissioned pump, is usually completed within one to two weeks, weather and site access permitting.",
+    a: "For Domestic boreholes, from survey to a commissioned pump; Is usually completed within one to three days, weather and site access permitting. For Commercial boreholes, s usually completed within one to three weeks",
   },
 ];
 
