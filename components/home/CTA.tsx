@@ -31,11 +31,17 @@ const CTA = () => {
         <div className="lg:col-span-3 flex flex-col gap-8 text-sm tracking-wide font-light">
           <div>
             <div className="mb-1 text-gray-500 uppercase text-xs tracking-widest font-medium">Call Us</div>
-            <div className="text-gray-300">+233 24 123 4567<br />+233 54 987 6543</div>
+            <div className="text-gray-300">
+              <Link href="tel:+233243287420">+233 24 328 7420</Link>
+              <br />
+              <Link href="tel:+233596080824">+233 59 608 0824</Link>
+            </div>
           </div>
           <div>
             <div className="mb-1 text-gray-500 uppercase text-xs tracking-widest font-medium">Email Us</div>
-            <div className="text-gray-300">info@megaresourcesltd.com</div>
+            <div className="text-gray-300">
+              <Link href="mailto:info@megaresourcesgh.com">info@megaresourcesgh.com</Link>
+            </div>
           </div>
           <div>
             <div className="mb-1 text-gray-500 uppercase text-xs tracking-widest font-medium">Our Office</div>
@@ -43,7 +49,7 @@ const CTA = () => {
           </div>
           <div>
             <div className="mb-1 text-gray-500 uppercase text-xs tracking-widest font-medium">Hours</div>
-            <div className="text-gray-300">Mon–Sat, 8am–5pm<br />24/7 emergency support</div>
+            <div className="text-gray-300">Mon–fri, 8am–5pm</div>
           </div>
         </div>
 
