@@ -9,14 +9,14 @@ export type ServiceType =
   | "Water Quality Analysis";
 
 export const SERVICE_TYPES: ServiceType[] = [
+  "Geological Survey",
   "Borehole Drilling",
+  "Air Lifting / Developing of Borehole",
+  "Pumping Tests",
+  "Water Quality Analysis",
   "Pump Installation",
   "Borehole Rehabilitation",
   "Hydro-fracturing",
-  "Geological Survey",
-  "Pumping Tests",
-  "Air Lifting / Developing of Borehole",
-  "Water Quality Analysis",
 ];
 
 export type ReviewStatus = "pending" | "approved" | "rejected";
@@ -60,14 +60,14 @@ export type PortfolioService =
   | "Water Quality Analysis";
 
 export const PORTFOLIO_SERVICES: PortfolioService[] = [
+  "Geological Surveys",
   "Borehole Drilling",
+  "Air Lifting / Developing of Borehole",
+  "Pumping Tests",
+  "Water Quality Analysis",
   "Pump Installation",
   "Borehole Rehabilitation",
   "Hydro-fracturing",
-  "Geological Surveys",
-  "Pumping Tests",
-  "Air Lifting / Developing of Borehole",
-  "Water Quality Analysis",
 ];
 
 export type Region =
