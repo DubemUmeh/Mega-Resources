@@ -87,7 +87,7 @@ export const data: ServiceData = {
   ctaHeading: "Planning to drill? Start with a survey.",
   ctaBody:
     "A geological survey tells us where the water is likely to be before we commit a rig to your land.",
-  next: { slug: "pumping-tests", title: "Pumping Tests" },
+  next: { slug: "borehole-drilling", title: "Borehole Drilling" },
   related: [
     { slug: "borehole-drilling", title: "Borehole Drilling", reason: "Turn the strongest survey target into a productive well." },
     { slug: "hydro-fracturing", title: "Hydro-fracturing", reason: "Assess whether tight rock can be stimulated." },
