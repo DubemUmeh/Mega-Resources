@@ -66,7 +66,7 @@ export default function Hero() {
             Get a Free Quote
             <FaArrowRight className="transform -rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-[10px]" />
           </Link>
-          <Link href="https://wa.me/233243287420" className="font-brand flex items-center gap-3 text-xs font-semibold border border-white/25 rounded-full px-6 py-3.5 hover:bg-white/10 transition-colors text-white">
+          <Link href="https://wa.me/233243287420" target="_blank" rel="noopener noreferrer" className="font-brand flex items-center gap-3 text-xs font-semibold border border-white/25 rounded-full px-6 py-3.5 hover:bg-white/10 transition-colors text-white">
             <FaWhatsapp className="text-sm" />
             024 328 7420
           </button>
