@@ -91,7 +91,6 @@ export const data: ServiceData = {
   related: [
     { slug: "pump-installation", title: "Pump Installation", reason: "Select the right pump from the test curve." },
     { slug: "borehole-rehabilitation", title: "Borehole Rehabilitation", reason: "Investigate weak yields before redrilling." },
-    { slug: "air-lifting-developing", title: "Air Lifting / Developing", reason: "Clear fines before final test readings." },
   ],
 };
 
