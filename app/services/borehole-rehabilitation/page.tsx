@@ -91,7 +91,6 @@ export const data: ServiceData = {
   related: [
     { slug: "air-lifting-developing", title: "Air Lifting / Developing", reason: "Clear loosened sediment after cleaning work." },
     { slug: "pumping-tests", title: "Pumping Tests", reason: "Measure recovery after rehabilitation." },
-    { slug: "pump-installation", title: "Pump Installation", reason: "Replace worn pumps only after well performance is restored." },
   ],
 };
 
