@@ -69,7 +69,7 @@ export default function Hero() {
           <Link href="https://wa.me/233243287420" target="_blank" rel="noopener noreferrer" className="font-brand flex items-center gap-3 text-xs font-semibold border border-white/25 rounded-full px-6 py-3.5 hover:bg-white/10 transition-colors text-white">
             <FaWhatsapp className="text-sm" />
             024 328 7420
-          </button>
+          </Link>
         </div>
 
         <div data-hero-meta className="flex flex-wrap gap-x-6 gap-y-2">
