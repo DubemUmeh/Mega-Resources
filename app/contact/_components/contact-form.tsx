@@ -8,14 +8,14 @@ import { MultiSelectField } from "@/components/ui/multi-select";
 import { submitContactForm } from "@/db/actions/contact";
 
 const serviceOptions = [
+  "Geological Survey",
   "Borehole Drilling",
+  "Air Lifting / Developing",
+  "Pumping Test",
+  "Water Quality Analysis",
   "Pump Installation",
   "Borehole Rehabilitation",
   "Hydro-fracturing",
-  "Geological Survey",
-  "Pumping Test",
-  "Air Lifting / Developing",
-  "Water Quality Analysis",
   "Not sure yet",
 ];
 
