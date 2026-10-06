@@ -11,18 +11,18 @@ export const data: ServiceData = {
   titleAccent: "Drilling",
   tagline: "The foundation of every water project we deliver.",
   heroDescription:
-    "We drill boreholes to depths of 100ft–400ft, guided by a geophysical survey and finished with PVC casing that keeps the well clear, stable, and productive for decades.",
+    "We drill boreholes to depths of 100ft–350ft+, guided by a geophysical survey and finished with PVC construction that keeps the well clear, stable, and productive for decades.",
   img: "/images/home/borehole-drilling.jpeg",
   icon: "map",
   overviewHeading: "What Borehole Drilling Involves",
   overviewParagraphs: [
-    "Borehole drilling is the process of creating a vertical well that reaches down into a water-bearing rock layer, or aquifer, so groundwater can be pumped up to the surface. Depth varies by location — in most of Ghana, productive boreholes sit anywhere between 100ft and 400ft, depending on the local geology.",
+    "Borehole drilling is the process of creating a vertical well that reaches down into a water-bearing rock layer, or aquifer, so groundwater can be pumped up to the surface. Depth varies by location — in most of Ghana, productive boreholes sit anywhere between 100ft and 350ft+, depending on the local geology.",
     "Before any drilling starts, we use the results of a geophysical survey to choose the exact drill point most likely to intersect a strong aquifer. Once drilling begins, we rotary-drill through the overburden and into bedrock, monitoring the strata as we go so we know precisely where water is entering the hole.",
     "As the borehole is completed, we install PVC casing along its length. The casing prevents the surrounding soil and loose rock from collapsing into the well, keeps out surface contamination, and creates a clean, uninterrupted column of water for the pump to draw from.",
   ],
   overviewBullets: [
-    "Depths engineered to your site's geology, from 100ft to 400ft",
-    "Casing sized and slotted to match the aquifer's yield",
+    "Depths engineered to your site's geology, from 100ft to 350ft+",
+    "Construction sized and slotted to match the aquifer's yield",
     "Cuttings and drilling records kept for every well we sink",
   ],
   quote:
@@ -71,7 +71,7 @@ export const data: ServiceData = {
       "question": "How deep can you drill a borehole?",
       "answer": "Depth depends on the site's geology and the groundwater target. Mega Resources uses the survey results and drilling conditions to determine the appropriate depth rather than assuming the same depth for every site."
     },
-    {
+    { 
       "question": "How much does borehole drilling cost?",
       "answer": "Cost depends on factors such as geology, depth, casing, development, testing and the final water system. A site assessment gives a more useful basis for a quotation."
     },
