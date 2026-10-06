@@ -47,8 +47,8 @@ const services = [
   },
   {
     num: "08",
-    title: "Water Quality\nAnalysis",
-    desc: "Test groundwater quality to identify treatment needs and support safer water use.",
+    title: "Water Quality Analysis",
+    desc: "Analyse water quality to guide safe use, treatment, and system decisions.",
     img: "/images/home/water-quality-analysis.svg",
   },
 ];

@@ -1,26 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
 <title id="title">Water Quality Analysis</title>
-<desc id="desc">Illustration of a groundwater sample being tested in a laboratory.</desc>
+<desc id="desc">Illustration of a water sample, testing flask and quality indicators.</desc>
 <defs>
-  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f172a"/><stop offset="1" stop-color="#1e3a5f"/></linearGradient>
-  <linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#eff6ff"/><stop offset="1" stop-color="#dbeafe"/></linearGradient>
+  <linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#60a5fa"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
 </defs>
-<rect width="1200" height="900" fill="url(#bg)"/>
-<circle cx="950" cy="160" r="180" fill="#60a5fa" opacity=".12"/>
-<circle cx="180" cy="760" r="240" fill="#38bdf8" opacity=".08"/>
-<rect x="180" y="150" width="840" height="600" rx="48" fill="#f8fafc" opacity=".96"/>
-<rect x="250" y="220" width="300" height="430" rx="28" fill="#e2e8f0"/>
-<rect x="295" y="270" width="210" height="310" rx="18" fill="#fff"/>
-<path d="M330 390h140v150H330z" fill="url(#water)" opacity=".9"/>
-<path d="M330 390c35 18 65 18 100 0 35-18 65-18 40-18H330z" fill="#7dd3fc"/>
-<circle cx="400" cy="330" r="36" fill="#dbeafe" stroke="#2563eb" stroke-width="8"/>
-<path d="M400 308v44M378 330h44" stroke="#2563eb" stroke-width="8" stroke-linecap="round"/>
-<rect x="620" y="235" width="300" height="55" rx="27" fill="#dbeafe"/>
-<rect x="620" y="325" width="240" height="28" rx="14" fill="#cbd5e1"/>
-<rect x="620" y="385" width="280" height="28" rx="14" fill="#cbd5e1"/>
-<rect x="620" y="445" width="190" height="28" rx="14" fill="#cbd5e1"/>
-<rect x="620" y="535" width="260" height="90" rx="20" fill="#eff6ff"/>
-<circle cx="665" cy="580" r="22" fill="#2563eb"/><path d="M655 580l8 8 16-18" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-<text x="705" y="590" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#0f172a">Water Quality</text>
-<text x="705" y="625" font-family="Arial, sans-serif" font-size="18" fill="#475569">Laboratory analysis</text>
+<rect width="1200" height="900" rx="56" fill="url(#bg)"/>
+<circle cx="930" cy="170" r="120" fill="#fff" opacity=".65"/>
+<circle cx="170" cy="730" r="150" fill="#fff" opacity=".55"/>
+<path d="M505 190h190v95l74 104v280c0 52-42 94-94 94H525c-52 0-94-42-94-94V389l74-104v-95z" fill="#fff" stroke="#1d4ed8" stroke-width="18"/>
+<path d="M449 525c72-34 151 28 232-7 29-14 60-14 88 1v60c0 52-42 94-94 94H525c-52 0-94-42-94-94v-54c5 0 11 0 18 0z" fill="url(#water)"/>
+<path d="M520 190h160" stroke="#1d4ed8" stroke-width="24" stroke-linecap="round"/>
+<path d="M790 315h180v330H790z" fill="#fff" stroke="#0f172a" stroke-width="14"/>
+<path d="M818 420h124M818 470h82M818 520h105" stroke="#2563eb" stroke-width="18" stroke-linecap="round"/>
+<circle cx="852" cy="585" r="22" fill="#2563eb"/><path d="m845 585 10 10 18-22" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M230 350c0-74 70-130 70-130s70 56 70 130a70 70 0 1 1-140 0z" fill="#60a5fa" opacity=".9"/>
+<path d="M270 340c0-31 30-56 30-56s30 25 30 56a30 30 0 1 1-60 0z" fill="#fff" opacity=".85"/>
+<text x="600" y="805" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="700" fill="#0f172a">Water Quality Analysis</text>
 </svg>

@@ -18,6 +18,7 @@ const quickLinks = {
     { href: "/services/pumping-tests", title: "Pumping Tests" },
     { href: "/services/air-lifting-developing", title: "Air Lifting / Developing" },
     { href: "/services/water-quality-analysis", title: "Water Quality Analysis" },
+    { href: "/services/water-quality-analysis", title: "Water Quality Analysis" },
   ],
   Resources: [
     { title: "FAQS", href: "/faq" },

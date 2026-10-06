@@ -17,7 +17,6 @@ const serviceOptions = [
   "Air Lifting / Developing",
   "Water Quality Analysis",
   "Not sure yet",
-  "Air Lifting / Developing of Borehole",
 ];
 
 const inputClasses =

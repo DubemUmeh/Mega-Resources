@@ -9,103 +9,104 @@ export const data: ServiceData = {
   eyebrow: "Service 08",
   title: "Water Quality",
   titleAccent: "Analysis",
-  tagline: "Know what is in your water before you decide how to use or treat it.",
+  tagline: "Know what is in your water before you rely on it.",
   heroDescription:
-    "Water quality analysis helps identify physical, chemical, and microbiological characteristics that can affect how groundwater should be used. We assess water samples and use the results to guide treatment and water-system decisions.",
+    "Water quality analysis helps identify physical, chemical, and microbiological concerns so you can make informed decisions about drinking, household, agricultural, or commercial use.",
   img: "/images/home/water-quality-analysis.svg",
-  icon: "flask",
+  icon: "droplets",
   overviewHeading: "What Water Quality Analysis Involves",
   overviewParagraphs: [
-    "A productive borehole is only part of a reliable water supply. Groundwater can contain dissolved minerals, metals, salts, suspended matter, or microorganisms that are not obvious from appearance alone. Water quality analysis provides measured results that can be used to determine whether the water is suitable for its intended purpose.",
-    "We collect or receive representative water samples and arrange analysis against the parameters relevant to the project. The results provide a clearer picture of the water's condition and help identify whether treatment, filtration, disinfection, or additional investigation may be required.",
-    "Testing can be useful for newly completed boreholes as well as existing water sources where the taste, colour, odour, performance, or intended use has changed.",
+    "A productive borehole does not automatically mean the water is suitable for every intended use. Water quality analysis examines a representative sample against the parameters relevant to how the water will be used.",
+    "Depending on the project, analysis can consider physical characteristics, chemical parameters, and microbiological indicators. The results provide a clearer picture of the water and can help identify when treatment, filtration, disinfection, or further investigation is appropriate.",
+    "For new boreholes, quality analysis can form part of the handover process. For existing water sources, it can help investigate changes in colour, taste, odour, or other concerns and provide evidence for the next treatment decision.",
   ],
   overviewBullets: [
-    "Identify important physical, chemical, and microbiological water-quality parameters",
-    "Use test results to guide treatment and filtration decisions",
-    "Support safer planning for domestic, institutional, agricultural, and commercial water use",
+    "Testing selected to match the intended use of the water",
+    "Results that support practical treatment and water-system decisions",
+    "Useful for new boreholes, existing wells, homes, farms, and institutions",
   ],
   quote:
-    "Clear-looking water is not the same thing as tested water — analysis gives you evidence for the next decision.",
+    "Clear water is not necessarily safe water. Testing gives you evidence before you decide how the source should be used or treated.",
   process: [
     {
-      title: "Sample Collection",
+      title: "Sample Planning",
       description:
-        "We collect or receive a representative water sample using handling practices appropriate to the requested analysis.",
+        "We discuss the water source and intended use to determine the appropriate sampling and analysis requirements.",
     },
     {
-      title: "Laboratory Analysis",
+      title: "Sample Collection & Analysis",
       description:
-        "The sample is assessed against the relevant water-quality parameters for the project's intended use and requirements.",
+        "A representative sample is collected and submitted for the relevant physical, chemical, and/or microbiological analysis.",
     },
     {
-      title: "Results & Guidance",
+      title: "Results & Next Steps",
       description:
-        "We review the findings with you and explain what the results mean for treatment, filtration, and the wider water system.",
+        "We review the findings with you and explain what they mean for water use, treatment, and the wider borehole system.",
     },
   ],
   benefits: [
     {
-      icon: "flask",
-      title: "Evidence-Based Decisions",
-      description: "Use measured water-quality results rather than relying on appearance, taste, or assumptions.",
-    },
-    {
       icon: "droplets",
-      title: "Treatment Planning",
-      description: "Identify when filtration, disinfection, or other treatment may be needed.",
+      title: "Know Your Water",
+      description: "Replace assumptions about water quality with test results.",
     },
     {
       icon: "gauge",
-      title: "System Protection",
-      description: "Understand water characteristics that can affect equipment and ongoing water-system operation.",
+      title: "Better Decisions",
+      description: "Use results to guide treatment and water-system choices.",
     },
     {
-      icon: "layers",
-      title: "Fit-for-Purpose Testing",
-      description: "Select relevant parameters based on how the water will be used and the project requirements.",
+      icon: "refresh",
+      title: "Investigate Changes",
+      description: "Identify possible quality concerns when an existing source changes.",
+    },
+    {
+      icon: "map",
+      title: "Use-Specific Testing",
+      description: "Focus analysis on the intended residential, agricultural, or commercial use.",
     },
   ],
   faqs: [
     {
       question: "Why should borehole water be tested?",
       answer:
-        "Groundwater can contain dissolved substances or microorganisms that cannot be reliably identified by appearance alone. Testing provides measured results that help determine suitable use and treatment.",
+        "Groundwater can contain substances that are not obvious from appearance, taste, or smell. Testing provides evidence about the water quality before you decide how it should be used or treated.",
     },
     {
-      question: "What does a water quality analysis test for?",
+      question: "What does water quality analysis test for?",
       answer:
-        "The parameters depend on the purpose of the test. Analysis can cover physical, chemical, and microbiological characteristics, with the exact panel selected according to the water source and intended use.",
+        "The parameters depend on the intended use and the concerns being investigated. Analysis can include physical, chemical, and microbiological indicators selected for the project.",
     },
     {
-      question: "When should I test a newly drilled borehole?",
+      question: "Should I test a new borehole?",
       answer:
-        "Testing after the borehole has been properly developed and is producing representative water is a useful step before making decisions about domestic, institutional, commercial, or other long-term use.",
+        "Testing a new water source can provide useful information before the water is put into regular household, institutional, agricultural, or commercial use.",
     },
     {
-      question: "Can you test water from an existing borehole?",
+      question: "Can water quality testing tell me what treatment I need?",
       answer:
-        "Yes. Existing boreholes can be tested when water quality changes, a treatment system is being considered, or the owner needs current results for a particular use.",
+        "Test results can help identify which water-quality parameters need attention and therefore support a more informed treatment decision. The appropriate treatment depends on the actual results and intended use.",
     },
   ],
-  ctaHeading: "Need to know whether your water is suitable?",
+  ctaHeading: "Want to know what is in your water?",
   ctaBody:
-    "Share your water source and intended use with us and we can help you determine the appropriate analysis and next step.",
+    "Tell us about your borehole or water source and how you intend to use it. We can help define the appropriate analysis and next steps.",
+  next: { slug: "borehole-drilling", title: "Borehole Drilling" },
   related: [
-    {
-      slug: "borehole-drilling",
-      title: "Borehole Drilling",
-      reason: "Start with a properly planned and constructed groundwater source.",
-    },
     {
       slug: "pumping-tests",
       title: "Pumping Tests",
-      reason: "Measure borehole yield and performance alongside water-quality results.",
+      reason: "Measure borehole performance alongside water-quality checks.",
     },
     {
       slug: "borehole-rehabilitation",
       title: "Borehole Rehabilitation",
-      reason: "Investigate and restore an existing borehole when performance or water quality declines.",
+      reason: "Investigate and restore an existing borehole when performance has declined.",
+    },
+    {
+      slug: "pump-installation",
+      title: "Pump Installation",
+      reason: "Complete the water system after the source and its requirements are understood.",
     },
   ],
 };

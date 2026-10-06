@@ -33,7 +33,7 @@ const SERVICES = [
   "Borehole Rehabilitation",
   "Hydro-fracturing",
   "Geological Survey Only",
-  "Water Treatment",
+  "Water Quality Analysis",
   "Air Lifting / Developing of Borehole",
   "Water Quality Analysis",
   "Not Sure Yet",
