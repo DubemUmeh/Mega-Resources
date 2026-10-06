@@ -4,9 +4,9 @@ import ServiceTemplate, {
 import { createServiceMetadata } from "@/lib/seo";
 
 export const data: ServiceData = {
-  num: "01",
+  num: "02",
   slug: "borehole-drilling",
-  eyebrow: "Service 01",
+  eyebrow: "Service 02",
   title: "Borehole",
   titleAccent: "Drilling",
   tagline: "The foundation of every water project we deliver.",
