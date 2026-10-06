@@ -64,4 +64,12 @@ export const servicesIndex: ServiceSummary[] = [
     img: "/images/home/air-lifting.png",
     icon: "wind",
   },
+  {
+    num: "08",
+    slug: "water-quality-analysis",
+    title: "Water Quality Analysis",
+    desc: "Analyse water quality to guide safe use, treatment, and system decisions.",
+    img: "/images/home/water-quality-analysis.svg",
+    icon: "droplets",
+  },
 ];
