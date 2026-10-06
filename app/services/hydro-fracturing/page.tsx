@@ -91,7 +91,6 @@ export const data: ServiceData = {
   related: [
     { slug: "geological-surveys", title: "Geological Surveys", reason: "Confirm fracture targets from site geology." },
     { slug: "air-lifting-developing", title: "Air Lifting / Developing", reason: "Remove fines released during stimulation." },
-    { slug: "pumping-tests", title: "Pumping Tests", reason: "Quantify the yield improvement after fracturing." },
   ],
 };
 
