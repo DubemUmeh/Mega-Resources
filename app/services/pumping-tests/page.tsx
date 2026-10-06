@@ -87,7 +87,7 @@ export const data: ServiceData = {
   ctaHeading: "Just drilled a borehole?",
   ctaBody:
     "Before we install a pump, we test the well so it's sized to what your borehole can actually sustain.",
-  next: { slug: "air-lifting-developing", title: "Air Lifting / Developing" },
+  next: { slug: "water-quality-analysis", title: "Water Quality Analysis" },
   related: [
     { slug: "pump-installation", title: "Pump Installation", reason: "Select the right pump from the test curve." },
     { slug: "borehole-rehabilitation", title: "Borehole Rehabilitation", reason: "Investigate weak yields before redrilling." },
