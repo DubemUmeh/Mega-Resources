@@ -6,13 +6,12 @@ import Link from "next/link";
 import { gsap } from "@/lib/gsap";
 import Image from "next/image";
 
-const HEADLINE = ["WATER.", "EXPERTISE.", "RELIABILITY."];
+const HEADLINE = ["WATER", "EXPERTISE", "RELIABILITY"];
 
 const badges = [
   "Licensed Drillers",
-  "10+ Years Experience",
-  "500+ Boreholes Completed",
-  "2-Year Warranty",
+  "15+ Years Experience",
+  "1,000+ Boreholes Completed",
 ];
 
 export default function Hero() {
@@ -54,7 +53,7 @@ export default function Hero() {
         </h1>
 
         <p data-hero-sub className="font-body text-gray-300 text-sm tracking-wide leading-relaxed max-w-sm mb-4 font-normal">
-          Reliable borehole drilling and clean water solutions across Ghana. Geological survey included on every job — we confirm water before we drill.
+          Reliable borehole drilling and clean water solutions across Ghana. Geological survey included on every job, we confirm water before we drill.
         </p>
 
         {/* <div data-hero-sub className="flex items-center gap-2 text-[11px] text-gray-300 font-light mb-10">
@@ -64,12 +63,12 @@ export default function Hero() {
 
         <div data-hero-cta className="flex flex-wrap items-center gap-4 mb-10">
           <Link href='/quote' className="font-brand flex items-center gap-3 text-xs font-semibold bg-white text-black rounded-full px-6 py-3.5 hover:bg-gray-200 transition-colors group">
-            Get a Free Site Survey
+            Get a Free Quote
             <FaArrowRight className="transform -rotate-45 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-[10px]" />
           </Link>
-          <button className="font-brand flex items-center gap-3 text-xs font-semibold border border-white/25 rounded-full px-6 py-3.5 hover:bg-white/10 transition-colors text-white">
+          <Link href="https://wa.me/233243287420" className="font-brand flex items-center gap-3 text-xs font-semibold border border-white/25 rounded-full px-6 py-3.5 hover:bg-white/10 transition-colors text-white">
             <FaWhatsapp className="text-sm" />
-            024 XXX XXXX
+            024 328 7420
           </button>
         </div>
 
