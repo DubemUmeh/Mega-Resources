@@ -4,7 +4,7 @@ export interface ServiceSummary {
   title: string;
   desc: string;
   img: string;
-  icon: "droplets" | "wrench" | "refresh" | "layers" | "map" | "gauge" | "wind";
+  icon: "droplets" | "wrench" | "refresh" | "layers" | "map" | "gauge" | "wind" | "flask";
 }
 
 export const servicesIndex: ServiceSummary[] = [
@@ -63,5 +63,13 @@ export const servicesIndex: ServiceSummary[] = [
     desc: "Clear drilling debris and develop the borehole for maximum flow.",
     img: "/images/home/air-lifting.png",
     icon: "wind",
+  },
+  {
+    num: "08",
+    slug: "water-quality-analysis",
+    title: "Water Quality Analysis",
+    desc: "Test groundwater quality to identify treatment needs and support safer water use.",
+    img: "/images/home/water-quality-analysis.svg",
+    icon: "flask",
   },
 ];

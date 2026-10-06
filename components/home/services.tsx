@@ -6,7 +6,7 @@ const services = [
   {
     num: "01",
     title: "Borehole\nDrilling",
-    desc: "100ft–400ft depth. Geophysical survey, drilling, and PVC casing to prevent collapse.",
+    desc: "100ft–350ft+ depth. Geophysical survey, drilling, and PVC casing to prevent collapse.",
     img: "/images/home/borehole-drilling.jpeg",
   },
   {
@@ -45,6 +45,12 @@ const services = [
     desc: "Clear drilling debris and develop the borehole for maximum flow.",
     img: "/images/home/air-lifting.png",
   },
+  {
+    num: "08",
+    title: "Water Quality\nAnalysis",
+    desc: "Test groundwater quality to identify treatment needs and support safer water use.",
+    img: "/images/home/water-quality-analysis.svg",
+  },
 ];
 
 const Services = () => {
@@ -55,7 +61,7 @@ const Services = () => {
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
         <div className="lg:w-1/4 flex flex-row md:flex-col justify-between">
           <div>
-            <div className="text-6xl md:text-7xl font-light mb-6 text-foreground">07</div>
+            <div className="text-6xl md:text-7xl font-light mb-6 text-foreground">08</div>
             <div className="text-sm md:text-lg text-foreground/70 leading-relaxed font-light">
               Specialized Services.<br />
               Complete Water<br />

@@ -210,7 +210,7 @@ export default function ServiceShowcase() {
             A closer look at what we do
           </h2>
           <p className="font-body mt-4 max-w-2xl text-base tracking-wider leading-[1.75] text-popover">
-            The seven services below represent seven distinct disciplines —
+            The eight services below represent eight distinct disciplines —
             from the first geophysical reading on your land to the pump
             that finally puts water in your hands. Scroll on to move
             through them one at a time, in the order a real project follows

@@ -104,6 +104,19 @@ export const SERVICE_PAGE_SEO: ProgrammaticSeoPage[] = [
     priority: 0.8,
   },
   {
+    id: "service-water-quality-analysis",
+    title: "Water Quality Analysis in Ghana | Mega Resources LTD",
+    description: "Water quality analysis for boreholes and groundwater sources in Ghana, helping property owners understand water characteristics and plan appropriate treatment or filtration.",
+    path: "/services/water-quality-analysis",
+    h1: "Water Quality Analysis",
+    intent: "commercial",
+    summary: "Service page for clients who need tested groundwater results to guide water use, treatment, filtration, or system planning.",
+    keywords: ["water quality analysis Ghana", "borehole water testing Ghana", "groundwater testing Ghana", "water quality testing Ghana", "borehole water analysis Ghana"],
+    schema: ["WebPage", "BreadcrumbList"],
+    breadcrumbs: [{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Water Quality Analysis", path: "/services/water-quality-analysis" }],
+    priority: 0.8,
+  },
+  {
     id: "service-air-lifting-developing",
     title: "Borehole Air Lifting & Development in Ghana | Mega Resources LTD",
     description: "Develop drilled boreholes with compressed-air airlifting to remove drilling mud, fines and sediment and prepare the well for testing and pumping.",
@@ -168,7 +181,7 @@ export const PUBLIC_PAGE_SEO: ProgrammaticSeoPage[] = [
   {
     id: "services",
     title: "Borehole Drilling Services in Ghana | Mega Resources LTD",
-    description: "Explore geological surveys, borehole drilling, pump installation, rehabilitation, hydro-fracturing, pumping tests, and air lifting services in Ghana.",
+    description: "Explore geological surveys, borehole drilling, pump installation, rehabilitation, hydro-fracturing, pumping tests, air lifting, and water quality analysis services in Ghana.",
     path: "/services",
     h1: "Borehole drilling services in Ghana",
     intent: "commercial",

@@ -7,6 +7,7 @@ import {
   ArrowLeft,
   ArrowRight,
   CheckCircle2,
+  FlaskConical,
   ChevronDown,
   Droplets,
   Gauge,
@@ -31,6 +32,7 @@ const ICONS: Record<string, LucideIcon> = {
   map: MapPin,
   gauge: Gauge,
   wind: Wind,
+  flask: FlaskConical,
 };
 
 export interface ServiceStep {

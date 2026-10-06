@@ -90,7 +90,7 @@ sequenceDiagram
 ```
 
 ### Additional highlights
-- GSAP-powered scroll animations and interactive service showcase that freezes the page until the viewer scrolls through all seven services.
+- GSAP-powered scroll animations and interactive service showcase that freezes the page until the viewer scrolls through all eight services.
 - A live survey depth diagram using Framer Motion to animate borehole scanning.
 - Cloudinary upload widget integration for signature-based upload security.
 - Drizzle ORM for type-safe database operations and migrations.

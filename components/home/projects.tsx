@@ -28,7 +28,7 @@ const projects = [
     location: "Takoradi, Western Region",
     img: "/images/home/industrial-project.jpeg",
     meta: [
-      { label: "Depth", value: "300ft" },
+      { label: "Depth", value: "300ft+" },
       { label: "Tank", value: "5,000L" },
       { label: "Result", value: "Zero water bills" },
     ],
