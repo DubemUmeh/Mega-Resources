@@ -91,7 +91,6 @@ export const data: ServiceData = {
   related: [
     { slug: "geological-surveys", title: "Geological Surveys", reason: "Validate the drill point before mobilising a rig." },
     { slug: "pumping-tests", title: "Pumping Tests", reason: "Confirm sustainable yield after drilling is complete." },
-    { slug: "pump-installation", title: "Pump Installation", reason: "Install a pump sized to the tested borehole yield." },
   ],
 };
 
