@@ -102,7 +102,7 @@ const reviewSeeds = [
     services: ["Borehole Drilling"],
     rating: 5,
     message:
-      "Church project \u2014 300ft depth plus a 5,000L tank. No more water bills for the compound and the congregation is thrilled. Professional crew from start to finish.",
+      "Church project \u2014 300ft+ depth plus a 5,000L tank. No more water bills for the compound and the congregation is thrilled. Professional crew from start to finish.",
     date: "January 2026",
     status: "approved",
   },
