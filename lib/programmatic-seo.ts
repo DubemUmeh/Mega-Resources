@@ -116,6 +116,20 @@ export const SERVICE_PAGE_SEO: ProgrammaticSeoPage[] = [
     breadcrumbs: [{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Air Lifting / Developing", path: "/services/air-lifting-developing" }],
     priority: 0.8,
   },
+  {
+    id: "service-water-quality-analysis",
+    title: "Water Quality Analysis in Ghana | Mega Resources LTD",
+    description: "Water quality analysis in Ghana for boreholes and other groundwater sources, helping households, farms, institutions and businesses understand water quality and treatment needs.",
+    path: "/services/water-quality-analysis",
+    h1: "Water Quality Analysis",
+    intent: "commercial",
+    summary: "Service page for clients who want evidence about groundwater quality before drinking, household, agricultural, institutional, or commercial use.",
+    keywords: ["water quality analysis Ghana", "borehole water testing Ghana", "water quality testing Ghana", "groundwater testing Ghana", "borehole water analysis Ghana"],
+    schema: ["WebPage", "BreadcrumbList"],
+    breadcrumbs: [{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Water Quality Analysis", path: "/services/water-quality-analysis" }],
+    priority: 0.8,
+  },
+
 ];
 
 export const SERVICE_SEO_LOCATIONS = [
@@ -164,19 +178,6 @@ export const PUBLIC_PAGE_SEO: ProgrammaticSeoPage[] = [
     ],
     changeFrequency: "weekly",
     priority: 1,
-  },
-  {
-    id: "service-water-quality-analysis",
-    title: "Water Quality Analysis in Ghana | Mega Resources LTD",
-    description: "Water quality analysis in Ghana for boreholes and other groundwater sources, helping households, farms, institutions and businesses understand water quality and treatment needs.",
-    path: "/services/water-quality-analysis",
-    h1: "Water Quality Analysis",
-    intent: "commercial",
-    summary: "Service page for clients who want evidence about groundwater quality before drinking, household, agricultural, institutional, or commercial use.",
-    keywords: ["water quality analysis Ghana", "borehole water testing Ghana", "water quality testing Ghana", "groundwater testing Ghana", "borehole water analysis Ghana"],
-    schema: ["WebPage", "BreadcrumbList"],
-    breadcrumbs: [{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Water Quality Analysis", path: "/services/water-quality-analysis" }],
-    priority: 0.8,
   },
   {
     id: "services",
