@@ -4,7 +4,7 @@ export interface ServiceSummary {
   title: string;
   desc: string;
   img: string;
-  icon: "droplets" | "wrench" | "refresh" | "layers" | "map" | "gauge" | "wind";
+  icon: "droplets" | "wrench" | "refresh" | "layers" | "map" | "gauge" | "wind" | "flask";
 }
 
 export const servicesIndex: ServiceSummary[] = [

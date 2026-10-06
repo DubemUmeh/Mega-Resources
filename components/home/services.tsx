@@ -61,7 +61,7 @@ const Services = () => {
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
         <div className="lg:w-1/4 flex flex-row md:flex-col justify-between">
           <div>
-            <div className="text-6xl md:text-7xl font-light mb-6 text-foreground">07</div>
+            <div className="text-6xl md:text-7xl font-light mb-6 text-foreground">08</div>
             <div className="text-sm md:text-lg text-foreground/70 leading-relaxed font-light">
               Specialized Services.<br />
               Complete Water<br />
