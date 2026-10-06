@@ -87,7 +87,6 @@ export const data: ServiceData = {
   ctaHeading: "Getting less water than you expected?",
   ctaBody:
     "If your borehole was drilled correctly but the yield is low, hydro-fracturing may be the fix — without a new well.",
-  next: { slug: "geological-surveys", title: "Geological Surveys" },
   related: [
     { slug: "geological-surveys", title: "Geological Surveys", reason: "Confirm fracture targets from site geology." },
     { slug: "air-lifting-developing", title: "Air Lifting / Developing", reason: "Remove fines released during stimulation." },
