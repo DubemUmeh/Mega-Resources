@@ -15,6 +15,7 @@ const serviceOptions = [
   "Geological Survey",
   "Pumping Test",
   "Air Lifting / Developing",
+  "Water Quality Analysis",
   "Not sure yet",
   "Air Lifting / Developing of Borehole",
 ];
