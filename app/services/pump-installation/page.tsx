@@ -91,7 +91,6 @@ export const data: ServiceData = {
   related: [
     { slug: "pumping-tests", title: "Pumping Tests", reason: "Use measured yield data to avoid over-pumping." },
     { slug: "borehole-rehabilitation", title: "Borehole Rehabilitation", reason: "Restore older wells before replacing pump hardware." },
-    { slug: "hydro-fracturing", title: "Hydro-fracturing", reason: "Improve low-yield wells before final pump sizing." },
   ],
 };
 
