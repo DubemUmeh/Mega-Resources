@@ -139,7 +139,7 @@ export default function ServicesPage() {
 
           <Reveal delay={0.08} className="mt-6 max-w-3xl">
             <h1 className="font-display text-[2.25rem] font-semibold leading-[1.1] tracking-tight text-foreground md:text-[3.5rem]">
-              Seven services. One goal:{" "}
+              Seven services, One goal:{" "}
               <span className="text-blue-600">
                 water you can rely on.
               </span>
