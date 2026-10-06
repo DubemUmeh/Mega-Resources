@@ -6,7 +6,7 @@ const services = [
   {
     num: "01",
     title: "Borehole\nDrilling",
-    desc: "100ft–400ft depth. Geophysical survey, drilling, and PVC casing to prevent collapse.",
+    desc: "100ft–350ft+ depth. Geophysical survey, drilling, and PVC casing to prevent collapse.",
     img: "/images/home/borehole-drilling.jpeg",
   },
   {
@@ -44,6 +44,12 @@ const services = [
     title: "Air Lifting /\nDeveloping",
     desc: "Clear drilling debris and develop the borehole for maximum flow.",
     img: "/images/home/air-lifting.png",
+  },
+  {
+    num: "08",
+    title: "Water Quality Analysis",
+    desc: "Analyse water quality to guide safe use, treatment, and system decisions.",
+    img: "/images/home/water-quality-analysis.svg",
   },
 ];
 
