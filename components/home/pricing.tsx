@@ -5,11 +5,11 @@ import { Reveal, BG_GLOW } from "@/components/motion-kit";
 const factors = [
   { title: "Depth", desc: "Deeper drilling means more casing, time, and material." },
   { title: "Soil & Rock Type", desc: "Rocky terrain takes longer and costs more to drill through." },
-  { title: "Pump & Tank", desc: "Solar or electric pumps, plus storage — sized to what your site actually needs." },
+  { title: "Pump & Tank", desc: "Solar/Hand Pump/Electric pumps, plus storage — sized to what your site actually needs." },
 ];
 
 const included = [
-  "A free geophysical survey before anything is quoted",
+  "A paid geophysical survey before anything is quoted",
   "One fixed, written price — no verbal estimates, no surprises later",
   "Every cost broken down before you pay a deposit",
 ];
