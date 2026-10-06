@@ -4,17 +4,16 @@ import { FaShieldHalved } from "react-icons/fa6";
 import { Reveal } from "@/components/motion-kit";
 
 const reasons = [
-  { icon: <FaMedal />, title: "Guaranteed Water, or We Don't Drill", desc: "98% site success rate. If the survey doesn't find water, you owe nothing." },
-  { icon: <FaCogs />, title: "Own Equipment, No Delays", desc: "We own our rigs — most projects complete in 7–14 days, not months." },
+  { icon: <FaMedal />, title: "Guaranteed Water, or We Don't Drill", desc: "98% site success rate. If the survey doesn't find water." },
+  { icon: <FaCogs />, title: "Own Equipment, No Delays", desc: "We own our rigs — most projects complete in 1–3 days, not weeks or months." },
   { icon: <FaMapMarkerAlt />, title: "Nationwide Coverage", desc: "Serving communities and businesses across every region of Ghana." },
-  { icon: <FaShieldHalved />, title: "Licensed & After-Sales Support", desc: "Certified by the Ghana Water Commission. 24/7 support, 2-year warranty." },
+  { icon: <FaShieldHalved />, title: "Licensed & After-Sales Support", desc: "Certified by the Water Resources Commission." },
 ];
 
 const stats = [
-  { value: "500+", label: "Boreholes Drilled" },
+  { value: "1,000+", label: "Boreholes Drilled" },
   { value: "98%", label: "Site Success Rate" },
   { value: "10+", label: "Years in Operation" },
-  { value: "2yr", label: "Warranty on Every Job" },
 ];
 
 const WhyChooseUs = () => {
@@ -33,7 +32,7 @@ const WhyChooseUs = () => {
               Built on<br />Expertise.<br />Driven by<br />Purpose.
             </h2>
             <p className="text-[0.9rem] leading-[1.75] tracking-wide text-background/60">
-              With years of hands-on experience and advanced technology, we deliver reliable, sustainable, and cost-effective water solutions tailored to your needs.
+              With over 15+ years of hands-on experience and advanced technology, we deliver reliable, sustainable, and cost-effective water solutions tailored to your needs.
             </p>
           </div>
           <div className="group mt-12 flex w-fit cursor-pointer items-center gap-3 text-[0.85rem] font-semibold uppercase tracking-wide text-background/70 transition-colors hover:text-blue-400">
@@ -69,7 +68,7 @@ const WhyChooseUs = () => {
       </div>
 
       <Reveal delay={0.1}>
-        <div className="mx-auto grid w-[min(100%,76rem)] grid-cols-2 gap-px overflow-hidden rounded-[1.5rem] border border-background/10 bg-background/10 md:grid-cols-4">
+        <div className="mx-auto grid w-[min(100%,76rem)] grid-cols-1 gap-px overflow-hidden rounded-[1.5rem] border border-background/10 bg-background/10 md:grid-cols-3">
           {stats.map((s) => (
             <div key={s.label} className="bg-foreground px-6 py-8 text-center">
               <div className="font-display text-3xl font-semibold text-background mb-2 md:text-4xl">{s.value}</div>
