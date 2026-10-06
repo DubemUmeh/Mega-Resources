@@ -42,6 +42,7 @@ export const SERVICES = [
   "Geological Surveys",
   "Pumping Tests",
   "Air Lifting / Developing",
+  "Water Quality Analysis",
 ];
 
 function toProject(row: Project & { depth?: string | null; yieldRate?: string | null; duration?: string | null; year?: string | null }): Project {
