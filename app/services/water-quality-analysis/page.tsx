@@ -91,7 +91,7 @@ export const data: ServiceData = {
   ctaHeading: "Want to know what is in your water?",
   ctaBody:
     "Tell us about your borehole or water source and how you intend to use it. We can help define the appropriate analysis and next steps.",
-  next: { slug: "borehole-drilling", title: "Borehole Drilling" },
+  next: { slug: "pump-installation", title: "Pump Installation" },
   related: [
     {
       slug: "pumping-tests",
