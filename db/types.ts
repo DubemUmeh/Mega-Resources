@@ -67,6 +67,7 @@ export const PORTFOLIO_SERVICES: PortfolioService[] = [
   "Geological Surveys",
   "Pumping Tests",
   "Air Lifting / Developing of Borehole",
+  "Water Quality Analysis",
 ];
 
 export type Region =
