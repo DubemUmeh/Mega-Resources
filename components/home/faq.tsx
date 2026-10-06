@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: "What if the borehole goes dry?",
-    a: "Every job comes with a 2-year warranty. If yield drops, our rehabilitation service cleans and re-develops the borehole.",
+    a: "If borehole dries, our rehabilitation service cleans and re-develops the borehole.",
   },
 ];
 
