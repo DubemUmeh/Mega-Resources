@@ -4,7 +4,7 @@ import { Reveal, BG_GLOW } from "@/components/motion-kit";
 const points = [
   { icon: <FaBolt />, q: "Frequent Water Cuts?", a: "A borehole gives you 24/7 independence from Ghana Water — no more waiting on the tanker." },
   { icon: <FaCoins />, q: "Tired of Buying Water?", a: "Most clients recover their drilling cost in 18–24 months of avoided water bills." },
-  { icon: <FaSearchLocation />, q: "Worried the Borehole Runs Dry?", a: "Our geophysical survey confirms water is there before a single drop is spent drilling." },
+  { icon: <FaSearchLocation />, q: "Worried the Borehole Runs Dry?", a: "Our geophysical survey confirms water is there before you spend a single drop drilling — at a cost." },
 ];
 
 const ProblemSolution = () => {
