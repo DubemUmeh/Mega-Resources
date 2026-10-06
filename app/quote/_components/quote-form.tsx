@@ -28,14 +28,14 @@ const REGIONS = [
 ];
 
 const SERVICES = [
+  "Geological Survey Only",
   "New Borehole Drilling",
+  "Air Lifting / Developing of Borehole",
+  "Pumping Test",
+  "Water Quality Analysis",
   "Pump Installation",
   "Borehole Rehabilitation",
   "Hydro-fracturing",
-  "Geological Survey Only",
-  "Water Quality Analysis",
-  "Air Lifting / Developing of Borehole",
-  "Water Quality Analysis",
   "Not Sure Yet",
 ];
 

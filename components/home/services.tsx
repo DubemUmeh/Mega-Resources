@@ -4,10 +4,34 @@ import { FaArrowRight } from "react-icons/fa";
 
 const services = [
   {
+    num: "05",
+    title: "Geological\nSurveys",
+    desc: "We confirm water depth and volume on your land before we drill.",
+    img: "/images/home/geological-surveys.png",
+  },
+  {
     num: "01",
     title: "Borehole\nDrilling",
     desc: "100ft–350ft+ depth. Geophysical survey, drilling, and PVC casing to prevent collapse.",
     img: "/images/home/borehole-drilling.jpeg",
+  },
+  {
+    num: "07",
+    title: "Air Lifting /\nDeveloping",
+    desc: "Clear drilling debris and develop the borehole for maximum flow.",
+    img: "/images/home/air-lifting.png",
+  },
+  {
+    num: "06",
+    title: "Pumping\nTests",
+    desc: "Measure sustainable yield so your pump is sized correctly.",
+    img: "/images/home/pumping-tests.png",
+  },
+  {
+    num: "08",
+    title: "Water Quality Analysis",
+    desc: "Analyse water quality to guide safe use, treatment, and system decisions.",
+    img: "/images/home/water-quality-analysis.svg",
   },
   {
     num: "02",
@@ -26,30 +50,6 @@ const services = [
     title: "Hydro-\nfracturing",
     desc: "Fracture low-yield rock formations to unlock higher water flow.",
     img: "/images/home/hydro-fracturing.png",
-  },
-  {
-    num: "05",
-    title: "Geological\nSurveys",
-    desc: "We confirm water depth and volume on your land before we drill.",
-    img: "/images/home/geological-surveys.png",
-  },
-  {
-    num: "06",
-    title: "Pumping\nTests",
-    desc: "Measure sustainable yield so your pump is sized correctly.",
-    img: "/images/home/pumping-tests.png",
-  },
-  {
-    num: "07",
-    title: "Air Lifting /\nDeveloping",
-    desc: "Clear drilling debris and develop the borehole for maximum flow.",
-    img: "/images/home/air-lifting.png",
-  },
-  {
-    num: "08",
-    title: "Water Quality Analysis",
-    desc: "Analyse water quality to guide safe use, treatment, and system decisions.",
-    img: "/images/home/water-quality-analysis.svg",
   },
 ];
 

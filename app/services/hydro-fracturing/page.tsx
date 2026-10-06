@@ -4,9 +4,9 @@ import ServiceTemplate, {
 import { createServiceMetadata } from "@/lib/seo";
 
 export const data: ServiceData = {
-  num: "04",
+  num: "08",
   slug: "hydro-fracturing",
-  eyebrow: "Service 04",
+  eyebrow: "Service 08",
   title: "Hydro-",
   titleAccent: "fracturing",
   tagline: "For boreholes stuck in tight, low-yield rock.",
@@ -87,11 +87,9 @@ export const data: ServiceData = {
   ctaHeading: "Getting less water than you expected?",
   ctaBody:
     "If your borehole was drilled correctly but the yield is low, hydro-fracturing may be the fix — without a new well.",
-  next: { slug: "geological-surveys", title: "Geological Surveys" },
   related: [
     { slug: "geological-surveys", title: "Geological Surveys", reason: "Confirm fracture targets from site geology." },
     { slug: "air-lifting-developing", title: "Air Lifting / Developing", reason: "Remove fines released during stimulation." },
-    { slug: "pumping-tests", title: "Pumping Tests", reason: "Quantify the yield improvement after fracturing." },
   ],
 };
 

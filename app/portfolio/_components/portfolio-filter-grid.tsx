@@ -35,14 +35,14 @@ export const REGIONS = [
 ];
 
 export const SERVICES = [
+  "Geological Surveys",
   "Borehole Drilling",
+  "Air Lifting / Developing",
+  "Pumping Tests",
+  "Water Quality Analysis",
   "Pump Installation",
   "Borehole Rehabilitation",
   "Hydro-fracturing",
-  "Geological Surveys",
-  "Pumping Tests",
-  "Air Lifting / Developing",
-  "Water Quality Analysis",
 ];
 
 function toProject(row: Project & { depth?: string | null; yieldRate?: string | null; duration?: string | null; year?: string | null }): Project {

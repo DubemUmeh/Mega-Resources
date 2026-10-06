@@ -4,9 +4,9 @@ import ServiceTemplate, {
 import { createServiceMetadata } from "@/lib/seo";
 
 export const data: ServiceData = {
-  num: "01",
+  num: "02",
   slug: "borehole-drilling",
-  eyebrow: "Service 01",
+  eyebrow: "Service 02",
   title: "Borehole",
   titleAccent: "Drilling",
   tagline: "The foundation of every water project we deliver.",
@@ -87,11 +87,10 @@ export const data: ServiceData = {
   ctaHeading: "Ready to sink a borehole on your land?",
   ctaBody:
     "We'll start with a geological survey to confirm the right spot, then drill and case your well from start to finish.",
-  next: { slug: "pump-installation", title: "Pump Installation" },
+  next: { slug: "air-lifting-developing", title: "Air Lifting / Developing" },
   related: [
     { slug: "geological-surveys", title: "Geological Surveys", reason: "Validate the drill point before mobilising a rig." },
     { slug: "pumping-tests", title: "Pumping Tests", reason: "Confirm sustainable yield after drilling is complete." },
-    { slug: "pump-installation", title: "Pump Installation", reason: "Install a pump sized to the tested borehole yield." },
   ],
 };
 

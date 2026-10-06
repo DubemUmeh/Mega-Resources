@@ -2,14 +2,14 @@ import type { MetadataRoute } from "next";
 import { absoluteUrl } from "@/lib/seo";
 
 export const serviceSlugs = [
+  "geological-surveys",
   "borehole-drilling",
+  "air-lifting-developing",
+  "pumping-tests",
+  "water-quality-analysis",
   "pump-installation",
   "borehole-rehabilitation",
   "hydro-fracturing",
-  "geological-surveys",
-  "pumping-tests",
-  "air-lifting-developing",
-  "water-quality-analysis",
 ] as const;
 
 export type ServiceSlug = (typeof serviceSlugs)[number];

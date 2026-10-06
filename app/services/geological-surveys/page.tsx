@@ -4,9 +4,9 @@ import ServiceTemplate, {
 import { createServiceMetadata } from "@/lib/seo";
 
 export const data: ServiceData = {
-  num: "05",
+  num: "01",
   slug: "geological-surveys",
-  eyebrow: "Service 05",
+  eyebrow: "Service 01",
   title: "Geological",
   titleAccent: "Surveys",
   tagline: "Know what's underground before a single hole is drilled.",
@@ -87,11 +87,10 @@ export const data: ServiceData = {
   ctaHeading: "Planning to drill? Start with a survey.",
   ctaBody:
     "A geological survey tells us where the water is likely to be before we commit a rig to your land.",
-  next: { slug: "pumping-tests", title: "Pumping Tests" },
+  next: { slug: "borehole-drilling", title: "Borehole Drilling" },
   related: [
     { slug: "borehole-drilling", title: "Borehole Drilling", reason: "Turn the strongest survey target into a productive well." },
     { slug: "hydro-fracturing", title: "Hydro-fracturing", reason: "Assess whether tight rock can be stimulated." },
-    { slug: "pumping-tests", title: "Pumping Tests", reason: "Validate groundwater potential with production data." },
   ],
 };
 
