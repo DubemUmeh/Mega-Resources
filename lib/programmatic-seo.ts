@@ -24,7 +24,7 @@ export type ProgrammaticSeoPage = PageSeo & {
 
 
 
-export const SERVICE_PAGE_SEO: ProgrammaticSeoPage[
+export const SERVICE_PAGE_SEO: ProgrammaticSeoPage[] = [
   {
     id: "service-geological-surveys",
     title: "Geological Surveys for Boreholes in Ghana | Mega Resources LTD",
