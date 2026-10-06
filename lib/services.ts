@@ -9,6 +9,7 @@ export const serviceSlugs = [
   "geological-surveys",
   "pumping-tests",
   "air-lifting-developing",
+  "water-quality-analysis",
 ] as const;
 
 export type ServiceSlug = (typeof serviceSlugs)[number];
