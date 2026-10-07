@@ -2,7 +2,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { eq, and } from "drizzle-orm";
 import { createHash, randomBytes } from "crypto";
-import { db } from "@/db/db";
+import { getDb } from "@/db/db";
 import { adminSessions, authorizedAdmins } from "@/db/schema";
 
 export const SUPER_ADMIN_EMAIL = "dubemu.umeh@gmail.com";
@@ -10,6 +10,7 @@ export const ADMIN_SESSION_COOKIE = "mega_admin_session";
 export type AdminRole = "SUPER_ADMIN" | "ADMIN";
 
 export async function getAdminSession() {
+  const db = getDb();
   const store = await cookies();
   const token = store.get(ADMIN_SESSION_COOKIE)?.value;
   if (!token) return null;
