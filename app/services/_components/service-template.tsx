@@ -60,6 +60,7 @@ export interface ServiceData {
   tagline: string;
   heroDescription: string;
   img: string;
+  mediaKey: string;
   icon: keyof typeof ICONS;
   overviewHeading: string;
   overviewParagraphs: string[];
@@ -74,7 +75,7 @@ export interface ServiceData {
   related?: { slug: string; title: string; reason: string }[];
 }
 
-export default function ServiceTemplate({ data }: { data: ServiceData }) {
+export default function ServiceTemplate({ data, media }: { data: ServiceData; media?: { url: string; mediaType: "image" | "video"; altText: string } }) {
   const HeroIcon = ICONS[data.icon];
 
   const serviceName = `${data.title.replace(/\s*\/\s*$/, "")} ${data.titleAccent}`.trim();
@@ -134,14 +135,26 @@ export default function ServiceTemplate({ data }: { data: ServiceData }) {
             <Reveal delay={0.15}>
               <div className="relative overflow-hidden rounded-4xl border border-neutral-200 bg-neutral-100 p-3 shadow-[0_25px_65px_rgba(15,23,42,0.15)]">
                 <div className="relative aspect-4/3 w-full overflow-hidden rounded-[1.6rem]">
-                  <Image
-                    src={data.img}
-                    alt={`${data.title} ${data.titleAccent}`}
-                    fill
-                    sizes="(min-width: 768px) 40vw, 90vw"
-                    className="object-cover"
-                    priority
-                  />
+                  {media?.mediaType === "video" ? (
+                    <video
+                      src={media.url}
+                      className="h-full w-full object-cover"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      aria-label={media.altText}
+                    />
+                  ) : (
+                    <Image
+                      src={media?.url ?? data.img}
+                      alt={media?.altText ?? data.title + " " + data.titleAccent}
+                      fill
+                      sizes="(min-width: 768px) 40vw, 90vw"
+                      className="object-cover"
+                      priority
+                    />
+                  )}
                 </div>
                 <div className="absolute left-6 top-6 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 shadow-[0_18px_45px_rgba(15,23,42,0.1)]">
                   {HeroIcon ? (
