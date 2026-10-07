@@ -220,8 +220,8 @@ export function GalleryFilterGrid() {
     if (service !== "all") params.set("service", service);
 
     let active = true;
-    fetch(`/api/gallery?${params.toString()}`)
-      .then((res) => (res.ok ? res.json() : Promise.reject(new Error("Failed to load gallery"))))
+    fetch(`/api/portfolio?${params.toString()}`)
+      .then((res) => (res.ok ? res.json() : Promise.reject(new Error("Failed to load portfolio"))))
       .then((rows: Array<Project & { depth?: string | null; yieldRate?: string | null; duration?: string | null; year?: string | null }>) => {
         if (active) setProjects(rows.map(toProject));
       })
