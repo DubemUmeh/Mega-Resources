@@ -34,7 +34,7 @@ export function MediaManager({ initialSlots }: { initialSlots: Slot[] }) {
         altText: altText.trim() || slot.defaultAlt,
         width: upload.width,
         height: upload.height,
-        duration: upload.duration,
+        duration: upload.duration ? Math.round(upload.duration) : undefined,
       });
       setSlots((current) => current.map((item) => item.key === slot.key
         ? { ...item, current: version, history: [version, ...item.history.map((v) => ({ ...v, isCurrent: false }))] }
