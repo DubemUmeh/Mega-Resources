@@ -13,7 +13,8 @@ export async function submitContactForm(input: {
   location?: string;
   services?: string[];
   message: string;
-}): Promise<ActionResult> {\n  const db = getDb();
+}): Promise<ActionResult> {
+  const db = getDb();
   const parsed = contactSchema.safeParse(input);
   if (!parsed.success) {
     return {
