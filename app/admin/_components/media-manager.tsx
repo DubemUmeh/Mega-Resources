@@ -20,7 +20,7 @@ export function MediaManager({ initialSlots }: { initialSlots: Slot[] }) {
   const [slots, setSlots] = useState(initialSlots);
   const [busy, setBusy] = useState<string | null>(null);
   const [historyKey, setHistoryKey] = useState<string | null>(null);
-  const { toast } = useToast();
+  const { showToast } = useToast();
 
   async function replaceMedia(slot: Slot, file: File, altText: string) {
     setBusy(slot.key);
@@ -39,9 +39,9 @@ export function MediaManager({ initialSlots }: { initialSlots: Slot[] }) {
       setSlots((current) => current.map((item) => item.key === slot.key
         ? { ...item, current: version, history: [version, ...item.history.map((v) => ({ ...v, isCurrent: false }))] }
         : item));
-      toast({ title: "Media updated", description: slot.label + " is now using the new media." });
+      showToast({ title: "Media updated", description: slot.label + " is now using the new media." });
     } catch (error) {
-      toast({ title: "Upload failed", description: error instanceof Error ? error.message : "Could not update this media.", variant: "destructive" });
+      showToast({ title: "Upload failed", description: error instanceof Error ? error.message : "Could not update this media.", variant: "error" });
     } finally {
       setBusy(null);
     }
@@ -54,9 +54,9 @@ export function MediaManager({ initialSlots }: { initialSlots: Slot[] }) {
       setSlots((current) => current.map((item) => item.key === slot.key
         ? { ...item, current: item.history.find((v) => v.id === versionId) ?? null, history: item.history.map((v) => ({ ...v, isCurrent: v.id === versionId })) }
         : item));
-      toast({ title: "Media restored", description: "The selected version is now live." });
+      showToast({ title: "Media restored", description: "The selected version is now live." });
     } catch (error) {
-      toast({ title: "Restore failed", description: error instanceof Error ? error.message : "Could not restore this version.", variant: "destructive" });
+      showToast({ title: "Restore failed", description: error instanceof Error ? error.message : "Could not restore this version.", variant: "destructive" });
     } finally {
       setBusy(null);
     }
