@@ -1,16 +1,18 @@
 import { eq } from "drizzle-orm";
-import { db } from "@/db/db";
+import { getDb } from "@/db/db";
 import { gmailMessageMetadata, googleOAuthTokens } from "@/db/schema";
 import { decryptSecret, encryptSecret, refreshGoogleAccessToken } from "@/lib/google-oauth";
 
 import type { GmailListItem } from "@/lib/gmail-client";
 
 export async function getGoogleConnection(adminId: string) {
+  const db = getDb();
   const [token] = await db.select().from(googleOAuthTokens).where(eq(googleOAuthTokens.adminId, adminId)).limit(1);
   return token ?? null;
 }
 
 export async function getValidAccessToken(adminId: string) {
+  const db = getDb();
   const token = await getGoogleConnection(adminId);
   if (!token || token.revokedAt) return null;
   if (token.expiresAt.getTime() > Date.now() + 60_000) return decryptSecret(token.accessToken);
@@ -27,6 +29,7 @@ export async function getValidAccessToken(adminId: string) {
 }
 
 export async function fetchGmailMessages(adminId: string, query: string, maxResults = 10) {
+  const db = getDb();
   const accessToken = await getValidAccessToken(adminId);
   if (!accessToken) return { status: "disconnected" as const, messages: [] as GmailListItem[] };
   const list = await gmailFetch<{ messages?: { id: string; threadId: string }[] }>(accessToken, `/gmail/v1/users/me/messages?q=${encodeURIComponent(query)}&maxResults=${maxResults}`);

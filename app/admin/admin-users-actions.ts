@@ -1,11 +1,12 @@
 "use server";
 import { revalidatePath } from "next/cache";
 import { eq } from "drizzle-orm";
-import { db } from "@/db/db";
+import { getDb } from "@/db/db";
 import { authorizedAdmins, businessSettings } from "@/db/schema";
 import { requireAdmin } from "@/lib/admin-auth";
 
 export async function addAuthorizedUser(formData: FormData) {
+  const db = getDb();
   await requireAdmin("SUPER_ADMIN");
   const email = String(formData.get("email") || "").trim().toLowerCase();
   const name = String(formData.get("name") || "").trim();
@@ -13,9 +14,10 @@ export async function addAuthorizedUser(formData: FormData) {
   if (email && name) await db.insert(authorizedAdmins).values({ googleEmail: email, name, role }).onConflictDoNothing();
   revalidatePath("/admin/settings");
 }
-export async function disableAuthorizedUser(id: string) { await requireAdmin("SUPER_ADMIN"); await db.update(authorizedAdmins).set({ active: false }).where(eq(authorizedAdmins.id, id)); revalidatePath("/admin/settings"); }
-export async function removeAuthorizedUser(id: string) { await requireAdmin("SUPER_ADMIN"); await db.delete(authorizedAdmins).where(eq(authorizedAdmins.id, id)); revalidatePath("/admin/settings"); }
+export async function disableAuthorizedUser(id: string) { const db = getDb(); await requireAdmin("SUPER_ADMIN"); await db.update(authorizedAdmins).set({ active: false }).where(eq(authorizedAdmins.id, id)); revalidatePath("/admin/settings"); }
+export async function removeAuthorizedUser(id: string) { const db = getDb(); await requireAdmin("SUPER_ADMIN"); await db.delete(authorizedAdmins).where(eq(authorizedAdmins.id, id)); revalidatePath("/admin/settings"); }
 export async function saveBusinessSettings(formData: FormData) {
+  const db = getDb();
   await requireAdmin();
   const values = { businessName: String(formData.get("businessName") || ""), businessEmail: String(formData.get("businessEmail") || ""), phone: String(formData.get("phone") || ""), address: String(formData.get("address") || ""), logoUrl: String(formData.get("logoUrl") || ""), updatedAt: new Date() };
   const existing = await db.select().from(businessSettings).limit(1);

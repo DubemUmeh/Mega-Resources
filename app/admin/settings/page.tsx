@@ -1,4 +1,4 @@
-import { db } from "@/db/db";
+import { getDb } from "@/db/db";
 import { authorizedAdmins, businessSettings } from "@/db/schema";
 import { requireAdmin } from "@/lib/admin-auth";
 import { getGoogleConnection } from "@/lib/gmail";
@@ -12,6 +12,7 @@ import { disconnectGoogle } from "../gmail-actions";
 import { UserActionsMenu } from "../_components/user-actions-menu";
 
 export default async function SettingsPage() {
+  const db = getDb();
   const session = await requireAdmin();
   const [settings] = await db.select().from(businessSettings).limit(1);
   const users = await db
