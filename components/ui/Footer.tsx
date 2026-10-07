@@ -5,7 +5,7 @@ const quickLinks = {
   "Quick Links": [
     { title: "Home", href: "/" },
     { title: "Services", href: "/services" },
-    { title: "Portfolio", href: "/portfolio" },
+    { title: "Gallery", href: "/gallery" },
     { title: "About Us", href: "/about-us" },
     { title: "Contact", href: "/contact" },
   ],
