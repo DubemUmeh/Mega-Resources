@@ -1,7 +1,7 @@
 "use server";
 import { and, eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
-import { db } from "@/db/db";
+import { getDb } from "@/db/db";
 import { websiteMediaVersions } from "@/db/schema";
 import { requireAdmin } from "@/lib/admin-auth";
 
