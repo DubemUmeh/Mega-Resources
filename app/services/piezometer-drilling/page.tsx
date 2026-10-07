@@ -1,5 +1,6 @@
 import ServiceTemplate, { type ServiceData } from "../_components/service-template";
 import { createServiceMetadata } from "@/lib/seo";
+import { getResolvedMedia } from "@/lib/media";
 
 export const data: ServiceData = {
   num: "09",
@@ -9,14 +10,15 @@ export const data: ServiceData = {
   titleAccent: "Drilling",
   tagline: "Measure groundwater levels and pressure with a purpose-built monitoring point.",
   heroDescription:
-    "Piezometer drilling and installation creates a dedicated point for monitoring groundwater head or pressure. It can support hydrogeological investigations, construction monitoring, and projects where changes in groundwater conditions need to be measured over time.",
+    "Piezometer drilling and installation creates a dedicated point for monitoring groundwater head or pressure. It can support hydrogeological investigations, construction monitoring, and projects where groundwater behaviour is important.",
+  mediaKey: "services.piezometer-drilling.hero",
   img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=85",
   icon: "gauge",
   overviewHeading: "What Piezometer Drilling Involves",
   overviewParagraphs: [
-    "A piezometer is a monitoring installation used to measure groundwater level or hydraulic pressure at a defined depth. Unlike a production borehole, its primary purpose is observation and measurement rather than supplying water for general use.",
-    "The installation begins with understanding the geology and the monitoring objective. Drilling depth, screened interval and installation details should suit the formation and the groundwater zone being investigated. The completed installation can then provide repeatable measurements of groundwater conditions.",
-    "Piezometers are useful where groundwater behaviour matters to a project. They can support hydrogeological investigations and monitoring around construction or other works where groundwater levels or pressure may change during the project.",
+    "A piezometer is a monitoring installation used to measure groundwater level or hydraulic pressure at a defined depth. Unlike a production borehole, its primary purpose is observation and measurement at specific depths.",
+    "The installation begins with understanding the geology and the monitoring objective. Drilling depth, screened interval and installation details should suit the formation and the groundwater zone being monitored.",
+    "Piezometers are useful where groundwater behaviour matters to a project. They can support hydrogeological investigations and monitoring around construction or other works where groundwater levels or pressure need to be understood.",
   ],
   overviewBullets: [
     "Monitoring points designed around the target groundwater zone",
@@ -99,6 +101,8 @@ export const data: ServiceData = {
 };
 
 export const metadata = createServiceMetadata(data);
-export default function Page() {
-  return <ServiceTemplate data={data} />;
+
+export default async function Page() {
+  const media = await getResolvedMedia(data.mediaKey);
+  return <ServiceTemplate data={data} media={media} />;
 }
