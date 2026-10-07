@@ -6,6 +6,14 @@ export const metadata: Metadata = createMetadata({
   description:
     "Explore Mega Resources LTD groundwater and drilling services: geological surveys, borehole drilling, monitoring wells, piezometers, pumping tests, dewatering, water quality, pump installation, rehabilitation, and specialized drilling.",
   path: "/services",
+  keywords: [
+    "groundwater services Ghana",
+    "borehole drilling Ghana",
+    "geological surveys Ghana",
+    "water services Ghana",
+    "borehole services Ghana",
+    "dewatering Ghana",
+  ],
 });
 
 export default function ServicesLayout({ children }: { children: React.ReactNode }) {

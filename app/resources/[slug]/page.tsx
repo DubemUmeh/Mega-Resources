@@ -32,6 +32,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: page.title,
     description: page.description,
     path: `/resources/${page.slug}`,
+    keywords: [
+      page.h1,
+      `borehole drilling ${page.location}`,
+      `borehole services ${page.location}`,
+    ],
     type: "article",
   });
 }

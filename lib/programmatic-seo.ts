@@ -369,7 +369,7 @@ export function createPageSchema(page: ProgrammaticSeoPage) {
       "@type": page.schema.includes("LocalBusiness") ? "LocalBusiness" : "Organization",
       name: siteConfig.name,
       url: siteConfig.domain,
-      image: absoluteUrl(page.image ?? "/images/home/borehole-drilling.jpeg"),
+      image: absoluteUrl(page.image ?? siteConfig.ogImage),
       areaServed: { "@type": "Country", name: "Ghana" },
       sameAs: [],
     });

@@ -31,10 +31,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   const title = `${project.title} | ${project.service} in ${project.location}`;
   const description = project.summary.slice(0, 155);
+  const keywords = [
+    project.title,
+    `${project.service} ${project.location}`,
+    `${project.service} Ghana`,
+    `borehole project ${project.location}`,
+    "Mega Resources LTD projects",
+  ];
 
   return {
     title,
     description,
+    keywords,
     alternates: { canonical: absoluteUrl(`/gallery/project/${project.slug}`) },
     openGraph: {
       title,

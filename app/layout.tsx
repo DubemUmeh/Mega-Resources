@@ -42,6 +42,13 @@ export const metadata: Metadata = {
     title: siteConfig.defaultTitle,
     description: siteConfig.defaultDescription,
     path: "/",
+    keywords: [
+      "groundwater services Ghana",
+      "borehole drilling Ghana",
+      "drilling services Ghana",
+      "water services Ghana",
+      "Mega Resources LTD",
+    ],
   }),
   ...iconMetadata,
 };
