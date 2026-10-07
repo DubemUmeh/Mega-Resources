@@ -4,49 +4,49 @@ import { FaArrowRight } from "react-icons/fa";
 
 const services = [
   {
-    num: "05",
+    num: "01",
     title: "Geological\nSurveys",
     desc: "We confirm water depth and volume on your land before we drill.",
     img: "/images/home/geological-surveys.png",
   },
   {
-    num: "01",
+    num: "02",
     title: "Borehole\nDrilling",
     desc: "100ft–350ft+ depth. Geophysical survey, drilling, and PVC casing to prevent collapse.",
     img: "/images/home/borehole-drilling.jpeg",
   },
   {
-    num: "07",
+    num: "03",
     title: "Air Lifting /\nDeveloping",
     desc: "Clear drilling debris and develop the borehole for maximum flow.",
     img: "/images/home/air-lifting.png",
   },
   {
-    num: "06",
+    num: "04",
     title: "Pumping\nTests",
     desc: "Measure sustainable yield so your pump is sized correctly.",
     img: "/images/home/pumping-tests.png",
   },
   {
-    num: "08",
+    num: "05",
     title: "Water Quality Analysis",
     desc: "Analyse water quality to guide safe use, treatment, and system decisions.",
     img: "/images/home/water-quality-analysis.svg",
   },
   {
-    num: "02",
+    num: "06",
     title: "Pump\nInstallation",
     desc: "Submersible, solar, and surface pumps — fully installed and wired.",
     img: "/images/home/pump-installation.png",
   },
   {
-    num: "03",
+    num: "07",
     title: "Borehole\nRehabilitation",
     desc: "Low yield or muddy water? We clean and re-develop old boreholes.",
     img: "/images/home/borehole-rehabilitation.png",
   },
   {
-    num: "04",
+    num: "08",
     title: "Hydro-\nfracturing",
     desc: "Fracture low-yield rock formations to unlock higher water flow.",
     img: "/images/home/hydro-fracturing.png",
