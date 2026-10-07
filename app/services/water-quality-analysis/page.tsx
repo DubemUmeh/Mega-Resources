@@ -2,6 +2,7 @@ import ServiceTemplate, {
   type ServiceData,
 } from "../_components/service-template";
 import { createServiceMetadata } from "@/lib/seo";
+import { getResolvedMedia } from "@/lib/media";
 
 export const data: ServiceData = {
   num: "05",
@@ -12,6 +13,7 @@ export const data: ServiceData = {
   tagline: "Know what is in your water before you rely on it.",
   heroDescription:
     "Water quality analysis helps identify physical, chemical, and microbiological concerns so you can make informed decisions about drinking, household, agricultural, or commercial use.",
+  mediaKey: "services.water-quality-analysis.hero",
   img: "/images/home/water-quality-analysis.svg",
   icon: "droplets",
   overviewHeading: "What Water Quality Analysis Involves",
@@ -113,6 +115,7 @@ export const data: ServiceData = {
 
 export const metadata = createServiceMetadata(data);
 
-export default function Page() {
-  return <ServiceTemplate data={data} />;
+export default async function Page() {
+  const media = await getResolvedMedia(data.mediaKey);
+  return <ServiceTemplate data={data} media={media} />;
 }

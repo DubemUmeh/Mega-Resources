@@ -2,6 +2,7 @@ import ServiceTemplate, {
   type ServiceData,
 } from "../_components/service-template";
 import { createServiceMetadata } from "@/lib/seo";
+import { getResolvedMedia } from "@/lib/media";
 
 export const data: ServiceData = {
   num: "02",
@@ -12,6 +13,7 @@ export const data: ServiceData = {
   tagline: "The foundation of every water project we deliver.",
   heroDescription:
     "We drill boreholes to depths of 100ft–350ft+, guided by a geophysical survey and finished with PVC construction that keeps the well clear, stable, and productive for decades.",
+  mediaKey: "services.borehole-drilling.hero",
   img: "/images/home/borehole-drilling.jpeg",
   icon: "map",
   overviewHeading: "What Borehole Drilling Involves",
@@ -98,6 +100,7 @@ export const data: ServiceData = {
 
 export const metadata = createServiceMetadata(data);
 
-export default function Page() {
-  return <ServiceTemplate data={data} />;
+export default async function Page() {
+  const media = await getResolvedMedia(data.mediaKey);
+  return <ServiceTemplate data={data} media={media} />;
 }

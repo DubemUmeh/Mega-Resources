@@ -2,6 +2,7 @@ import ServiceTemplate, {
   type ServiceData,
 } from "../_components/service-template";
 import { createServiceMetadata } from "@/lib/seo";
+import { getResolvedMedia } from "@/lib/media";
 
 export const data: ServiceData = {
   num: "03",
@@ -12,6 +13,7 @@ export const data: ServiceData = {
   tagline: "The final step that turns a drilled hole into a working well.",
   heroDescription:
     "Freshly drilled boreholes are full of drilling mud, fines, and loose rock. We use compressed-air airlifting to clear that debris and develop the well, so it delivers clean water at its full potential flow.",
+  mediaKey: "services.air-lifting-developing.hero",
   img: "/images/home/air-lifting.png",
   icon: "wind",
   overviewHeading: "What Air Lifting & Developing Involves",
@@ -96,6 +98,7 @@ export const data: ServiceData = {
 
 export const metadata = createServiceMetadata(data);
 
-export default function Page() {
-  return <ServiceTemplate data={data} />;
+export default async function Page() {
+  const media = await getResolvedMedia(data.mediaKey);
+  return <ServiceTemplate data={data} media={media} />;
 }

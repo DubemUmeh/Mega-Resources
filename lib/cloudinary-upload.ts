@@ -13,7 +13,7 @@
 export async function uploadImageToCloudinary(
   file: File,
   folder: string = "mega-resources/portfolio",
-): Promise<{ url: string; publicId: string }> {
+): Promise<{ url: string; publicId: string; resourceType: "image" | "video"; width?: number; height?: number; duration?: number }> {
   const timestamp = Math.round(Date.now() / 1000);
   const paramsToSign = { timestamp, folder };
 
@@ -43,7 +43,7 @@ export async function uploadImageToCloudinary(
   formData.append("signature", signature);
 
   const uploadRes = await fetch(
-    `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`,
+    `https://api.cloudinary.com/v1_1/${cloudName}/auto/upload`,
     { method: "POST", body: formData },
   );
 
@@ -53,7 +53,7 @@ export async function uploadImageToCloudinary(
   }
 
   const data = await uploadRes.json();
-  return { url: data.secure_url, publicId: data.public_id };
+  return { url: data.secure_url, publicId: data.public_id, resourceType: data.resource_type === "video" ? "video" : "image", width: data.width, height: data.height, duration: data.duration };
 }
 
 /**

@@ -40,6 +40,7 @@ const NAV_ITEMS = [
     icon: FaFileInvoice,
     exact: false,
   },
+  { href: "/admin/media", label: "Website Media", icon: FaImages, exact: false },
   { href: "/admin/settings", label: "Settings", icon: FaCog, exact: false },
 ];
 

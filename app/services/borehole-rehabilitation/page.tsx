@@ -2,6 +2,7 @@ import ServiceTemplate, {
   type ServiceData,
 } from "../_components/service-template";
 import { createServiceMetadata } from "@/lib/seo";
+import { getResolvedMedia } from "@/lib/media";
 
 export const data: ServiceData = {
   num: "07",
@@ -12,6 +13,7 @@ export const data: ServiceData = {
   tagline: "Bring a tired borehole back to full strength.",
   heroDescription:
     "If your well now delivers low yield or muddy water, the problem is often a clogged or fouled borehole, not a dry aquifer. We clean and re-develop old boreholes to restore their original output.",
+  mediaKey: "services.borehole-rehabilitation.hero",
   img: "/images/home/borehole-rehabilitation.png",
   icon: "refresh",
   overviewHeading: "What Borehole Rehabilitation Involves",
@@ -96,6 +98,7 @@ export const data: ServiceData = {
 
 export const metadata = createServiceMetadata(data);
 
-export default function Page() {
-  return <ServiceTemplate data={data} />;
+export default async function Page() {
+  const media = await getResolvedMedia(data.mediaKey);
+  return <ServiceTemplate data={data} media={media} />;
 }

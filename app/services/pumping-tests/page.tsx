@@ -2,6 +2,7 @@ import ServiceTemplate, {
   type ServiceData,
 } from "../_components/service-template";
 import { createServiceMetadata } from "@/lib/seo";
+import { getResolvedMedia } from "@/lib/media";
 
 export const data: ServiceData = {
   num: "04",
@@ -12,6 +13,7 @@ export const data: ServiceData = {
   tagline: "Find out what your borehole can truly sustain.",
   heroDescription:
     "A borehole's short-term output isn't the same as what it can sustain long-term. We run pumping tests to measure the sustainable yield of your well, so the pump you install is sized correctly from day one.",
+  mediaKey: "services.pumping-tests.hero",
   img: "/images/home/pumping-tests.png",
   icon: "gauge",
   overviewHeading: "What a Pumping Test Involves",
@@ -98,6 +100,7 @@ export const data: ServiceData = {
 
 export const metadata = createServiceMetadata(data);
 
-export default function Page() {
-  return <ServiceTemplate data={data} />;
+export default async function Page() {
+  const media = await getResolvedMedia(data.mediaKey);
+  return <ServiceTemplate data={data} media={media} />;
 }
