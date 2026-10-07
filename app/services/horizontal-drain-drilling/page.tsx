@@ -1,5 +1,6 @@
 import ServiceTemplate, { type ServiceData } from "../_components/service-template";
 import { createServiceMetadata } from "@/lib/seo";
+import { getResolvedMedia } from "@/lib/media";
 
 export const data: ServiceData = {
   num: "12",
@@ -9,14 +10,15 @@ export const data: ServiceData = {
   titleAccent: "Drilling",
   tagline: "Provide a drainage path where conventional vertical wells are not the right geometry.",
   heroDescription:
-    "Horizontal drain drilling creates drainage paths through slopes, excavations or other structures where groundwater needs relief and a horizontal installation is more suitable than a conventional vertical borehole.",
+    "Horizontal drain drilling creates drainage paths through slopes, excavations or other structures where groundwater needs relief and a horizontal installation is more suitable than a conventional vertical well.",
+  mediaKey: "services.horizontal-drain-drilling.hero",
   img: "https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1600&q=85",
   icon: "wind",
   overviewHeading: "What Horizontal Drain Drilling Involves",
   overviewParagraphs: [
-    "Horizontal drains are drilled drainage holes designed to intercept and relieve groundwater within or behind a slope, excavation, retaining structure or other suitable ground condition. They work by providing a preferential path for groundwater to leave the formation and reduce water pressure where drainage is required.",
-    "Unlike a conventional vertical borehole, the drilling direction is selected to suit the geometry of the site and the groundwater problem. The alignment, length and drainage arrangement depend on the ground conditions, access and the location of the water that needs to be relieved.",
-    "Horizontal drainage can be considered as part of a broader groundwater-control or geotechnical solution. Site investigation is important because the technique should be matched to the actual geology, groundwater pathways and engineering requirements rather than applied as a generic fix.",
+    "Horizontal drains are drilled drainage holes designed to intercept and relieve groundwater within or behind a slope, excavation, retaining structure or other suitable ground condition. They work alongside broader groundwater-control and geotechnical strategies.",
+    "Unlike a conventional vertical borehole, the drilling direction is selected to suit the geometry of the site and the groundwater problem. The alignment, length and drainage arrangement depend on subsurface conditions and the engineering requirements.",
+    "Horizontal drainage can be considered as part of a broader groundwater-control or geotechnical solution. Site investigation is important because the technique should be matched to the actual site geology and project goals.",
   ],
   overviewBullets: [
     "Horizontal drainage for suitable slopes, excavations and retaining structures",
@@ -97,6 +99,8 @@ export const data: ServiceData = {
 };
 
 export const metadata = createServiceMetadata(data);
-export default function Page() {
-  return <ServiceTemplate data={data} />;
+
+export default async function Page() {
+  const media = await getResolvedMedia(data.mediaKey);
+  return <ServiceTemplate data={data} media={media} />;
 }
