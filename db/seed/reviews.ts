@@ -17,7 +17,7 @@ const reviewSeeds = [
   {
     id: "06c42f4a-3bc4-4ec0-a6b3-e28eb0c9fc15",
     name: "Aisha Mensah",
-    title: "Operations Director \u2014 Green Farms Ghana",
+    title: "Operations Director — Green Farms Ghana",
     location: "Kumasi, Ashanti Region",
     services: ["Borehole Rehabilitation"],
     rating: 5,
@@ -29,7 +29,7 @@ const reviewSeeds = [
   {
     id: "b01ca3ad-0081-4412-8f90-e2c9130f2fda",
     name: "David Osei",
-    title: "Facilities Manager \u2014 Tamale",
+    title: "Facilities Manager — Tamale",
     location: "Tamale, Northern Region",
     services: ["Pump Installation"],
     rating: 4,
@@ -45,7 +45,7 @@ const reviewSeeds = [
     services: ["Borehole Rehabilitation"],
     rating: 5,
     message:
-      "Our old borehole had gone muddy and low-yield for over a year. They cleaned and re-developed it in a single visit \u2014 flow is better now than when it was first drilled.",
+      "Our old borehole had gone muddy and low-yield for over a year. They cleaned and re-developed it in a single visit — flow is better now than when it was first drilled.",
     date: "April 2026",
     status: "approved",
   },
@@ -63,7 +63,7 @@ const reviewSeeds = [
   {
     id: "d89a11db-1c98-4f83-9806-4969307f0cab",
     name: "Samuel Boateng",
-    title: "Site Supervisor \u2014 Sunyani",
+    title: "Site Supervisor — Sunyani",
     location: "Sunyani, Bono Region",
     services: ["Pump Installation"],
     rating: 4,
@@ -97,12 +97,12 @@ const reviewSeeds = [
   {
     id: "cc1943d1-7a4f-4d78-96d9-45648a4a4817",
     name: "Comfort Nyarko",
-    title: "Facilities Coordinator \u2014 St. Peter's Parish",
+    title: "Facilities Coordinator — St. Peter's Parish",
     location: "Ho, Volta Region",
     services: ["Borehole Drilling"],
     rating: 5,
     message:
-      "Church project \u2014 300ft+ depth plus a 5,000L tank. No more water bills for the compound and the congregation is thrilled. Professional crew from start to finish.",
+      "Church project — 300ft+ depth plus a 5,000L tank. No more water bills for the compound and the congregation is thrilled. Professional crew from start to finish.",
     date: "January 2026",
     status: "approved",
   },
@@ -113,7 +113,7 @@ const reviewSeeds = [
     services: ["Borehole Rehabilitation"],
     rating: 5,
     message:
-      "Iron levels in our old well were unbearable. Their filtration system fixed it completely \u2014 water finally looks and tastes the way it should.",
+      "Iron levels in our old well were unbearable. Their filtration system fixed it completely — water finally looks and tastes the way it should.",
     date: "January 2026",
     status: "approved",
   },
@@ -131,7 +131,7 @@ const reviewSeeds = [
   {
     id: "d4eb9f74-35ca-44d4-baff-2ab3e751f54f",
     name: "Kofi Amoah",
-    title: "Site Manager \u2014 Tarkwa Mining Camp",
+    title: "Site Manager — Tarkwa Mining Camp",
     location: "Tarkwa, Western Region",
     services: ["Borehole Drilling"],
     rating: 5,
@@ -143,7 +143,7 @@ const reviewSeeds = [
   {
     id: "3acbfae3-b768-478d-9de5-768d688cdbef",
     name: "Linda Sarpong",
-    title: "Estate Manager \u2014 Techiman Residences",
+    title: "Estate Manager — Techiman Residences",
     location: "Techiman, Bono East Region",
     services: ["Borehole Rehabilitation"],
     rating: 4,
