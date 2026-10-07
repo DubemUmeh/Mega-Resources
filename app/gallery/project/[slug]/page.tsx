@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FaArrowLeft, FaArrowRight, FaMapMarkerAlt } from "react-icons/fa";
-import { getPublishedGallery, getPublishedGalleryBySlug, getRelatedGalleryProjects } from "@/db/actions/gallery";
+import { getPublishedPortfolio, getPublishedGalleryBySlug, getRelatedPortfolioProjects } from "@/db/actions/portfolio";
 import { absoluteUrl } from "@/lib/seo";
 import ProjectGallery from "../../_components/project-gallery";
 
