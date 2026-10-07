@@ -2,7 +2,7 @@
 
 import { eq, and, desc, ne, type SQL } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
-import { db } from "@/db/db";
+import { getDb } from "@/db/db";
 import { portfolioProjects } from "@/db/schema";
 import { portfolioSchema } from "@/db/validation-schema";
 import { generateUniqueSlug, slugify } from "@/lib/slug";
@@ -29,7 +29,7 @@ export async function getPublishedPortfolio(filters?: {
     .orderBy(desc(portfolioProjects.createdAt));
 }
 
-export async function getPublishedPortfolioBySlug(slug: string) {
+export async function getPublishedPortfolioBySlug(slug: string) {\n  const db = getDb();
   const [project] = await db
     .select()
     .from(portfolioProjects)
@@ -39,7 +39,7 @@ export async function getPublishedPortfolioBySlug(slug: string) {
   return project ?? null;
 }
 
-export async function getRelatedPortfolioProjects(project: { id: string; service: string; region: string }, limit = 3) {
+export async function getRelatedPortfolioProjects(project: { id: string; service: string; region: string }, limit = 3) {\n  const db = getDb();
   return db
     .select()
     .from(portfolioProjects)
@@ -48,7 +48,7 @@ export async function getRelatedPortfolioProjects(project: { id: string; service
     .limit(limit);
 }
 
-async function portfolioSlugExists(slug: string, ignoreId?: string) {
+async function portfolioSlugExists(slug: string, ignoreId?: string) {\n  const db = getDb();
   const conditions: SQL[] = [eq(portfolioProjects.slug, slug)];
   if (ignoreId) conditions.push(ne(portfolioProjects.id, ignoreId));
   const [existing] = await db.select({ id: portfolioProjects.id }).from(portfolioProjects).where(and(...conditions)).limit(1);
@@ -62,7 +62,7 @@ async function resolvePortfolioSlug(data: { slug?: string; service?: string; loc
 }
 
 /* -------------------------------------------------------- Admin only */
-export async function getAllPortfolioForAdmin() {
+export async function getAllPortfolioForAdmin() {\n  const db = getDb();
   return db
     .select()
     .from(portfolioProjects)
