@@ -1,5 +1,5 @@
 import { avg, count, desc, eq, sql } from "drizzle-orm";
-import { db } from "@/db/db";
+import { getDb } from "@/db/db";
 import { reviews } from "@/db/schema";
 import type { Review } from "@/db/types";
 
@@ -23,11 +23,13 @@ export function formatReview(row: typeof reviews.$inferSelect): Review {
 }
 
 export async function getReviews() {
+  const db = getDb();
   const rows = await db.select().from(reviews).orderBy(desc(reviews.createdAt));
   return rows.map(formatReview);
 }
 
 export async function getApprovedReviews() {
+  const db = getDb();
   const rows = await db
     .select()
     .from(reviews)
@@ -38,6 +40,7 @@ export async function getApprovedReviews() {
 }
 
 export async function getRandomApprovedReviews(limit = 5) {
+  const db = getDb();
   const rows = await db
     .select()
     .from(reviews)
@@ -49,6 +52,7 @@ export async function getRandomApprovedReviews(limit = 5) {
 }
 
 export async function getReviewById(id: string) {
+  const db = getDb();
   const [row] = await db
     .select()
     .from(reviews)
@@ -58,6 +62,7 @@ export async function getReviewById(id: string) {
 }
 
 export async function getReviewStats() {
+  const db = getDb();
   const [stats] = await db
     .select({
       totalReviews: count(),

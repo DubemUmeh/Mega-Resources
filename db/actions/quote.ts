@@ -1,6 +1,6 @@
 "use server";
 
-import { db } from "@/db/db";
+import { getDb } from "@/db/db";
 import { quoteRequests } from "@/db/schema";
 import { quoteSchema } from "@/db/validation-schema";
 import { createEmailTransporter } from "@/lib/email";
@@ -18,6 +18,7 @@ export async function submitQuoteRequest(input: {
   message?: string;
   consent: boolean;
 }): Promise<ActionResult> {
+  const db = getDb();
   const parsed = quoteSchema.safeParse(input);
   if (!parsed.success) {
     return {

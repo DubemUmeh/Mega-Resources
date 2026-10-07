@@ -1,6 +1,6 @@
 "use server";
 
-import { db } from "@/db/db";
+import { getDb } from "@/db/db";
 import { contactSubmissions } from "@/db/schema";
 import { contactSchema } from "@/db/validation-schema";
 import { createEmailTransporter, generateContactEmail } from "@/lib/email";
@@ -14,6 +14,7 @@ export async function submitContactForm(input: {
   services?: string[];
   message: string;
 }): Promise<ActionResult> {
+  const db = getDb();
   const parsed = contactSchema.safeParse(input);
   if (!parsed.success) {
     return {

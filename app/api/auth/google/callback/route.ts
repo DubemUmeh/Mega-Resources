@@ -1,12 +1,13 @@
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 import { eq } from "drizzle-orm";
-import { db } from "@/db/db";
+import { getDb } from "@/db/db";
 import { adminSessions, authorizedAdmins, googleOAuthTokens } from "@/db/schema";
 import { ADMIN_SESSION_COOKIE, createSessionToken, hashToken } from "@/lib/admin-auth";
 import { encryptSecret, exchangeGoogleCode, getGoogleUser } from "@/lib/google-oauth";
 
 export async function GET(request: NextRequest) {
+  const db = getDb();
   const url = new URL(request.url);
   const code = url.searchParams.get("code");
   const state = url.searchParams.get("state");

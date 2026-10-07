@@ -2,7 +2,7 @@
 
 import { eq, and, desc, ne, type SQL } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
-import { db } from "@/db/db";
+import { getDb } from "@/db/db";
 import { portfolioProjects } from "@/db/schema";
 import { portfolioSchema } from "@/db/validation-schema";
 import { generateUniqueSlug, slugify } from "@/lib/slug";
@@ -14,6 +14,7 @@ export async function getPublishedPortfolio(filters?: {
   region?: string;
   service?: string;
 }) {
+  const db = getDb();
   const conditions: SQL[] = [eq(portfolioProjects.status, "published")];
   if (filters?.region && filters.region !== "all") {
     conditions.push(eq(portfolioProjects.region, filters.region));
@@ -30,6 +31,7 @@ export async function getPublishedPortfolio(filters?: {
 }
 
 export async function getPublishedPortfolioBySlug(slug: string) {
+  const db = getDb();
   const [project] = await db
     .select()
     .from(portfolioProjects)
@@ -40,6 +42,7 @@ export async function getPublishedPortfolioBySlug(slug: string) {
 }
 
 export async function getRelatedPortfolioProjects(project: { id: string; service: string; region: string }, limit = 3) {
+  const db = getDb();
   return db
     .select()
     .from(portfolioProjects)
@@ -49,6 +52,7 @@ export async function getRelatedPortfolioProjects(project: { id: string; service
 }
 
 async function portfolioSlugExists(slug: string, ignoreId?: string) {
+  const db = getDb();
   const conditions: SQL[] = [eq(portfolioProjects.slug, slug)];
   if (ignoreId) conditions.push(ne(portfolioProjects.id, ignoreId));
   const [existing] = await db.select({ id: portfolioProjects.id }).from(portfolioProjects).where(and(...conditions)).limit(1);
@@ -63,6 +67,7 @@ async function resolvePortfolioSlug(data: { slug?: string; service?: string; loc
 
 /* -------------------------------------------------------- Admin only */
 export async function getAllPortfolioForAdmin() {
+  const db = getDb();
   return db
     .select()
     .from(portfolioProjects)
@@ -72,6 +77,7 @@ export async function getAllPortfolioForAdmin() {
 export async function createPortfolioProject(
   input: unknown,
 ): Promise<ActionResult<{ id: string }>> {
+  const db = getDb();
   const parsed = portfolioSchema.safeParse(input);
   if (!parsed.success) {
     return {
@@ -111,6 +117,7 @@ export async function updatePortfolioProject(
   id: string,
   input: unknown,
 ): Promise<ActionResult> {
+  const db = getDb();
   const parsed = portfolioSchema.partial().safeParse(input);
   if (!parsed.success) {
     return {
@@ -145,6 +152,7 @@ export async function updatePortfolioProject(
 export async function deletePortfolioProject(
   id: string,
 ): Promise<ActionResult> {
+  const db = getDb();
   try {
     await db.delete(portfolioProjects).where(eq(portfolioProjects.id, id));
     revalidatePath("/portfolio");
