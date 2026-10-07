@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mega-resources",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-10-07",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
+  "keep_vars": true,
+  "routes": [
+    { "pattern": "megaresourcesgh.com", "custom_domain": true },
+    { "pattern": "www.megaresourcesgh.com", "custom_domain": true }
+  ],
+  "workers_dev": false,
+  "preview_urls": false,
+  "placement": { "mode": "smart" },
+  "observability": {
+    "enabled": true,
+    "logs": { "enabled": true }
+  }
+}
