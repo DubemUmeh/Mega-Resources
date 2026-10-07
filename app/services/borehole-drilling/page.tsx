@@ -91,6 +91,8 @@ export const data: ServiceData = {
   related: [
     { slug: "geological-surveys", title: "Geological Surveys", reason: "Validate the drill point before mobilising a rig." },
     { slug: "pumping-tests", title: "Pumping Tests", reason: "Confirm sustainable yield after drilling is complete." },
+    { slug: "observation-wells", title: "Observation Wells", reason: "Monitor groundwater conditions where supply is not the only project objective." },
+    { slug: "dewatering-wells", title: "Dewatering Wells", reason: "Control groundwater for suitable construction and excavation projects." },
   ],
 };
 

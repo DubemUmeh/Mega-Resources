@@ -91,6 +91,8 @@ export const data: ServiceData = {
   related: [
     { slug: "pump-installation", title: "Pump Installation", reason: "Select the right pump from the test curve." },
     { slug: "borehole-rehabilitation", title: "Borehole Rehabilitation", reason: "Investigate weak yields before redrilling." },
+    { slug: "observation-wells", title: "Observation Wells", reason: "Monitor groundwater levels where project conditions need to be tracked over time." },
+    { slug: "dewatering-wells", title: "Dewatering Wells", reason: "Use pumping-response information to inform groundwater-control decisions." },
   ],
 };
 

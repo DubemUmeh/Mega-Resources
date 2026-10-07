@@ -5,9 +5,9 @@ import type { ServiceData } from "@/app/services/_components/service-template";
 export const siteConfig = {
   name: "Mega Resources LTD",
   domain: process.env.NEXT_PUBLIC_SITE_URL || "https://megaresourcesltd.com",
-  defaultTitle: "Mega Resources LTD | Borehole Drilling & Water Systems Ghana",
+  defaultTitle: "Mega Resources LTD | Groundwater, Drilling & Water Services Ghana",
   defaultDescription:
-    "Mega Resources LTD surveys, drills, tests, installs, and rehabilitates borehole water systems for homes, farms, institutions, and businesses across Ghana.",
+    "Mega Resources LTD provides groundwater investigation, drilling, monitoring, testing, dewatering, pump and water-system services for homes, farms, institutions, construction projects, and businesses across Ghana.",
   locale: "en_GH",
   twitterHandle: "@megaresourcesltd",
 };

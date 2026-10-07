@@ -127,10 +127,10 @@ export default function AboutPage() {
 
               <Reveal delay={0.16} className="mt-6 max-w-2xl">
                 <p className="text-base tracking-wider leading-[1.75] text-foreground/80">
-                  For over 15 years, we&apos;ve surveyed, drilled, and
-                  commissioned boreholes for homes, farms, schools, and
-                  businesses across Ghana. No shortcuts, no disappearing
-                  after the deposit — just water you can rely on, that actually means something.
+                  For over 15 years, we&apos;ve worked across groundwater
+                  investigation, drilling, testing, water systems, and related
+                  services for homes, farms, schools, businesses, and projects
+                  across Ghana.
                 </p>
               </Reveal>
 
@@ -180,6 +180,52 @@ export default function AboutPage() {
               Company Ltd. The firm provides a comprehensive range of services from surveys through 
               feasibility studies, construction works, conceptual analysis and design to contract supervision and management.
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* -------------------------------- VISION / MISSION / OFFICES */}
+      <section className="relative overflow-hidden px-5 py-16 md:px-10 md:py-20">
+        <div className={BG_GLOW} />
+        <div className="mx-auto w-[min(100%,76rem)]">
+          <Reveal className="max-w-2xl">
+            <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-neutral-400">
+              Our Direction
+            </span>
+            <h2 className="mt-4 font-display text-[1.9rem] font-semibold leading-[1.15] tracking-tight text-foreground md:text-[2.5rem]">
+              What guides Mega Resources
+            </h2>
+          </Reveal>
+          <div className="mt-10 grid gap-5 md:grid-cols-2">
+            <Reveal>
+              <div className="h-full rounded-[1.8rem] border border-neutral-200 bg-neutral-100 p-7 shadow-[0_18px_50px_rgba(15,23,42,0.05)] md:p-9">
+                <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-blue-600">Vision</span>
+                <h3 className="mt-4 font-display text-2xl font-semibold text-neutral-900">To be one of the best in the industry</h3>
+                <p className="mt-4 text-base leading-[1.75] text-neutral-600">
+                  The vision of Mega Resources Limited is to be one of the best per its mandate in the industry.
+                </p>
+              </div>
+            </Reveal>
+            <Reveal delay={0.08}>
+              <div className="h-full rounded-[1.8rem] border border-neutral-200 bg-neutral-100 p-7 shadow-[0_18px_50px_rgba(15,23,42,0.05)] md:p-9">
+                <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-blue-600">Mission</span>
+                <h3 className="mt-4 font-display text-2xl font-semibold text-neutral-900">High-level service, delivered effectively</h3>
+                <p className="mt-4 text-base leading-[1.75] text-neutral-600">
+                  Our mission is to provide high-level services and products with technologically inclined personnel that best meet the satisfaction of our customers and clients more effectively than our competitors in the industry.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+          <Reveal delay={0.12} className="mt-5">
+            <div className="rounded-[1.8rem] border border-neutral-200 bg-white p-7 shadow-[0_18px_50px_rgba(15,23,42,0.05)] md:p-9">
+              <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-blue-600">Offices</span>
+              <h3 className="mt-4 font-display text-2xl font-semibold text-neutral-900">Accra, Takoradi and Kumasi</h3>
+              <div className="mt-5 grid gap-5 text-base leading-[1.75] text-neutral-600 md:grid-cols-3">
+                <p><strong className="text-neutral-900">Accra (Head Office):</strong> ACP Junction at Pokuasi.</p>
+                <p><strong className="text-neutral-900">Takoradi:</strong> Kwesimintsim Zongo Junction, with an annex at Racecourse, behind Jushmoh Filling Station.</p>
+                <p><strong className="text-neutral-900">Kumasi:</strong> Mega Resources Ltd has a subsidiary in Kumasi.</p>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>
