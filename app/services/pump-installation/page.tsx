@@ -2,6 +2,7 @@ import ServiceTemplate, {
   type ServiceData,
 } from "../_components/service-template";
 import { createServiceMetadata } from "@/lib/seo";
+import { getResolvedMedia } from "@/lib/media";
 
 export const data: ServiceData = {
   num: "06",
@@ -12,6 +13,7 @@ export const data: ServiceData = {
   tagline: "The right pump, sized to your well, wired and ready to run.",
   heroDescription:
     "We supply and install submersible, solar, and surface pumps — matched to your borehole's depth and yield, then fully wired, tested, and handed over ready to use.",
+  mediaKey: "services.pump-installation.hero",
   img: "/images/home/pump-installation.png",
   icon: "wrench",
   overviewHeading: "What Pump Installation Involves",
@@ -96,6 +98,4 @@ export const data: ServiceData = {
 
 export const metadata = createServiceMetadata(data);
 
-export default function Page() {
-  return <ServiceTemplate data={data} />;
-}
+export default async function Page() {\n  const media = await getResolvedMedia(data.mediaKey);\n  return <ServiceTemplate data={data} media={media} />;\n}
