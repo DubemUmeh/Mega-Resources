@@ -78,7 +78,6 @@ const stats = [
   { value: "15+", label: "Years in the Field" },
   { value: "1,000+", label: "Boreholes Completed" },
   { value: "10", label: "Regions Served" },
-  { value: "2-Yr", label: "Warranty on Every Job" },
 ];
 
 const values = [
@@ -189,7 +188,7 @@ export default function AboutPage() {
       <section className="relative overflow-hidden bg-background/30 px-5 py-16 md:px-10 md:py-20">
         <div className={BG_GLOW} />
         <div className="mx-auto w-[min(100%,76rem)]">
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-6">
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-3 md:gap-6">
             {stats.map((stat, i) => (
               <Reveal key={stat.label} delay={(i % 4) * 0.06}>
                 <div className="flex flex-col gap-1 text-center md:text-left">
