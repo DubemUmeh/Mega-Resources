@@ -77,7 +77,7 @@ export const servicesIndex: ServiceSummary[] = [
     slug: "piezometer-drilling",
     title: "Piezometer Drilling",
     desc: "Install dedicated monitoring points for groundwater level and pressure observations.",
-    img: "/images/home/geological-surveys.png",
+    img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=85",
     icon: "gauge",
   },
   {
@@ -85,7 +85,7 @@ export const servicesIndex: ServiceSummary[] = [
     slug: "observation-wells",
     title: "Observation Wells",
     desc: "Monitor groundwater levels and changing subsurface conditions over time.",
-    img: "/images/home/borehole-drilling.jpeg",
+    img: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=1600&q=85",
     icon: "droplets",
   },
   {
@@ -93,7 +93,7 @@ export const servicesIndex: ServiceSummary[] = [
     slug: "dewatering-wells",
     title: "Dewatering Wells",
     desc: "Control groundwater around suitable excavations and construction works.",
-    img: "/images/home/pumping-tests.png",
+    img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=85",
     icon: "gauge",
   },
   {
@@ -101,7 +101,7 @@ export const servicesIndex: ServiceSummary[] = [
     slug: "horizontal-drain-drilling",
     title: "Horizontal Drain Drilling",
     desc: "Create groundwater drainage paths for suitable slopes, excavations and structures.",
-    img: "/images/home/hydro-fracturing.png",
+    img: "https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1600&q=85",
     icon: "wind",
   },
 ];
