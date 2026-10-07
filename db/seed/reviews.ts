@@ -1,5 +1,5 @@
 import type { NewDbReview } from "@/db/schema";
-import { db } from "@/db/db";
+import { getDb } from "@/db/db";
 import { reviews } from "@/db/schema";
 
 const reviewSeeds = [
@@ -166,6 +166,8 @@ const reviewSeeds = [
 ] satisfies NewDbReview[];
 
 export async function seedReviews() {
+  const db = getDb();
+
   await db
     .insert(reviews)
     .values(reviewSeeds)
