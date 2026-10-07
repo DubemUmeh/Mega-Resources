@@ -1,5 +1,5 @@
 import { desc, eq, and } from "drizzle-orm";
-import { db } from "@/db/db";
+import { getDb } from "@/db/db";
 import { websiteMediaVersions } from "@/db/schema";
 
 export type MediaType = "image" | "video";
@@ -19,6 +19,7 @@ export const MEDIA_SLOTS: MediaSlot[] = [
 ];
 
 export async function getResolvedMedia(slotKey:string):Promise<ResolvedMedia>{
+  const db = getDb();
   const slot=MEDIA_SLOTS.find((item)=>item.key===slotKey);
   if(!slot) throw new Error("Unknown media slot: "+slotKey);
   const [current]=await db.select().from(websiteMediaVersions).where(and(eq(websiteMediaVersions.slotKey,slotKey),eq(websiteMediaVersions.isCurrent,true))).limit(1);
@@ -27,6 +28,7 @@ export async function getResolvedMedia(slotKey:string):Promise<ResolvedMedia>{
 }
 
 export async function getAdminMediaSlots(){
+  const db = getDb();
   const versions=await db.select().from(websiteMediaVersions).orderBy(desc(websiteMediaVersions.createdAt));
   return MEDIA_SLOTS.map((slot)=>({...slot,current:versions.find((v)=>v.slotKey===slot.key&&v.isCurrent)??null,history:versions.filter((v)=>v.slotKey===slot.key)}));
 }
