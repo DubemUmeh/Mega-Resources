@@ -47,9 +47,9 @@ const Projects = () => {
             Impact Across<br />
             Ghana
           </h2>
-          <Link href='/portfolio' className="w-full">
+          <Link href='/gallery' className="w-full">
             <div className="flex items-center gap-3 text-sm md:text-lg underline underline-offset-4 decoration-blue-600 decoration-2 font-medium cursor-pointer group w-fit text-foreground hover:text-blue-600 transition-colors">
-              Explore our project portfolio
+              Explore our project gallery
               <FaArrowRight className="transform -rotate-45" />
             </div>
           </Link>
