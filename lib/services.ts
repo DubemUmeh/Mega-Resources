@@ -10,6 +10,10 @@ export const serviceSlugs = [
   "pump-installation",
   "borehole-rehabilitation",
   "hydro-fracturing",
+  "piezometer-drilling",
+  "observation-wells",
+  "dewatering-wells",
+  "horizontal-drain-drilling",
 ] as const;
 
 export type ServiceSlug = (typeof serviceSlugs)[number];
