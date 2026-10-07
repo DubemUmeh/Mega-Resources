@@ -56,7 +56,7 @@ export function MediaManager({ initialSlots }: { initialSlots: Slot[] }) {
         : item));
       showToast({ title: "Media restored", description: "The selected version is now live." });
     } catch (error) {
-      showToast({ title: "Restore failed", description: error instanceof Error ? error.message : "Could not restore this version.", variant: "destructive" });
+      showToast({ title: "Restore failed", description: error instanceof Error ? error.message : "Could not restore this version.", variant: "error" });
     } finally {
       setBusy(null);
     }
