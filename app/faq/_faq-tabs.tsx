@@ -14,15 +14,11 @@ interface QA {
 const trustFaqs: QA[] = [
   {
     q: "How long has Mega Resources LTD been in business?",
-    a: "We've been surveying, drilling, and commissioning boreholes across Ghana for over 10 years, working with homes, farms, schools, and businesses in ten regions.",
+    a: "We've been surveying, drilling, and commissioning boreholes across Ghana for over 15 years, working with homes, farms, schools, and businesses in ten regions.",
   },
   {
     q: "Are you licensed to drill boreholes in Ghana?",
     a: "Yes. We operate as a registered drilling contractor and carry out abstraction and drilling work in line with Ghana's Water Resources Commission requirements. We can provide documentation on request.",
-  },
-  {
-    q: "Do you carry insurance or liability coverage?",
-    a: "Yes, our drilling operations are covered by liability insurance. If you'd like details for your own records, ask your project coordinator before work begins.",
   },
   {
     q: "Can I see reviews from past clients?",
@@ -30,7 +26,7 @@ const trustFaqs: QA[] = [
   },
   {
     q: "What happens if the borehole doesn't perform as expected?",
-    a: "Every job is backed by a 2-year warranty. If yield drops or something isn't working as it should within that period, our rehabilitation service investigates and corrects it at no extra cost, provided the issue isn't due to misuse.",
+    a: "If a borehole does not perform as expected, we assess the issue and advise on the most suitable next step based on the site conditions, drilling results, and installation details. In some cases, additional work or corrective measures may be required to improve performance.",
   },
   {
     q: "Are your drillers and technicians trained?",
@@ -38,45 +34,45 @@ const trustFaqs: QA[] = [
   },
   {
     q: "How do I know you won't just disappear after I pay?",
-    a: "Because the deposit only covers the survey — the balance is tied to completed, verified milestones (drilling, casing, pump installation), and the job isn't considered finished until you've been trained on the system and handed your warranty documentation.",
+    a: "We have offices in Accra, Takoradi, and Kumasi, so you can reach us in person. Our initial survey comes at a token cost, and you don't pay the full project amount upfront — 70% is paid before drilling, with the remaining 30% due after completion. We also issue an official receipt for every payment",
   },
 ];
 
 const processFaqs: QA[] = [
   {
     q: "What happens after I call or submit a quote request?",
-    a: "We schedule a free site visit and geophysical survey to confirm water depth, likely yield, and total cost. There's no obligation and no charge at this stage — you decide whether to proceed once you have the numbers.",
+    a: "We arrange a site visit and geophysical survey to assess the ground conditions, water depth, and likely yield before drilling. The survey comes at a token cost, and the findings help us determine the right approach and give you a clearer project estimate before you decide to proceed.",
   },
   {
     q: "How long does the whole process take, start to finish?",
-    a: "Most residential projects run about two weeks from the first call to running water: 1–3 days for the survey, 4–7 days for drilling and casing, and the remaining days for pump installation, testing, and handover.",
+    a: "The timeline depends on the site, drilling depth, ground conditions, and the work required. After the survey, we'll explain the expected timeline for drilling, casing, testing, and pump installation before work begins.",
   },
   {
     q: "Do I need to be present during drilling?",
-    a: "Not for every step — but we recommend being present, or having someone represent you, at the start of the survey and at handover, so you can ask questions and confirm everything works as expected.",
+    a: "Not for every step, but we recommend being available for the initial survey and at handover. This gives you the opportunity to ask questions, review the completed work, and make sure the system is working as expected.",
   },
   {
     q: "What forms of payment do you accept, and when is payment due?",
-    a: "We accept mobile money and bank transfer. Payment is staged: a deposit for the survey, then payments tied to drilling completion and pump installation, with the balance due at handover.",
+    a: "We accept mobile money and bank transfer. The payment structure is straightforward: 70% of the total project cost is paid before drilling begins, and the remaining 30% is paid after the work is completed. We issue a receipt for every payment.",
   },
   {
     q: "Can I reschedule or cancel after booking a survey?",
-    a: "Yes, as long as you give reasonable notice. Since the survey carries no obligation, you're free to decide not to proceed after seeing the results, without any further cost.",
+    a: "Yes. Contact us as early as possible if you need to reschedule. The survey is a separate initial step, so you can review the survey findings before deciding whether to proceed with the full drilling project.",
   },
   {
     q: "What areas of Ghana do you cover?",
-    a: "We work across ten regions, including Greater Accra, Ashanti, Northern, and Western. If you're unsure whether we reach your area, ask when you request your quote.",
+    a: "We serve clients across Ghana, with offices in Accra, Takoradi, and Kumasi. If you're unsure whether we cover your specific location, contact us when requesting your quote and we'll confirm.",
   },
   {
     q: "What happens if you don't find water on my land?",
-    a: "This is exactly why the survey happens first. If the survey shows your land isn't a good candidate, we tell you before any drilling starts, so you're never paying to find that out the hard way.",
+    a: "That's one of the reasons we carry out the survey before drilling. The survey helps assess whether the site is suitable for groundwater development. If the findings indicate that drilling is unlikely to be successful, we'll explain the results before you commit to drilling.",
   },
 ];
 
 const industryFaqs: QA[] = [
   {
-    q: "Do I need a permit to drill a borehole in Ghana?",
-    a: "In most cases, yes — groundwater abstraction in Ghana is regulated by the Water Resources Commission, and a permit is generally required before drilling, particularly for anything beyond small-scale domestic use. Requirements can vary by region and intended use, so it's worth confirming your specific case with the Commission or a contractor familiar with local requirements.",
+    q: "Do I (as a Client) need a permit to drill a borehole in Ghana?",
+    a: "No. As a client, you do not need to obtain a permit yourself before drilling your borehole. We handle the drilling process and the necessary requirements for the work, so you can focus on getting your water system installed.",
   },
   {
     q: "Who regulates borehole drilling and groundwater use in Ghana?",
@@ -100,7 +96,7 @@ const industryFaqs: QA[] = [
   },
   {
     q: "Can a borehole run dry, and can it affect neighboring wells?",
-    a: "Yes, both are possible, particularly with poor siting, over-abstraction, or drilling in an already heavily-used aquifer. This is one of the main reasons proper surveys and, in some cases, permits exist — to protect both your investment and the shared groundwater supply nearby.",
+    a: "A borehole can run dry or experience reduced water yield over time, depending on the groundwater conditions and the amount of water available underground. However, your borehole does not directly affect neighbouring boreholes. Our survey and testing process helps us assess the groundwater conditions and determine the most suitable approach for your site.",
   },
   {
     q: "How long does a borehole last, and what maintenance does it need?",
@@ -112,10 +108,38 @@ const industryFaqs: QA[] = [
   },
 ];
 
+const specializedServiceFaqs: QA[] = [
+  {
+    q: "What is piezometer drilling used for?",
+    a: "Piezometers are installed to monitor groundwater levels and pressure at specific depths. They are useful for groundwater investigations, construction projects, dewatering monitoring, and other situations where understanding groundwater conditions over time is important.",
+  },
+  {
+    q: "What are observation wells used for?",
+    a: "Observation wells are designed to monitor groundwater levels and changes over time. They can be used for groundwater investigations, construction and dewatering projects, and ongoing monitoring where regular measurements are required.",
+  },
+  {
+    q: "What are dewatering wells?",
+    a: "Dewatering wells are drilled and equipped to remove groundwater from an area where water levels need to be controlled, such as construction sites, excavations, and other projects affected by groundwater. We assess the site conditions before determining the appropriate drilling and pumping approach.",
+  },
+  {
+    q: "What is horizontal drain drilling?",
+    a: "Horizontal drain drilling creates drainage paths through the ground to help control or relieve groundwater in areas such as slopes, excavations, and other sites where conventional vertical wells may not be suitable. The approach depends on the site's geology, groundwater conditions, and drainage requirements.",
+  },
+  {
+    q: "Do you only drill boreholes for water supply?",
+    a: "No. While borehole drilling and water-supply systems are an important part of our work, we also provide groundwater monitoring, observation wells, piezometer drilling, dewatering wells, horizontal drain drilling, pumping tests, water quality analysis, and other specialized groundwater services.",
+  },
+  {
+    q: "Can you help with groundwater monitoring for a construction project?",
+    a: "Yes. We provide services such as piezometer drilling, observation wells, pumping tests, and dewatering wells to help assess and monitor groundwater conditions during construction and other projects. The appropriate solution depends on the site's geology, groundwater conditions, and project requirements.",
+  },
+];
+
 const categories = [
   { value: "trust", label: "About Us & Trust", items: trustFaqs },
   { value: "process", label: "Our Process", items: processFaqs },
   { value: "industry", label: "Drilling in Ghana", items: industryFaqs },
+  { value: "specialized", label: "Specialized Services", items: specializedServiceFaqs, },
 ];
 
 function FaqAccordion({ items }: { items: QA[] }) {
