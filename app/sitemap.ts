@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { publicSitemapEntries } from "@/lib/programmatic-seo";
 import { boreholeSeoSitemapEntries } from "@/lib/borehole-seo";
-import { getPublishedGallery } from "@/db/actions/gallery";
+import { getPublishedPortfolio } from "@/db/actions/portfolio";
 import { absoluteUrl } from "@/lib/seo";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
