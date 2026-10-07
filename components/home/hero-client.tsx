@@ -14,7 +14,8 @@ const badges = [
   "1,000+ Boreholes Completed",
 ];
 
-export default async function Hero() {\n  const media = await getResolvedMedia("homepage.hero");
+export default async function Hero() {
+  const media = await getResolvedMedia("homepage.hero");
   const root = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
@@ -34,7 +35,11 @@ export default async function Hero() {\n  const media = await getResolvedMedia("
   return (
     <section ref={root} className="relative pt-24 pb-10 md:pb-32 px-6 lg:px-24 min-h-[92vh] flex items-center overflow-hidden bg-transparent">
       <div className="absolute top-0 right-0 w-full h-full z-0">
-        {media.mediaType === "video" ? (\n          <video src={media.url} className="h-full w-full object-cover opacity-100 md:opacity-100" autoPlay muted loop playsInline aria-label={media.altText} />\n        ) : (\n          <Image src={media.url} className="w-full h-full object-cover opacity-100 md:opacity-100" alt={media.altText} fetchPriority="high" priority width={1000} height={1000} />\n        )}
+        {media.mediaType === "video" ? (
+          <video src={media.url} className="h-full w-full object-cover opacity-100 md:opacity-100" autoPlay muted loop playsInline aria-label={media.altText} />
+        ) : (
+          <Image src={media.url} className="w-full h-full object-cover opacity-100 md:opacity-100" alt={media.altText} fetchPriority="high" priority width={1000} height={1000} />
+        )}
         <div className="absolute inset-0 bg-linear-to-r from-foreground via-foreground/60 to-foreground/0 w-full md:w-[70%]"></div>
         <div className="absolute inset-0 bg-linear-to-t from-foreground via-foreground/30 to-foreground/0"></div>
       </div>
