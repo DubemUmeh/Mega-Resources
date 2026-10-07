@@ -11,7 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...publicSitemapEntries(),
     ...boreholeSeoSitemapEntries(),
     ...projects.map((project) => ({
-      url: absoluteUrl(`/portfolio/project/${project.slug}`),
+      url: absoluteUrl(`/gallery/project/${project.slug}`),
       lastModified: project.createdAt,
       changeFrequency: "monthly" as const,
       priority: project.featured ? 0.8 : 0.7,

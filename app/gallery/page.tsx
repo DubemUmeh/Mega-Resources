@@ -2,7 +2,7 @@
 
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { Reveal, ArrowCta, BG_GLOW } from "@/components/motion-kit";
-import { PortfolioFilterGrid } from "./_components/portfolio-filter-grid";
+import { GalleryFilterGrid } from "./_components/gallery-filter-grid";
 
 const stats = [
   { value: "1,000+", label: "Boreholes Completed" },
@@ -11,7 +11,7 @@ const stats = [
   { value: "15+", label: "Years in the Field" },
 ];
 
-export default function PortfolioPage() {
+export default function GalleryPage() {
   return (
     <div className="w-full bg-background/50">
       {/* ---------------------------------------------------------- HERO */}
@@ -179,7 +179,7 @@ export default function PortfolioPage() {
       </section> */}
 
       {/* --------------------------------------------------- PROJECT GRID */}
-      <PortfolioFilterGrid />
+      <GalleryFilterGrid />
 
       {/* ------------------------------------------------------------ CTA */}
       <section className="px-5 pb-24 md:px-10">

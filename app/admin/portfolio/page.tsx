@@ -111,7 +111,7 @@ export default function AdminPortfolioPage() {
   return (
     <div>
       <AdminTopbar
-        title="Portfolio"
+        title="Gallery"
         description={`${portfolios.length} project${portfolios.length === 1 ? "" : "s"} total`}
         actions={
           <Link
@@ -168,7 +168,7 @@ export default function AdminPortfolioPage() {
         title="Delete this project?"
         description={
           pendingDelete
-            ? `This will permanently remove "${pendingDelete.title}" from the portfolio. This can't be undone.`
+            ? `This will permanently remove "${pendingDelete.title}" from the gallery. This can't be undone.`
             : ""
         }
         onConfirm={handleDelete}

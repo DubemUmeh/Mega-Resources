@@ -107,7 +107,7 @@ function SelectField({
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <Link href={`/portfolio/project/${project.slug}`} className="flex h-full w-full flex-col overflow-hidden rounded-[1.5rem] border text-left border-neutral-200 bg-neutral-100 shadow-[0_18px_50px_rgba(15,23,42,0.05)]">
+    <Link href={`/gallery/project/${project.slug}`} className="flex h-full w-full flex-col overflow-hidden rounded-[1.5rem] border text-left border-neutral-200 bg-neutral-100 shadow-[0_18px_50px_rgba(15,23,42,0.05)]">
       <div className="relative aspect-6/3 w-full overflow-hidden">
         <Image
           src={project.img}
@@ -197,7 +197,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
 const INITIAL_VISIBLE = 6;
 const PAGE_SIZE = 6;
 
-export function PortfolioFilterGrid() {
+export function GalleryFilterGrid() {
   const [region, setRegion] = useState("all");
   const [service, setService] = useState("all");
   const [visible, setVisible] = useState(INITIAL_VISIBLE);

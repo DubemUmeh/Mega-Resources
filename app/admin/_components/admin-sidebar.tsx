@@ -24,7 +24,7 @@ const NAV_ITEMS = [
   { href: "/admin/reviews", label: "Reviews", icon: FaStar, exact: false },
   {
     href: "/admin/portfolio",
-    label: "Portfolio",
+    label: "Gallery",
     icon: FaImages,
     exact: false,
   },

@@ -86,7 +86,7 @@ export function PortfolioRow({
         <div className="mt-2 flex items-center justify-between border-t border-neutral-200 pt-3 text-[0.75rem] text-neutral-500">
           <span>{portfolio.depth} · {portfolio.duration}</span>
           <Link
-            href={`/portfolio#${portfolio.id}`}
+            href={`/gallery#${portfolio.id}`}
             target="_blank"
             className="flex items-center gap-1 font-medium text-blue-600"
           >

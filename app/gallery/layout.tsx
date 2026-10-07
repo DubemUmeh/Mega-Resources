@@ -3,7 +3,7 @@ import { StructuredData } from "@/components/structured-data";
 import { createMetadata } from "@/lib/seo";
 import { createPageSchema, requirePageSeo } from "@/lib/programmatic-seo";
 
-const seo = requirePageSeo("/portfolio");
+const seo = requirePageSeo("/gallery");
 
 export const metadata: Metadata = createMetadata(seo);
 

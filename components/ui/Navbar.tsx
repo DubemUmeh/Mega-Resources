@@ -12,7 +12,7 @@ import { serviceSlugs } from "@/lib/services";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services", children: serviceSlugs.map((slug) => ({ label: slug.split("-").map((part) => part[0].toUpperCase() + part.slice(1)).join(" "), href: `/services/${slug}` })) },
-  { label: "Portfolio", href: "/portfolio", children: [{ label: "All Projects", href: "/portfolio#all-projects" }, { label: "Featured Project", href: "/portfolio#featured" }] },
+  { label: "Gallery", href: "/gallery", children: [{ label: "All Projects", href: "/gallery#all-projects" }, { label: "Featured Project", href: "/gallery#featured" }] },
   { label: "About Us", href: "/about-us" },
   { label: "Reviews", href: "/reviews" },
   { label: "Contact", href: "/contact" },
