@@ -2,6 +2,7 @@ import ServiceTemplate, {
   type ServiceData,
 } from "../_components/service-template";
 import { createServiceMetadata } from "@/lib/seo";
+import { getResolvedMedia } from "@/lib/media";
 
 export const data: ServiceData = {
   num: "08",
@@ -12,6 +13,7 @@ export const data: ServiceData = {
   tagline: "For boreholes stuck in tight, low-yield rock.",
   heroDescription:
     "Some boreholes are drilled correctly but still deliver disappointing yield because the surrounding rock is too tight to release much water. Hydro-fracturing widens the natural fractures in that rock to unlock significantly higher flow.",
+  mediaKey: "services.hydro-fracturing.hero",
   img: "/images/home/hydro-fracturing.png",
   icon: "layers",
   overviewHeading: "What Hydro-fracturing Involves",
@@ -95,6 +97,4 @@ export const data: ServiceData = {
 
 export const metadata = createServiceMetadata(data);
 
-export default function Page() {
-  return <ServiceTemplate data={data} />;
-}
+export default async function Page() {\n  const media = await getResolvedMedia(data.mediaKey);\n  return <ServiceTemplate data={data} media={media} />;\n}
