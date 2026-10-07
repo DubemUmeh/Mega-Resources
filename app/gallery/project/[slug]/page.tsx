@@ -7,9 +7,21 @@ import { getPublishedPortfolio, getPublishedPortfolioBySlug, getRelatedPortfolio
 import { absoluteUrl } from "@/lib/seo";
 import ProjectGallery from "../../_components/project-gallery";
 
+// Slugs that aren't pre-rendered at build time are rendered on first request.
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
-  const projects = await getPublishedPortfolio();
-  return projects.map((project) => ({ slug: project.slug }));
+  // The build environment may not have DATABASE_URL (e.g. Cloudflare build vs.
+  // runtime secrets). Skip pre-rendering instead of failing the whole build.
+  if (!process.env.DATABASE_URL) return [];
+
+  try {
+    const projects = await getPublishedPortfolio();
+    return projects.map((project) => ({ slug: project.slug }));
+  } catch (error) {
+    console.warn("generateStaticParams: could not load portfolio projects, skipping pre-render", error);
+    return [];
+  }
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
