@@ -3,18 +3,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { FaArrowLeft, FaArrowRight, FaMapMarkerAlt } from "react-icons/fa";
-import { getPublishedPortfolio, getPublishedGalleryBySlug, getRelatedPortfolioProjects } from "@/db/actions/portfolio";
+import { getPublishedPortfolio, getPublishedPortfolioBySlug, getRelatedPortfolioProjects } from "@/db/actions/portfolio";
 import { absoluteUrl } from "@/lib/seo";
 import ProjectGallery from "../../_components/project-gallery";
 
 export async function generateStaticParams() {
-  const projects = await getPublishedGallery();
+  const projects = await getPublishedPortfolio();
   return projects.map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const project = await getPublishedGalleryBySlug(slug);
+  const project = await getPublishedPortfolioBySlug(slug);
   if (!project) return {};
 
   const title = `${project.title} | ${project.service} in ${project.location}`;
@@ -35,26 +35,26 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function PortfolioProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const project = await getPublishedGalleryBySlug(slug);
+  const project = await getPublishedPortfolioBySlug(slug);
   if (!project) notFound();
-  const related = await getRelatedGalleryProjects(project);
+  const related = await getRelatedPortfolioProjects(project);
   const gallery = project.gallery?.length ? project.gallery : [project.img];
 
   return (
     <main className="w-full bg-background/50">
       <section className="relative overflow-hidden px-5 pb-16 pt-32 md:px-10 md:pb-24 md:pt-40">
-        <div className="pointer-events-none absolute inset-0 [background:radial-gradient(circle_at_15%_10%,rgba(37,99,235,0.12),transparent_36%),radial-gradient(circle_at_80%_15%,rgba(255,205,112,0.16),transparent_38%)]" />
+        <div className="pointer-events-none absolute inset-0 [background:radial-gradient(circle_at_15%_10%,rgba(37,99,235,0.12),transparent_36%),radial-gradient(circle_at_80%_15%,rgba(255,205,112,[...]
         <div className="relative mx-auto grid w-[min(100%,76rem)] gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
             <Link href="/gallery" className="text-sm font-semibold text-blue-600 underline underline-offset-4 flex items-center gap-1"><FaArrowLeft /> Back to gallery</Link>
-            <p className="mt-8 inline-flex rounded-full border border-neutral-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-blue-600 shadow-[0_8px_20px_rgba(15,23,42,0.05)]">{project.service}</p>
+            <p className="mt-8 inline-flex rounded-full border border-neutral-200 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-blue-600 shadow-[0_8px_20px_rgba(15,23,4[...]
             <h1 className="mt-5 font-display text-4xl font-semibold leading-tight text-foreground md:text-6xl">{project.title}</h1>
             <p className="mt-5 flex items-center gap-2 text-neutral-100 tracking-wide"><FaMapMarkerAlt className="text-blue-600" /> {project.location}</p>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-foreground/80 tracking-wide">{project.summary}</p>
             <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
               {[["Depth", project.depth ?? "N/A"], ["Yield", project.yieldRate ?? "N/A"], ["Duration", project.duration ?? "N/A"], ["Year", project.year ?? "N/A"]].map(([label, value]) => (
                 <div key={label} className="rounded-2xl border border-neutral-200 bg-neutral-100 py-2 flex items-center justify-center flex-col">
-                  <p className="font-display text-lg font-semibold text-neutral-900">{value === project.duration ? (<>{value} <span className="text-neutral-600 font-sans text-sm">day(s)</span></>) : value}</p>
+                  <p className="font-display text-lg font-semibold text-neutral-900">{value === project.duration ? (<>{value} <span className="text-neutral-600 font-sans text-sm">day(s)</span></>)[...]
                   <p className="mt-1 text-xs uppercase tracking-widest text-neutral-600">{label}</p>
                 </div>
               ))}
@@ -79,9 +79,9 @@ export default async function PortfolioProjectPage({ params }: { params: Promise
             <h2 className="font-display text-3xl font-semibold text-neutral-900">Related {project.service} projects</h2>
             <div className="mt-8 grid gap-5 md:grid-cols-3">
               {related.map((item) => (
-                <Link key={item.id} href={`/gallery/project/${item.slug}`} className="group overflow-hidden rounded-3xl border border-neutral-200 bg-neutral-100 shadow-[0_18px_50px_rgba(15,23,42,0.05)]">
+                <Link key={item.id} href={`/gallery/project/${item.slug}`} className="group overflow-hidden rounded-3xl border border-neutral-200 bg-neutral-100 shadow-[0_18px_50px_rgba(15,23,42,0[...]
                   <div className="relative aspect-6/4 overflow-hidden"><Image src={item.img} alt={item.title} fill className="object-cover transition-transform group-hover:scale-105" /></div>
-                  <div className="p-5"><p className="text-xs text-neutral-500">{item.location}</p><h3 className="mt-2 font-display text-lg font-semibold text-neutral-900">{item.title}</h3><span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-blue-600">View project <FaArrowRight className="-rotate-45 text-xs" /></span></div>
+                  <div className="p-5"><p className="text-xs text-neutral-500">{item.location}</p><h3 className="mt-2 font-display text-lg font-semibold text-neutral-900">{item.title}</h3><span cl[...]
                 </Link>
               ))}
             </div>
