@@ -9,7 +9,7 @@ export interface ServiceSummary {
 
 export const servicesIndex: ServiceSummary[] = [
   {
-    num: "05",
+    num: "01",
     slug: "geological-surveys",
     title: "Geological Surveys",
     desc: "We confirm water depth and volume on your land before we drill.",
@@ -17,7 +17,7 @@ export const servicesIndex: ServiceSummary[] = [
     icon: "map",
   },
   {
-    num: "01",
+    num: "02",
     slug: "borehole-drilling",
     title: "Borehole Drilling",
     desc: "100ft–350ft+ depth. Geophysical survey, drilling, and PVC casing to prevent collapse.",
@@ -25,7 +25,7 @@ export const servicesIndex: ServiceSummary[] = [
     icon: "map",
   },
   {
-    num: "07",
+    num: "03",
     slug: "air-lifting-developing",
     title: "Air Lifting / Developing",
     desc: "Clear drilling debris and develop the borehole for maximum flow.",
@@ -33,7 +33,7 @@ export const servicesIndex: ServiceSummary[] = [
     icon: "wind",
   },
   {
-    num: "06",
+    num: "04",
     slug: "pumping-tests",
     title: "Pumping Tests",
     desc: "Measure sustainable yield so your pump is sized correctly.",
@@ -41,7 +41,7 @@ export const servicesIndex: ServiceSummary[] = [
     icon: "gauge",
   },
   {
-    num: "08",
+    num: "05",
     slug: "water-quality-analysis",
     title: "Water Quality Analysis",
     desc: "Analyse water quality to guide safe use, treatment, and system decisions.",
@@ -49,7 +49,7 @@ export const servicesIndex: ServiceSummary[] = [
     icon: "droplets",
   },
   {
-    num: "02",
+    num: "06",
     slug: "pump-installation",
     title: "Pump Installation",
     desc: "Submersible, solar, and surface pumps — fully installed and wired.",
@@ -57,7 +57,7 @@ export const servicesIndex: ServiceSummary[] = [
     icon: "wrench",
   },
   {
-    num: "03",
+    num: "07",
     slug: "borehole-rehabilitation",
     title: "Borehole Rehabilitation",
     desc: "Low yield or muddy water? We clean and re-develop old boreholes.",
@@ -65,7 +65,7 @@ export const servicesIndex: ServiceSummary[] = [
     icon: "refresh",
   },
   {
-    num: "04",
+    num: "08",
     slug: "hydro-fracturing",
     title: "Hydro-fracturing",
     desc: "Fracture low-yield rock formations to unlock higher water flow.",
