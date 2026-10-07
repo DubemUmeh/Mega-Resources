@@ -67,12 +67,37 @@ export function createMetadata({
   };
 }
 
+const SERVICE_METADATA_KEYWORDS: Record<string, string[]> = {
+  "geological-surveys": ["geological survey Ghana", "geophysical survey Ghana", "groundwater survey Ghana", "borehole survey Ghana", "geological survey company Ghana"],
+  "borehole-drilling": ["borehole drilling Ghana", "borehole drilling company Ghana", "borehole drilling services Ghana", "affordable borehole drilling Ghana", "borehole contractor Ghana"],
+  "air-lifting-developing": ["borehole air lifting Ghana", "borehole development Ghana", "airlifting borehole Ghana", "borehole cleaning Ghana", "borehole development services Ghana"],
+  "pumping-tests": ["borehole pumping test Ghana", "borehole yield test Ghana", "water well pumping test Ghana", "pumping tests Ghana", "borehole yield testing Ghana"],
+  "water-quality-analysis": ["water quality analysis Ghana", "borehole water testing Ghana", "water quality testing Ghana", "groundwater testing Ghana", "borehole water analysis Ghana"],
+  "pump-installation": ["borehole pump installation Ghana", "water pump installation Ghana", "solar borehole pump Ghana", "pump installation services Ghana", "borehole pump contractor Ghana"],
+  "borehole-rehabilitation": ["borehole rehabilitation Ghana", "borehole repair Ghana", "borehole cleaning Ghana", "borehole restoration Ghana", "borehole rehabilitation services Ghana"],
+  "hydro-fracturing": ["borehole hydro-fracturing Ghana", "hydrofracturing Ghana", "low yield borehole Ghana", "borehole yield improvement Ghana", "hydro-fracturing services Ghana"],
+  "piezometer-drilling": ["piezometer drilling Ghana", "piezometer installation Ghana", "groundwater monitoring Ghana", "groundwater level monitoring Ghana", "piezometer services Ghana"],
+  "observation-wells": ["observation well drilling Ghana", "groundwater observation wells", "groundwater monitoring wells", "observation well installation Ghana", "groundwater monitoring Ghana"],
+  "dewatering-wells": ["dewatering wells Ghana", "groundwater dewatering Ghana", "dewatering boreholes Ghana", "construction dewatering Ghana", "groundwater control Ghana"],
+  "horizontal-drain-drilling": ["horizontal drain drilling Ghana", "horizontal drainage drilling Ghana", "groundwater drainage Ghana", "horizontal drains Ghana", "drain drilling services Ghana"],
+};
+
 export function createServiceMetadata(service: ServiceData) {
+  const serviceName = `${service.title.replace(/\\s*\\/\\s*$/, "")} ${service.titleAccent}`.trim();
+  const keywords = SERVICE_METADATA_KEYWORDS[service.slug] ?? [
+    serviceName,
+    `${service.slug.replace(/-/g, " ")} Ghana`,
+    `${service.slug.replace(/-/g, " ")} services Ghana`,
+    "water services Ghana",
+    "Mega Resources LTD",
+  ];
+
   return createMetadata({
-    title: `${service.title.replace(/\s*\/\s*$/, "")} ${service.titleAccent} | ${service.tagline}`,
+    title: `${service.title.replace(/\\s*\\/\\s*$/, "")} ${service.titleAccent} | ${service.tagline}`,
     description: service.heroDescription,
     path: `/services/${service.slug}`,
     image: service.img,
+    keywords,
     type: "article",
   });
 }
