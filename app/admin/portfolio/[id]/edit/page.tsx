@@ -31,7 +31,7 @@ export default function EditPortfolioPage() {
             href="/admin/portfolio"
             className="mt-4 inline-flex items-center gap-2 text-[0.85rem] font-medium text-blue-600"
           >
-            <FaArrowLeft className="h-2.5 w-2.5" /> Back to portfolio
+            <FaArrowLeft className="h-2.5 w-2.5" /> Back to gallery
           </Link>
         </div>
       ) : (
