@@ -9,31 +9,12 @@ import {
   pgEnum,
 } from "drizzle-orm/pg-core";
 
-export const reviewStatusEnum = pgEnum("review_status", [
-  "pending",
-  "approved",
-  "rejected",
-]);
+export const reviewStatusEnum = pgEnum("review_status", ["pending","approved","rejected"]);
+export const portfolioStatusEnum = pgEnum("portfolio_status", ["draft","published"]);
+export const propertyTypeEnum = pgEnum("property_type", ["residential","commercial","institutional","agricultural"]);
+export const contactMethodEnum = pgEnum("contact_method", ["call","whatsapp","email"]);
+export const mediaTypeEnum = pgEnum("media_type", ["image", "video"]);
 
-export const portfolioStatusEnum = pgEnum("portfolio_status", [
-  "draft",
-  "published",
-]);
-
-export const propertyTypeEnum = pgEnum("property_type", [
-  "residential",
-  "commercial",
-  "institutional",
-  "agricultural",
-]);
-
-export const contactMethodEnum = pgEnum("contact_method", [
-  "call",
-  "whatsapp",
-  "email",
-]);
-
-/* ---------------------------------- Contact form submissions ------- */
 export const contactSubmissions = pgTable("contact_submissions", {
   id: uuid("id").primaryKey().defaultRandom(),
   name: varchar("name", { length: 100 }).notNull(),
@@ -45,7 +26,6 @@ export const contactSubmissions = pgTable("contact_submissions", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
-/* ------------------------------------------ Quote requests --------- */
 export const quoteRequests = pgTable("quote_requests", {
   id: uuid("id").primaryKey().defaultRandom(),
   name: varchar("name", { length: 100 }).notNull(),
@@ -53,16 +33,13 @@ export const quoteRequests = pgTable("quote_requests", {
   email: varchar("email", { length: 150 }),
   region: varchar("region", { length: 60 }).notNull(),
   services: jsonb("services").$type<string[]>().default([]).notNull(),
-  propertyType: propertyTypeEnum("property_type")
-    .notNull()
-    .default("residential"),
+  propertyType: propertyTypeEnum("property_type").notNull().default("residential"),
   contactMethod: contactMethodEnum("contact_method").notNull().default("call"),
   message: varchar("message", { length: 2000 }),
   consent: boolean("consent").notNull().default(false),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
-/* ------------------------------------------------------- Reviews --- */
 export const reviews = pgTable("reviews", {
   id: varchar("id", { length: 40 }).primaryKey(),
   name: varchar("name", { length: 100 }).notNull(),
@@ -76,7 +53,6 @@ export const reviews = pgTable("reviews", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
-/* ----------------------------------------------------- Portfolio --- */
 export const portfolioProjects = pgTable("portfolio_projects", {
   id: uuid("id").primaryKey().defaultRandom(),
   slug: varchar("slug", { length: 180 }).notNull().unique(),
@@ -98,7 +74,20 @@ export const portfolioProjects = pgTable("portfolio_projects", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
-/* Drizzle-inferred types, same convention as your DbWish/DbImage */
+export const websiteMediaVersions = pgTable("website_media_versions", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  slotKey: varchar("slot_key", { length: 180 }).notNull(),
+  mediaType: mediaTypeEnum("media_type").notNull(),
+  secureUrl: varchar("secure_url", { length: 1000 }).notNull(),
+  publicId: varchar("public_id", { length: 500 }).notNull(),
+  altText: varchar("alt_text", { length: 300 }),
+  width: integer("width"),
+  height: integer("height"),
+  duration: integer("duration"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  isCurrent: boolean("is_current").notNull().default(true),
+});
+
 export type DbContactSubmission = typeof contactSubmissions.$inferSelect;
 export type NewDbContactSubmission = typeof contactSubmissions.$inferInsert;
 export type DbQuoteRequest = typeof quoteRequests.$inferSelect;
@@ -107,9 +96,10 @@ export type DbReview = typeof reviews.$inferSelect;
 export type NewDbReview = typeof reviews.$inferInsert;
 export type DbPortfolioProject = typeof portfolioProjects.$inferSelect;
 export type NewDbPortfolioProject = typeof portfolioProjects.$inferInsert;
+export type DbWebsiteMediaVersion = typeof websiteMediaVersions.$inferSelect;
+export type NewDbWebsiteMediaVersion = typeof websiteMediaVersions.$inferInsert;
 
 export const adminRoleEnum = pgEnum("admin_role", ["SUPER_ADMIN", "ADMIN"]);
-
 export const authorizedAdmins = pgTable("authorized_admins", {
   id: uuid("id").primaryKey().defaultRandom(),
   googleEmail: varchar("google_email", { length: 150 }).notNull().unique(),
@@ -118,7 +108,6 @@ export const authorizedAdmins = pgTable("authorized_admins", {
   active: boolean("active").notNull().default(true),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
-
 export const adminSessions = pgTable("admin_sessions", {
   id: uuid("id").primaryKey().defaultRandom(),
   adminId: uuid("admin_id").notNull().references(() => authorizedAdmins.id, { onDelete: "cascade" }),
@@ -126,7 +115,6 @@ export const adminSessions = pgTable("admin_sessions", {
   expiresAt: timestamp("expires_at").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
-
 export const googleOAuthTokens = pgTable("google_oauth_tokens", {
   id: uuid("id").primaryKey().defaultRandom(),
   adminId: uuid("admin_id").notNull().references(() => authorizedAdmins.id, { onDelete: "cascade" }).unique(),
@@ -139,7 +127,6 @@ export const googleOAuthTokens = pgTable("google_oauth_tokens", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
-
 export const businessSettings = pgTable("business_settings", {
   id: uuid("id").primaryKey().defaultRandom(),
   businessName: varchar("business_name", { length: 150 }).notNull().default("Mega Resources LTD"),
@@ -149,7 +136,6 @@ export const businessSettings = pgTable("business_settings", {
   logoUrl: varchar("logo_url", { length: 500 }).notNull().default(""),
   updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
-
 export const gmailMessageMetadata = pgTable("gmail_message_metadata", {
   id: uuid("id").primaryKey().defaultRandom(),
   gmailMessageId: varchar("gmail_message_id", { length: 120 }).notNull().unique(),
@@ -158,6 +144,5 @@ export const gmailMessageMetadata = pgTable("gmail_message_metadata", {
   handledAt: timestamp("handled_at"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
-
 export type DbAuthorizedAdmin = typeof authorizedAdmins.$inferSelect;
 export type DbBusinessSettings = typeof businessSettings.$inferSelect;
