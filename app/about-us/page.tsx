@@ -75,8 +75,8 @@ const BG_GLOW =
   "pointer-events-none absolute inset-0 -z-10 [background:radial-gradient(circle_at_10%_10%,rgba(255,205,112,0.16),transparent_38%),radial-gradient(circle_at_90%_20%,rgba(255,184,142,0.14),transparent_40%)]";
 
 const stats = [
-  { value: "10+", label: "Years in the Field" },
-  { value: "3,000+", label: "Boreholes Completed" },
+  { value: "15+", label: "Years in the Field" },
+  { value: "1,000+", label: "Boreholes Completed" },
   { value: "10", label: "Regions Served" },
   { value: "2-Yr", label: "Warranty on Every Job" },
 ];
@@ -94,8 +94,8 @@ const values = [
   },
   {
     icon: FaShieldAlt,
-    title: "We Stand Behind Our Work",
-    desc: "A 2-year warranty on every borehole, and a rehabilitation service if yield ever drops. We don't disappear once the invoice is paid.",
+    title: "Professional & Reliable",
+    desc: "Our team follows industry best practices and delivers quality work you can depend on. We maintain open communication throughout every project.",
   },
   {
     icon: FaMapMarkedAlt,
@@ -128,11 +128,10 @@ export default function AboutPage() {
 
               <Reveal delay={0.16} className="mt-6 max-w-2xl">
                 <p className="text-base tracking-wider leading-[1.75] text-foreground/80">
-                  For over 10 years, we&apos;ve surveyed, drilled, and
+                  For over 15 years, we&apos;ve surveyed, drilled, and
                   commissioned boreholes for homes, farms, schools, and
                   businesses across Ghana. No shortcuts, no disappearing
-                  after the deposit — just water you can rely on, backed by
-                  a warranty that actually means something.
+                  after the deposit — just water you can rely on, that actually means something.
                 </p>
               </Reveal>
 
@@ -169,18 +168,18 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={0.1} className="flex flex-col gap-5 text-base lg:text-lg tracking-wide font-normal leading-7 text-foreground/70">
             <p>
-              We started with a single rig and a simple belief: a borehole
-              is only as good as the survey that came before it. Too many
-              families were paying for dry holes and dropped promises, and
-              we set out to do it differently — test first, quote
-              honestly, drill properly, and stand behind the result.
+              Mega Resources Ltd was established in July 2016 to provide 
+              drilling and consultancy services and general construction in the Civil Engineering, 
+              Transportation, Water, Environment as well as the supply of goods and services. 
+              Mega Resources Ltd is a registered Ghanaian consultancy and Construction firm - which engages and specializes in the 
+              provision of portable drinking water using sophisticated and high-level technology. In addition, Mega Resources undertakes
+              projects in hydrogeological consultancy, civil works, Planning, Waste Management, 
             </p>
             <p>
-              That approach is why we&apos;re now one of the largest
-              borehole drilling operations in Ghana, with crews and
-              equipment working across ten regions. The rigs have gotten
-              bigger, but the promise hasn&apos;t changed — we don&apos;t
-              leave until you have water you can rely on.
+              Waste water Treatment, Water Treatment, Cost Estimates & Bill of Quantities, Real 
+              Estate and Management Consultants. This new company was formally known as Mega Drilling 
+              Company Ltd. The firm provides a comprehensive range of services from surveys through 
+              feasibility studies, construction works, conceptual analysis and design to contract supervision and management.
             </p>
           </Reveal>
         </div>
