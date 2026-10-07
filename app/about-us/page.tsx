@@ -168,7 +168,7 @@ export default function AboutPage() {
           </Reveal>
           <Reveal delay={0.1} className="flex flex-col gap-5 text-base lg:text-lg tracking-wide font-normal leading-7 text-foreground/70">
             <p>
-              Mega Resources Ltd was established in July 2016 to provide 
+              Mega Resources Ltd was established to provide 
               drilling and consultancy services and general construction in the Civil Engineering, 
               Transportation, Water, Environment as well as the supply of goods and services. 
               Mega Resources Ltd is a registered Ghanaian consultancy and Construction firm - which engages and specializes in the 
