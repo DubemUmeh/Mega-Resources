@@ -4,12 +4,13 @@ import type { ServiceData } from "@/app/services/_components/service-template";
 
 export const siteConfig = {
   name: "Mega Resources LTD",
-  domain: process.env.NEXT_PUBLIC_SITE_URL || "https://megaresourcesltd.com",
+  domain: "https://www.megaresourcesgh.com",
   defaultTitle: "Mega Resources LTD | Groundwater, Drilling & Water Services Ghana",
   defaultDescription:
     "Mega Resources LTD provides groundwater investigation, drilling, monitoring, testing, dewatering, pump and water-system services for homes, farms, institutions, construction projects, and businesses across Ghana.",
   locale: "en_GH",
   twitterHandle: "@megaresourcesltd",
+  ogImage: "https://res.cloudinary.com/dcqwzsq26/image/upload/f_webp,q_auto/Mega_logo_lcqzt7.jpg",
 };
 
 export type BreadcrumbItem = { name: string; path: string };
@@ -18,6 +19,7 @@ export type PageSeo = {
   description: string;
   path: string;
   image?: string;
+  keywords?: string[];
   type?: "website" | "article";
   noIndex?: boolean;
 };
@@ -31,7 +33,8 @@ export function createMetadata({
   title,
   description,
   path,
-  image = "/images/home/borehole-drilling.jpeg",
+  image = siteConfig.ogImage,
+  keywords = [],
   type = "website",
   noIndex = false,
 }: PageSeo): Metadata {
@@ -42,6 +45,7 @@ export function createMetadata({
     metadataBase: new URL(siteConfig.domain),
     title,
     description,
+    keywords: keywords.length ? keywords : undefined,
     alternates: { canonical: url },
     robots: noIndex ? { index: false, follow: false } : { index: true, follow: true },
     openGraph: {
