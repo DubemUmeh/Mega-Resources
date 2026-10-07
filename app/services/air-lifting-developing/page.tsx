@@ -98,4 +98,7 @@ export const data: ServiceData = {
 
 export const metadata = createServiceMetadata(data);
 
-export default async function Page() {\n  const media = await getResolvedMedia(data.mediaKey);\n  return <ServiceTemplate data={data} media={media} />;\n}
+export default async function Page() {
+  const media = await getResolvedMedia(data.mediaKey);
+  return <ServiceTemplate data={data} media={media} />;
+}
