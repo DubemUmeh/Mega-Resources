@@ -129,7 +129,6 @@ export const SERVICE_PAGE_SEO: ProgrammaticSeoPage[] = [
     breadcrumbs: [{ name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Hydro-fracturing", path: "/services/hydro-fracturing" }],
     priority: 0.8,
   },
-,
   {
     id: "service-piezometer-drilling",
     title: "Piezometer Drilling in Ghana | Mega Resources LTD",
