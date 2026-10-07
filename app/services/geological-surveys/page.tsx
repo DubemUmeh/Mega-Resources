@@ -2,6 +2,7 @@ import ServiceTemplate, {
   type ServiceData,
 } from "../_components/service-template";
 import { createServiceMetadata } from "@/lib/seo";
+import { getResolvedMedia } from "@/lib/media";
 
 export const data: ServiceData = {
   num: "01",
@@ -12,6 +13,7 @@ export const data: ServiceData = {
   tagline: "Know what's underground before a single hole is drilled.",
   heroDescription:
     "Before we drill, we survey. Using geophysical methods, we confirm the likely depth and volume of water beneath your land, so the drill point we choose is backed by data, not luck.",
+  mediaKey: "services.geological-surveys.hero",
   img: "/images/home/geological-surveys.png",
   icon: "map",
   overviewHeading: "What a Geological Survey Involves",
@@ -96,6 +98,4 @@ export const data: ServiceData = {
 
 export const metadata = createServiceMetadata(data);
 
-export default function Page() {
-  return <ServiceTemplate data={data} />;
-}
+export default async function Page() {\n  const media = await getResolvedMedia(data.mediaKey);\n  return <ServiceTemplate data={data} media={media} />;\n}
