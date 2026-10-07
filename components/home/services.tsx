@@ -51,6 +51,30 @@ const services = [
     desc: "Fracture low-yield rock formations to unlock higher water flow.",
     img: "/images/home/hydro-fracturing.png",
   },
+  {
+    num: "09",
+    title: "Piezometer\nDrilling",
+    desc: "Install dedicated monitoring points for groundwater level and pressure observations.",
+    img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=85",
+  },
+  {
+    num: "10",
+    title: "Observation\nWells",
+    desc: "Monitor groundwater levels and changing subsurface conditions over time.",
+    img: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=1600&q=85",
+  },
+  {
+    num: "11",
+    title: "Dewatering\nWells",
+    desc: "Control groundwater around suitable excavations and construction works.",
+    img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=85",
+  },
+  {
+    num: "12",
+    title: "Horizontal Drain\nDrilling",
+    desc: "Create groundwater drainage paths for suitable slopes, excavations and structures.",
+    img: "https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1600&q=85",
+  },
 ];
 
 const Services = () => {
@@ -61,7 +85,7 @@ const Services = () => {
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
         <div className="lg:w-1/4 flex flex-row md:flex-col justify-between">
           <div>
-            <div className="text-6xl md:text-7xl font-light mb-6 text-foreground">08</div>
+            <div className="text-6xl md:text-7xl font-light mb-6 text-foreground">12</div>
             <div className="text-sm md:text-lg text-foreground/70 leading-relaxed font-light">
               Specialized Services.<br />
               Complete Water<br />
@@ -75,10 +99,10 @@ const Services = () => {
 
         <div className="lg:w-3/4 relative">
           <div className="flex overflow-hidden group">
-            <div 
+            <div
               className="flex gap-4 animate-marquee group-hover:pause-marquee"
               style={{
-                animation: 'marquee 40s linear infinite'
+                animation: 'marquee 60s linear infinite'
               }}
             >
               {[...services, ...services].map((svc, idx) => (
@@ -86,9 +110,9 @@ const Services = () => {
                   <Image
                     width={1000}
                     height={1000}
-                    src={svc.img} 
-                    alt={svc.title.replace("\n", " ")} 
-                    className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover/card:opacity-30 group-hover/card:scale-105 transition-all duration-700" 
+                    src={svc.img}
+                    alt={svc.title.replace("\n", " ")}
+                    className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover/card:opacity-30 group-hover/card:scale-105 transition-all duration-700"
                     fetchPriority="high"
                     priority
                   />
@@ -107,7 +131,7 @@ const Services = () => {
               ))}
             </div>
           </div>
-          
+
           <style>{`
             @keyframes marquee {
               0% { transform: translateX(0); }

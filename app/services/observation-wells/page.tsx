@@ -10,7 +10,7 @@ export const data: ServiceData = {
   tagline: "Monitor groundwater levels as conditions change.",
   heroDescription:
     "Observation wells provide dedicated access for monitoring groundwater levels and behaviour over time. They can support groundwater investigations, construction monitoring, and dewatering projects where reliable observations are needed.",
-  img: "/images/home/borehole-drilling.jpeg",
+  img: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=1600&q=85",
   icon: "droplets",
   overviewHeading: "What an Observation Well Involves",
   overviewParagraphs: [

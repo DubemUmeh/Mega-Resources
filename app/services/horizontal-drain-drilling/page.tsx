@@ -10,7 +10,7 @@ export const data: ServiceData = {
   tagline: "Provide a drainage path where conventional vertical wells are not the right geometry.",
   heroDescription:
     "Horizontal drain drilling creates drainage paths through slopes, excavations or other structures where groundwater needs relief and a horizontal installation is more suitable than a conventional vertical borehole.",
-  img: "/images/home/hydro-fracturing.png",
+  img: "https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1600&q=85",
   icon: "wind",
   overviewHeading: "What Horizontal Drain Drilling Involves",
   overviewParagraphs: [

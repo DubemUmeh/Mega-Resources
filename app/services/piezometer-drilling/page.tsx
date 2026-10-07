@@ -10,7 +10,7 @@ export const data: ServiceData = {
   tagline: "Measure groundwater levels and pressure with a purpose-built monitoring point.",
   heroDescription:
     "Piezometer drilling and installation creates a dedicated point for monitoring groundwater head or pressure. It can support hydrogeological investigations, construction monitoring, and projects where changes in groundwater conditions need to be measured over time.",
-  img: "/images/home/geological-surveys.png",
+  img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=85",
   icon: "gauge",
   overviewHeading: "What Piezometer Drilling Involves",
   overviewParagraphs: [

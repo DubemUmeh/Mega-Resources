@@ -199,7 +199,7 @@ export default function AboutPage() {
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             <Reveal>
               <div className="h-full rounded-[1.8rem] border border-neutral-200 bg-neutral-100 p-7 shadow-[0_18px_50px_rgba(15,23,42,0.05)] md:p-9">
-                <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-blue-600">Vision</span>
+                <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-blue-600">Our Vision</span>
                 <h3 className="mt-4 font-display text-2xl font-semibold text-neutral-900">To be one of the best in the industry</h3>
                 <p className="mt-4 text-base leading-[1.75] text-neutral-600">
                   The vision of Mega Resources Limited is to be one of the best per its mandate in the industry.
@@ -208,7 +208,7 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={0.08}>
               <div className="h-full rounded-[1.8rem] border border-neutral-200 bg-neutral-100 p-7 shadow-[0_18px_50px_rgba(15,23,42,0.05)] md:p-9">
-                <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-blue-600">Mission</span>
+                <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-blue-600">Our Mission</span>
                 <h3 className="mt-4 font-display text-2xl font-semibold text-neutral-900">High-level service, delivered effectively</h3>
                 <p className="mt-4 text-base leading-[1.75] text-neutral-600">
                   Our mission is to provide high-level services and products with technologically inclined personnel that best meet the satisfaction of our customers and clients more effectively than our competitors in the industry.
@@ -218,7 +218,7 @@ export default function AboutPage() {
           </div>
           <Reveal delay={0.12} className="mt-5">
             <div className="rounded-[1.8rem] border border-neutral-200 bg-white p-7 shadow-[0_18px_50px_rgba(15,23,42,0.05)] md:p-9">
-              <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-blue-600">Offices</span>
+              <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-blue-600">Our Offices</span>
               <h3 className="mt-4 font-display text-2xl font-semibold text-neutral-900">Accra, Takoradi and Kumasi</h3>
               <div className="mt-5 grid gap-5 text-base leading-[1.75] text-neutral-600 md:grid-cols-3">
                 <p><strong className="text-neutral-900">Accra (Head Office):</strong> ACP Junction at Pokuasi.</p>

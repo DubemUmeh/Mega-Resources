@@ -93,9 +93,12 @@ const Navbar = () => {
                             <DropdownMenu.Item asChild>
                               <Link href={link.href} className="font-brand col-span-2 rounded-2xl bg-blue-600/10 p-4 text-sm font-semibold text-blue-600">Explore {link.label}</Link>
                             </DropdownMenu.Item>
-                            {link.children.map((child) => (
+                            {link.children.map((child, ci) => (
                               <DropdownMenu.Item key={child.href} asChild>
-                                <Link key={child.href} href={child.href} className="font-brand rounded-2xl p-3 text-sm text-neutral-600 transition hover:bg-neutral-100 hover:text-blue-600 tracking-wide">{child.label}</Link>
+                                <Link key={child.href} href={child.href} className="font-brand flex items-baseline gap-3 rounded-2xl p-3 text-sm text-neutral-600 transition hover:bg-neutral-100 hover:text-blue-600 tracking-wide">
+                                  <span className="font-semibold text-blue-600">{ci + 1}</span>
+                                  <span>{child.label}</span>
+                                </Link>
                               </DropdownMenu.Item>
                             ))}
                           </div>
@@ -228,7 +231,7 @@ const Navbar = () => {
                                       className="group/child flex items-baseline gap-3 py-1.5 text-white/80 transition-colors hover:text-white"
                                     >
                                       <span className="text-xs font-semibold text-blue-500/80">
-                                        {i + 1}-{String.fromCharCode(65 + ci)}
+                                        {String.fromCharCode(65 + ci)}
                                       </span>
                                       <span className="text-base font-medium tracking-wider transition-transform duration-300 group-hover/child:translate-x-2">
                                         {child.label}
