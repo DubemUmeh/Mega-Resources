@@ -1,5 +1,6 @@
 import ServiceTemplate, { type ServiceData } from "../_components/service-template";
 import { createServiceMetadata } from "@/lib/seo";
+import { getResolvedMedia } from "@/lib/media";
 
 export const data: ServiceData = {
   num: "10",
@@ -9,14 +10,15 @@ export const data: ServiceData = {
   titleAccent: "Wells",
   tagline: "Monitor groundwater levels as conditions change.",
   heroDescription:
-    "Observation wells provide dedicated access for monitoring groundwater levels and behaviour over time. They can support groundwater investigations, construction monitoring, and dewatering projects where reliable observations are needed.",
+    "Observation wells provide dedicated access for monitoring groundwater levels and behaviour over time. They can support groundwater investigations, construction monitoring, and dewatering projects.",
+  mediaKey: "services.observation-wells.hero",
   img: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=1600&q=85",
   icon: "droplets",
   overviewHeading: "What an Observation Well Involves",
   overviewParagraphs: [
     "An observation well is a well constructed primarily for groundwater monitoring. It gives a project a repeatable location from which groundwater levels can be measured and compared over time.",
-    "The well is planned around the geological setting and the monitoring objective. The depth and screened interval should target the groundwater zone that needs to be observed, while the construction should allow useful measurements without turning the installation into a general production well.",
-    "Observation wells are particularly useful when groundwater conditions may change during an investigation or construction project. Measurements can help a project team understand trends and make better-informed decisions about groundwater control or site conditions.",
+    "The well is planned around the geological setting and the monitoring objective. The depth and screened interval should target the groundwater zone that needs to be observed, while the construction ensures a reliable, consistent measurement point.",
+    "Observation wells are particularly useful when groundwater conditions may change during an investigation or construction project. Measurements can help a project team understand trends and make informed decisions.",
   ],
   overviewBullets: [
     "Dedicated groundwater-level monitoring over time",
@@ -99,6 +101,8 @@ export const data: ServiceData = {
 };
 
 export const metadata = createServiceMetadata(data);
-export default function Page() {
-  return <ServiceTemplate data={data} />;
+
+export default async function Page() {
+  const media = await getResolvedMedia(data.mediaKey);
+  return <ServiceTemplate data={data} media={media} />;
 }

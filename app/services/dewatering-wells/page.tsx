@@ -1,5 +1,6 @@
 import ServiceTemplate, { type ServiceData } from "../_components/service-template";
 import { createServiceMetadata } from "@/lib/seo";
+import { getResolvedMedia } from "@/lib/media";
 
 export const data: ServiceData = {
   num: "11",
@@ -9,14 +10,15 @@ export const data: ServiceData = {
   titleAccent: "Wells",
   tagline: "Control groundwater where excavation and construction require a drier working area.",
   heroDescription:
-    "Dewatering wells are used to remove groundwater and lower groundwater levels around suitable construction or excavation areas. The approach is planned around site geology, groundwater conditions, the required drawdown and the pumping system.",
+    "Dewatering wells are used to remove groundwater and lower groundwater levels around suitable construction or excavation areas. The approach is planned around site geology, groundwater conditions, and project requirements.",
+  mediaKey: "services.dewatering-wells.hero",
   img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=85",
   icon: "gauge",
   overviewHeading: "What Dewatering Wells Involve",
   overviewParagraphs: [
-    "Groundwater can enter excavations, foundations, shafts and other below-ground work areas. Where groundwater needs to be controlled, dewatering wells can provide a planned way to intercept and pump groundwater so construction can proceed under more manageable conditions.",
-    "A suitable dewatering approach depends on the ground and groundwater conditions, the geometry of the excavation and how much water needs to be controlled. Investigation and testing help the project team understand the groundwater system before selecting the well and pumping arrangement.",
-    "Dewatering is not simply a matter of drilling and switching on a pump. Well locations, screened intervals, pump capacity, discharge arrangements and monitoring requirements need to be considered together, with the system adjusted to the actual site response.",
+    "Groundwater can enter excavations, foundations, shafts and other below-ground work areas. Where groundwater needs to be controlled, dewatering wells can provide a planned way to intercept and remove water before it impacts construction.",
+    "A suitable dewatering approach depends on the ground and groundwater conditions, the geometry of the excavation and how much water needs to be controlled. Investigation and testing help the project team understand the scale of the problem.",
+    "Dewatering is not simply a matter of drilling and switching on a pump. Well locations, screened intervals, pump capacity, discharge arrangements and monitoring requirements need to be considered carefully.",
   ],
   overviewBullets: [
     "Groundwater control for suitable excavations and construction work",
@@ -99,6 +101,8 @@ export const data: ServiceData = {
 };
 
 export const metadata = createServiceMetadata(data);
-export default function Page() {
-  return <ServiceTemplate data={data} />;
+
+export default async function Page() {
+  const media = await getResolvedMedia(data.mediaKey);
+  return <ServiceTemplate data={data} media={media} />;
 }
