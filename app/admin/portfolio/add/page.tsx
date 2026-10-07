@@ -17,7 +17,7 @@ export default function AddPortfolioPage() {
     <DesktopGate backHref="/admin/portfolio">
       <AdminTopbar
         title="Add Project"
-        description="Add a completed job to the public portfolio."
+        description="Add a completed job to the public gallery."
       />
       <PortfolioForm onSubmit={handleSubmit} submitLabel="Publish Project" />
     </DesktopGate>
