@@ -17,7 +17,8 @@ export async function submitQuoteRequest(input: {
   contactMethod: string;
   message?: string;
   consent: boolean;
-}): Promise<ActionResult> {\n  const db = getDb();
+}): Promise<ActionResult> {
+  const db = getDb();
   const parsed = quoteSchema.safeParse(input);
   if (!parsed.success) {
     return {
