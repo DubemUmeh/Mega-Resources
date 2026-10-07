@@ -2,7 +2,7 @@
 
 import { eq } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
-import { db } from "@/db/db";
+import { getDb } from "@/db/db";
 import { reviews } from "@/db/schema";
 import { getApprovedReviews, getRandomApprovedReviews, getReviews } from "@/lib/reviews";
 import { reviewSchema } from "@/db/validation-schema";
@@ -21,7 +21,7 @@ export async function createReview(input: {
   services: string[];
   rating: number;
   message: string;
-}): Promise<ActionResult<{ id: string }>> {
+}): Promise<ActionResult<{ id: string }>> {\n  const db = getDb();
   const parsed = reviewSchema.safeParse(input);
   if (!parsed.success) {
     return {
@@ -143,7 +143,7 @@ export async function updateReview(
   }
 }
 
-export async function deleteReview(id: string): Promise<ActionResult> {
+export async function deleteReview(id: string): Promise<ActionResult> {\n  const db = getDb();
   try {
     await db.delete(reviews).where(eq(reviews.id, id));
     revalidatePath("/reviews");
