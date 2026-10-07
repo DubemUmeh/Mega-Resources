@@ -5,6 +5,7 @@ import { FaArrowRight, FaTint, FaWhatsapp, FaCheckCircle } from "react-icons/fa"
 import Link from "next/link";
 import { gsap } from "@/lib/gsap";
 import Image from "next/image";
+import type { ResolvedMedia } from "@/lib/media";
 
 const HEADLINE = ["WATER", "EXPERTISE", "RELIABILITY"];
 
@@ -14,8 +15,7 @@ const badges = [
   "1,000+ Boreholes Completed",
 ];
 
-export default async function Hero() {
-  const media = await getResolvedMedia("homepage.hero");
+export default function HeroClient({ media }: { media: ResolvedMedia }) {
   const root = useRef<HTMLElement>(null);
 
   useLayoutEffect(() => {
