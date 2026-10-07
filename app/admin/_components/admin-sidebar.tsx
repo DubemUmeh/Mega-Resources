@@ -14,7 +14,6 @@ import {
   FaEnvelope,
   FaFileInvoice,
   FaCog,
-  FaPhotoVideo,
 } from "react-icons/fa";
 import { LogOutIcon } from "lucide-react";
 import { Mega_Logo } from "@/components/logo";
@@ -41,7 +40,7 @@ const NAV_ITEMS = [
     icon: FaFileInvoice,
     exact: false,
   },
-  { href: "/admin/media", label: "Website Media", icon: FaPhotoVideo, exact: false },
+  { href: "/admin/media", label: "Website Media", icon: FaImages, exact: false },
   { href: "/admin/settings", label: "Settings", icon: FaCog, exact: false },
 ];
 
