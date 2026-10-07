@@ -139,7 +139,7 @@ export default function ServicesPage() {
 
           <Reveal delay={0.08} className="mt-6 max-w-3xl">
             <h1 className="font-display text-[2.25rem] font-semibold leading-[1.1] tracking-tight text-foreground md:text-[3.5rem]">
-              Eight services, One goal:{" "}
+              Twelve services, One goal:{" "}
               <span className="text-blue-600">
                 water you can rely on.
               </span>
@@ -176,25 +176,16 @@ export default function ServicesPage() {
               Our Expertise
             </span>
             <h2 className="mt-4 font-display text-[1.9rem] font-semibold leading-[1.15] tracking-tight text-foreground md:text-[2.5rem]">
-              Complete borehole water solutions
+              Groundwater, drilling and water solutions
             </h2>
           </Reveal>
           <Reveal delay={0.1} className="flex flex-col gap-5">
             <p className="text-base ld:text-lg tracking-wide font-sans font-normal leading-[1.8] text-foreground/80">
-              Every successful borehole project involves far more than
-              drilling a hole into the ground. It requires proper site
-              investigation, experienced drilling, quality construction
-              materials, performance testing, pump installation, and
-              long-term maintenance.
+              A successful groundwater project involves more than drilling a hole into the ground. It can require site investigation, specialized drilling, monitoring, testing, groundwater control, pump installation, and long-term maintenance.
             </p>
             <span className="block w-16 border-t-2 border-blue-400"></span>
             <p className="text-base font-sans ld:text-lg tracking-wide font-normal leading-[1.8] text-foreground/80">
-              We provide end-to-end borehole water solutions for homeowners,
-              farms, industries, schools, hospitals, commercial developments,
-              and government projects. Whether you&apos;re developing a new
-              water source or restoring an existing borehole, our team
-              delivers reliable results using modern equipment and proven
-              engineering practices.
+              We provide groundwater and drilling services for homeowners, farms, industries, schools, hospitals, commercial developments, construction projects, and government work. Whether the need is a new water source, groundwater monitoring, construction dewatering, or restoration of an existing borehole, our services are planned around the site's conditions and the project's objective.
             </p>
           </Reveal>
         </div>
