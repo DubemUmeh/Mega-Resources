@@ -6,6 +6,7 @@ export type SchemaKind = "Organization" | "WebSite" | "WebPage" | "Article" | "F
 
 export type SeoFaq = { question: string; answer: string };
 export type InternalLink = { label: string; href: string; reason: string };
+// commeted to test
 
 export type ProgrammaticSeoPage = PageSeo & {
   id: string;
