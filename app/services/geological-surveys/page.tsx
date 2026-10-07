@@ -90,7 +90,9 @@ export const data: ServiceData = {
   next: { slug: "borehole-drilling", title: "Borehole Drilling" },
   related: [
     { slug: "borehole-drilling", title: "Borehole Drilling", reason: "Turn the strongest survey target into a productive well." },
-    { slug: "hydro-fracturing", title: "Hydro-fracturing", reason: "Assess whether tight rock can be stimulated." },
+    { slug: "piezometer-drilling", title: "Piezometer Drilling", reason: "Plan a dedicated groundwater monitoring point from site information." },
+    { slug: "observation-wells", title: "Observation Wells", reason: "Monitor groundwater levels during an investigation or project." },
+    { slug: "dewatering-wells", title: "Dewatering Wells", reason: "Assess groundwater conditions before planning construction dewatering." },
   ],
 };
 
