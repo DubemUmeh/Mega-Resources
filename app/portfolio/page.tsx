@@ -77,8 +77,8 @@ export default function PortfolioPage() {
       </section>
 
       {/* ---------------------------------------------------- FEATURED */}
-      <section id="featured" className="relative overflow-hidden px-5 py-16 md:px-10 md:py-24 scroll-mt-24">
-        <div className={BG_GLOW} />
+      {/* <section id="featured" className="relative overflow-hidden px-5 py-16 md:px-10 md:py-24 scroll-mt-24">
+        <= className={BG_GLOW} />
         <div className="mx-auto w-[min(100%,76rem)]">
           <Reveal className="max-w-2xl">
             <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-neutral-400">
@@ -176,7 +176,7 @@ export default function PortfolioPage() {
             </Reveal>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* --------------------------------------------------- PROJECT GRID */}
       <PortfolioFilterGrid />
