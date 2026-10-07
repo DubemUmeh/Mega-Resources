@@ -21,7 +21,8 @@ export async function createReview(input: {
   services: string[];
   rating: number;
   message: string;
-}): Promise<ActionResult<{ id: string }>> {\n  const db = getDb();
+}): Promise<ActionResult<{ id: string }>> {
+  const db = getDb();
   const parsed = reviewSchema.safeParse(input);
   if (!parsed.success) {
     return {
@@ -88,6 +89,7 @@ export async function updateReviewStatus(
   id: string,
   status: ReviewStatus,
 ): Promise<ActionResult> {
+  const db = getDb();
   try {
     await db
       .update(reviews)
@@ -113,6 +115,7 @@ export async function updateReview(
   id: string,
   input: unknown,
 ): Promise<ActionResult> {
+  const db = getDb();
   const parsed = reviewSchema.safeParse(input);
   if (!parsed.success) {
     return {
@@ -143,7 +146,8 @@ export async function updateReview(
   }
 }
 
-export async function deleteReview(id: string): Promise<ActionResult> {\n  const db = getDb();
+export async function deleteReview(id: string): Promise<ActionResult> {
+  const db = getDb();
   try {
     await db.delete(reviews).where(eq(reviews.id, id));
     revalidatePath("/reviews");
