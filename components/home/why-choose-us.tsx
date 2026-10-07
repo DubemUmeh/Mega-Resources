@@ -13,7 +13,7 @@ const reasons = [
 const stats = [
   { value: "1,000+", label: "Boreholes Drilled" },
   { value: "98%", label: "Site Success Rate" },
-  { value: "10+", label: "Years in Operation" },
+  { value: "15+", label: "Years in Operation" },
 ];
 
 const WhyChooseUs = () => {
