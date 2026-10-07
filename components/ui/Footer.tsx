@@ -18,6 +18,10 @@ const quickLinks = {
     { href: "/services/pump-installation", title: "Pump Installation" },
     { href: "/services/borehole-rehabilitation", title: "Borehole Rehabilitation" },
     { href: "/services/hydro-fracturing", title: "Hydro-fracturing" },
+    { href: "/services/piezometer-drilling", title: "Piezometer Drilling" },
+    { href: "/services/observation-wells", title: "Observation Wells" },
+    { href: "/services/dewatering-wells", title: "Dewatering Wells" },
+    { href: "/services/horizontal-drain-drilling", title: "Horizontal Drain Drilling" },
   ],
   Resources: [
     { title: "FAQS", href: "/faq" },
