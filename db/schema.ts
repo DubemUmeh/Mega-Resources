@@ -1,19 +1,4 @@
-imp
-
-/* --------------------------------------- Managed site media -------- */
-export const websiteMediaVersions = pgTable("website_media_versions", {
-  id: uuid("id").primaryKey().defaultRandom(),
-  slotKey: varchar("slot_key", { length: 180 }).notNull(),
-  mediaType: mediaTypeEnum("media_type").notNull(),
-  secureUrl: varchar("secure_url", { length: 1000 }).notNull(),
-  publicId: varchar("public_id", { length: 500 }).notNull(),
-  altText: varchar("alt_text", { length: 300 }),
-  width: integer("width"),
-  height: integer("height"),
-  duration: integer("duration"),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-  isCurrent: boolean("is_current").notNull().default(true),
-});ort {
+import {
   pgTable,
   uuid,
   varchar,
@@ -94,6 +79,23 @@ export const reviews = pgTable("reviews", {
 });
 
 /* ----------------------------------------------------- Portfolio --- */
+
+
+/* -------------------------------- Managed site media -------- */
+export const websiteMediaVersions = pgTable("website_media_versions", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  slotKey: varchar("slot_key", { length: 180 }).notNull(),
+  mediaType: mediaTypeEnum("media_type").notNull(),
+  secureUrl: varchar("secure_url", { length: 1000 }).notNull(),
+  publicId: varchar("public_id", { length: 500 }).notNull(),
+  altText: varchar("alt_text", { length: 300 }),
+  width: integer("width"),
+  height: integer("height"),
+  duration: integer("duration"),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  isCurrent: boolean("is_current").notNull().default(true),
+});
+
 export const portfolioProjects = pgTable("portfolio_projects", {
   id: uuid("id").primaryKey().defaultRandom(),
   slug: varchar("slug", { length: 180 }).notNull().unique(),
