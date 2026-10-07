@@ -5,8 +5,8 @@ import { Reveal, ArrowCta, BG_GLOW } from "@/components/motion-kit";
 import { PortfolioFilterGrid } from "./_components/portfolio-filter-grid";
 
 const stats = [
-  { value: "500+", label: "Boreholes Completed" },
-  { value: "10", label: "Regions Worked In" },
+  { value: "1,000+", label: "Boreholes Completed" },
+  { value: "10+", label: "Regions Worked In" },
   { value: "98%", label: "First-Time Success Rate" },
   { value: "15+", label: "Years in the Field" },
 ];
