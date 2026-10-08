@@ -13,6 +13,10 @@ export const siteConfig = {
   ogImage: "https://res.cloudinary.com/dcqwzsq26/image/upload/f_webp,q_auto/Mega_logo_lcqzt7.jpg",
 };
 
+// Bump this date whenever page content meaningfully changes.
+// Used by the sitemap so Google sees real modification dates, not "now".
+export const CONTENT_LAST_MODIFIED = new Date("2026-10-08");
+
 export type BreadcrumbItem = { name: string; path: string };
 export type PageSeo = {
   title: string;
