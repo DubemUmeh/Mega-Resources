@@ -28,15 +28,18 @@ const REGIONS = [
 ];
 
 const SERVICES = [
-  "Geological Survey Only",
-  "New Borehole Drilling",
-  "Air Lifting / Developing of Borehole",
-  "Pumping Test",
+  "Geological Surveys",
+  "Borehole Drilling",
+  "Air Lifting / Developing",
+  "Pumping Tests",
   "Water Quality Analysis",
   "Pump Installation",
   "Borehole Rehabilitation",
   "Hydro-fracturing",
-  "Not Sure Yet",
+  "Piezometer Drilling",
+  "Observation Wells",
+  "Dewatering Wells",
+  "Horizontal Drain Drilling",
 ];
 
 const PROPERTY_TYPES = [

@@ -1,22 +1,30 @@
 export type ServiceType =
+  | "Geological Surveys"
   | "Borehole Drilling"
+  | "Air Lifting / Developing"
+  | "Pumping Tests"
+  | "Water Quality Analysis"
   | "Pump Installation"
   | "Borehole Rehabilitation"
   | "Hydro-fracturing"
-  | "Geological Survey"
-  | "Pumping Tests"
-  | "Air Lifting / Developing of Borehole"
-  | "Water Quality Analysis";
+  | "Piezometer Drilling"
+  | "Observation Wells"
+  | "Dewatering Wells"
+  | "Horizontal Drain Drilling";
 
 export const SERVICE_TYPES: ServiceType[] = [
-  "Geological Survey",
+  "Geological Surveys",
   "Borehole Drilling",
-  "Air Lifting / Developing of Borehole",
+  "Air Lifting / Developing",
   "Pumping Tests",
   "Water Quality Analysis",
   "Pump Installation",
   "Borehole Rehabilitation",
   "Hydro-fracturing",
+  "Piezometer Drilling",
+  "Observation Wells",
+  "Dewatering Wells",
+  "Horizontal Drain Drilling",
 ];
 
 export type ReviewStatus = "pending" | "approved" | "rejected";
@@ -50,24 +58,32 @@ export interface ReviewState {
 /* ---------------------------------------------------------------------- */
 
 export type PortfolioService =
+  | "Geological Surveys"
   | "Borehole Drilling"
+  | "Air Lifting / Developing"
+  | "Pumping Tests"
+  | "Water Quality Analysis"
   | "Pump Installation"
   | "Borehole Rehabilitation"
   | "Hydro-fracturing"
-  | "Geological Surveys"
-  | "Pumping Tests"
-  | "Air Lifting / Developing of Borehole"
-  | "Water Quality Analysis";
+  | "Piezometer Drilling"
+  | "Observation Wells"
+  | "Dewatering Wells"
+  | "Horizontal Drain Drilling";
 
 export const PORTFOLIO_SERVICES: PortfolioService[] = [
   "Geological Surveys",
   "Borehole Drilling",
-  "Air Lifting / Developing of Borehole",
+  "Air Lifting / Developing",
   "Pumping Tests",
   "Water Quality Analysis",
   "Pump Installation",
   "Borehole Rehabilitation",
   "Hydro-fracturing",
+  "Piezometer Drilling",
+  "Observation Wells",
+  "Dewatering Wells",
+  "Horizontal Drain Drilling",
 ];
 
 export type Region =
