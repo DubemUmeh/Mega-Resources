@@ -289,12 +289,12 @@ const Navbar = () => {
                     +233 24 000 0000
                   </a>
                   <a
-                    href="mailto:info@megaresourcesltd.com"
+                    href="mailto:support@megaresourcesgh.com"
                     className="hover:text-white"
                   >
-                    info@megaresourcesltd.com
+                    support@megaresourcesgh.com
                   </a>
-                  <span>Mon–Sat · 8am–5pm</span>
+                  <span>Mon–Fri · 8am–5pm</span>
                 </motion.div>
               </section>
             </div>
