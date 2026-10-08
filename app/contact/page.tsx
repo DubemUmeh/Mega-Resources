@@ -88,8 +88,8 @@ const contactInfo = [
   {
     icon: FaEnvelope,
     label: "Email Us",
-    value: "info@megaresourcesltd.com",
-    href: "mailto:info@megaresourcesltd.com",
+    value: "support@megaresourcesgh.com",
+    href: "mailto:supprt@megaresourcesgh.com",
   },
   {
     icon: FaMapMarkerAlt,
@@ -100,7 +100,7 @@ const contactInfo = [
   {
     icon: FaClock,
     label: "Working Hours",
-    value: "Mon – Sat, 8:00am – 6:00pm",
+    value: "Mon – Fri, 8:00am – 5:00pm",
     href: undefined,
   },
 ];
@@ -108,8 +108,8 @@ const contactInfo = [
 const promises = [
   {
     icon: FaShieldAlt,
-    title: "Free Site Survey",
-    desc: "No obligation, no charge, until you decide to move forward.",
+    title: "Site Survey at token",
+    desc: "A small cost for site survey.",
   },
   {
     icon: FaBolt,
