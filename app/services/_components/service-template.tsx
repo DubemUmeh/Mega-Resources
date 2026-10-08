@@ -58,6 +58,9 @@ export interface ServiceData {
   title: string;
   titleAccent: string;
   tagline: string;
+  seoTitle?: string;
+  seoDescription?: string;
+  seoKeywords?: string[];
   heroDescription: string;
   img: string;
   mediaKey: string;
