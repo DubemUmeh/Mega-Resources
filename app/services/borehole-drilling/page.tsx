@@ -11,6 +11,9 @@ export const data: ServiceData = {
   title: "Borehole",
   titleAccent: "Drilling",
   tagline: "The foundation of every water project we deliver.",
+  seoTitle: "Borehole Drilling Company in Ghana | Mega Resources",
+  seoDescription: "Borehole drilling in Ghana from 100ft to 350ft+, guided by a geophysical survey and finished with PVC casing. Get a site-specific quote.",
+  seoKeywords: ["borehole drilling Ghana", "borehole drilling company Ghana", "drilling services Ghana", "water well drilling Ghana", "borehole drilling Takoradi"],
   heroDescription:
     "We drill boreholes to depths of 100ft–350ft+, guided by a geophysical survey and finished with PVC construction that keeps the well clear, stable, and productive for decades.",
   mediaKey: "services.borehole-drilling.hero",
