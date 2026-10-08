@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Fraunces, Manrope, Inter } from "next/font/google";
-import { createMetadata, siteConfig } from "@/lib/seo";
+import { createMetadata, siteConfig, localBusinessSchema } from "@/lib/seo"; // changed
 import "./globals.css";
 import AppLayout from "./app-layout";
 
@@ -23,20 +23,6 @@ const inter = Inter({
   display: "swap",
 });
 
-// const iconMetadata: Pick<Metadata, "icons" | "manifest"> = {
-//   icons: {
-//     icon: [
-//       { url: "/icons/favicon.ico" },
-//       { url: "/icons/favicon-32x32.png", type: "image/png", sizes: "32x32" },
-//       { url: "/icons/favicon-16x16.png", type: "image/png", sizes: "16x16" },
-//       { url: "/icons/android-chrome-192x192.png", type: "image/png", sizes: "192x192" },
-//       { url: "/icons/android-chrome-512x512.png", type: "image/png", sizes: "512x512" },
-//     ],
-//     apple: [{ url: "/icons/apple-touch-icon.png", type: "image/png", sizes: "180x180" }],
-//   },
-//   manifest: "/icons/site.webmanifest",
-// };
-
 const iconMetadata: Pick<Metadata, "icons" | "manifest"> = {
   icons: {
     icon: "/icons/favicon.ico",
@@ -51,6 +37,9 @@ export const metadata: Metadata = {
     description: siteConfig.defaultDescription,
     path: "/",
     keywords: [
+      "Mega Resources",
+      "Mega Resources Ghana",
+      "Borehole drilling in Accra",
       "groundwater services Ghana",
       "borehole drilling Ghana",
       "drilling services Ghana",
@@ -69,16 +58,17 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${manrope.variable} ${inter.variable}`}>
       <head>
-       <Script
-        async
-        src="//code.jivosite.com/widget/Kro6Czw7VL" />
+        <Script async src="https://code.jivosite.com/widget/Kro6Czw7VL" /> {/* changed: https */}
       </head>
-      <body
-        className="antialiased min-h-screen font-body"
-      >
-        <AppLayout>
-          {children}
-        </AppLayout>
+      <body className="antialiased min-h-screen font-body">
+        {/* changed: sitewide LocalBusiness schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema()).replace(/</g, "\\u003c"),
+          }}
+        />
+        <AppLayout>{children}</AppLayout>
       </body>
     </html>
   );
