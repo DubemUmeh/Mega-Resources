@@ -11,6 +11,9 @@ export const data: ServiceData = {
   title: "Geological",
   titleAccent: "Surveys",
   tagline: "Know what's underground before a single hole is drilled.",
+  seoTitle: "Geological Surveys for Boreholes in Ghana | Mega Resources",
+  seoDescription: "Electrical resistivity and geophysical surveys to locate promising groundwater and the best borehole drill point on your site in Ghana.",
+  seoKeywords: ["geological survey Ghana", "geophysical survey for borehole", "groundwater survey Ghana", "electrical resistivity survey Ghana", "borehole site survey"],
   heroDescription:
     "Before we drill, we survey. Using geophysical methods, we confirm the likely depth and volume of water beneath your land, so the drill point we choose is backed by data, not luck.",
   mediaKey: "services.geological-surveys.hero",
