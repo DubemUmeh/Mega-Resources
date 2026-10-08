@@ -109,7 +109,7 @@ export const portfolioData: Portfolio[] = [
     title: "Hospital Backup Water Source — Koforidua",
     location: "Koforidua, Eastern Region",
     region: "Eastern",
-    service: "Air Lifting / Developing of Borehole",
+    service: "Air Lifting / Developing",
     depth: "240ft",
     yieldRate: "2,000 L/hr",
     duration: "4 days",
