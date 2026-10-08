@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { siteConfig } from "@/lib/seo";
+import { siteConfig, CONTENT_LAST_MODIFIED } from "@/lib/seo";
 
 export type BoreholeSeoFaq = {
   question: string;
@@ -367,10 +367,19 @@ export function getBoreholeSeoPage(slug: string) {
   return BOREHOLE_SEO_PAGES.find((page) => page.slug === slug);
 }
 
+// export function boreholeSeoSitemapEntries(): MetadataRoute.Sitemap {
+//   return BOREHOLE_SEO_PAGES.map((page) => ({
+//     url: `${siteConfig.domain}/resources/${page.slug}`,
+//     lastModified: new Date(),
+//     changeFrequency: "monthly" as const,
+//     priority: page.intent === "comparison" ? 0.85 : 0.75,
+//   }));
+// }
+
 export function boreholeSeoSitemapEntries(): MetadataRoute.Sitemap {
   return BOREHOLE_SEO_PAGES.map((page) => ({
     url: `${siteConfig.domain}/resources/${page.slug}`,
-    lastModified: new Date(),
+    lastModified: CONTENT_LAST_MODIFIED,
     changeFrequency: "monthly" as const,
     priority: page.intent === "comparison" ? 0.85 : 0.75,
   }));
