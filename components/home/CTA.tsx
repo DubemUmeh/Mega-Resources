@@ -16,7 +16,7 @@ const CTA = () => {
 
         <div className="lg:col-span-3 flex flex-col gap-8">
           <p className="text-sm text-gray-300 leading-relaxed max-w-56 font-light">
-            Book your free site survey today. No payment until we confirm water on your land.
+            Book your site survey today at a token. No payment until we confirm water on your land.
           </p>
           <div className="flex flex-col gap-3 w-fit">
             <Link href='/quote' className="block border border-white/20 rounded-full px-6 py-3 hover:bg-white/80 hover:text-black transition-colors flex items-center gap-3 text-xs tracking-wide">
@@ -34,7 +34,7 @@ const CTA = () => {
             <div className="text-gray-300">
               <Link href="tel:+233243287420">+233 24 328 7420</Link>
               <br />
-              <Link href="tel:+233596080824">+233 59 608 0824</Link>
+              <Link href="tel:+233245424359">+233 24 542 4359</Link>
             </div>
           </div>
           <div>
