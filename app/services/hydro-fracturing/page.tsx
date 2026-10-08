@@ -11,6 +11,9 @@ export const data: ServiceData = {
   title: "Hydro-",
   titleAccent: "fracturing",
   tagline: "For boreholes stuck in tight, low-yield rock.",
+  seoTitle: "Borehole Hydrofracturing in Ghana | Mega Resources",
+  seoDescription: "Hydrofracturing for suitable low-yield boreholes in Ghana: controlled water pressure to improve flow through existing rock fractures.",
+  seoKeywords: ["borehole hydrofracturing", "hydraulic fracturing borehole Ghana", "increase borehole yield", "low yield borehole solution", "hydrofracking boreholes"],
   heroDescription:
     "Some boreholes are drilled correctly but still deliver disappointing yield because the surrounding rock is too tight to release much water. Hydro-fracturing widens the natural fractures in that rock to unlock significantly higher flow.",
   mediaKey: "services.hydro-fracturing.hero",
