@@ -9,6 +9,9 @@ export const data: ServiceData = {
   title: "Piezometer",
   titleAccent: "Drilling",
   tagline: "Measure groundwater levels and pressure with a purpose-built monitoring point.",
+  seoTitle: "Piezometer Drilling & Installation in Ghana | Mega Resources",
+  seoDescription: "Piezometer drilling and installation in Ghana for groundwater level and pressure monitoring, site investigations and construction projects.",
+  seoKeywords: ["piezometer installation Ghana", "piezometer drilling", "groundwater monitoring Ghana", "groundwater pressure monitoring", "geotechnical piezometer"],
   heroDescription:
     "Piezometer drilling and installation creates a dedicated point for monitoring groundwater head or pressure. It can support hydrogeological investigations, construction monitoring, and projects where groundwater behaviour is important.",
   mediaKey: "services.piezometer-drilling.hero",
