@@ -9,6 +9,9 @@ export const data: ServiceData = {
   title: "Horizontal Drain",
   titleAccent: "Drilling",
   tagline: "Provide a drainage path where conventional vertical wells are not the right geometry.",
+  seoTitle: "Horizontal Drain Drilling in Ghana | Mega Resources",
+  seoDescription: "Horizontal drain drilling in Ghana for groundwater drainage around slopes, excavations and retaining structures.",
+  seoKeywords: ["horizontal drain drilling", "horizontal drains slope stability", "slope drainage Ghana", "groundwater drainage drilling", "retaining wall drainage"],
   heroDescription:
     "Horizontal drain drilling creates drainage paths through slopes, excavations or other structures where groundwater needs relief and a horizontal installation is more suitable than a conventional vertical well.",
   mediaKey: "services.horizontal-drain-drilling.hero",

@@ -11,6 +11,9 @@ export const data: ServiceData = {
   title: "Air Lifting /",
   titleAccent: "Developing",
   tagline: "The final step that turns a drilled hole into a working well.",
+  seoTitle: "Borehole Airlifting & Development in Ghana | Mega Resources",
+  seoDescription: "Airlifting and development to remove drilling mud and sediment from new boreholes, preparing the well for testing and pumping in Ghana.",
+  seoKeywords: ["borehole airlifting", "borehole development Ghana", "air lifting borehole", "well development drilling", "borehole cleaning after drilling"],
   heroDescription:
     "Freshly drilled boreholes are full of drilling mud, fines, and loose rock. We use compressed-air airlifting to clear that debris and develop the well, so it delivers clean water at its full potential flow.",
   mediaKey: "services.air-lifting-developing.hero",

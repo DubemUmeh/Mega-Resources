@@ -11,6 +11,9 @@ export const data: ServiceData = {
   title: "Borehole",
   titleAccent: "Rehabilitation",
   tagline: "Bring a tired borehole back to full strength.",
+  seoTitle: "Borehole Rehabilitation & Cleaning in Ghana | Mega Resources",
+  seoDescription: "Low yield or muddy water? We diagnose, clean, surge and redevelop underperforming boreholes in Ghana before you consider a new well.",
+  seoKeywords: ["borehole rehabilitation Ghana", "borehole cleaning", "borehole low yield fix", "borehole redevelopment", "muddy borehole water"],
   heroDescription:
     "If your well now delivers low yield or muddy water, the problem is often a clogged or fouled borehole, not a dry aquifer. We clean and re-develop old boreholes to restore their original output.",
   mediaKey: "services.borehole-rehabilitation.hero",

@@ -87,25 +87,17 @@ const SERVICE_METADATA_KEYWORDS: Record<string, string[]> = {
 };
 
 export function createServiceMetadata(service: ServiceData) {
-  const serviceName = `${service.title.replace(/\s*\/\s*$/, "")} ${service.titleAccent}`.trim();
-  const keywords = SERVICE_METADATA_KEYWORDS[service.slug] ?? [
-    serviceName,
-    service.slug.replace(/-/g, " "),
-    `${service.slug.replace(/-/g, " ")} services`,
-    "water services",
-    "Mega Resources LTD",
-  ];
+  const name = `${service.title.replace(/\s*\/\s*$/, "")} ${service.titleAccent}`.trim();
 
   return createMetadata({
-    title: `${service.title.replace(/\s*\/\s*$/, "")} ${service.titleAccent} | ${service.tagline}`,
-    description: service.heroDescription,
+    title: service.seoTitle ?? `${name} | Mega Resources`,
+    description: service.seoDescription ?? service.heroDescription,
     path: `/services/${service.slug}`,
     image: service.img,
-    keywords,
+    keywords: service.seoKeywords,
     type: "article",
   });
 }
-
 export function breadcrumbSchema(items: BreadcrumbItem[]) {
   return {
     "@context": "https://schema.org",
