@@ -22,9 +22,9 @@ const CTA = () => {
             <Link href='/quote' className="block border border-white/20 rounded-full px-6 py-3 hover:bg-white/80 hover:text-black transition-colors flex items-center gap-3 text-xs tracking-wide">
               Request a Quote <FaArrowRight className="text-[10px] transform -rotate-45" />
             </Link>
-            <button className="rounded-full px-6 py-3 bg-white text-black hover:bg-gray-400 transition-colors flex items-center gap-3 text-xs tracking-wide font-medium">
+            <Link href="https://wa.me/233243287420" target="_blank" className="rounded-full px-6 py-3 bg-white text-black hover:bg-gray-400 transition-colors flex items-center gap-3 text-xs tracking-wide font-medium">
               <FaWhatsapp className="text-sm" /> WhatsApp Us
-            </button>
+            </Link>
           </div>
         </div>
 
