@@ -73,7 +73,7 @@ export const BOREHOLE_SEO_PAGES: BoreholeSeoPage[] = [
     ],
     related: [
       { label: "Borehole drilling services", href: "/services" },
-      { label: "Borehole drilling portfolio", href: "/portfolio" },
+      { label: "Borehole drilling portfolio", href: "/gallery" },
       { label: "Request a quote", href: "/quote" },
     ],
   },
@@ -116,7 +116,7 @@ export const BOREHOLE_SEO_PAGES: BoreholeSeoPage[] = [
     ],
     related: [
       { label: "Best borehole drilling company in Takoradi", href: "/resources/best-borehole-drilling-company-takoradi" },
-      { label: "Borehole drilling portfolio", href: "/portfolio" },
+      { label: "Borehole drilling portfolio", href: "/gallery" },
       { label: "Contact Mega Resources", href: "/contact" },
     ],
   },
@@ -208,7 +208,7 @@ export const BOREHOLE_SEO_PAGES: BoreholeSeoPage[] = [
     ],
     related: [
       { label: "Borehole drilling services", href: "/services" },
-      { label: "Project portfolio", href: "/portfolio" },
+      { label: "Project portfolio", href: "/gallery" },
       { label: "Request a quote", href: "/quote" },
     ],
   },
@@ -258,7 +258,7 @@ export const BOREHOLE_SEO_PAGES: BoreholeSeoPage[] = [
     ],
     related: [
       { label: "Mega Resources services", href: "/services" },
-      { label: "Our drilling projects", href: "/portfolio" },
+      { label: "Our drilling projects", href: "/gallery" },
       { label: "Request a Ghana project quote", href: "/quote" },
     ],
   },
@@ -357,7 +357,7 @@ export const BOREHOLE_SEO_PAGES: BoreholeSeoPage[] = [
     ],
     related: [
       { label: "Our services", href: "/services" },
-      { label: "Project portfolio", href: "/portfolio" },
+      { label: "Project portfolio", href: "/gallery" },
       { label: "Request a quote", href: "/quote" },
     ],
   },
