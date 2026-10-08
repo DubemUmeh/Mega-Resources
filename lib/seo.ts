@@ -158,3 +158,51 @@ export function serviceSchema(service: ServiceData) {
     ]),
   ];
 }
+
+export function localBusinessSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": `${siteConfig.domain}/#localbusiness`,
+    name: siteConfig.name,
+    url: siteConfig.domain,
+    image: "https://res.cloudinary.com/dcqwzsq26/image/upload/f_webp,q_auto/Mega_logo_lcqzt7.jpg",
+    telephone: "+233243287420",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Kwesimintsim Zongo Junction, Kwame Nkrumamh Blvd, Takoradi, Ghana", // TODO: add full street address if you have one
+      addressLocality: "Accra",
+      addressCountry: "GH",
+    },
+    areaServed: [
+      { "@type": "City", name: "Accra" },
+      { "@type": "City", name: "Sekondi-Takoradi" },
+      { "@type": "City", name: "Kumasi" },
+      { "@type": "City", name: "Tamale" },
+      { "@type": "City", name: "Cape Coast" },
+      { "@type": "City", name: "Tema" },
+      { "@type": "City", name: "Sunyani" },
+      { "@type": "City", name: "Koforidua" },
+      { "@type": "City", name: "Obuasi" },
+      { "@type": "City", name: "Ho" },
+      { "@type": "City", name: "Wa" },
+      { "@type": "City", name: "Bolgatanga" },
+      { "@type": "City", name: "Techiman" },
+      { "@type": "City", name: "Tarkwa" },
+      { "@type": "City", name: "Ashaiman" },
+      { "@type": "City", name: "Kasoa" },
+      { "@type": "City", name: "Hohoe" },
+      { "@type": "City", name: "Aflao" },
+      { "@type": "City", name: "Winneba" },
+      { "@type": "City", name: "Nkawkaw" },
+      { "@type": "City", name: "Berekum" },
+      { "@type": "City", name: "Konongo" },
+      { "@type": "City", name: "Yendi" },
+      { "@type": "City", name: "Navrongo" },
+      { "@type": "City", name: "Swedru" },
+      { "@type": "Country", name: "Ghana" },
+    ],
+    // TODO: add openingHours, geo coordinates and sameAs (Facebook, LinkedIn etc.) when you have them
+  };
+}
+
