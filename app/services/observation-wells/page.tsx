@@ -9,6 +9,9 @@ export const data: ServiceData = {
   title: "Observation",
   titleAccent: "Wells",
   tagline: "Monitor groundwater levels as conditions change.",
+  seoTitle: "Observation Well Drilling in Ghana | Mega Resources",
+  seoDescription: "Observation well drilling in Ghana to monitor groundwater levels and changing subsurface conditions for investigations and construction.",
+  seoKeywords: ["observation well drilling", "groundwater monitoring wells Ghana", "monitoring well installation", "groundwater level monitoring", "hydrogeological investigation Ghana"],
   heroDescription:
     "Observation wells provide dedicated access for monitoring groundwater levels and behaviour over time. They can support groundwater investigations, construction monitoring, and dewatering projects.",
   mediaKey: "services.observation-wells.hero",
