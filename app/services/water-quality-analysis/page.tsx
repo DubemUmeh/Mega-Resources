@@ -11,6 +11,9 @@ export const data: ServiceData = {
   title: "Water Quality",
   titleAccent: "Analysis",
   tagline: "Know what is in your water before you rely on it.",
+  seoTitle: "Borehole Water Quality Testing in Ghana | Mega Resources",
+  seoDescription: "Borehole water quality testing in Ghana to guide safe use, treatment and system decisions for homes, farms, businesses and institutions.",
+  seoKeywords: ["borehole water quality testing", "water quality analysis Ghana", "borehole water test", "groundwater quality Ghana", "water treatment assessment"],
   heroDescription:
     "Water quality analysis helps identify physical, chemical, and microbiological concerns so you can make informed decisions about drinking, household, agricultural, or commercial use.",
   mediaKey: "services.water-quality-analysis.hero",
