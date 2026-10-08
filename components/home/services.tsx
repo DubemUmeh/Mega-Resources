@@ -1,76 +1,95 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
+import type { ServiceSlug } from "@/lib/services"; // changed
 
-const services = [
+const services: {
+  num: string;
+  slug: ServiceSlug; // changed
+  title: string;
+  desc: string;
+  img: string;
+}[] = [
   {
     num: "01",
+    slug: "geological-surveys",
     title: "Geological\nSurveys",
     desc: "We confirm water depth and volume on your land before we drill.",
     img: "/images/home/geological-surveys.png",
   },
   {
     num: "02",
+    slug: "borehole-drilling",
     title: "Borehole\nDrilling",
     desc: "100ft–350ft+ depth. Geophysical survey, drilling, and PVC casing to prevent collapse.",
     img: "/images/home/borehole-drilling.jpeg",
   },
   {
     num: "03",
+    slug: "air-lifting-developing",
     title: "Air Lifting /\nDeveloping",
     desc: "Clear drilling debris and develop the borehole for maximum flow.",
     img: "/images/home/air-lifting.png",
   },
   {
     num: "04",
+    slug: "pumping-tests",
     title: "Pumping\nTests",
     desc: "Measure sustainable yield so your pump is sized correctly.",
     img: "/images/home/pumping-tests.png",
   },
   {
     num: "05",
+    slug: "water-quality-analysis",
     title: "Water Quality Analysis",
     desc: "Analyse water quality to guide safe use, treatment, and system decisions.",
     img: "/images/home/water-quality-analysis.svg",
   },
   {
     num: "06",
+    slug: "pump-installation",
     title: "Pump\nInstallation",
     desc: "Submersible, solar, and surface pumps — fully installed and wired.",
     img: "/images/home/pump-installation.png",
   },
   {
     num: "07",
+    slug: "borehole-rehabilitation",
     title: "Borehole\nRehabilitation",
     desc: "Low yield or muddy water? We clean and re-develop old boreholes.",
     img: "/images/home/borehole-rehabilitation.png",
   },
   {
     num: "08",
+    slug: "hydro-fracturing",
     title: "Hydro-\nfracturing",
     desc: "Fracture low-yield rock formations to unlock higher water flow.",
     img: "/images/home/hydro-fracturing.png",
   },
   {
     num: "09",
+    slug: "piezometer-drilling",
     title: "Piezometer\nDrilling",
     desc: "Install dedicated monitoring points for groundwater level and pressure observations.",
     img: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=85",
   },
   {
     num: "10",
+    slug: "observation-wells",
     title: "Observation\nWells",
     desc: "Monitor groundwater levels and changing subsurface conditions over time.",
     img: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=1600&q=85",
   },
   {
     num: "11",
+    slug: "dewatering-wells",
     title: "Dewatering\nWells",
     desc: "Control groundwater around suitable excavations and construction works.",
     img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1600&q=85",
   },
   {
     num: "12",
+    slug: "horizontal-drain-drilling",
     title: "Horizontal Drain\nDrilling",
     desc: "Create groundwater drainage paths for suitable slopes, excavations and structures.",
     img: "https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=1600&q=85",
@@ -105,30 +124,40 @@ const Services = () => {
                 animation: 'marquee 60s linear infinite'
               }}
             >
-              {[...services, ...services].map((svc, idx) => (
-                <div key={idx} className="relative min-w-45 md:min-w-55 h-90 md:h-105 group/card cursor-pointer overflow-hidden bg-neutral-900 shrink-0 rounded-2xl">
-                  <Image
-                    width={1000}
-                    height={1000}
-                    src={svc.img}
-                    alt={svc.title.replace("\n", " ")}
-                    className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover/card:opacity-30 group-hover/card:scale-105 transition-all duration-700"
-                    fetchPriority="high"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent pointer-events-none"></div>
-                  <div className="absolute bottom-6 left-5 right-5 tracking-wide">
-                    <div className="text-sm font-medium text-neutral-400 mb-2">{svc.num}</div>
-                    <div className="w-6 h-px bg-white/60 mb-3 group-hover/card:w-full transition-all duration-500"></div>
-                    <div className="text-lg font-medium whitespace-pre-line leading-tight text-neutral-200 group-hover/card:text-white transition-colors mb-3">
-                      {svc.title}
+              {[...services, ...services].map((svc, idx) => {
+                const isDuplicate = idx >= services.length; // changed
+                return (
+                  <Link // changed: div -> Link
+                    key={idx}
+                    href={`/services/${svc.slug}`}
+                    title={`${svc.title.replace(/\n/g, " ")} in Ghana`}
+                    aria-hidden={isDuplicate || undefined}
+                    tabIndex={isDuplicate ? -1 : undefined}
+                    className="relative min-w-45 md:min-w-55 h-90 md:h-105 group/card cursor-pointer overflow-hidden bg-neutral-900 shrink-0 rounded-2xl block"
+                  >
+                    <Image
+                      width={1000}
+                      height={1000}
+                      src={svc.img}
+                      alt={svc.title.replace(/\n/g, " ")}
+                      className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover/card:opacity-30 group-hover/card:scale-105 transition-all duration-700"
+                      fetchPriority="high"
+                      priority
+                    />
+                    <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent pointer-events-none"></div>
+                    <div className="absolute bottom-6 left-5 right-5 tracking-wide">
+                      <div className="text-sm font-medium text-neutral-400 mb-2">{svc.num}</div>
+                      <div className="w-6 h-px bg-white/60 mb-3 group-hover/card:w-full transition-all duration-500"></div>
+                      <div className="text-lg font-medium whitespace-pre-line leading-tight text-neutral-200 group-hover/card:text-white transition-colors mb-3">
+                        {svc.title}
+                      </div>
+                      <p className="text-xs text-neutral-300 leading-relaxed font-light max-h-0 opacity-0 group-hover/card:max-h-24 group-hover/card:opacity-100 transition-all duration-500 overflow-hidden">
+                        {svc.desc}
+                      </p>
                     </div>
-                    <p className="text-xs text-neutral-300 leading-relaxed font-light max-h-0 opacity-0 group-hover/card:max-h-24 group-hover/card:opacity-100 transition-all duration-500 overflow-hidden">
-                      {svc.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
+                  </Link>
+                );
+              })}
             </div>
           </div>
 
