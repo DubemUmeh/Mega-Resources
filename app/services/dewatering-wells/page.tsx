@@ -9,6 +9,9 @@ export const data: ServiceData = {
   title: "Dewatering",
   titleAccent: "Wells",
   tagline: "Control groundwater where excavation and construction require a drier working area.",
+  seoTitle: "Dewatering Wells in Ghana for Construction | Mega Resources",
+  seoDescription: "Dewatering wells and groundwater control for construction and excavation projects in Ghana, with pumping and monitoring planned together.",
+  seoKeywords: ["dewatering wells Ghana", "construction dewatering", "groundwater control excavation", "dewatering services Ghana", "well point dewatering"],
   heroDescription:
     "Dewatering wells are used to remove groundwater and lower groundwater levels around suitable construction or excavation areas. The approach is planned around site geology, groundwater conditions, and project requirements.",
   mediaKey: "services.dewatering-wells.hero",
