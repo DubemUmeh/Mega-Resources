@@ -21,7 +21,8 @@ export default async function SettingsPage() {
     <>
       <AdminTopbar title="Settings" description="Business profile, Gmail connection, and authorized admin users." />
 
-      <div className="grid gap-4 sm:gap-5">
+      {/* CHANGED: grid column can now shrink below its content width (minmax(0,1fr)) so the table wrapper scrolls instead of stretching the page */}
+      <div className="grid grid-cols-[minmax(0,1fr)] gap-4 sm:gap-5">
         <section className="rounded-[1.5rem] border border-neutral-200 bg-white p-4 shadow-[0_8px_20px_rgba(15,23,42,0.04)] sm:p-6">
           <h2 className="font-display text-lg font-semibold text-neutral-900">Business Profile</h2>
           <BusinessProfileForm settings={settings} />
@@ -61,14 +62,16 @@ export default async function SettingsPage() {
           )}
 
           <div className="mt-5">
-            <Table>
+            {/* CHANGED: min-w forces horizontal scroll inside the Table wrapper instead of squeezing columns */}
+            <Table className="min-w-[640px]">
               <TableHeader>
                 <TableRow>
                   <TableHead className="w-[20%]">Name</TableHead>
                   <TableHead className="w-[30%]">Email</TableHead>
                   <TableHead className="w-[15%]">Role</TableHead>
                   <TableHead className="w-[15%]">Status</TableHead>
-                  <TableHead className="w-[20%] text-right">Actions</TableHead>
+                  {/* CHANGED: sticky so Actions stays pinned while other columns scroll */}
+                  <TableHead className="sticky right-0 z-10 w-[20%] bg-white text-right shadow-[-8px_0_8px_-8px_rgba(0,0,0,0.08)]">Actions</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -82,7 +85,8 @@ export default async function SettingsPage() {
                         {u.active ? "Active" : "Disabled"}
                       </span>
                     </TableCell>
-                    <TableCell className="text-right">
+                    {/* CHANGED: sticky + solid bg to cover content scrolling underneath */}
+                    <TableCell className="sticky right-0 z-10 bg-white text-right shadow-[-8px_0_8px_-8px_rgba(0,0,0,0.08)]">
                       {session.role === "SUPER_ADMIN" && (
                         <span className="inline-flex">
                           <UserActionsMenu user={{ id: u.id, name: u.name, active: u.active ?? false }} />
