@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { absoluteUrl, breadcrumbSchema, siteConfig, type BreadcrumbItem, type PageSeo } from "@/lib/seo";
+import { absoluteUrl, breadcrumbSchema, siteConfig, CONTENT_LAST_MODIFIED, type BreadcrumbItem, type PageSeo } from "@/lib/seo";
 
 export type PageIntent = "commercial" | "informational" | "transactional" | "trust" | "legal";
 export type SchemaKind = "Organization" | "WebSite" | "WebPage" | "Article" | "FAQPage" | "BreadcrumbList" | "LocalBusiness";
@@ -415,11 +415,20 @@ export function createPageSchema(page: ProgrammaticSeoPage) {
   return graph;
 }
 
+// export function publicSitemapEntries(): MetadataRoute.Sitemap {
+//   const now = new Date();
+//   return [...PUBLIC_PAGE_SEO, ...SERVICE_PAGE_SEO].map((page) => ({
+//     url: absoluteUrl(page.path),
+//     lastModified: now,
+//     changeFrequency: page.changeFrequency ?? "monthly",
+//     priority: page.priority ?? 0.75,
+//   }));
+// }
+
 export function publicSitemapEntries(): MetadataRoute.Sitemap {
-  const now = new Date();
   return [...PUBLIC_PAGE_SEO, ...SERVICE_PAGE_SEO].map((page) => ({
     url: absoluteUrl(page.path),
-    lastModified: now,
+    lastModified: CONTENT_LAST_MODIFIED,
     changeFrequency: page.changeFrequency ?? "monthly",
     priority: page.priority ?? 0.75,
   }));
