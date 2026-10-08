@@ -43,6 +43,10 @@ export const SERVICES = [
   "Pump Installation",
   "Borehole Rehabilitation",
   "Hydro-fracturing",
+  "Piezometer Drilling",
+  "Observation Wells",
+  "Dewatering Wells",
+  "Horizontal Drain Drilling",
 ];
 
 function toProject(row: Project & { depth?: string | null; yieldRate?: string | null; duration?: string | null; year?: string | null }): Project {
