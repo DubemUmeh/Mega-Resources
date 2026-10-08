@@ -4,7 +4,7 @@ import { MEGA_LOGO_EMAIL_SVG } from "@/components/logo";
 export const emailConfig = {
   host: "smtp-relay.brevo.com",
   port: 587,
-  secure: false, // false for port 587 (STARTTLS), true for port 465
+  secure: false,
   auth: {
     user: process.env.BREVO_SMTP_USER,
     pass: process.env.BREVO_SMTP_PASSWORD,
@@ -12,7 +12,6 @@ export const emailConfig = {
   debugger: true,
 };
 
-// Create reusable transporter
 export const createEmailTransporter = () => {
   return nodemailer.createTransport(emailConfig);
 };
@@ -45,15 +44,11 @@ const emailShell = (
       <div class="container">
         <div class="brand">${brandLogo}</div>
         <div class="header"><h1>${title}</h1></div>
-        ${fields
-          .map(
-            (f) => `
+        ${fields.map((f) => `
           <div class="field">
             <div class="label">${f.label.toUpperCase()}</div>
             <div class="value">${f.value}</div>
-          </div>`,
-          )
-          .join("")}
+          </div>`).join("")}
         <div class="footer">${footerNote}</div>
       </div>
     </body>
@@ -81,17 +76,14 @@ export const generateQuoteEmail = (data: {
   ];
 
   return {
-    from: '"Mega Resources Quote Request" <info@umeh.site>',
-    to: "info@umeh.site",
+    from: '"Mega Resources Quote Request" <quotes@megaresourcesgh.com>',
+    to: "quotes@megaresourcesgh.com",
     replyTo: data.email || undefined,
     subject: `New Quote Request — ${data.name} (${data.region})`,
     html: emailShell(
       "NEW QUOTE REQUEST",
       data.message
-        ? [
-            ...fields,
-            { label: "Notes", value: data.message.replace(/\n/g, "<br>") },
-          ]
+        ? [...fields, { label: "Notes", value: data.message.replace(/\n/g, "<br>") }]
         : fields,
       `Submitted at ${new Date().toLocaleString()}`,
     ),
@@ -125,8 +117,8 @@ export const generateReviewPendingNotification = (data: {
   ];
 
   return {
-    from: '"Mega Resources Reviews" <info@umeh.site>',
-    to: "info@umeh.site",
+    from: '"Mega Resources Reviews" <support@megaresourcesgh.com>',
+    to: "support@megaresourcesgh.com",
     subject: `New Review Pending Approval — ${data.name}`,
     html: emailShell(
       "NEW REVIEW — AWAITING APPROVAL",
@@ -160,20 +152,14 @@ export const generateContactEmail = (data: {
     { label: "Location", value: data.location || "—" },
     {
       label: "Services",
-      value:
-        data.services && data.services.length > 0
-          ? data.services.join(", ")
-          : "General Inquiry",
+      value: data.services && data.services.length > 0 ? data.services.join(", ") : "General Inquiry",
     },
-    {
-      label: "Message",
-      value: data.message.replace(/\n/g, "<br>"),
-    },
+    { label: "Message", value: data.message.replace(/\n/g, "<br>") },
   ];
 
   return {
-    from: '"Mega Resources Contact Form" <info@umeh.site>',
-    to: "info@umeh.site",
+    from: '"Mega Resources Contact Form" <support@megaresourcesgh.com>',
+    to: "support@megaresourcesgh.com",
     replyTo: data.email,
     subject: `New Contact Message — ${data.name}`,
     html: emailShell(
@@ -187,9 +173,7 @@ export const generateContactEmail = (data: {
       Email: ${data.email}
       Phone: ${data.phone}
       Location: ${data.location || "—"}
-      Services: ${
-        data.services?.length ? data.services.join(", ") : "General Inquiry"
-      }
+      Services: ${data.services?.length ? data.services.join(", ") : "General Inquiry"}
 
       Message: ${data.message}
       Submitted at ${new Date().toLocaleString()}
