@@ -76,7 +76,7 @@ const reviewSeeds = [
     id: "a08d039e-59e3-48cc-9a05-359ea821bfd5",
     name: "Efua Darko",
     location: "Cape Coast, Central Region",
-    services: ["Geological Survey"],
+    services: ["Geological Surveys"],
     rating: 5,
     message:
       "Paid for the survey alone before deciding whether to drill. Report was detailed, easy to understand, and confirmed exactly what they predicted once drilling began weeks later.",
@@ -156,7 +156,7 @@ const reviewSeeds = [
     id: "11e3fde5-f6b2-4ea5-b010-382e49f2c381",
     name: "Emmanuel Tetteh",
     location: "Nungua, Greater Accra",
-    services: ["Geological Survey"],
+    services: ["Geological Surveys"],
     rating: 5,
     message:
       "Survey confirmed water on the second attempted site after our first plot came back unsuitable. Appreciated that they told us the truth instead of drilling somewhere they knew would fail.",
