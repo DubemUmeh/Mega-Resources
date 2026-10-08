@@ -19,7 +19,7 @@ const GMAIL_SCOPES = [
 
 
 export function getGoogleRedirectUri() {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || process.env.BETTER_AUTH_URL || "http://localhost:3000";
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL ||  "https://megaresourcesgh.com";
   return `${baseUrl.replace(/\/$/, "")}/api/auth/google/callback`;
 }
 
