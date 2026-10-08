@@ -11,6 +11,9 @@ export const data: ServiceData = {
   title: "Pump",
   titleAccent: "Installation",
   tagline: "The right pump, sized to your well, wired and ready to run.",
+  seoTitle: "Borehole Pump Installation in Ghana | Mega Resources",
+  seoDescription: "Submersible, solar and surface borehole pump installation in Ghana, sized to your well's depth, yield and water demand.",
+  seoKeywords: ["borehole pump installation Ghana", "submersible pump installation", "solar borehole pump Ghana", "water pump installation Ghana", "borehole pump sizing"],
   heroDescription:
     "We supply and install submersible, solar, and surface pumps — matched to your borehole's depth and yield, then fully wired, tested, and handed over ready to use.",
   mediaKey: "services.pump-installation.hero",
