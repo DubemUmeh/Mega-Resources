@@ -11,6 +11,9 @@ export const data: ServiceData = {
   title: "Pumping",
   titleAccent: "Tests",
   tagline: "Find out what your borehole can truly sustain.",
+  seoTitle: "Borehole Pumping Tests in Ghana | Mega Resources",
+  seoDescription: "Borehole pumping and recovery tests in Ghana to measure sustainable yield, so your pump and water system are sized correctly.",
+  seoKeywords: ["borehole pumping test", "borehole yield test Ghana", "pumping test Ghana", "aquifer test", "borehole recovery test"],
   heroDescription:
     "A borehole's short-term output isn't the same as what it can sustain long-term. We run pumping tests to measure the sustainable yield of your well, so the pump you install is sized correctly from day one.",
   mediaKey: "services.pumping-tests.hero",
