@@ -48,14 +48,15 @@ export default function HeroClient({ media }: { media: ResolvedMedia }) {
         <div data-hero-eyebrow className="font-brand text-[10px] uppercase tracking-widest text-gray-200 mb-8">drilling for your future</div>
 
         <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] font-semibold leading-[1.05] tracking-tight mb-6 text-white">
-          {HEADLINE.map((word, i) => (
-            <span key={i} className="block overflow-hidden font-display">
-              <span data-word className="inline-block will-change-transform">
-                {word}
-              </span>
-            </span>
-          ))}
-        </h1>
+  {HEADLINE.map((word, i) => (
+    <span key={i} className="block overflow-hidden font-display">
+      <span data-word className="inline-block will-change-transform">
+        {word}
+      </span>{" "}
+    </span>
+  ))}
+  <span className="sr-only">: Borehole Drilling &amp; Groundwater Services in Ghana</span>
+</h1>
 
         <p data-hero-sub className="font-body text-gray-300 text-sm tracking-wide leading-relaxed max-w-sm mb-4 font-normal">
           Reliable borehole drilling and clean water solutions across Ghana. Geological survey included on every job, we confirm water before we drill.
