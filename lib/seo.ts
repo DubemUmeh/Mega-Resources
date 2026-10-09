@@ -52,7 +52,12 @@ export type PageSeo = {
 export function absoluteUrl(path = "/") {
   if (/^https?:\\/\\//i.test(path)) {
     const url = new URL(path);
-    if (url.hostname === "megaresourcesgh.com") url.hostname = new URL(SITE_URL).hostname;
+    const canonicalOrigin = new URL(SITE_URL);
+    if (url.hostname === "megaresourcesgh.com" || url.hostname === canonicalOrigin.hostname) {
+      url.protocol = canonicalOrigin.protocol;
+      url.hostname = canonicalOrigin.hostname;
+      url.port = canonicalOrigin.port;
+    }
     return url.toString();
   }
   return new URL(path, SITE_URL).toString();
