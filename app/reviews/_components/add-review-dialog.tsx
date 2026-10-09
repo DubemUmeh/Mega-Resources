@@ -72,6 +72,7 @@ export function AddReviewDialog({ open, onOpenChange }: AddReviewDialogProps) {
       services: service,
       rating,
       message: message.trim(),
+      security: { token: turnstileToken, honeypot, formStartedAt },
     });
     setIsPending(false);
 
