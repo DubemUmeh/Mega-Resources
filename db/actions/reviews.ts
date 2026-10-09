@@ -12,6 +12,7 @@ import {
 } from "@/lib/email";
 import type { ActionResult } from "@/db/action-types";
 import type { ReviewStatus } from "@/db/types";
+import { verifyPublicForm } from "@/lib/form-security";
 
 /* ------------------------------------------------------ Public: submit */
 export async function createReview(input: {
@@ -21,9 +22,13 @@ export async function createReview(input: {
   services: string[];
   rating: number;
   message: string;
+  security: { token: string; honeypot: string; formStartedAt: number };
 }): Promise<ActionResult<{ id: string }>> {
+  const security = await verifyPublicForm(input.security, "review");
+  if (!security.success) return { success: false, message: security.message, errors: {} };
   const db = getDb();
-  const parsed = reviewSchema.safeParse(input);
+  const { security: _security, ...formInput } = input;
+  const parsed = reviewSchema.safeParse(formInput);
   if (!parsed.success) {
     return {
       success: false,

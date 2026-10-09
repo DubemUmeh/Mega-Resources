@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import * as ToastPrimitive from "@radix-ui/react-toast";
 import { FaCheck, FaArrowRight } from "react-icons/fa";
 import { MultiSelectField } from "@/components/ui/multi-select";
 import { submitContactForm } from "@/db/actions/contact";
+import { TurnstileField } from "@/components/forms/turnstile-field";
 
 const serviceOptions = [
   "Geological Surveys",
@@ -49,6 +50,10 @@ function Field({
 
 export default function ContactForm() {
   const [service, setService] = useState<string[]>([]);
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [honeypot, setHoneypot] = useState("");
+  const [formStartedAt, setFormStartedAt] = useState(0);
+  useEffect(() => setFormStartedAt(Date.now()), []);
   const [submitting, setSubmitting] = useState(false);
   const [toastOpen, setToastOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState("We'll get back to you within 24 hours.");
@@ -67,6 +72,7 @@ export default function ContactForm() {
       location: String(formData.get("location") ?? ""),
       services: service,
       message: String(formData.get("message") ?? ""),
+      security: { token: turnstileToken, honeypot, formStartedAt },
     });
 
     setSubmitting(false);
@@ -77,12 +83,18 @@ export default function ContactForm() {
     if (result.success) {
       form.reset();
       setService([]);
+      setTurnstileToken("");
+      setFormStartedAt(Date.now());
     }
   }
 
   return (
     <ToastPrimitive.Provider swipeDirection="right">
       <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+        <div aria-hidden="true" className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden">
+          <label htmlFor="contact-website">Leave this field empty</label>
+          <input id="contact-website" name="website" tabIndex={-1} autoComplete="off" value={honeypot} onChange={(event) => setHoneypot(event.target.value)} />
+        </div>
         <div className="grid gap-5 sm:grid-cols-2">
           <Field id="name" label="Full Name">
             <input
@@ -149,9 +161,10 @@ export default function ContactForm() {
           />
         </Field>
 
+        <TurnstileField action="contact" onToken={setTurnstileToken} />
         <button
           type="submit"
-          disabled={submitting}
+          disabled={submitting || !turnstileToken || !formStartedAt}
           className="mt-2 inline-flex w-fit items-center gap-3 rounded-2xl bg-blue-600 py-1.5 pl-5 pr-1.5 text-base font-medium text-white transition-all duration-300 ease-out hover:bg-blue-700 active:scale-95 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {submitting ? "Sending..." : "Send Message"}

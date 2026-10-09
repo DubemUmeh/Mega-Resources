@@ -5,6 +5,7 @@ import { contactSubmissions } from "@/db/schema";
 import { contactSchema } from "@/db/validation-schema";
 import { createEmailTransporter, generateContactEmail } from "@/lib/email";
 import type { ActionResult } from "@/db/action-types";
+import { verifyPublicForm } from "@/lib/form-security";
 
 export async function submitContactForm(input: {
   name: string;
@@ -13,9 +14,13 @@ export async function submitContactForm(input: {
   location?: string;
   services?: string[];
   message: string;
+  security: { token: string; honeypot: string; formStartedAt: number };
 }): Promise<ActionResult> {
+  const security = await verifyPublicForm(input.security, "contact");
+  if (!security.success) return { success: false, message: security.message, errors: {} };
   const db = getDb();
-  const parsed = contactSchema.safeParse(input);
+  const { security: _security, ...formInput } = input;
+  const parsed = contactSchema.safeParse(formInput);
   if (!parsed.success) {
     return {
       success: false,

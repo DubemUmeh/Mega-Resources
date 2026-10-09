@@ -6,6 +6,7 @@ import { quoteSchema } from "@/db/validation-schema";
 import { createEmailTransporter } from "@/lib/email";
 import { generateQuoteEmail } from "@/lib/email";
 import type { ActionResult } from "@/db/action-types";
+import { verifyPublicForm } from "@/lib/form-security";
 
 export async function submitQuoteRequest(input: {
   name: string;
@@ -17,9 +18,13 @@ export async function submitQuoteRequest(input: {
   contactMethod: string;
   message?: string;
   consent: boolean;
+  security: { token: string; honeypot: string; formStartedAt: number };
 }): Promise<ActionResult> {
+  const security = await verifyPublicForm(input.security, "quote");
+  if (!security.success) return { success: false, message: security.message, errors: {} };
   const db = getDb();
-  const parsed = quoteSchema.safeParse(input);
+  const { security: _security, ...formInput } = input;
+  const parsed = quoteSchema.safeParse(formInput);
   if (!parsed.success) {
     return {
       success: false,
