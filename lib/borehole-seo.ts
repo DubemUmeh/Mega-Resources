@@ -361,6 +361,336 @@ export const BOREHOLE_SEO_PAGES: BoreholeSeoPage[] = [
       { label: "Request a quote", href: "/quote" },
     ],
   },
+  {
+    slug: "borehole-drilling-company-ghana",
+    title: "Borehole Drilling Company in Ghana | Mega Resources LTD",
+    description:
+      "Borehole drilling, groundwater investigation, testing and pump installation for homes, farms, businesses and institutions across Ghana.",
+    h1: "Borehole Drilling Company in Ghana",
+    location: "Ghana",
+    intent: "local",
+    intro:
+      "Mega Resources LTD provides borehole drilling and water-system services for residential, agricultural, commercial and institutional projects across Ghana. Every project starts with the site, because groundwater conditions differ between regions and between neighbouring plots.",
+    sections: [
+      {
+        heading: "Borehole services across Ghana",
+        paragraphs: [
+          "Our work covers the stages of a borehole project: geological investigation, drilling, construction, development, pumping tests and pump installation. Existing boreholes can also be rehabilitated when yield or water quality has declined.",
+          "Completed projects are published in our gallery with their location, service, depth and yield so you can see the work before you ask for a quote.",
+        ],
+        bullets: commonConsiderations,
+      },
+      {
+        heading: "Working in different regions",
+        paragraphs: [
+          "Geology, access and water demand change from one region to the next, so the drilling method and project scope are set after the site has been assessed rather than copied from a previous job elsewhere.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Which parts of Ghana does Mega Resources work in?",
+        answer:
+          "Mega Resources LTD takes on projects across Ghana. The project gallery lists completed work by region, and a quote request lets us confirm arrangements for your specific location.",
+      },
+      {
+        question: "Can you guarantee water at my site?",
+        answer:
+          "No contractor can responsibly guarantee a yield before investigating the site. A survey and the drilling results show what the site can provide.",
+      },
+    ],
+    related: [
+      { label: "Borehole drilling cost in Ghana", href: "/resources/borehole-drilling-cost-ghana" },
+      { label: "Project portfolio", href: "/gallery" },
+      { label: "Request a quote", href: "/quote" },
+    ],
+  },
+  {
+    slug: "borehole-drilling-cost-ghana",
+    title: "Borehole Drilling Cost in Ghana | What Determines the Price?",
+    description:
+      "The factors that decide borehole drilling cost in Ghana, from geology and depth to casing, testing and pump installation, and how to compare quotations.",
+    h1: "Borehole Drilling Cost in Ghana",
+    location: "Ghana",
+    intent: "pricing",
+    intro:
+      "There is no single price for a borehole anywhere in Ghana, because the work depends on the site and on what the finished water system must deliver. Knowing what drives cost lets you compare quotations by scope rather than by one headline number.",
+    sections: [
+      {
+        heading: "What drives the cost of a borehole?",
+        paragraphs: [
+          "Cost follows the work involved: how the site is investigated, how deep and how wide the borehole must be, the casing and screen it needs, how it is developed and tested, and the pump and storage used to deliver the water.",
+        ],
+        bullets: [
+          "Geophysical or groundwater investigation",
+          "Drilling depth, diameter and ground conditions",
+          "Casing, screens and construction materials",
+          "Development and yield testing",
+          "Pump, storage and distribution requirements",
+          "Site access and distance from the drilling team",
+        ],
+      },
+      {
+        heading: "Comparing quotations fairly",
+        paragraphs: [
+          "Two quotations are only comparable when they cover the same scope. Check whether investigation, testing, casing and pump installation are included or priced separately, and what happens if the first drilling attempt does not meet the requirement.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Does borehole cost vary between regions of Ghana?",
+        answer:
+          "It can. Ground conditions, depth required and distance to the site all differ between locations, which is why a site assessment gives a more reliable estimate than a general price.",
+      },
+      {
+        question: "What should a borehole quotation list?",
+        answer:
+          "It should itemise investigation, drilling, casing and materials, development and testing, and the pump and water-system work, so you can see exactly what is and is not included.",
+      },
+    ],
+    related: [
+      { label: "Affordable borehole drilling in Ghana", href: "/resources/affordable-borehole-drilling-ghana" },
+      { label: "Borehole drilling process", href: "/resources/borehole-drilling-process-ghana" },
+      { label: "Request a quote", href: "/quote" },
+    ],
+  },
+  {
+    slug: "borehole-drilling-companies-accra",
+    title: "Borehole Drilling Companies in Accra | How to Choose One",
+    description:
+      "What to check when hiring a borehole drilling company in Accra: site investigation, construction, testing, pump installation and project evidence.",
+    h1: "Borehole Drilling Companies in Accra",
+    location: "Accra",
+    intent: "local",
+    intro:
+      "Accra projects range from compact residential plots to estates, hotels and industrial sites, and each has its own space, access and water demand. A good drilling company plans around those limits instead of applying one standard job to every site.",
+    sections: [
+      {
+        heading: "Questions to ask before you hire",
+        paragraphs: [
+          "Ask how the site will be investigated, what equipment can work within your plot, what testing is included and how the pump will be chosen once the borehole is finished. Ask to see completed projects in comparable settings.",
+        ],
+        bullets: commonConsiderations,
+      },
+      {
+        heading: "Mega Resources LTD",
+        paragraphs: [
+          "Mega Resources LTD provides survey, drilling, testing, pump installation and rehabilitation services in Ghana. For an Accra site, the next step is to describe the property, the intended use and the water you need so the scope can be assessed.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Can a borehole be drilled on a small urban plot?",
+        answer:
+          "Often, but it depends on access for the equipment and on the site conditions. An assessment before drilling confirms what is practical on your plot.",
+      },
+      {
+        question: "What should I compare between drilling companies in Accra?",
+        answer:
+          "Compare the investigation process, the full scope of the quotation, construction materials, testing, pump selection, after-sales support and evidence from completed projects.",
+      },
+    ],
+    related: [
+      { label: "Borehole drilling company in Ghana", href: "/resources/borehole-drilling-company-ghana" },
+      { label: "Project portfolio", href: "/gallery" },
+      { label: "Request a quote", href: "/quote" },
+    ],
+  },
+  {
+    slug: "geological-survey-before-borehole-drilling-ghana",
+    title: "Geological Survey Before Borehole Drilling in Ghana | Why It Matters",
+    description:
+      "Why a geological and groundwater survey comes before drilling in Ghana, what it can and cannot tell you, and how it shapes the drilling plan.",
+    h1: "Geological Survey Before Borehole Drilling in Ghana",
+    location: "Ghana",
+    intent: "commercial",
+    intro:
+      "A survey is the cheapest stage of a borehole project and the one that most improves the odds of a good result. It does not guarantee water, but it replaces guesswork with evidence about where and how to drill.",
+    sections: [
+      {
+        heading: "What a groundwater survey does",
+        paragraphs: [
+          "A survey studies the ground at and around the site to identify the more promising locations and the likely depth range to target. The findings feed the drilling plan, including the method and the borehole design.",
+        ],
+        bullets: [
+          "Review of the site and surrounding ground conditions",
+          "Geophysical measurements where appropriate",
+          "Selection of drilling points and target depth range",
+          "A basis for planning drilling method and casing",
+        ],
+      },
+      {
+        heading: "What a survey cannot do",
+        paragraphs: [
+          "A survey reduces uncertainty but cannot promise an exact depth or yield. The drilling and the pumping tests that follow are what establish how the borehole actually performs.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Do I need a survey if my neighbour already has a borehole?",
+        answer:
+          "A nearby borehole is useful information, but conditions can change over short distances. A survey of your own plot gives evidence specific to your site.",
+      },
+      {
+        question: "Does the survey guarantee that drilling will find water?",
+        answer:
+          "No. It improves the chance of choosing a good location and design, but the drilling and testing results determine the final outcome.",
+      },
+    ],
+    related: [
+      { label: "Geological surveys", href: "/services/geological-surveys" },
+      { label: "Borehole drilling process", href: "/resources/borehole-drilling-process-ghana" },
+      { label: "Request a quote", href: "/quote" },
+    ],
+  },
+  {
+    slug: "borehole-pump-installation-ghana",
+    title: "Borehole Pump Installation in Ghana | Choosing the Right Pump",
+    description:
+      "How to choose and install a pump for a borehole in Ghana, why pumping-test results come first, and what affects pump sizing.",
+    h1: "Borehole Pump Installation in Ghana",
+    location: "Ghana",
+    intent: "commercial",
+    intro:
+      "The pump should be chosen after the borehole has been tested, not before it is drilled. Matching the pump to measured performance protects the borehole and avoids paying for equipment the site cannot support.",
+    sections: [
+      {
+        heading: "What decides the right pump",
+        paragraphs: [
+          "Pump selection uses the results of the pumping test together with how much water you need, where it must go and how it will be stored and distributed.",
+        ],
+        bullets: [
+          "Measured yield from the pumping test",
+          "Water level and depth of the borehole",
+          "Daily demand and peak demand",
+          "Storage tank and distribution layout",
+          "Power supply, including solar options where suitable",
+        ],
+      },
+      {
+        heading: "Why oversizing causes problems",
+        paragraphs: [
+          "A pump that draws more than the borehole can supply can run the borehole dry and shorten the life of the equipment. A correctly sized pump works within what the borehole has been shown to deliver.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Can I buy a pump before the borehole is drilled?",
+        answer:
+          "It is better to wait. The pumping test shows what the borehole can supply, and the pump should be selected from that result.",
+      },
+      {
+        question: "Does Mega Resources install pumps on existing boreholes?",
+        answer:
+          "Pump installation is one of our services. For an existing borehole, the current condition and performance are assessed first so the right pump can be recommended.",
+      },
+    ],
+    related: [
+      { label: "Pump installation", href: "/services/pump-installation" },
+      { label: "Pumping tests", href: "/services/pumping-tests" },
+      { label: "Request a quote", href: "/quote" },
+    ],
+  },
+  {
+    slug: "borehole-drilling-permits-ghana",
+    title: "Borehole Drilling Licences and Permits in Ghana | What to Check",
+    description:
+      "What to check about licensing and permits before drilling a borehole in Ghana, and the questions to ask your drilling contractor.",
+    h1: "Borehole Drilling Licences and Permits in Ghana",
+    location: "Ghana",
+    intent: "commercial",
+    intro:
+      "Drilling and using groundwater in Ghana is regulated, and requirements can differ with the size and purpose of the project. Confirm what applies to you before work starts, and ask your contractor how they handle it.",
+    sections: [
+      {
+        heading: "What to confirm before drilling",
+        paragraphs: [
+          "Ghana's Water Resources Commission is the body that oversees groundwater and drilling activity. Check its current guidance for the licensing and permit requirements that apply to your project, because rules and fees can change.",
+        ],
+        bullets: [
+          "Whether the drilling contractor is properly licensed",
+          "Whether your intended water use needs a permit",
+          "Who applies for each approval, you or the contractor",
+          "Any approvals needed from the landowner or local authority",
+        ],
+      },
+      {
+        heading: "Questions to put to your contractor",
+        paragraphs: [
+          "Ask which approvals the contractor holds, which are your responsibility, and how permitting affects the project timeline and quotation. Get the answers in writing as part of the scope.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Do I need a permit for a small household borehole?",
+        answer:
+          "Requirements depend on the use and size of the abstraction and can change. Check current guidance with the Water Resources Commission or ask your contractor to confirm in writing.",
+      },
+      {
+        question: "Is permitting included in a drilling quotation?",
+        answer:
+          "Not always. Ask whether permitting support is included or priced separately so there are no surprises in the final cost.",
+      },
+    ],
+    related: [
+      { label: "Borehole drilling cost in Ghana", href: "/resources/borehole-drilling-cost-ghana" },
+      { label: "Contact Mega Resources", href: "/contact" },
+      { label: "Request a quote", href: "/quote" },
+    ],
+  },
+  {
+    slug: "borehole-rehabilitation-ghana",
+    title: "Borehole Rehabilitation in Ghana | When and How It Is Done",
+    description:
+      "Signs that a borehole needs rehabilitation in Ghana, what the work involves and how it compares with drilling a new borehole.",
+    h1: "Borehole Rehabilitation in Ghana",
+    location: "Ghana",
+    intent: "commercial",
+    intro:
+      "A borehole that yields less water, pumps sand or produces poor-quality water is not always finished. Rehabilitation can restore performance in some cases, and the first step is to find out why it declined.",
+    sections: [
+      {
+        heading: "Signs a borehole may need attention",
+        paragraphs: [
+          "Common warning signs include falling yield, a changed water level, sand or silt in the water, a change in taste or clarity, and a pump that runs but delivers less than before.",
+        ],
+        bullets: [
+          "Reduced or inconsistent flow",
+          "Sand or silt in the water",
+          "Noticeable change in water quality",
+          "Pump working harder for less water",
+        ],
+      },
+      {
+        heading: "How rehabilitation works",
+        paragraphs: [
+          "The work usually begins with inspection and testing to identify the cause. Depending on the findings, it can include cleaning and redevelopment, repair or replacement of components, and a fresh pumping test to confirm the result.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Is rehabilitation cheaper than drilling a new borehole?",
+        answer:
+          "Often it can be, but it depends on the cause of the problem and the borehole's condition. An inspection shows whether rehabilitation is worthwhile.",
+      },
+      {
+        question: "Will rehabilitation always restore the original yield?",
+        answer:
+          "Not always. Some causes can be corrected and others cannot, which is why the borehole is tested before and after the work.",
+      },
+    ],
+    related: [
+      { label: "Borehole rehabilitation", href: "/services/borehole-rehabilitation" },
+      { label: "Water quality analysis", href: "/services/water-quality-analysis" },
+      { label: "Request a quote", href: "/quote" },
+    ],
+  },
 ];
 
 export function getBoreholeSeoPage(slug: string) {
