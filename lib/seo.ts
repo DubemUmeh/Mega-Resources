@@ -7,10 +7,10 @@ export const siteConfig = {
   domain: "https://www.megaresourcesgh.com",
   defaultTitle: "Mega Resources LTD | Groundwater, Drilling & Water Services Ghana",
   defaultDescription:
-    "Mega Resources LTD provides groundwater investigation, drilling, monitoring, testing, dewatering, pump and water-system services for homes, farms, institutions, construction projects, and businesses across Ghana.",
+    "Mega Resources LTD: groundwater surveys, borehole drilling, pumps and water-system services for homes, farms and businesses across Ghana.",
   locale: "en_GH",
-  twitterHandle: "@megaresourcesltd",
-  ogImage: "https://res.cloudinary.com/dcqwzsq26/image/upload/f_webp,q_auto/Mega_logo_lcqzt7.jpg",
+  twitterHandle: "@megaresourcesgh",
+  ogImage: "https://res.cloudinary.com/dcqwzsq26/image/upload/f_jpg,q_auto,w_1200,h_630,c_pad,b_white/Mega_logo_lcqzt7.jpg",
 };
 
 // Bump this date whenever page content meaningfully changes.
