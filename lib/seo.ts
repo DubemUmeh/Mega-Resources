@@ -13,6 +13,26 @@ export const siteConfig = {
   ogImage: "https://res.cloudinary.com/dcqwzsq26/image/upload/f_jpg,q_auto,w_1200,h_630,c_pad,b_white/Mega_logo_lcqzt7.jpg",
 };
 
+// ADDED: business details used by the LocalBusiness schema.
+// Fill in the real social URLs; empty ones are skipped.
+export const businessInfo = {
+  legalName: "Mega Resources LTD",
+  email: "support@megaresourcesgh.com",
+  phones: ["+233243287420", "+233245424359"],
+  logo: "https://res.cloudinary.com/dcqwzsq26/image/upload/f_jpg,q_auto/Mega_logo_lcqzt7.jpg",
+  // Must match your Google Business Profile exactly
+  streetAddress: "Kwesimintsim Zongo Junction, Kwame Nkrumah Blvd",
+  locality: "Takoradi",
+  region: "Western Region",
+  // TODO: paste your real profile URLs, e.g. "https://www.facebook.com/yourpage"
+  sameAs: [
+    "", // Facebook
+    "", // Instagram
+    "", // LinkedIn
+    "", // Google Business Profile / Maps link
+  ].filter(Boolean),
+};
+
 // Bump this date whenever page content meaningfully changes.
 // Used by the sitemap so Google sees real modification dates, not "now".
 export const CONTENT_LAST_MODIFIED = new Date("2026-10-08");
@@ -121,7 +141,8 @@ export function serviceSchema(service: ServiceData) {
       name,
       description: service.heroDescription,
       image: absoluteUrl(service.img),
-      provider: { "@type": "Organization", name: siteConfig.name, url: siteConfig.domain },
+      // CHANGED: links to the LocalBusiness defined in localBusinessSchema()
+      provider: { "@id": `${siteConfig.domain}/#organization` },
       areaServed: { "@type": "Country", name: "Ghana" },
       serviceType: name,
       url: absoluteUrl(`/services/${service.slug}`),
@@ -151,50 +172,77 @@ export function serviceSchema(service: ServiceData) {
   ];
 }
 
+const SERVICE_AREA_CITIES = [
+  "Accra", "Sekondi-Takoradi", "Kumasi", "Tamale", "Cape Coast", "Tema",
+  "Sunyani", "Koforidua", "Obuasi", "Ho", "Wa", "Bolgatanga", "Techiman",
+  "Tarkwa", "Ashaiman", "Kasoa", "Hohoe", "Aflao", "Winneba", "Nkawkaw",
+  "Berekum", "Konongo", "Yendi", "Navrongo", "Swedru",
+];
+
+// CHANGED: full LocalBusiness schema (address fixed to Takoradi, added @id, logo,
+// email, phones, opening hours, sameAs, knowsAbout)
 export function localBusinessSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": `${siteConfig.domain}/#localbusiness`,
-    name: siteConfig.name,
+    "@id": `${siteConfig.domain}/#organization`,
+    name: businessInfo.legalName,
+    alternateName: ["Mega Resources", "Mega Resources Ghana"],
+    description: siteConfig.defaultDescription,
     url: siteConfig.domain,
-    image: "https://res.cloudinary.com/dcqwzsq26/image/upload/f_webp,q_auto/Mega_logo_lcqzt7.jpg",
-    telephone: "+233243287420",
+    logo: businessInfo.logo,
+    image: siteConfig.ogImage,
+    email: businessInfo.email,
+    telephone: businessInfo.phones[0],
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Kwesimintsim Zongo Junction, Kwame Nkrumamh Blvd, Takoradi, Ghana", // TODO: add full street address if you have one
-      addressLocality: "Accra",
+      streetAddress: businessInfo.streetAddress,
+      addressLocality: businessInfo.locality,
+      addressRegion: businessInfo.region,
       addressCountry: "GH",
     },
+    contactPoint: businessInfo.phones.map((telephone) => ({
+      "@type": "ContactPoint",
+      telephone,
+      contactType: "customer service",
+      areaServed: "GH",
+      availableLanguage: ["English"],
+    })),
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "08:00",
+        closes: "17:00",
+      },
+    ],
     areaServed: [
-      { "@type": "City", name: "Accra" },
-      { "@type": "City", name: "Sekondi-Takoradi" },
-      { "@type": "City", name: "Kumasi" },
-      { "@type": "City", name: "Tamale" },
-      { "@type": "City", name: "Cape Coast" },
-      { "@type": "City", name: "Tema" },
-      { "@type": "City", name: "Sunyani" },
-      { "@type": "City", name: "Koforidua" },
-      { "@type": "City", name: "Obuasi" },
-      { "@type": "City", name: "Ho" },
-      { "@type": "City", name: "Wa" },
-      { "@type": "City", name: "Bolgatanga" },
-      { "@type": "City", name: "Techiman" },
-      { "@type": "City", name: "Tarkwa" },
-      { "@type": "City", name: "Ashaiman" },
-      { "@type": "City", name: "Kasoa" },
-      { "@type": "City", name: "Hohoe" },
-      { "@type": "City", name: "Aflao" },
-      { "@type": "City", name: "Winneba" },
-      { "@type": "City", name: "Nkawkaw" },
-      { "@type": "City", name: "Berekum" },
-      { "@type": "City", name: "Konongo" },
-      { "@type": "City", name: "Yendi" },
-      { "@type": "City", name: "Navrongo" },
-      { "@type": "City", name: "Swedru" },
+      ...SERVICE_AREA_CITIES.map((name) => ({ "@type": "City", name })),
       { "@type": "Country", name: "Ghana" },
     ],
-    // TODO: add openingHours, geo coordinates and sameAs (Facebook, LinkedIn etc.) when you have them
+    knowsAbout: [
+      "borehole drilling",
+      "geological and geophysical surveys",
+      "groundwater investigation",
+      "pump installation",
+      "borehole rehabilitation",
+      "hydro-fracturing",
+      "dewatering wells",
+      "water quality analysis",
+    ],
+    ...(businessInfo.sameAs.length ? { sameAs: businessInfo.sameAs } : {}),
   };
 }
 
+// ADDED
+export function websiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${siteConfig.domain}/#website`,
+    url: siteConfig.domain,
+    name: siteConfig.name,
+    publisher: { "@id": `${siteConfig.domain}/#organization` },
+    inLanguage: "en-GH",
+  };
+}
