@@ -274,7 +274,7 @@ export default function ServicesPage() {
               </h2>
               <p className="max-w-lg text-[0.98rem] leading-[1.7] text-neutral-300">
                 Tell us about your land and your water problem — we&apos;ll
-                recommend the right combination of services, free of charge.
+                recommend the right combination of services.
               </p>
               <ArrowCta
                 href="/quote"
