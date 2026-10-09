@@ -50,7 +50,7 @@ export type PageSeo = {
 };
 
 export function absoluteUrl(path = "/") {
-  if (/^https?:\\/\\//i.test(path)) {
+  if (path.startsWith("http://") || path.startsWith("https://")) {
     const url = new URL(path);
     const canonicalOrigin = new URL(SITE_URL);
     if (url.hostname === "megaresourcesgh.com" || url.hostname === canonicalOrigin.hostname) {
