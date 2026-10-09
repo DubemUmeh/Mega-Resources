@@ -54,7 +54,7 @@ const CTA = () => {
         </div>
 
         <div className="lg:col-span-2 w-32 md:w-48 flex justify-start lg:justify-end">
-          <iframe className="w-full h-full" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4727.297995985261!2d-1.7940350904402613!3d4.91154945561244!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfe7799261351dc3%3A0xd1ff1ede73843c6e!2sMega%20Resources%20LTD!5e0!3m2!1sen!2sgh!4v1791555682297!5m2!1sen!2sgh" width="auto" height="auto" style="border:0;" allowFullScreen="" loading="lazy" referrerPolicy="strict-origin-when-cross-origin"></iframe>
+          <iframe className="w-auto h-auto" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4727.297995985261!2d-1.7940350904402613!3d4.91154945561244!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfe7799261351dc3%3A0xd1ff1ede73843c6e!2sMega%20Resources%20LTD!5e0!3m2!1sen!2sgh!4v1791555682297!5m2!1sen!2sgh" allowFullScreen="" loading="lazy" referrerPolicy="strict-origin-when-cross-origin"></iframe>
         </div>
       </div>
     </section>
