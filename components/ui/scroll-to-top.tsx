@@ -38,7 +38,7 @@ import { FaWhatsapp } from "react-icons/fa6";
 export function ScrollToTop() {
   return (
     <Link
-      href="https://wa.me/233559956394"
+      href="https://wa.me/233243287420"
       aria-label="Chat with us on WhatsApp"
       className="fixed bottom-5 left-5 z-100 grid h- w- place-items-center rounded-full bg-[#25d366] shadow-xl backdrop-blur transition hover:scale-105"
     >
