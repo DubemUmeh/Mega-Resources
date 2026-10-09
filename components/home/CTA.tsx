@@ -53,8 +53,8 @@ const CTA = () => {
           </div>
         </div>
 
-        <div className="lg:col-span-2 flex justify-start lg:justify-end">
-          <img src="https://www.google.com/maps/place/Mega+Resources+LTD,+Zongo+Junction,+Kwame+Nkrumah+Blvd,+Takoradi/@4.9117376,-1.7893838,16z/data=!4m6!3m5!1s0xfe7799261351dc3:0xd1ff1ede73843c6e!8m2!3d4.9117376!4d-1.7893838!16s%2Fg%2F11zy5t9t4y?utm_campaign=ml-ardl&g_ep=Eg1tbF8yMDI2MTAwNl8wIOC7DCoASAJQAQ%3D%3D" alt="Ghana Map" className="w-32 md:w-48 opacity-30 mix-blend-screen" />
+        <div className="lg:col-span-2 w-32 md:w-48 flex justify-start lg:justify-end">
+          <iframe className="w-full h-full" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4727.297995985261!2d-1.7940350904402613!3d4.91154945561244!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfe7799261351dc3%3A0xd1ff1ede73843c6e!2sMega%20Resources%20LTD!5e0!3m2!1sen!2sgh!4v1791555682297!5m2!1sen!2sgh" width="auto" height="auto" style="border:0;" allowFullScreen="" loading="lazy" referrerPolicy="strict-origin-when-cross-origin"></iframe>
         </div>
       </div>
     </section>
