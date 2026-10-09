@@ -191,9 +191,10 @@ export function AddReviewDialog({ open, onOpenChange }: AddReviewDialogProps) {
               )}
             </div>
 
+            <TurnstileField action="review" onToken={setTurnstileToken} />
             <button
               type="submit"
-              disabled={isPending}
+              disabled={isPending || !turnstileToken || !formStartedAt}
               className="mt-2 flex w-fit items-center justify-center gap-3 rounded-2xl bg-blue-600 py-1.5 pl-6 pr-1.5 text-base font-medium text-white transition-all duration-300 ease-out hover:bg-blue-700 active:scale-95 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {isPending ? "Submitting..." : "Submit Review"}
