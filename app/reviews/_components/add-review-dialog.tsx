@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { FaTimes, FaArrowRight } from "react-icons/fa";
 import { StarRatingInput } from "./star-rating";
@@ -8,6 +8,7 @@ import { MultiSelectField } from "@/components/ui/multi-select";
 import { useToast } from "@/components/ui/toast";
 import { Review, ReviewState, SERVICE_TYPES } from "@/db/types";
 import { createReview } from "@/db/actions/reviews";
+import { TurnstileField } from "@/components/forms/turnstile-field";
 
 interface AddReviewDialogProps {
   open: boolean;
@@ -29,6 +30,10 @@ export function AddReviewDialog({ open, onOpenChange }: AddReviewDialogProps) {
   const [message, setMessage] = useState("");
   const [state, setState] = useState<ReviewState>(emptyState);
   const [isPending, setIsPending] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [honeypot, setHoneypot] = useState("");
+  const [formStartedAt, setFormStartedAt] = useState(0);
+  useEffect(() => { if (open) setFormStartedAt(Date.now()); }, [open]);
 
   function resetForm() {
     setName("");
@@ -93,6 +98,7 @@ export function AddReviewDialog({ open, onOpenChange }: AddReviewDialogProps) {
       variant: "success",
     });
     resetForm();
+    setTurnstileToken("");
     onOpenChange(false);
   }
 
@@ -113,6 +119,10 @@ export function AddReviewDialog({ open, onOpenChange }: AddReviewDialogProps) {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
+            <div aria-hidden="true" className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden">
+              <label htmlFor="review-website">Leave this field empty</label>
+              <input id="review-website" name="website" tabIndex={-1} autoComplete="off" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} />
+            </div>
             <div className="flex flex-col gap-2">
               <label className="text-[0.85rem] font-semibold text-neutral-700">Your Rating</label>
               <StarRatingInput value={rating} onChange={setRating} />
