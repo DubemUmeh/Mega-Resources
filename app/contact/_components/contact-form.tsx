@@ -161,6 +161,7 @@ export default function ContactForm() {
           />
         </Field>
 
+        <TurnstileField action="contact" onToken={setTurnstileToken} />
         <button
           type="submit"
           disabled={submitting || !turnstileToken || !formStartedAt}
