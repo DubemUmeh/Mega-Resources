@@ -54,7 +54,7 @@ const CTA = () => {
         </div>
 
         <div className="lg:col-span-2 flex justify-start lg:justify-end">
-          <img src="https://cdn.screenshottocode.com/b2QE2YDwoTN2J3Tm7J64f.png" alt="Ghana Map" className="w-32 md:w-48 opacity-30 mix-blend-screen" />
+          <img src="https://www.google.com/maps/place/Mega+Resources+LTD,+Zongo+Junction,+Kwame+Nkrumah+Blvd,+Takoradi/@4.9117376,-1.7893838,16z/data=!4m6!3m5!1s0xfe7799261351dc3:0xd1ff1ede73843c6e!8m2!3d4.9117376!4d-1.7893838!16s%2Fg%2F11zy5t9t4y?utm_campaign=ml-ardl&g_ep=Eg1tbF8yMDI2MTAwNl8wIOC7DCoASAJQAQ%3D%3D" alt="Ghana Map" className="w-32 md:w-48 opacity-30 mix-blend-screen" />
         </div>
       </div>
     </section>
