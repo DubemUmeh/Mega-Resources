@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Fraunces, Manrope, Inter } from "next/font/google";
-import { createMetadata, siteConfig, localBusinessSchema } from "@/lib/seo"; // changed
+import { createMetadata, siteConfig, localBusinessSchema, websiteSchema } from "@/lib/seo"; // changed: added websiteSchema
 import "./globals.css";
 import AppLayout from "./app-layout";
 
@@ -61,11 +61,11 @@ export default function RootLayout({
         <Script async src="https://code.jivosite.com/widget/Kro6Czw7VL" /> {/* changed: https */}
       </head>
       <body className="antialiased min-h-screen font-body">
-        {/* changed: sitewide LocalBusiness schema */}
+        {/* changed: sitewide LocalBusiness + WebSite schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessSchema()).replace(/</g, "\\u003c"),
+            __html: JSON.stringify([localBusinessSchema(), websiteSchema()]).replace(/</g, "\\u003c"),
           }}
         />
         <AppLayout>{children}</AppLayout>
