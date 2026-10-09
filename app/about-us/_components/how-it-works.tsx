@@ -18,7 +18,7 @@ if (typeof window !== "undefined") {
 const steps = [
   {
     num: "01",
-    title: "Free Site Visit & Survey",
+    title: "Site Visit & Survey — at a token",
     desc: "We come to your land and run a geophysical survey to confirm water depth, expected yield, and total cost — before you commit to anything. No obligation, no charge, until you say go.",
     icon: FaMapMarkerAlt,
   },
@@ -36,16 +36,16 @@ const steps = [
   },
   {
     num: "04",
-    title: "Handover & Warranty",
-    desc: "We walk you through running and maintaining your system, hand over documentation, and back the work with a 2-year warranty. After that, we're still one call away.",
+    title: "Handover & Support",
+    desc: "We walk you through operating and maintaining your system, provide the necessary documentation, and offer guidance to help you keep everything running smoothly.",
     icon: FaCertificate,
   },
 ];
 
 const timelineStops = [
-  { day: "Day 1–3", label: "Survey", fraction: 3 / 14 },
-  { day: "Day 4–7", label: "Drilling", fraction: 7 / 14 },
-  { day: "Day 8–14", label: "Water", fraction: 14 / 14 },
+  { day: "Day 1", label: "Survey", fraction: 5 / 14 },
+  { day: "Day 2", label: "Drilling", fraction: 9 / 14 },
+  { day: "Same Day 2", label: "Water", fraction: 14 / 14 },
 ];
 
 const BG_GLOW =
