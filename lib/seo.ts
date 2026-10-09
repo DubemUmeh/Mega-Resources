@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import type { ServiceData } from "@/app/services/_components/service-template";
+import { SITE_URL } from "@/lib/site";
 
 
 export const siteConfig = {
   name: "Mega Resources LTD",
-  domain: "https://www.megaresourcesgh.com",
+  domain: SITE_URL,
   defaultTitle: "Mega Resources LTD | Groundwater, Drilling & Water Services Ghana",
   defaultDescription:
     "Mega Resources LTD: groundwater surveys, borehole drilling, pumps and water-system services for homes, farms and businesses across Ghana.",
@@ -49,8 +50,12 @@ export type PageSeo = {
 };
 
 export function absoluteUrl(path = "/") {
-  if (path.startsWith("http")) return path;
-  return new URL(path, siteConfig.domain).toString();
+  if (/^https?:\\/\\//i.test(path)) {
+    const url = new URL(path);
+    if (url.hostname === "megaresourcesgh.com") url.hostname = new URL(SITE_URL).hostname;
+    return url.toString();
+  }
+  return new URL(path, SITE_URL).toString();
 }
 
 export function createMetadata({
@@ -66,11 +71,10 @@ export function createMetadata({
   const imageUrl = absoluteUrl(image);
 
   return {
-    metadataBase: new URL(siteConfig.domain),
     title,
     description,
     keywords: keywords.length ? keywords : undefined,
-    alternates: { canonical: url },
+    alternates: { canonical: path },
     robots: noIndex ? { index: false, follow: false } : { index: true, follow: true },
     openGraph: {
       title,
