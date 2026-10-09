@@ -1,12 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as Select from "@radix-ui/react-select";
 import * as RadioGroup from "@radix-ui/react-radio-group";
 import * as Checkbox from "@radix-ui/react-checkbox";
 import { FaChevronDown, FaCheck, FaArrowRight } from "react-icons/fa";
 import { MultiSelectField } from "@/components/ui/multi-select";
 import { useToast } from "@/components/ui/toast";
+import { submitQuoteRequest } from "@/db/actions/quote";
+import { TurnstileField } from "@/components/forms/turnstile-field";
 
 const REGIONS = [
   "Greater Accra",
@@ -145,6 +147,10 @@ export default function QuoteForm() {
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({});
   const [isPending, setIsPending] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [honeypot, setHoneypot] = useState("");
+  const [formStartedAt, setFormStartedAt] = useState(0);
+  useEffect(() => setFormStartedAt(Date.now()), []);
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((f) => ({ ...f, [key]: value }));
@@ -175,16 +181,20 @@ export default function QuoteForm() {
     }
 
     setIsPending(true);
-    // Placeholder for a real API call / server action, e.g.:
-    // await submitQuoteRequest(form);
-    await new Promise((r) => setTimeout(r, 800));
-    setIsPending(false);
-    setSubmitted(true);
-    showToast({
-      title: "Request received",
-      description: "We'll reach out within 24 hours to schedule your free survey.",
-      variant: "success",
+    const result = await submitQuoteRequest({
+      name: form.name, phone: form.phone, email: form.email || undefined,
+      region: form.region, services: form.service, propertyType: form.propertyType,
+      contactMethod: form.contactMethod, message: form.message || undefined, consent: form.consent,
+      security: { token: turnstileToken, honeypot, formStartedAt },
     });
+    setIsPending(false);
+    if (!result.success) {
+      showToast({ title: "Request not sent", description: result.message, variant: "error" });
+      setTurnstileToken("");
+      return;
+    }
+    setSubmitted(true);
+    showToast({ title: "Request received", description: result.message, variant: "success" });
   }
 
   if (submitted) {
@@ -207,6 +217,10 @@ export default function QuoteForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
+      <div aria-hidden="true" className="absolute -left-[10000px] top-auto h-px w-px overflow-hidden">
+        <label htmlFor="quote-website">Leave this field empty</label>
+        <input id="quote-website" name="website" tabIndex={-1} autoComplete="off" value={honeypot} onChange={(e) => setHoneypot(e.target.value)} />
+      </div>
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="flex flex-col gap-1.5">
           <label className="text-[0.85rem] font-semibold text-neutral-700">Full Name</label>
@@ -352,9 +366,10 @@ export default function QuoteForm() {
       </div>
       {errors.consent && <p className="-mt-3 text-xs text-red-500">{errors.consent}</p>}
 
+      <TurnstileField action="quote" onToken={setTurnstileToken} />
       <button
         type="submit"
-        disabled={isPending}
+        disabled={isPending || !turnstileToken || !formStartedAt}
         className="mt-2 flex w-fit items-center justify-center gap-3 rounded-2xl bg-blue-600 py-1.5 pl-6 pr-1.5 text-base font-medium text-white transition-all duration-300 ease-out hover:bg-blue-700 active:scale-95 disabled:cursor-not-allowed disabled:opacity-60"
       >
         {isPending ? "Submitting..." : "Request My Free Survey"}
