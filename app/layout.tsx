@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Fraunces, Manrope, Inter } from "next/font/google";
-import { createMetadata, siteConfig, localBusinessSchema, websiteSchema } from "@/lib/seo"; // changed: added websiteSchema
+import { createMetadata, siteConfig, localBusinessSchema, websiteSchema } from "@/lib/seo";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 import AppLayout from "./app-layout";
 
@@ -32,6 +33,7 @@ const iconMetadata: Pick<Metadata, "icons" | "manifest"> = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   ...createMetadata({
     title: siteConfig.defaultTitle,
     description: siteConfig.defaultDescription,
