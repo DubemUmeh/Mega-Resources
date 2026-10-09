@@ -77,7 +77,7 @@ const BG_GLOW =
 const stats = [
   { value: "15+", label: "Years in the Field" },
   { value: "1,000+", label: "Boreholes Completed" },
-  { value: "10", label: "Regions Served" },
+  { value: "10+", label: "Regions Served" },
 ];
 
 const values = [
