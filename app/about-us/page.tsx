@@ -135,7 +135,7 @@ export default function AboutPage() {
               </Reveal>
 
               <Reveal delay={0.24} className="mt-9 flex flex-wrap items-center gap-4">
-                <ArrowCta href="/quote" label="Get a Free Survey" />
+                <ArrowCta href="/quote" label="Get a Free Quote" />
                 <Link
                   href="/services"
                   className="text-sm font-semibold text-foreground underline decoration-blue-600 decoration-2 underline-offset-4"
@@ -304,7 +304,7 @@ export default function AboutPage() {
                 Ready to find out what&apos;s under your land?
               </h2>
               <p className="max-w-lg text-[0.98rem] leading-[1.7] text-neutral-300">
-                Book a free site visit and survey — no obligation, and
+                Book your site visit and survey — at a token, and
                 you&apos;ll know your depth, yield, and cost before you
                 decide anything.
               </p>
