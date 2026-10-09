@@ -20,8 +20,12 @@ const GMAIL_SCOPES = [
 
 
 export function getGoogleRedirectUri() {
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL ||  "https://megaresourcesgh.com";
-  return `${baseUrl.replace(/\/$/, "")}/api/auth/google/callback`;
+  const configuredBaseUrl = process.env.NEXT_PUBLIC_APP_URL || SITE_URL;
+  const parsedBaseUrl = new URL(configuredBaseUrl);
+  if (parsedBaseUrl.hostname === "megaresourcesgh.com" || parsedBaseUrl.hostname === new URL(SITE_URL).hostname) {
+    return `${SITE_URL}/api/auth/google/callback`;
+  }
+  return `${configuredBaseUrl.replace(/\/$/, "")}/api/auth/google/callback`;
 }
 
 export function buildGoogleAuthUrl(state: string) {
