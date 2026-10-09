@@ -10,7 +10,7 @@ export const siteConfig = {
     "Mega Resources LTD: groundwater surveys, borehole drilling, pumps and water-system services for homes, farms and businesses across Ghana.",
   locale: "en_GH",
   twitterHandle: "@megaresourcesgh",
-  ogImage: "https://res.cloudinary.com/dcqwzsq26/image/upload/f_jpg,q_auto,w_1200,h_630,c_pad,b_white/Mega_logo_lcqzt7.jpg",
+  ogImage: "https://res.cloudinary.com/dcqwzsq26/image/upload/f_auto,q_auto,_auto/Mega_logo_lcqzt7.jpg",
 };
 
 // ADDED: business details used by the LocalBusiness schema.
