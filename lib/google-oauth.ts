@@ -1,4 +1,5 @@
 import { createCipheriv, createDecipheriv, createHash, randomBytes } from "crypto";
+import { SITE_URL } from "@/lib/site";
 
 const GMAIL_SCOPES = [
   "openid",
