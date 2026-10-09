@@ -708,7 +708,7 @@ export function getBoreholeSeoPage(slug: string) {
 
 export function boreholeSeoSitemapEntries(): MetadataRoute.Sitemap {
   return BOREHOLE_SEO_PAGES.map((page) => ({
-    url: `${siteConfig.domain}/resources/${page.slug}`,
+    url: absoluteUrl(`/resources/${page.slug}`),
     lastModified: CONTENT_LAST_MODIFIED,
     changeFrequency: "monthly" as const,
     priority: page.intent === "comparison" ? 0.85 : 0.75,
