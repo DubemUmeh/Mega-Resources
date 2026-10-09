@@ -221,7 +221,7 @@ export default function AboutPage() {
               <span className="text-[0.8rem] font-semibold uppercase tracking-[0.12em] text-blue-600">Our Offices</span>
               <h3 className="mt-4 font-display text-2xl font-semibold text-neutral-900">Accra, Takoradi and Kumasi</h3>
               <div className="mt-5 grid gap-5 text-base leading-[1.75] text-neutral-600 md:grid-cols-3">
-                <Link href="https://maps.app.goo.gl/ZQwFofuJKunqXDz47" target="_blank"><p><strong className="text-neutral-900"><span className="underline under-offset-2">Takoradi (Head Office):</strong> Kwesimintsim Zongo Junction</span>, with an annex at Racecourse, behind Jushmoh Filling Station.</p></Link>
+                <Link href="https://maps.app.goo.gl/ZQwFofuJKunqXDz47" target="_blank"><p><strong className="text-neutral-900"><span className="underline under-offset-2">Takoradi (Head Office):</span> Kwesimintsim Zongo Junction</strong>, with an annex at Racecourse, behind Jushmoh Filling Station.</p></Link>
                 <p><strong className="text-neutral-900">Accra:</strong> ACP Junction at Pokuasi.</p>
                 <p><strong className="text-neutral-900">Kumasi:</strong> Mega Resources Ltd has a subsidiary in Kumasi.</p>
               </div>
