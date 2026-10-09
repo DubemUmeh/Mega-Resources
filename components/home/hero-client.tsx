@@ -55,7 +55,7 @@ export default function HeroClient({ media }: { media: ResolvedMedia }) {
       </span>{" "}
     </span>
   ))}
-  <span className="sr-only">: Borehole Drilling &amp; Groundwater Services in Ghana</span>
+  <span className="sr-only">: Borehole Drilling  across Ghana (Accra, Takoradi, Kumasi) &amp; Groundwater Services in Ghana</span>
 </h1>
 
         <p data-hero-sub className="font-body text-gray-300 text-sm tracking-wide leading-relaxed max-w-sm mb-4 font-normal">
