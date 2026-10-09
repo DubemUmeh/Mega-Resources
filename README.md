@@ -2,6 +2,23 @@
 
 A complete marketing website and admin dashboard for a borehole drilling and water solutions company in Ghana. It helps the business showcase services, project history, and client reviews, while giving the team a straightforward way to manage content, moderate reviews, and capture quote requests — all without needing to touch code.
 
+## Public form bot protection
+
+The public contact, quote-request, and review-submission forms use Cloudflare Turnstile in Managed mode. Server actions reject submissions with a missing/invalid token, an occupied honeypot, implausible submission timing, or too many attempts from the same client IP.
+
+Configure these variables in your local environment and deployment environment:
+
+```dotenv
+NEXT_PUBLIC_TURNSTILE_SITE_KEY=0x4AAAAAAFSUBsVM8ZcqtmaK
+TURNSTILE_SECRET=replace-with-the-secret-from-your-Cloudflare-Turnstile-widget
+TURNSTILE_HOSTNAMES=www.megaresourcesgh.com,megaresourcesgh.com
+```
+
+For local development, set `TURNSTILE_HOSTNAMES=localhost,127.0.0.1` (or include these alongside the production hostnames in your local-only environment file). Do not include local hostnames in production. The site key is public; `TURNSTILE_SECRET` must remain server-only and must never use a `NEXT_PUBLIC_` prefix. Allow `https://challenges.cloudflare.com` in your Content Security Policy if the deployment uses one.
+
+**Rate-limit note:** the application-level IP limiter is in-memory and therefore scoped to each running instance; for a hard distributed limit across multiple serverless instances, configure a Cloudflare rate-limiting rule for the deployed submission actions as well.
+
+
 ## System Architecture
 
 ```mermaid
