@@ -41,6 +41,10 @@ export const metadata: Metadata = {
     keywords: [
       "Mega Resources",
       "Mega Resources Ghana",
+      "Borehole drilling company",
+      "best Borehole drilling company Ghana",
+      "Ghana borehole drilling",
+      "cheap borehole drilling company Ghana",
       "Borehole drilling in Accra",
       "groundwater services Ghana",
       "borehole drilling Ghana",
