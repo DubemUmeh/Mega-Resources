@@ -1,7 +1,7 @@
 import { createCipheriv, createDecipheriv, createHash, randomBytes } from "crypto";
 import { SITE_URL } from "@/lib/site";
 
-const GMAIL_SCOPES = [
+/* const GMAIL_SCOPES = [
   "openid",
   "email",
   "profile",
@@ -9,14 +9,15 @@ const GMAIL_SCOPES = [
   "https://www.googleapis.com/auth/gmail.modify",
   "https://www.googleapis.com/auth/gmail.compose",
   "https://www.googleapis.com/auth/gmail.send",
-];
+]; 
+*/
 
-// const GMAIL_SCOPES = [
-//   "openid",
-//   "email",
-//   "profile",
-//   "https://www.googleapis.com/auth/gmail.readonly",
-// ];
+const GMAIL_SCOPES = [
+ "openid",
+ "email",
+ "profile",
+ "https://www.googleapis.com/auth/gmail.readonly",
+];
 
 
 export function getGoogleRedirectUri() {
